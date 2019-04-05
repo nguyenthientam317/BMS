@@ -35,12 +35,35 @@
                             <div class="col-md-12 text-right">
                                 <div class="top_nav_right">
                                     <ul class="top_nav_menu">
-                                        <li class="account">
-                                            <a href="#" class="visitor_name">
-                                                Welcome, <b>Guest</b>
-                                            </a>
-                                            <ul class="account_selection"></ul>
-                                        </li>
+                                        @{ var session = (Book_Management_System.Common.UserLogin)Session[Book_Management_System.Common.Constants.USER_SESSION];}
+                                        @{ if (session != null)
+                                            {
+                                                <li class="account">
+                                                    <a href="#" class="visitor_name">
+                                                        Welcome, <b> @session.UserName </b>
+                                                    </a>
+                                                </li>
+                                                <li class="account">
+                                                    <a href="@Url.Action("Logout","UserLogin")" class="visitor_name">
+                                                        Log out
+                                                    </a>
+                                                </li>
+
+                                            }
+                                            else
+                                            {
+                                                <li class="account">
+                                                    <a href="#" class="visitor_name">
+                                                        Log in
+                                                    </a>
+                                                </li>
+                                                <li class="account">
+                                                    <a href="@Url.Action("","")" class="visitor_name">
+                                                        Sign in
+                                                    </a>
+                                                </li>
+                                            }
+                                        }
                                         <li class="account">
                                             <a href="#">
                                                 <i class="fa fa-shopping-basket"></i>

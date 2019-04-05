@@ -145,6 +145,7 @@
     <Compile Include="Areas\Admin\Controllers\ManagePublishersController.cs" />
     <Compile Include="Common\AccountValidation.cs" />
     <Compile Include="Common\AuthorizeUser.cs" />
+    <Compile Include="Common\CartModel.cs" />
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\LoginModel.cs" />
@@ -555,6 +556,7 @@
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Error\Index1.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Cart\IndexTest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

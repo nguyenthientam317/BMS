@@ -1,0 +1,571 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    <style >
+
+    .panel {
+        margin-bottom: 20px;
+        background-color: #fff;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    }
+
+    .panel-body {
+        padding: 15px;
+    }
+
+    .panel > .list-group {
+        margin-bottom: 0;
+    }
+
+        .panel > .list-group .list-group-item {
+            border-width: 1px 0;
+            border-radius: 0;
+        }
+
+            .panel > .list-group .list-group-item:first-child {
+                border-top: 0;
+            }
+
+            .panel > .list-group .list-group-item:last-child {
+                border-bottom: 0;
+            }
+
+        .panel > .list-group:first-child .list-group-item:first-child {
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+        }
+
+        .panel > .list-group:last-child .list-group-item:last-child {
+            border-bottom-right-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+
+    .panel-heading + .list-group .list-group-item:first-child {
+        border-top-width: 0;
+    }
+
+    .panel > .table,
+    .panel > .table-responsive > .table {
+        margin-bottom: 0;
+    }
+
+        .panel > .table:first-child > thead:first-child > tr:first-child td:first-child,
+        .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:first-child,
+        .panel > .table:first-child > tbody:first-child > tr:first-child td:first-child,
+        .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:first-child,
+        .panel > .table:first-child > thead:first-child > tr:first-child th:first-child,
+        .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:first-child,
+        .panel > .table:first-child > tbody:first-child > tr:first-child th:first-child,
+        .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:first-child {
+            border-top-left-radius: 3px;
+        }
+
+        .panel > .table:first-child > thead:first-child > tr:first-child td:last-child,
+        .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:last-child,
+        .panel > .table:first-child > tbody:first-child > tr:first-child td:last-child,
+        .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:last-child,
+        .panel > .table:first-child > thead:first-child > tr:first-child th:last-child,
+        .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:last-child,
+        .panel > .table:first-child > tbody:first-child > tr:first-child th:last-child,
+        .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:last-child {
+            border-top-right-radius: 3px;
+        }
+
+        .panel > .table:last-child > tbody:last-child > tr:last-child td:first-child,
+        .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:first-child,
+        .panel > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
+        .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
+        .panel > .table:last-child > tbody:last-child > tr:last-child th:first-child,
+        .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:first-child,
+        .panel > .table:last-child > tfoot:last-child > tr:last-child th:first-child,
+        .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:first-child {
+            border-bottom-left-radius: 3px;
+        }
+
+        .panel > .table:last-child > tbody:last-child > tr:last-child td:last-child,
+        .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:last-child,
+        .panel > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
+        .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
+        .panel > .table:last-child > tbody:last-child > tr:last-child th:last-child,
+        .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:last-child,
+        .panel > .table:last-child > tfoot:last-child > tr:last-child th:last-child,
+        .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:last-child {
+            border-bottom-right-radius: 3px;
+        }
+
+    .panel > .panel-body + .table,
+    .panel > .panel-body + .table-responsive {
+        border-top: 1px solid #ddd;
+    }
+
+    .panel > .table > tbody:first-child > tr:first-child th,
+    .panel > .table > tbody:first-child > tr:first-child td {
+        border-top: 0;
+    }
+
+    .panel > .table-bordered,
+    .panel > .table-responsive > .table-bordered {
+        border: 0;
+    }
+
+        .panel > .table-bordered > thead > tr > th:first-child,
+        .panel > .table-responsive > .table-bordered > thead > tr > th:first-child,
+        .panel > .table-bordered > tbody > tr > th:first-child,
+        .panel > .table-responsive > .table-bordered > tbody > tr > th:first-child,
+        .panel > .table-bordered > tfoot > tr > th:first-child,
+        .panel > .table-responsive > .table-bordered > tfoot > tr > th:first-child,
+        .panel > .table-bordered > thead > tr > td:first-child,
+        .panel > .table-responsive > .table-bordered > thead > tr > td:first-child,
+        .panel > .table-bordered > tbody > tr > td:first-child,
+        .panel > .table-responsive > .table-bordered > tbody > tr > td:first-child,
+        .panel > .table-bordered > tfoot > tr > td:first-child,
+        .panel > .table-responsive > .table-bordered > tfoot > tr > td:first-child {
+            border-left: 0;
+        }
+
+        .panel > .table-bordered > thead > tr > th:last-child,
+        .panel > .table-responsive > .table-bordered > thead > tr > th:last-child,
+        .panel > .table-bordered > tbody > tr > th:last-child,
+        .panel > .table-responsive > .table-bordered > tbody > tr > th:last-child,
+        .panel > .table-bordered > tfoot > tr > th:last-child,
+        .panel > .table-responsive > .table-bordered > tfoot > tr > th:last-child,
+        .panel > .table-bordered > thead > tr > td:last-child,
+        .panel > .table-responsive > .table-bordered > thead > tr > td:last-child,
+        .panel > .table-bordered > tbody > tr > td:last-child,
+        .panel > .table-responsive > .table-bordered > tbody > tr > td:last-child,
+        .panel > .table-bordered > tfoot > tr > td:last-child,
+        .panel > .table-responsive > .table-bordered > tfoot > tr > td:last-child {
+            border-right: 0;
+        }
+
+        .panel > .table-bordered > thead > tr:first-child > th,
+        .panel > .table-responsive > .table-bordered > thead > tr:first-child > th,
+        .panel > .table-bordered > tbody > tr:first-child > th,
+        .panel > .table-responsive > .table-bordered > tbody > tr:first-child > th,
+        .panel > .table-bordered > tfoot > tr:first-child > th,
+        .panel > .table-responsive > .table-bordered > tfoot > tr:first-child > th,
+        .panel > .table-bordered > thead > tr:first-child > td,
+        .panel > .table-responsive > .table-bordered > thead > tr:first-child > td,
+        .panel > .table-bordered > tbody > tr:first-child > td,
+        .panel > .table-responsive > .table-bordered > tbody > tr:first-child > td,
+        .panel > .table-bordered > tfoot > tr:first-child > td,
+        .panel > .table-responsive > .table-bordered > tfoot > tr:first-child > td {
+            border-top: 0;
+        }
+
+        .panel > .table-bordered > thead > tr:last-child > th,
+        .panel > .table-responsive > .table-bordered > thead > tr:last-child > th,
+        .panel > .table-bordered > tbody > tr:last-child > th,
+        .panel > .table-responsive > .table-bordered > tbody > tr:last-child > th,
+        .panel > .table-bordered > tfoot > tr:last-child > th,
+        .panel > .table-responsive > .table-bordered > tfoot > tr:last-child > th,
+        .panel > .table-bordered > thead > tr:last-child > td,
+        .panel > .table-responsive > .table-bordered > thead > tr:last-child > td,
+        .panel > .table-bordered > tbody > tr:last-child > td,
+        .panel > .table-responsive > .table-bordered > tbody > tr:last-child > td,
+        .panel > .table-bordered > tfoot > tr:last-child > td,
+        .panel > .table-responsive > .table-bordered > tfoot > tr:last-child > td {
+            border-bottom: 0;
+        }
+
+    .panel > .table-responsive {
+        margin-bottom: 0;
+        border: 0;
+    }
+
+    .panel-heading {
+        padding: 10px 15px;
+        border-bottom: 1px solid transparent;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+    }
+
+        .panel-heading > .dropdown .dropdown-toggle {
+            color: inherit;
+        }
+
+    .panel-title {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 16px;
+        color: inherit;
+    }
+
+        .panel-title > a {
+            color: inherit;
+        }
+
+    .panel-footer {
+        padding: 10px 15px;
+        background-color: #f5f5f5;
+        border-top: 1px solid #ddd;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+
+    .panel-group {
+        margin-bottom: 20px;
+    }
+
+        .panel-group .panel {
+            margin-bottom: 0;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+            .panel-group .panel + .panel {
+                margin-top: 5px;
+            }
+
+        .panel-group .panel-heading {
+            border-bottom: 0;
+        }
+
+            .panel-group .panel-heading + .panel-collapse .panel-body {
+                border-top: 1px solid #ddd;
+            }
+
+        .panel-group .panel-footer {
+            border-top: 0;
+        }
+
+            .panel-group .panel-footer + .panel-collapse .panel-body {
+                border-bottom: 1px solid #ddd;
+            }
+
+    .panel-default {
+        border-color: #ddd;
+    }
+
+        .panel-default > .panel-heading {
+            color: #333;
+            background-color: #f5f5f5;
+            border-color: #ddd;
+        }
+
+            .panel-default > .panel-heading + .panel-collapse .panel-body {
+                border-top-color: #ddd;
+            }
+
+        .panel-default > .panel-footer + .panel-collapse .panel-body {
+            border-bottom-color: #ddd;
+        }
+
+    .panel-primary {
+        border-color: #428bca;
+    }
+
+        .panel-primary > .panel-heading {
+            color: #fff;
+            background-color: #428bca;
+            border-color: #428bca;
+        }
+
+            .panel-primary > .panel-heading + .panel-collapse .panel-body {
+                border-top-color: #428bca;
+            }
+
+        .panel-primary > .panel-footer + .panel-collapse .panel-body {
+            border-bottom-color: #428bca;
+        }
+
+    .panel-success {
+        border-color: #d6e9c6;
+    }
+
+        .panel-success > .panel-heading {
+            color: #3c763d;
+            background-color: #dff0d8;
+            border-color: #d6e9c6;
+        }
+
+            .panel-success > .panel-heading + .panel-collapse .panel-body {
+                border-top-color: #d6e9c6;
+            }
+
+        .panel-success > .panel-footer + .panel-collapse .panel-body {
+            border-bottom-color: #d6e9c6;
+        }
+
+    .panel-info {
+        border-color: #bce8f1;
+    }
+
+        .panel-info > .panel-heading {
+            color: #31708f;
+            background-color: #d9edf7;
+            border-color: #bce8f1;
+        }
+
+            .panel-info > .panel-heading + .panel-collapse .panel-body {
+                border-top-color: #bce8f1;
+            }
+
+        .panel-info > .panel-footer + .panel-collapse .panel-body {
+            border-bottom-color: #bce8f1;
+        }
+
+    .panel-warning {
+        border-color: #faebcc;
+    }
+
+        .panel-warning > .panel-heading {
+            color: #8a6d3b;
+            background-color: #fcf8e3;
+            border-color: #faebcc;
+        }
+
+            .panel-warning > .panel-heading + .panel-collapse .panel-body {
+                border-top-color: #faebcc;
+            }
+
+        .panel-warning > .panel-footer + .panel-collapse .panel-body {
+            border-bottom-color: #faebcc;
+        }
+
+    .panel-danger {
+        border-color: #ebccd1;
+    }
+
+        .panel-danger > .panel-heading {
+            color: #a94442;
+            background-color: #f2dede;
+            border-color: #ebccd1;
+        }
+
+            .panel-danger > .panel-heading + .panel-collapse .panel-body {
+                border-top-color: #ebccd1;
+            }
+
+        .panel-danger > .panel-footer + .panel-collapse .panel-body {
+            border-bottom-color: #ebccd1;
+        }
+
+    .detail-title h4 {
+        font-family: 'Times New Roman';
+        font-weight: bold;
+    }
+
+    .detail-title a {
+        text-decoration: none;
+    }
+
+    .detail-title h5 {
+        font-family: Arial, Helvetica, sans-serif
+    }
+
+    .panel-body p {
+        font-family: 'Times New Roman';
+        font-size: 20px
+    }
+
+    .wrap-table-shopping-cart {
+        overflow: auto;
+        border-top: solid 1px #DEE2E6;
+        border-left: solid 1px #DEE2E6;
+        border-right: solid 1px #DEE2E6;
+        border-bottom: solid 1px #DEE2E6;
+    }
+
+    .wrap-table-shopping-cart td {
+            vertical-align: middle
+        }
+
+    .table-shopping-cart {
+        border-collapse: collapse;
+        width: 100%;
+        min-width: 680px;
+    }
+
+    .table-shopping-cart tr {
+            border-top: 1px solid #e6e6e6;
+            border-bottom: 1px solid #e6e6e6;
+        }
+    .table-shopping-cart .column-1 {
+            width: 133px;
+            padding-left: 50px;
+        }
+
+    .table-shopping-cart .column-2 {
+            width: 220px;
+            font-size: 15px;
+        }
+
+    .table-shopping-cart .column-3 {
+            width: 120px;
+            font-size: 16px;
+        }
+
+    .table-shopping-cart .column-4 {
+            width: 145px;
+        }
+
+    .table-shopping-cart .column-5 {
+            width: 172px;
+            padding-right: 50px;
+            font-size: 16px;
+        }
+
+    .table-shopping-cart .column-6 {
+            vertical-align: middle;
+        }
+
+    .table-shopping-cart .table_row {
+            height: 185px;
+        }
+
+    .table-shopping-cart .table_row td {
+                padding-bottom: 20px;
+            }
+
+                .table-shopping-cart .table_row td.column-1 {
+                    padding-bottom: 20px;
+                }
+
+    .table-shopping-cart .table_head th {
+            font-family: Poppins-Bold;
+            font-size: 13px;
+            color: #555;
+            text-transform: uppercase;
+            line-height: 1.6;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+    .table-shopping-cart td {
+            font-family: Poppins-Regular;
+            color: #555;
+            line-height: 1.6;
+            vertical-align: middle
+        }
+
+    .how-itemcart1 {
+        width: 80px;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .how-itemcart1 img {
+            width: 100%;
+        }
+
+    .how-itemcart1::after {
+            content: '\e870';
+            font-family: Linearicons-Free;
+            font-size: 16px;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0,0.5);
+            color: #fff;
+            transition: all 0.3s;
+            -webkit-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            opacity: 0;
+        }
+</style>
+
+<div class="main_content">
+    <!-- TITLE-->
+    <div class="sidebar_title">
+        <h5 style="font-weight: bolder">
+            Cart
+        </h5>
+        <hr style="height: 10px; border: 0;box-shadow: 0 10px 10px -10px #8c8b8b inset;" />
+    </div>
+    <!-- CART ITEM -->
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="wrap-table-shopping-cart">
+                        <table class="table table-condensed text-center">
+                            <thead class="thead-light">
+                            <th>Product</th>
+                            <th></th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th></th>
+                            </thead>
+                            <tr class="table-row">
+                                <td class="column-1">
+                                    <div class="text-center">
+                                        <img class="how-itemcart1" src="~/Assets/images/biet-hai-long.jpg" alt="product-image" />
+                                    </div>
+                                </td>
+                                <td class="column-2">Biết hài lòng</td>
+                                <td class="column-3">$22.00</td>
+                                <td class="column-4">
+                                    2
+                                </td>
+                                <td class="column-5">$44.00</td>
+                                <td class="column-6">
+                                    <button class="btn btn-danger">
+                                        <span>
+                                            <i class="fa fa-remove"></i>
+                                        </span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="column-1">
+                                    <div class="text-center">
+                                        <img class="how-itemcart1" src="~/Assets/images/biet-hai-long.jpg" alt="product-image" />
+                                    </div>
+                                </td>
+                                <td class="column-2">Biết hài lòng</td>
+                                <td class="column-3">$22.00</td>
+                                <td class="column-4">
+                                    2
+                                </td>
+                                <td class="column-5">$44.00</td>
+                                <td class="column-6">
+                                    <button class="btn btn-danger">
+                                        <span>
+                                            <i class="fa fa-remove"></i>
+                                        </span>
+                                    </button>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="wrap-table-shopping-cart">
+                        <table class="table table-borderless">
+                            <tr class="table-row">
+                                <td style="width:10%">Subtotal: </td>
+                                <td>$120</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+

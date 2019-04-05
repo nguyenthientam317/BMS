@@ -1,0 +1,41 @@
+﻿@model Book_Management_System.Models.Account
+
+<div class="row" style="margin-top: 30px">
+    <div class="col-lg-12">
+        @using (Html.BeginForm("Edit", "ChangePassword", FormMethod.Post, new { @id = "change-password" }))
+        {
+            @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.IdRole)
+            @Html.HiddenFor(model => model.IsActive)
+            @Html.HiddenFor(model => model.UserName)
+
+            <div class="form-group">
+                <label class="col-md-3 control-label">New password: </label>
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @type= "password", @placeholder = "6-30 characters" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-3">Confirm password: </label>
+                <div class="col-md-9">
+                    @Html.Editor("Confirm_Password", new { htmlAttributes = new { @class = "form-control", @type = "password", @placeholder = "6-30 characters" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-3 col-md-9">
+                    <input type="submit" value="Save" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>
+

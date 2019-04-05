@@ -1,0 +1,170 @@
+﻿@model Book_Management_System.Common.LoginModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <title>Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js" type="text/javascript"></script>
+    <link href="~/Areas/Admin/Assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Areas/Admin/Assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="~/Areas/Admin/Assets/css/sb-admin.css" rel="stylesheet">
+    <link href="~/Areas/Admin/Assets/css/mycss/mystyle.css" rel="stylesheet" />
+    <style>
+        .error {
+            color: red;
+            border-color: red;
+        }
+
+        .inputIcon {
+            position: relative;
+        }
+
+            .inputIcon .yes {
+                color: limegreen;
+                position: absolute;
+                top: 11px;
+                right: 8px;
+                font-size: 180%;
+            }
+
+            .inputIcon .no {
+                color: orangered;
+                position: absolute;
+                top: 11px;
+                right: 8px;
+                font-size: 180%;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row col-md-offset-3 col-md-6">
+            <div class="panel ">
+                <div class="panel-heading">                  
+                    <b class="title ">Login</b>
+                    <hr />
+                </div>
+
+                <div class="panel-body">
+                    @using (Html.BeginForm("Login", "UserLogin", FormMethod.Post, new { name = "formMain", @id = "formDemo" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class=" form-horizontal" style="margin-left:20px;margin-right:20px;">
+                            @Html.ValidationSummary(true, "", new { @class = "error" })
+                            <div class="form-group  inputIcon">
+                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control input-lg", id = "Username", placeholder = "Username", autofocus = "autofocus" } })
+                                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group  inputIcon">
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control input-lg", id = "Password", placeholder = "Password",type ="password" } })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group text-center">
+                                @Html.EditorFor(model => model.RememberMe, new { @class = "form-check-input " })
+                                @Html.LabelFor(model => model.RememberMe, htmlAttributes: new { @class = "form-check-label" })
+                                @Html.ValidationMessageFor(model => model.RememberMe, "", new { @class = "text-danger" }) 
+                            </div>
+
+                            <div class="form-group text-center">
+                                <input type="submit" value="LOG IN" class="btn btn-info " />
+                            </div>
+                        </div>
+                    }
+                    <!--<form name="formMain" id="formDemo" method="post">
+                        <div class="form-group inputIcon ">
+                            <input id="Username" name="Username" type="text" class=" form-control input-lg" placeholder="Username" value="">
+
+                        </div>
+                        <div class="form-group inputIcon">
+                            <input name="Password" type="password" class=" form-control input-lg" placeholder="Password">
+                        </div>
+                        <div class="form-group text-center">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-info ">LOG IN</button>
+                        </div>
+                        <div class=" form-group text-center">
+                            <a href="#">Forgot Password?</a>
+                        </div>
+
+                    </form>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+
+            //Khi bàn phím được nhấn và thả ra thì sẽ chạy phương thức này
+            $("#formDemo").validate({
+                errorElement: 'span',
+                errorElementClass: 'input-validation-error',
+                errorClass: 'error',
+                rules: {
+                    UserName: {
+                        required: true,
+                        minlength: 6,
+                        maxlength: 50,
+                    },
+                    Password: {
+                        required: true,
+                        minlength: 6,
+                        maxlength:200,
+                    }
+
+                },
+                messages: {
+                    UserName: {
+                        required: "Enter a Username !",
+                        minlength: "Username must be more than 6 characters",
+                        maxlength:"Username must be less than 50 characters"
+                    },
+                    Password: {
+                        required: "Enter a Password !",
+                        minlength: "Password must be more than 6 characters",
+                        maxlength: "Username must be less than 200 characters"
+                    },
+                    highlight: function (element, errorClass, validClass) {
+                        $(element).addClass(this.settings.errorElementClass).removeClass(errorClass);
+                    },
+                    unhighlight: function (element) {
+                        $(element).removeClass(this.settings.errorElementClass).removeClass(errorClass).addClass("has-success");
+
+                    }
+                },
+
+            });
+        });
+    </script>
+
+
+
+
+    <!-- /#wrapper -->
+    <!-- Core Scripts - Include with every page -->
+    <script src="~/Areas/Admin/Assets/js/jquery-1.10.2.js"></script>
+    <script src="~/Areas/Admin/Assets/js/bootstrap.min.js"></script>
+    <script src="~/Areas/Admin/Assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+
+    <script src="~/Areas/Admin/Assets/js/sb-admin.js"></script>
+
+    <script src="~/Areas/Admin/Assets/js/dist/jquery.validate.min.js"></script>
+    <!-- Page-Level Demo Scripts - Blank - Use for reference -->
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "asp.net",
+  "private": true,
+  "dependencies": {
+    "mustache.js": "mustache#v3.0.1"
+  }
+  
+}

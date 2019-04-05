@@ -1,0 +1,132 @@
+﻿@model Book_Management_System.Models.Account
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Create</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            @using (Html.BeginForm("Create","ManageAccount",new { id = string.Empty }, FormMethod.Post, new { @id = "create" }))
+            {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.Id)
+                    
+                    @*<div class="form-group">
+                    @Html.LabelFor(model => model.Id, "Id", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("Id", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.IdRole, "IdRole", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("IdRole", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.IdRole, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.IsActive)
+                                @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input class="t-button" type="submit" value="Create" />
+                        </div>
+                    </div>
+                </div>
+            }
+            <div>
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        </div>
+       
+    </div>
+           
+ </div>
+
+@section scripts{
+    <script type="text/javascript">
+        $("#create").bootstrapValidator({
+                feedbackIcons: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                },
+            fields: {
+                UserName: {
+                    validators: {
+                        notEmpty: {
+                            message: "UserName cannot be empty !"
+                        },
+                        regexp: {
+                            regexp: /\S*(\S*([a-zA-Z]\S*[0-9])|([0-9]\S*[a-zA-Z]))\S*/,
+                            message: "UserName must be consist of alphabets and numbers !"
+                        },
+                        remote: {
+                            url: "@Url.Action("IsUserNameUnique", "ManageAccount")",
+                            // Send { username: 'its value', email: 'its value' } to the back-end
+                            data: function (validator) {
+                                return {
+                                    UserName: validator.getFieldElements('UserName').val()
+                                };
+                            },
+                            message: 'The username is already exist'
+                        }
+
+                    }
+                },
+                    Password: {
+                        validators: {
+                            notEmpty: {
+                                message: "Password cannot be empty !"
+                            },
+                            regexp: {
+                                regexp: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z0-9\S]{6,30}$/,
+                                message: 'Password must be 6-30 characters, at least one uppercase letter, one lowercase letter, one number and no whitespace (special characters are allowed)'
+                            }
+                        }
+                    }
+                }
+            })
+    </script>
+    
+    }
+       

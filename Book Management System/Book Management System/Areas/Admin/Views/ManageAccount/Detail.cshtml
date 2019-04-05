@@ -1,0 +1,132 @@
+﻿@model Book_Management_System.Models.User
+
+
+<div class="row">
+    <!--- col-3-->
+    <div class="col-lg-3 col-lg-offset-1">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="rounded">
+                            @{ if (@Model.Avatar == ("/Assets/user-avatar/"+ Model.Id+"/"))
+                                {
+                                    <img class="profile-pic img-thumbnail" src="~/Assets/images/avartar.png" alt="Profile picture" style="width:100%; max-height: 340px">
+                                }
+                                else if (@Model.Avatar != null)
+                                {
+                                    <img class="profile-pic img-rounded" src="@Model.Avatar" alt="Profile picture" style="width:100%; max-height: 340px">
+                                }
+                            }
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="panel-footer"></div>
+        </div>
+    </div>
+    <!-- col-7-->
+    <div class="col-lg-7">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b>Your Profile</b>
+            </div>
+            <div class="panel-body">
+                <!-- Tab content -->
+                <div class="tab-content">
+                    <!-- Tab change info-->
+                    <div class="tab-pane fade in active" id="home-pills">
+                        <div class="row" style="margin-top: 30px">
+                            <div class="col-lg-10 col-lg-offset-1">
+                                <div>
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.FirstName)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.FirstName)
+                                        </dd>
+
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.LastName)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.LastName)
+                                        </dd>
+
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.Birthday)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.Birthday)
+                                        </dd>
+
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.Email)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.Email)
+                                        </dd>
+
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.Address)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.Address)
+                                        </dd>
+
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.Gender)
+                                        </dt>
+                                        @{
+                                            if ( Model.Gender == true)
+                                            {
+                                                <dd>
+                                                    Male
+                                                </dd>
+                                            }
+                                            else
+                                            {
+                                                <dd>
+                                                    Female
+                                                </dd>
+                                            }
+                                        }
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.IsActive)
+                                        </dt>
+                                        @{
+                                            if ( Model.IsActive == true)
+                                            {
+                                                <dd>
+                                                    <button class="btn btn-success " style="pointer-events:none">IsActived</button> 
+                                                </dd>
+                                            }
+                                            else
+                                            {
+                                                <dd>
+                                                    <button class="btn btn-danger " style="pointer-events:none">Blocked</button>
+                                                </dd>
+                                            }
+                                        }
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

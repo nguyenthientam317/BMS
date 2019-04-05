@@ -1,0 +1,137 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <title>Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js" type="text/javascript"></script>
+    <link href="~/Areas/Admin/Assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Areas/Admin/Assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="~/Areas/Admin/Assets/css/sb-admin.css" rel="stylesheet">
+    <link href="~/Areas/Admin/Assets/css/mycss/mystyle.css" rel="stylesheet" />
+    <style>
+        .error{
+            color:red;
+            border-color:red;           
+        }     
+        .inputIcon {
+            position: relative;
+        }
+        .inputIcon .yes {
+                color:limegreen;
+                position: absolute;
+                top: 11px;
+                right: 8px;
+                font-size:180%;
+            }
+            .inputIcon .no {
+                color: orangered;
+                position: absolute;
+                top: 11px;
+                right: 8px;
+                font-size: 180%;
+            }  
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row col-md-offset-3 col-md-6">
+            <div class="panel ">
+                <div class="panel-heading">
+                    <b class="title ">Login</b>
+                    <hr />
+                </div>
+
+                <div class="panel-body">
+                    <form name="formMain" id="formDemo" method="post">
+                        <div class="form-group inputIcon ">
+                            <input id="Username" name="Username" type="text" class=" form-control input-lg" placeholder="Username" value="">
+
+                        </div>
+                        <div class="form-group inputIcon">
+                            <input name="Password" type="password" class=" form-control input-lg" placeholder="Password">
+                        </div>
+                        <div class="form-group text-center">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+                        </div>
+                        <div class="form-group text-center">
+                             <button type="submit" class="btn btn-info ">LOG IN</button>
+                        </div>
+                        <div class=" form-group text-center">
+                            <a href="@Url.Action("ForgotPassword")">Forgot Password?</a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+       
+            //Khi bàn phím được nhấn và thả ra thì sẽ chạy phương thức này
+            $("#formDemo").validate({
+                errorElement: 'span',
+                errorElementClass: 'input-validation-error',
+                errorClass: 'error',
+                rules: {
+                    Username: {
+                        required: true,
+                        minlength: 4
+
+                    },
+                    Password: {
+                        required: true,
+                        minlength: 6,
+                    }
+
+                },
+                messages: {
+                    Username: {
+                        required: "Enter a Username !",
+                        minlength: "Username must least 4 character",
+                    
+                    },
+                    Password: {
+                        required: "Enter a Password !",
+                        minlength: "Password must least 6 character",
+                    },
+                    highlight: function (element, errorClass, validClass) {
+                        $(element).addClass(this.settings.errorElementClass).removeClass(errorClass);      
+                    },
+                    unhighlight: function (element) {
+                        $(element).removeClass(this.settings.errorElementClass).removeClass(errorClass).addClass("has-success");  
+                       
+                    }
+                },
+
+            });
+        });
+    </script>
+
+
+
+
+    <!-- /#wrapper -->
+    <!-- Core Scripts - Include with every page -->
+    <script src="~/Areas/Admin/Assets/js/jquery-1.10.2.js"></script>
+    <script src="~/Areas/Admin/Assets/js/bootstrap.min.js"></script>
+    <script src="~/Areas/Admin/Assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+
+    <script src="~/Areas/Admin/Assets/js/sb-admin.js"></script>
+
+    <script src="~/Areas/Admin/Assets/js/dist/jquery.validate.min.js"></script>
+    <!-- Page-Level Demo Scripts - Blank - Use for reference -->
+</body>
+</html>

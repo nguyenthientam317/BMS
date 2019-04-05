@@ -1,0 +1,205 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Quản lý bình luận</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <span class="glyphicon glyphicon-comment"></span>
+                        <h3 class="panel-title">
+                            Bình luận gần đây
+                        </h3>
+                        <span class="label label-info">
+                            3
+                        </span>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-xs-2 col-md-1">
+                                        <img src="http://placehold.it/80" class="img-circle img-responsive" alt="" />
+                                    </div>
+                                    <div class="col-xs-10 col-md-11">
+                                        <div>
+                                            <a href="http://www.jquery2dotnet.com/2013/10/google-style-login-page-desing-usign.html">
+                                                C# programming
+                                            </a>
+                                            <div class="mic-info">
+                                                Bởi: <a href="#">Sưu Tra Trần</a> on 2 March 2019
+                                            </div>
+                                        </div>
+                                        <div class="comment-text">
+                                            Sách rất bổ ích
+                                        </div>
+                                        <div class="action">
+                                            
+                                            <button type="button" class="btn btn-success btn-xs" title="Reply" data-toggle="modal" data-target="#myModal">
+                                                <span class="glyphicon glyphicon-ok"></span>
+                                                Trả lời
+                                            </button>
+                                            <button type="button" class="btn btn-danger btn-xs" title="Delete">
+                                                <span class="glyphicon glyphicon-trash"></span>
+                                                Xóa
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-xs-2 col-md-1">
+                                        <img src="http://placehold.it/80" class="img-circle img-responsive" alt="" />
+                                    </div>
+                                    <div class="col-xs-10 col-md-11">
+                                        <div>
+                                            <a href="http://www.jquery2dotnet.com/2013/10/google-style-login-page-desing-usign.html">
+                                                C# programming
+                                            </a>
+                                            <div class="mic-info">
+                                                Bởi: <a href="#">Sưu Tra Trần</a> on 2 March 2019
+                                            </div>
+                                        </div>
+                                        <div class="comment-text">
+                                            Sách rất bổ ích
+                                        </div>
+                                        <div class="action">
+                                            
+                                            <button type="button" class="btn btn-success btn-xs" title="Reply" data-toggle="modal" data-target="#myModal">
+                                                <span class="glyphicon glyphicon-ok"></span>
+                                                Trả lời
+                                            </button>
+                                            <button type="button" class="btn btn-danger btn-xs" title="Delete">
+                                                <span class="glyphicon glyphicon-trash"></span>
+                                                Xóa
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-xs-2 col-md-1">
+                                        <img src="http://placehold.it/80" class="img-circle img-responsive" alt="" />
+                                    </div>
+                                    <div class="col-xs-10 col-md-11">
+                                        <div>
+                                            <a href="http://www.jquery2dotnet.com/2013/10/google-style-login-page-desing-usign.html">
+                                                C# programming
+                                            </a>
+                                            <div class="mic-info">
+                                                Bởi: <a href="#">Sưu Tra Trần</a> on 2 March 2019
+                                            </div>
+                                        </div>
+                                        <div class="comment-text">
+                                            Sách rất bổ ích
+                                        </div>
+                                        <div class="action">
+                                            
+                                            <button type="button" class="btn btn-success btn-xs" title="Reply" data-toggle="modal" data-target="#myModal">
+                                                <span class="glyphicon glyphicon-ok"></span>
+                                                Trả lời
+                                            </button>
+                                            <button type="button" class="btn btn-danger btn-xs" title="Delete">
+                                                <span class="glyphicon glyphicon-trash"></span>
+                                                Xóa
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="#" class="btn btn-primary btn-sm btn-block" role="button"><span class="glyphicon glyphicon-refresh"></span> More</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!--Modal-->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-md">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:steelblue;">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Chi tiết</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+
+                            <div class="panel-body">
+                                <form id="form" class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="reply" class="col-md-2 col-form-label text-right">Trả lời:</label>
+                                        <div class="col-md-10">
+                                            <input name="reply" type="text" class="form-control" id="reply" value="" placeholder="Nhập trả lời">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-2"></div>
+                                        <div class="col-md-10">
+                                            <button type="submit" class=" btn btn-success" id="submit">Xác nhận</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section scripts{
+    <script>
+
+
+        /*-------Boostrap validator--------*/
+        $(document).ready(function () {
+
+            $("#form").bootstrapValidator({
+                feedbackIcons: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+
+                },
+                fields: {
+                    reply: {
+                        validators: {
+                            notEmpty: {
+                                message:'Không được để trống !'
+                            }
+                        }
+                    }
+                }
+            });
+            
+        });
+                            /*---------End----------*/
+    </script>
+}

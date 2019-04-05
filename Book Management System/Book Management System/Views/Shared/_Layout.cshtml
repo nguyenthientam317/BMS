@@ -1,0 +1,148 @@
+﻿<html>
+<head>
+    <title>BestSeller Book Store</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Book Management System">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="~/Assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Assets/plugins/OwlCarousel2-2.2.1/owl.theme.default.css" />
+    <link rel="stylesheet" type="text/css" href="~/Assets/plugins/OwlCarousel2-2.2.1/owl.carousel.css" />
+    <link rel="stylesheet" type="text/css" href="~/Assets/plugins/OwlCarousel2-2.2.1/animate.css" />
+    <link rel="stylesheet" type="text/css" href="~/Assets/plugins/jquery-ui-1.12.1.custom/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="~/Assets/css/MyStyle.css" />
+    <link rel="stylesheet" type="text/css" href="~/Assets/css/categories_styles.css" />
+    <link rel="stylesheet" type="text/css" href="~/Assets/css/categories_responsive.css" />
+
+    <style type="text/css">
+        .sidebar_categories {
+            font-family: 'Times New Roman';
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- START HEADER -->
+    <header>
+        <div class="super_container">
+            <header class="header trans_300">
+                <!-- TOP NAV -->
+                <div class="top_nav">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 text-right">
+                                <div class="top_nav_right">
+                                    <ul class="top_nav_menu">
+                                        <li class="account">
+                                            <a href="#" class="visitor_name">
+                                                Welcome, <b>Guest</b>
+                                            </a>
+                                            <ul class="account_selection"></ul>
+                                        </li>
+                                        <li class="account">
+                                            <a href="#">
+                                                <i class="fa fa-shopping-basket"></i>
+                                                Shopping cart (0) <b> $0.00 </b>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- TOP NAV -->
+                <!-- START MAIN HEADER -->
+                <div class="main_nav_container">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 text-right">
+                                <div class="logo_container">
+                                    <a href="~/">
+                                        BestSeller
+                                        <br />
+                                        <span>BookStore</span>
+                                    </a>
+                                </div>
+                                <nav class="navbar">
+                                    <ul class="navbar_menu">
+                                        <li class="active"><a href="#">Home</a></li>
+                                        <li><a href="#">Products</a></li>
+                                        <li><a href="#">Promotions</a></li>
+                                        <li><a href="#">Profile</a></li>
+                                        <li><a href="#">About Us</a></li>
+                                        <li><a href="#">Contacts</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END MAIN HEADER -->
+            </header>
+        </div>
+    </header>
+    <!-- END HEADER -->
+    <!-- START NAVIGATION LEFT-->
+    <div class="container product_section_container">
+        <div class="row">
+            <div class="col product_section clearfix">
+                <!-- BREADCUM -->
+                <div class="breadcrumbs">
+                   @using (Html.BeginForm("Search", "Home", FormMethod.Get, new { @class = "form-horizontal" }))
+                        {
+                        <div class="input-group">
+                            @Html.TextBox("searchString", null, new { @class = "form-control", @placeholder = "Search" })
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                        }
+                </div>
+                <!-- BREADCUM-->
+                <!-- SIDEBAR -->    
+                <div class="sidebar">
+
+                    <!-- CATEROGIES LIST-->
+                    @{Html.RenderAction("BookCategories", "Home"); }
+                    <!-- AUTHOR LIST -->
+                    @{Html.RenderAction("Authors", "Home");}
+                </div>
+                @RenderBody()
+            </div>
+            <!-- SIDEBAR -->
+        </div>
+    </div>
+    <!-- END NAVIGATION LEFT -->
+    <!-- START FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                </div>
+                <div class="col-lg-6">
+                    <div class="footer_social d-flex flex-row align-items-center justify-content-lg-end justify-content-center">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END FOOTER -->
+    <script src="~/Areas/Admin/Assets/js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" href="~/Assets/js/bootstrap/min.js"></script>
+    <script src="~/bower_components/mustache.js/mustache.js"></script>
+    @RenderSection("Js",required: false)
+</body>
+    
+    
+</html>

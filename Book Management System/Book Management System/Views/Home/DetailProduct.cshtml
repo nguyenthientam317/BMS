@@ -1,0 +1,452 @@
+﻿@model Book_Management_System.Models.Book
+@{
+    ViewBag.Title = "DetailProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Js{
+    <script src="~/Assets/js/MyJav.js"></script>
+}
+<style>
+
+    .panel {
+        margin-bottom: 20px;
+        background-color: #fff;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    }
+
+    .panel-body {
+        padding: 15px;
+    }
+
+    .panel > .list-group {
+        margin-bottom: 0;
+    }
+
+        .panel > .list-group .list-group-item {
+            border-width: 1px 0;
+            border-radius: 0;
+        }
+
+            .panel > .list-group .list-group-item:first-child {
+                border-top: 0;
+            }
+
+            .panel > .list-group .list-group-item:last-child {
+                border-bottom: 0;
+            }
+
+        .panel > .list-group:first-child .list-group-item:first-child {
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+        }
+
+        .panel > .list-group:last-child .list-group-item:last-child {
+            border-bottom-right-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+
+    .panel-heading + .list-group .list-group-item:first-child {
+        border-top-width: 0;
+    }
+
+    .panel > .table,
+    .panel > .table-responsive > .table {
+        margin-bottom: 0;
+    }
+
+        .panel > .table:first-child > thead:first-child > tr:first-child td:first-child,
+        .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:first-child,
+        .panel > .table:first-child > tbody:first-child > tr:first-child td:first-child,
+        .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:first-child,
+        .panel > .table:first-child > thead:first-child > tr:first-child th:first-child,
+        .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:first-child,
+        .panel > .table:first-child > tbody:first-child > tr:first-child th:first-child,
+        .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:first-child {
+            border-top-left-radius: 3px;
+        }
+
+        .panel > .table:first-child > thead:first-child > tr:first-child td:last-child,
+        .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:last-child,
+        .panel > .table:first-child > tbody:first-child > tr:first-child td:last-child,
+        .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:last-child,
+        .panel > .table:first-child > thead:first-child > tr:first-child th:last-child,
+        .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:last-child,
+        .panel > .table:first-child > tbody:first-child > tr:first-child th:last-child,
+        .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:last-child {
+            border-top-right-radius: 3px;
+        }
+
+        .panel > .table:last-child > tbody:last-child > tr:last-child td:first-child,
+        .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:first-child,
+        .panel > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
+        .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
+        .panel > .table:last-child > tbody:last-child > tr:last-child th:first-child,
+        .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:first-child,
+        .panel > .table:last-child > tfoot:last-child > tr:last-child th:first-child,
+        .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:first-child {
+            border-bottom-left-radius: 3px;
+        }
+
+        .panel > .table:last-child > tbody:last-child > tr:last-child td:last-child,
+        .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:last-child,
+        .panel > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
+        .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
+        .panel > .table:last-child > tbody:last-child > tr:last-child th:last-child,
+        .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:last-child,
+        .panel > .table:last-child > tfoot:last-child > tr:last-child th:last-child,
+        .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:last-child {
+            border-bottom-right-radius: 3px;
+        }
+
+    .panel > .panel-body + .table,
+    .panel > .panel-body + .table-responsive {
+        border-top: 1px solid #ddd;
+    }
+
+    .panel > .table > tbody:first-child > tr:first-child th,
+    .panel > .table > tbody:first-child > tr:first-child td {
+        border-top: 0;
+    }
+
+    .panel > .table-bordered,
+    .panel > .table-responsive > .table-bordered {
+        border: 0;
+    }
+
+        .panel > .table-bordered > thead > tr > th:first-child,
+        .panel > .table-responsive > .table-bordered > thead > tr > th:first-child,
+        .panel > .table-bordered > tbody > tr > th:first-child,
+        .panel > .table-responsive > .table-bordered > tbody > tr > th:first-child,
+        .panel > .table-bordered > tfoot > tr > th:first-child,
+        .panel > .table-responsive > .table-bordered > tfoot > tr > th:first-child,
+        .panel > .table-bordered > thead > tr > td:first-child,
+        .panel > .table-responsive > .table-bordered > thead > tr > td:first-child,
+        .panel > .table-bordered > tbody > tr > td:first-child,
+        .panel > .table-responsive > .table-bordered > tbody > tr > td:first-child,
+        .panel > .table-bordered > tfoot > tr > td:first-child,
+        .panel > .table-responsive > .table-bordered > tfoot > tr > td:first-child {
+            border-left: 0;
+        }
+
+        .panel > .table-bordered > thead > tr > th:last-child,
+        .panel > .table-responsive > .table-bordered > thead > tr > th:last-child,
+        .panel > .table-bordered > tbody > tr > th:last-child,
+        .panel > .table-responsive > .table-bordered > tbody > tr > th:last-child,
+        .panel > .table-bordered > tfoot > tr > th:last-child,
+        .panel > .table-responsive > .table-bordered > tfoot > tr > th:last-child,
+        .panel > .table-bordered > thead > tr > td:last-child,
+        .panel > .table-responsive > .table-bordered > thead > tr > td:last-child,
+        .panel > .table-bordered > tbody > tr > td:last-child,
+        .panel > .table-responsive > .table-bordered > tbody > tr > td:last-child,
+        .panel > .table-bordered > tfoot > tr > td:last-child,
+        .panel > .table-responsive > .table-bordered > tfoot > tr > td:last-child {
+            border-right: 0;
+        }
+
+        .panel > .table-bordered > thead > tr:first-child > th,
+        .panel > .table-responsive > .table-bordered > thead > tr:first-child > th,
+        .panel > .table-bordered > tbody > tr:first-child > th,
+        .panel > .table-responsive > .table-bordered > tbody > tr:first-child > th,
+        .panel > .table-bordered > tfoot > tr:first-child > th,
+        .panel > .table-responsive > .table-bordered > tfoot > tr:first-child > th,
+        .panel > .table-bordered > thead > tr:first-child > td,
+        .panel > .table-responsive > .table-bordered > thead > tr:first-child > td,
+        .panel > .table-bordered > tbody > tr:first-child > td,
+        .panel > .table-responsive > .table-bordered > tbody > tr:first-child > td,
+        .panel > .table-bordered > tfoot > tr:first-child > td,
+        .panel > .table-responsive > .table-bordered > tfoot > tr:first-child > td {
+            border-top: 0;
+        }
+
+        .panel > .table-bordered > thead > tr:last-child > th,
+        .panel > .table-responsive > .table-bordered > thead > tr:last-child > th,
+        .panel > .table-bordered > tbody > tr:last-child > th,
+        .panel > .table-responsive > .table-bordered > tbody > tr:last-child > th,
+        .panel > .table-bordered > tfoot > tr:last-child > th,
+        .panel > .table-responsive > .table-bordered > tfoot > tr:last-child > th,
+        .panel > .table-bordered > thead > tr:last-child > td,
+        .panel > .table-responsive > .table-bordered > thead > tr:last-child > td,
+        .panel > .table-bordered > tbody > tr:last-child > td,
+        .panel > .table-responsive > .table-bordered > tbody > tr:last-child > td,
+        .panel > .table-bordered > tfoot > tr:last-child > td,
+        .panel > .table-responsive > .table-bordered > tfoot > tr:last-child > td {
+            border-bottom: 0;
+        }
+
+    .panel > .table-responsive {
+        margin-bottom: 0;
+        border: 0;
+    }
+
+    .panel-heading {
+        padding: 10px 15px;
+        border-bottom: 1px solid transparent;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+    }
+
+        .panel-heading > .dropdown .dropdown-toggle {
+            color: inherit;
+        }
+
+    .panel-title {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 16px;
+        color: inherit;
+    }
+
+        .panel-title > a {
+            color: inherit;
+        }
+
+    .panel-footer {
+        padding: 10px 15px;
+        background-color: #f5f5f5;
+        border-top: 1px solid #ddd;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+
+    .panel-group {
+        margin-bottom: 20px;
+    }
+
+        .panel-group .panel {
+            margin-bottom: 0;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+            .panel-group .panel + .panel {
+                margin-top: 5px;
+            }
+
+        .panel-group .panel-heading {
+            border-bottom: 0;
+        }
+
+            .panel-group .panel-heading + .panel-collapse .panel-body {
+                border-top: 1px solid #ddd;
+            }
+
+        .panel-group .panel-footer {
+            border-top: 0;
+        }
+
+            .panel-group .panel-footer + .panel-collapse .panel-body {
+                border-bottom: 1px solid #ddd;
+            }
+
+    .panel-default {
+        border-color: #ddd;
+    }
+
+        .panel-default > .panel-heading {
+            color: #333;
+            background-color: #f5f5f5;
+            border-color: #ddd;
+        }
+
+            .panel-default > .panel-heading + .panel-collapse .panel-body {
+                border-top-color: #ddd;
+            }
+
+        .panel-default > .panel-footer + .panel-collapse .panel-body {
+            border-bottom-color: #ddd;
+        }
+
+    .panel-primary {
+        border-color: #428bca;
+    }
+
+        .panel-primary > .panel-heading {
+            color: #fff;
+            background-color: #428bca;
+            border-color: #428bca;
+        }
+
+            .panel-primary > .panel-heading + .panel-collapse .panel-body {
+                border-top-color: #428bca;
+            }
+
+        .panel-primary > .panel-footer + .panel-collapse .panel-body {
+            border-bottom-color: #428bca;
+        }
+
+    .panel-success {
+        border-color: #d6e9c6;
+    }
+
+        .panel-success > .panel-heading {
+            color: #3c763d;
+            background-color: #dff0d8;
+            border-color: #d6e9c6;
+        }
+
+            .panel-success > .panel-heading + .panel-collapse .panel-body {
+                border-top-color: #d6e9c6;
+            }
+
+        .panel-success > .panel-footer + .panel-collapse .panel-body {
+            border-bottom-color: #d6e9c6;
+        }
+
+    .panel-info {
+        border-color: #bce8f1;
+    }
+
+        .panel-info > .panel-heading {
+            color: #31708f;
+            background-color: #d9edf7;
+            border-color: #bce8f1;
+        }
+
+            .panel-info > .panel-heading + .panel-collapse .panel-body {
+                border-top-color: #bce8f1;
+            }
+
+        .panel-info > .panel-footer + .panel-collapse .panel-body {
+            border-bottom-color: #bce8f1;
+        }
+
+    .panel-warning {
+        border-color: #faebcc;
+    }
+
+        .panel-warning > .panel-heading {
+            color: #8a6d3b;
+            background-color: #fcf8e3;
+            border-color: #faebcc;
+        }
+
+            .panel-warning > .panel-heading + .panel-collapse .panel-body {
+                border-top-color: #faebcc;
+            }
+
+        .panel-warning > .panel-footer + .panel-collapse .panel-body {
+            border-bottom-color: #faebcc;
+        }
+
+    .panel-danger {
+        border-color: #ebccd1;
+    }
+
+        .panel-danger > .panel-heading {
+            color: #a94442;
+            background-color: #f2dede;
+            border-color: #ebccd1;
+        }
+
+            .panel-danger > .panel-heading + .panel-collapse .panel-body {
+                border-top-color: #ebccd1;
+            }
+
+        .panel-danger > .panel-footer + .panel-collapse .panel-body {
+            border-bottom-color: #ebccd1;
+        }
+
+    .detail-title h4 {
+        font-family: 'Times New Roman';
+        font-weight: bold;
+    }
+
+    .detail-title a {
+        text-decoration: none;
+    }
+
+    .detail-title h5 {
+        font-family: Arial, Helvetica, sans-serif
+    }
+
+    .panel-body p {
+        font-family: 'Times New Roman';
+        font-size: 20px
+    }
+
+
+    .card-body img {
+        max-height: 70px;
+        max-width: 70px;
+    }
+
+    .card-body p {
+        font-size: 13px;
+    }
+
+    .card-inner {
+        margin-top: 15px;
+        margin-left: 4rem;
+    }
+</style>
+
+<div class="main_content">
+    <div class="sidebar_title">
+        <h5 style="font-weight: bolder">Detail</h5>
+        <hr style="height: 10px; border: 0;box-shadow: 0 10px 10px -10px #8c8b8b inset;" />
+    </div>
+
+
+    <div class="panel panel-default>
+        <div class="panel-body">
+            <!-- INFO -->
+            <div class="row">
+                <div class="col-md-4">
+                    <div>
+                        <div class="panel-body">
+                            <div class="row ">
+                                <div class="col-md-12">
+                                    <div style="padding: 0px 15px 0px 15px;">
+                                        <img class="img-thumbnail" src="https://sachvui.com/cover/2019/ky-nang-di-truoc-dam-me.jpg" width="100%" style="max-width: 150px; margin-left: 30px" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="">
+                        <div class="panel-body">
+                            <div class="container detail-title">
+                                <a href="#"><h4>@Model.Title</h4></a>
+                                <h5>Tác giả:  <strong>@Model.Author.Name</strong> </h5>
+                                <h5>Thể loại: <i><a href="#">@Model.BookCategory.CateName</a></i></h5>
+                                <h5>Lượt xem: 2000</h5>
+
+                                <hr style="border: 0; border-bottom: 1px dashed #ccc;background: #999;" />
+
+                                <h3 class="col-xs-12"> $22.00</h3>
+
+                                <p class="inline">
+                                    <button class="btn btn-primary"><i class="fa fa-shopping-cart"> BUY NOW</i></button>
+                                    <button class="btn btn-danger"><i class="fa fa-cart-plus"> ADD TO CART</i></button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr style="border: 0; height: 0; border-top: 1px solid rgba(0, 0, 0, 0.1); border-bottom: 1px solid rgba(255, 255, 255, 0.3)" />
+            <!-- DESCRIPTION-->
+            <div class="panel-body">
+                <p>
+                    @Model.Summary
+                </p>
+            </div>
+            <!-- COMMENT-->
+            <hr style="border: 0; height: 0; border-top: 1px solid rgba(0, 0, 0, 0.1); border-bottom: 1px solid rgba(255, 255, 255, 0.3)" />
+            @{ Html.RenderAction("Comments", "Home", new { idBook = Model.Id });}
+            @*<ul class="pagination justify-content-center" style="margin-bottom: 20px">
+                <li class="page-item disabled"><a class="page-link" href="javascript:void(0);">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+                <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+                <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+                <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
+            </ul>*@
+        </div>
+    </div>
+</div>

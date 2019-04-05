@@ -1,0 +1,258 @@
+﻿@model Book_Management_System.Models.Book
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div id="page-wrapper">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Add Book</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    @using (Html.BeginForm("Create", "ManageBook", new { id = string.Empty }, FormMethod.Post, new { @id = "form", enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model=>model.ModifiedDate)
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter title" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Summary, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Summary, 4, 185, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter summary" } })
+                @Html.ValidationMessageFor(model => model.Summary, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ISBN, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ISBN, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter ISBN" } })
+                @Html.ValidationMessageFor(model => model.ISBN, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter price" } })
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter quantity" } })
+                @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdAuthor, "IdAuthor", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IdAuthor", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IdAuthor, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdPublisher, "IdPublisher", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IdPublisher", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IdPublisher, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdCategory, "IdCategory", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IdCategory", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IdCategory, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CreateDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CreateDate, new { htmlAttributes = new { @class = "form-control", @id = "cre", @placeholder = "Click to select create date" } })
+                @Html.ValidationMessageFor(model => model.CreateDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ImageURL, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.ImageURL, new { htmlAttributes = new { @class = "form-control", type = "file" } })
+                @Html.ValidationMessageFor(model => model.ImageURL, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.IsActive)
+                    @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</div>
+@section scripts{
+    <script>
+        /*DataTable*/
+        $(document).ready(function () {
+            $('#table1').DataTable({
+
+            });
+        });
+
+        /*-------Boostrap validator--------*/
+        $(document).ready(function () {
+
+            $("#form").bootstrapValidator({
+                feedbackIcons: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+
+                },
+                fields: {
+                    /*Books*/
+                    Title: {
+                        message: 'The Title is not valid !',
+                        validators: {
+                            notEmpty: {
+                                message: 'The title cannot be empty !'
+                            },
+                            stringLength: {
+                                min: 6,
+                                message: 'The title must be more 6 characters !'
+                            },
+                        }
+                    },
+                    Summary: {
+                        message: 'The summary is not valid !',
+                        validators: {
+                            notEmpty: {
+                                message: 'The summary cannot be empty !'
+                            },
+                            stringLength: {
+                                min: 6,
+                                message: 'The title must be more 6 characters !'
+                            },
+                        }
+                    },
+                    ImageURL: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The Image cannot be empty !'
+                            },
+                            file: {
+                                extension: 'jpeg,png,gif,jpg',
+                                type: 'image/jpeg,image/png,image/gif,image/jpg',
+                                maxSize: 2048 * 1024,
+                                message: 'The selected file is not valid. Extenision must be [ jpeg, png, gif, jpg ]'
+                            }
+                        }
+                    },
+                    ISBN: {
+                        message: 'The category is not valid !',
+                        validators: {
+                            notEmpty: {
+                                message: 'The ISBN cannot be empty !'
+                            },
+                            stringLength: {
+                                min: 6,
+                                max: 30,
+                                message: 'The category must be more 6 characters and less than 30 characters long !'
+                            },
+                            regexp: {
+                                regexp: /^[\d`~!@@#$%^&*()\-_=+{}|<,>?:;"']+$/,
+                                message: "Caterogy name cannot allow special characters and alphabets"
+
+                            }
+                        }
+                    },
+                    Price: {
+                        message: 'The price is not valid !',
+                        validators: {
+                            notEmpty: {
+                                message: 'The price cannot be empty !'
+                            },
+                            regexp: {
+                                regexp: /^[0-9]+$/,
+                                message: 'The price must be greater 0 !'
+                            }
+                        }
+                    },
+                    Quantity: {
+                        message: 'The quantity is not valid !',
+                        validators: {
+                            notEmpty: {
+                                message: 'The quantity cannot be empty !'
+                            },
+                            regexp: {
+                                regexp: /^[0-9]+$/,
+                                message: 'The quantity must be greater 0 !'
+                            }
+                        }
+                    },
+                    CreateDate: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The create date cannot be empty !'
+                            },
+                            date: {
+                                format: 'DD/MM/YYYY',
+                                message: 'The create date is not valid !'
+                            }
+                        }
+                    }
+                 
+                    
+                }
+            });
+                 $('#cre').datepicker({
+                    autoclose: true,
+                    format: 'dd/mm/yyyy'
+                }).on('changeDate', function (e) {
+                    // Revalidate the date field
+                    $("#form").bootstrapValidator('revalidateField', 'CreateDate');
+                });
+               
+         
+        });
+
+        
+                            /*---------End----------*/
+
+    </script>
+   
+}

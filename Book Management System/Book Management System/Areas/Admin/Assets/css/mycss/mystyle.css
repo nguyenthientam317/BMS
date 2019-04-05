@@ -1,0 +1,29 @@
+﻿
+/* login form*/
+.title {
+    color:#029F5B;
+    font-size:140%;
+    margin-left:20%;
+}
+.row .panel {
+    border-radius: 3px 4px;
+    box-shadow: 1px 3px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+hr {
+    margin-bottom:0px;
+    top:10px;
+    background-image: linear-gradient(to right,rgba(0,0,0,0),rgba(0,0,0,0.2),rgba(0,0,0,0));
+    border: 0;
+    height: 1px;
+}
+.btn-info {
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+}
+/*end login form*/
+

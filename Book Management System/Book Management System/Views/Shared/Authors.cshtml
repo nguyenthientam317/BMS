@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Book_Management_System.Models.Author>
+<div class="sidebar_section">
+    <div class="sidebar_title">
+        <h5>Authors</h5>
+        <hr style="height: 10px; border: 0;box-shadow: 0 10px 10px -10px #8c8b8b inset;" />
+    </div>
+    <ul class="sidebar_categories" style="list-style-type: disc; margin-left: 20px">
+        @foreach (var item in Model)
+        {
+        <li>
+            <a href="@Url.Action("Search", "Home", new { author = item.Id, cate = TempData["CurrentCate"],
+                    currentFilter = TempData["CurrentFilter"] })">@item.Name</a>
+        </li>
+        <hr />
+        }
+    </ul>
+</div>

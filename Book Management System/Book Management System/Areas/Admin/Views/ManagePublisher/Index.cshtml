@@ -1,0 +1,146 @@
+﻿
+@{
+    ViewBag.Title = "Quản lí nhà xuất bản";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div id="page-wrapper">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Quản lý nhà xuất bản</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+
+    <div class="row">
+        <div><a href="@Url.Action("Create")" style="color:dodgerblue;">Create New</a></div><br />
+        <div class="col-lg-12">
+            <div class="table-responsive">
+                <table class="table table-hover" id="table1">
+                    <thead>
+                        <tr>
+                            <th>PublisherName</th>
+                            <th>Address</th>
+                            <th>Phone</th>
+                            <th>Fax</th>
+                            <th>Email</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+
+                            <td>Nhà xuất bản Kim Đồng</td>
+                            <td> 55 Quang Trung, Hai Bà Trưng, Hà Nội</td>
+                            <td>02439434730</td>
+                            <td>02430454065</td>
+                            <td>kimdong@hn.vnn.vn</td>
+                            <td><a href="@Url.Action("Edit")"> Edit </a>|<a href="#" data-toggle="modal" data-target="#myModal"> Detail </a>|<a href="#"> Delete</a></td>
+                        </tr>
+                        <tr>
+
+                            <td>Nhà xuất bản Kim Đồng</td>
+                            <td> 55 Quang Trung, Hai Bà Trưng, Hà Nội</td>
+                            <td>02439434730</td>
+                            <td>02430454065</td>
+                            <td>kimdong@hn.vnn.vn</td>
+                            <td><a href="@Url.Action("Edit")"> Edit </a>|<a href="#" data-toggle="modal" data-target="#myModal"> Detail </a>|<a href="#"> Delete</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.row -->
+</div>
+
+<!--Modal-->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-md">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:steelblue;">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Thông tin nhà cung cấp</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <b>Thông tin cá nhân</b>
+                            </div>
+                            <div class="panel-body">
+                                <!-- Tab content -->
+                                <div class="tab-content">
+                                    <!-- Tab change info-->
+                                    <div class="tab-pane fade in active" id="home-pills">
+                                        <div class="row" style="margin-top: 30px">
+                                            <div class="col-lg-10 col-lg-offset-1">
+                                                <form class="form-horizontal" id="edit-info">
+                                                    <!-- Input fullname-->
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label class="col-sm-4">Name:</label>
+                                                            <div class="col-sm-8">
+                                                                <p>Nhà xuất bản Kim Đồng</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label class="col-sm-4">Address:</label>
+                                                            <div class="col-sm-8">
+                                                                <p>55 Quang Trung, Hai Bà Trưng, Hà Nội</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label class="col-sm-4">Phone:</label>
+                                                            <div class="col-sm-8">
+                                                                <p>02439434730</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label class="col-sm-4">Fax:</label>
+                                                            <div class="col-sm-8">
+                                                                <p>02430454065</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label class="col-sm-4">Email:</label>
+                                                            <div class="col-sm-8">
+                                                                <p>kimdong@hn.vnn.vn</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+

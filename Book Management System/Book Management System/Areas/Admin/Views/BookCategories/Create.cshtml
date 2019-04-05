@@ -1,0 +1,114 @@
+﻿@model Book_Management_System.Models.BookCategory
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Create</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    @using (Html.BeginForm("", "", new { id = string.Empty }, FormMethod.Post, new { @id = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>BookCategory</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CateName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CateName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enterr caterogy name" } })
+                    @Html.ValidationMessageFor(model => model.CateName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.IsActive)
+                        @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter decsription" } })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+
+
+</div>
+@section scripts {
+
+    <script>
+       $(document).ready(function () {
+
+            $("#form").bootstrapValidator({
+                feedbackIcons: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+
+                },
+                fields: {
+                    /*Category*/
+                    CateName: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The CateName cannot be empty !'
+                            },
+                            stringLength: {
+                                min: 6,
+                                max: 30,
+                                message: 'The CateName must be more than 6 or less than 30 characters long !'
+                            },
+                            regexp: {
+                                regexp: /^[^\d`~!@@#$%^&*()\-_=+{}|<,>?:;"']+$/,
+                                message: "Caterogy name cannot allow special characters and number"
+                            }
+                        }
+                    },
+                    Description: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The Description cannot be empty !'
+                            },
+                            stringLength: {
+                                min: 6,
+                                max: 500,
+                                message: 'The Description must be more than 6 or less than 500 characters long !'
+                            }
+                        }
+                    },
+
+
+                }
+            });
+       });
+    </script>
+}
+
+

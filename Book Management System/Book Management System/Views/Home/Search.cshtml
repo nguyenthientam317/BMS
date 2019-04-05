@@ -1,0 +1,71 @@
+﻿@model Book_Management_System.Infrastructure.PaginatedList<Book_Management_System.Models.Book>
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main_content">
+    <!-- TITLE -->
+    <div class="sidebar_title">
+        <h5 style="font-weight: bolder">Features product</h5>
+        <hr style="height: 10px; border: 0;box-shadow: 0 10px 10px -10px #8c8b8b inset;" />
+    </div>
+    <!-- LIST PRODUCT -->
+    <div class="row">
+        
+        @{
+            foreach (var item in Model)
+            {
+                <div class="col-md-3 col-xs-12 col-sm-6">
+                    <div class="product-item">
+                        <div class="product_image">
+                            <a href="~/Home/DetailProduct/?idBook=@item.Id">
+                                <img style="margin-top: 0px;" src="@item.ImageURL" alt="image" />
+                            </a>
+                        </div>
+                        <div class="product_info">
+                            <h6 class="product_name">@item.Title</h6>
+                            <h6 class="product_author">
+                                by <a href="#">@item.Author.Name</a>
+                            </h6>
+                            <p style="font-size: 12px">
+                                @item.Summary
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="btn-group" style="width:100%; margin-top:-1px; margin-bottom: 10px;">
+                        <button class="btn-dark" style="width:50%;font-size: 18px;">BUY NOW</button>
+                        <button class="btn-price btn-outline-primary" style="width:50%"><span style="font-size: 15px;" ;>22$</span></button>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+    @{
+        var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+        var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+    }
+    <!-- PAGINATION -->
+    <ul class="pagination justify-content-center">
+        <li class="page-item @prevDisabled">
+            @Html.ActionLink("Previous", "Search", new { @page = Model.PageIndex - 1 , @searchString = TempData["CurrentFilter"]}, new { @class = "page-link" })
+        </li>
+        @for (int i = 1; i <= Model.TotalPages; i++)
+        {
+
+            <li class="page-item">
+                @Html.ActionLink(i.ToString(), "Search", new { @page = i, @searchString = TempData["CurrentFilter"] },  new { @class = "page-link" })
+            </li>
+        }
+        @*<li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+            <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+            <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>*@
+
+        <li class="page-item @nextDisabled">
+            @Html.ActionLink("Next", "Search", new { @page = Model.PageIndex + 1, @searchString = TempData["CurrentFilter"] }, new { @class = "page-link" })
+        </li>
+    </ul>
+    <!-- END PAGINATION -->
+</div>
+

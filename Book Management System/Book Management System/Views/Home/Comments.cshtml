@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Book_Management_System.Models.Comment>
+
+<div class="panel-primary" style="border: none">
+    <div class="panel-heading">
+        <b>Comment</b>
+    </div>
+    <div class="panel-body">
+        <!--Your comment box-->
+        <div class="container">
+            <form class="form-horizontal">
+                <div class="row">
+                    <div class="col-md-4">
+                        <input class="form-control" id="Commenter" type="text" placeholder="Please input your name" />
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-md-12">
+                        <textarea id="Content" class="form-control" placeholder="Write a comment..." rows="3"></textarea>
+                    </div>
+                </div>
+            </form>
+            <div class="row">
+                <div class="col-md-12">
+                    <button id="btnComment" class="btn btn-success pull-right">SHARE</button>
+                </div>
+            </div>
+        </div>
+        @foreach (var item in Model)
+        {
+            <div id="RenderComment" class="card" style="border: none">
+               
+            </div>
+        }
+
+
+    </div>
+</div>
+<script id="TemplateComment" type="x-tmpl-mustache">
+    <div class="card" style="border: none">
+        <div class="card-body">
+            <!--Comment -->
+            <div class="row">
+                <div class="col-md-2">
+                    <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid" />
+                    <p class="text-secondary text-center">{{Date}}</p>
+                </div>
+                <div class="col-md-10">
+                    <p>
+                        <a class="float-left" href="#"><strong>{{Name}}</strong></a>
+                    </p>
+                    <div class="clearfix"></div>
+                    <p>
+                        {{Content}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+

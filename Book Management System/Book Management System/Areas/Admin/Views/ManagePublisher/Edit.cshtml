@@ -1,0 +1,163 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div id="page-wrapper">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Chỉnh sửa thông tin nhà cung cấp</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+
+    <div class="row">
+        <div class="container">
+            <div class="col-lg-9 col-lg-offset-1">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Thông tin nhà cung cấp
+                    </div>
+                    <div class="panel-body">
+                        <form id="form" class="form-horizontal">
+                            <div class="form-group row">
+                                <label for="PublisherName" class="col-md-2 col-form-label text-right">PublisherName</label>
+                                <div class="col-md-10">
+                                    <input name="name" type="text" class="form-control" id="PublisherName" value="Nhà xuất bản Kim Đồng">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="Address" class="col-md-2 col-form-label text-right">Address</label>
+                                <div class="col-md-10">
+                                    <input name="address" type="text" class="form-control" id="Address" value="55 Quang Trung, Hai Bà Trưng, Hà Nội">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="Phone" class="col-md-2 col-form-label text-right">Phone</label>
+                                <div class="col-md-10">
+                                    <input name="phone" type="text" class="form-control" id="Phone" value="02439434730">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="Fax" class="col-md-2 col-form-label text-right">Fax</label>
+                                <div class="col-md-10">
+                                    <input name="fax" type="text" class="form-control" id="Fax" value="02430454065">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="Email" class="col-md-2 col-form-label text-right">Email</label>
+                                <div class="col-md-10">
+                                    <input name="email" type="text" class="form-control" id="Email" value="kimdong@hn.vnn.vn">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-10">
+                                    <button type="submit" class=" btn btn-default" id="submit">Save</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="panel-footer"> <a href="@Url.Action("Index")">Back to List</a></div>
+                </div>
+               
+            </div>
+        </div>
+
+
+    </div>
+    <!-- /.row -->
+</div>
+@section scripts {
+
+    <script>
+        $(document).ready(function () {
+
+            $("#form").bootstrapValidator({
+                feedbackIcons: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+
+                },
+                fields: {
+
+                    name: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The PublisherName cannot be empty !'
+                            },
+                            stringLength: {
+                                min: 2,
+                                message: 'The CateName must be more than 2 !'
+                            },
+                            regexp: {
+                                regexp: /^[^`~!@@#$%^&*()\-_=+{}|<,>?:;"']+$/,
+                                message: 'Publisher name can consist of character and number except special characters'
+                            }
+                        }
+                    },
+                    address: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The Address cannot be empty !'
+                            },
+                            stringLength: {
+                                min: 6,
+                                max: 100,
+                                message: 'The Address must be more than 6 or less than 100 characters long !'
+                            }
+                        }
+                    },
+                    phone: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The Phone cannot be empty !'
+                            },
+                            stringLength: {
+                                min: 10,
+                                max: 11,
+                                message: 'The Phone must be 10 or 11 characters'
+                            },
+                            regexp: {
+                                regexp: /^[0-9]+$/,
+                                message:'The phone must be numbers'
+                            }
+                        }
+                    },
+                    fax: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The Fax cannot be empty !'
+                            },
+                            stringLength: {
+                                min: 11,
+                                max: 11,
+                                message: 'The Fax must be 11 characters'
+                            },
+                            regexp: {
+                                regexp: /^[0-9]+$/,
+                                message: 'The Fax must be numbers'
+                            }
+                        }
+                    },
+                    email: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The Email cannot be empty !'
+                            },
+                            emailAddress: {
+                                message: 'The value is not a valid email address'
+                            }
+                        }
+                    }
+
+                }
+            });
+        });
+    </script>
+}
+

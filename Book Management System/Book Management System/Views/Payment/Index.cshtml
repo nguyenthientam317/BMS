@@ -1,0 +1,98 @@
+﻿@model Book_Management_System.Models.Cart
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LayoutPayment.cshtml";
+    var SubPrice = 0.0;
+    foreach (var item in Model.CartItems)
+    {
+        SubPrice += item.Price;
+    }
+}
+@section Js{
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+    <script src="~/Assets/js/Payment.js"></script>
+}
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+            <div class="col-md-7">
+                <!-- Billing Details -->
+                <div class="billing-details">
+                    <div class="section-title">
+                        <h3 class="title">Customer Infomation</h3>
+                    </div>
+                    <div class="InfoPayment">
+                        <div><strong> Name: </strong> @Model.Account.User.FirstName @Model.Account.User.LastName</div>
+                        <div><strong> Address: </strong>@Model.Account.User.Address</div>
+                    </div>
+
+                </div>
+                <!-- /Billing Details -->
+                <!-- Shiping Details -->
+                <div class="shiping-details">
+                    <div class="section-title">
+                        <h3 class="title">Payment Method</h3>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-body InfoPayment">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="idShippingMethod" id="cod" value="1" checked>
+                                <label class="form-check-label" for="exampleRadios1">
+                                    Thanh toán khi nhận hàng (Ship COD)
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="idShippingMethod" id="online" value="2">
+                                <label class="form-check-label" for="exampleRadios2">
+                                    Thanh toán online
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" id="btnFinishCheckOut" class="btn btn-primary">Check out</button>
+                <div id="paypal-button-container" class="hidden"></div>
+            </div>
+
+            <!-- Order Details -->
+            <div style="height:fit-content;" class="col-md-5 order-details">
+                <div class="section-title text-center">
+                    <h3 class="title">Your Order</h3>
+                </div>
+                <div class="order-summary">
+                    <div class="order-col">
+                        <div><strong>PRODUCT</strong></div>
+                        <div><strong>TOTAL</strong></div>
+                    </div>
+
+                    <div class="order-products">
+                        @foreach (var item in Model.CartItems)
+                        {
+                            <div class="order-col">
+                                <div>@item.Quantity x @item.Book.Title</div>
+                                <div>@item.Price</div>
+                            </div>
+                        }
+
+                    </div>
+                    <div class="order-col">
+                        <div>Shiping</div>
+                        <div><strong>FREE</strong></div>
+                    </div>
+                    <div class="order-col">
+                        <div><strong>TOTAL</strong></div>
+                        <div><strong class="order-total">@SubPrice</strong></div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /Order Details -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+

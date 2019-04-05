@@ -152,6 +152,7 @@
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\UserLoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -345,6 +346,10 @@
     <Content Include="Assets\css\categories_responsive.css" />
     <Content Include="Assets\css\categories_styles.css" />
     <Content Include="Assets\css\MyStyle.css" />
+    <Content Include="Assets\css_payment\nouislider.min.css" />
+    <Content Include="Assets\css_payment\slick-theme.css" />
+    <Content Include="Assets\css_payment\slick.css" />
+    <Content Include="Assets\css_payment\style.css" />
     <Content Include="Assets\images\avartar.png" />
     <Content Include="Assets\images\biet-hai-long.jpg" />
     <Content Include="Assets\images\cung-con-truong-thanh.jpg" />
@@ -356,6 +361,11 @@
     <Content Include="Assets\js\bootstrap.js" />
     <Content Include="Assets\js\bootstrap.min.js" />
     <Content Include="Assets\js\MyJav.js" />
+    <Content Include="Assets\js\Payment.js" />
+    <Content Include="Assets\js_payment\jquery.zoom.min.js" />
+    <Content Include="Assets\js_payment\main.js" />
+    <Content Include="Assets\js_payment\nouislider.min.js" />
+    <Content Include="Assets\js_payment\slick.min.js" />
     <Content Include="Assets\plugins\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Assets\plugins\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="Assets\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
@@ -555,6 +565,8 @@
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Error\Index1.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Shared\LayoutPayment.cshtml" />
+    <Content Include="Views\Payment\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

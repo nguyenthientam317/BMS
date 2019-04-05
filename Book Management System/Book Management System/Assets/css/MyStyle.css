@@ -33,5 +33,9 @@
     font-size: 25px;
     color: white;
 }
-
-
+.InfoPayment{
+    font-size: 16px;
+}
+.hidden{
+    display: none;
+}

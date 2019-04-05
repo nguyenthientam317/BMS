@@ -416,6 +416,37 @@
                     Content = "Nội dung phong phú, nên mua",
                     CreateDate = Now
                 });
+            context.Carts.AddOrUpdate(l => l.Id,
+                new Models.Cart()
+                {
+                    Id="1",
+                    
+                    IdUser ="1",
+                    CreateDate = Now,
+                    IsActive = true,
+                    Total = 50
+                }
+                );
+            context.CartItems.AddOrUpdate(l => l.Id,
+                new Models.CartItem()
+                {
+                    Id = "1",
+                    IdCard = "1",
+                    IdBook ="1",
+                    Price = 25,
+                    Quantity = 2,
+                    IsActive = true,
+                },
+                 new Models.CartItem()
+                 {
+                     Id = "2",
+                     IdCard = "1",
+                     IdBook = "2",
+                     Price = 25,
+                     Quantity = 1,
+                     IsActive = true,
+                 }
+                );
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
 

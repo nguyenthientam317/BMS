@@ -50,7 +50,7 @@
                     </div>
                 </div>
             }
-            
+
         }
 
 
@@ -62,7 +62,7 @@
     <!-- PAGINATION -->
     <ul class="pagination justify-content-center">
         <li class="page-item @prevDisabled">
-            @Html.ActionLink("Previous", "Index", new { @page = Model.PageIndex -1 }, new { @class = "page-link" })
+            @Html.ActionLink("Previous", "Index", new { @page = Model.PageIndex - 1 }, new { @class = "page-link" })
         </li>
         @for (int i = 1; i <= Model.TotalPages; i++)
         {
@@ -71,13 +71,36 @@
                 @Html.ActionLink(i.ToString(), "Index", new { @page = i }, new { @class = "page-link" })
             </li>
         }
-       
+
 
         <li class="page-item @nextDisabled">
-            @Html.ActionLink("Next", "Index", new { @page = Model.PageIndex +1 }, new { @class = "page-link" })
+            @Html.ActionLink("Next", "Index", new { @page = Model.PageIndex + 1 }, new { @class = "page-link" })
         </li>
     </ul>
     <!-- END PAGINATION -->
 </div>
-    
+
 <!-- MAIN CONTENT -->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog  modal-lg">
+
+        <!-- Modal content-->
+        <div class=" modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Notify</h4>
+            </div>
+            <div class="modal-body " id="content">
+                <!--Content-->
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Add to Cart</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal">Buy Now</button>
+            </div>
+        </div>
+
+    </div>
+</div>

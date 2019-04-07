@@ -1,8 +1,9 @@
-﻿
+﻿@model Book_Management_System.Common.CartViewModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 
 <style>
     <style >
@@ -374,7 +375,7 @@
         border-bottom: solid 1px #DEE2E6;
     }
 
-    .wrap-table-shopping-cart td {
+        .wrap-table-shopping-cart td {
             vertical-align: middle
         }
 
@@ -384,44 +385,45 @@
         min-width: 680px;
     }
 
-    .table-shopping-cart tr {
+        .table-shopping-cart tr {
             border-top: 1px solid #e6e6e6;
             border-bottom: 1px solid #e6e6e6;
         }
-    .table-shopping-cart .column-1 {
+
+        .table-shopping-cart .column-1 {
             width: 133px;
             padding-left: 50px;
         }
 
-    .table-shopping-cart .column-2 {
+        .table-shopping-cart .column-2 {
             width: 220px;
             font-size: 15px;
         }
 
-    .table-shopping-cart .column-3 {
+        .table-shopping-cart .column-3 {
             width: 120px;
             font-size: 16px;
         }
 
-    .table-shopping-cart .column-4 {
+        .table-shopping-cart .column-4 {
             width: 145px;
         }
 
-    .table-shopping-cart .column-5 {
+        .table-shopping-cart .column-5 {
             width: 172px;
             padding-right: 50px;
             font-size: 16px;
         }
 
-    .table-shopping-cart .column-6 {
+        .table-shopping-cart .column-6 {
             vertical-align: middle;
         }
 
-    .table-shopping-cart .table_row {
+        .table-shopping-cart .table_row {
             height: 185px;
         }
 
-    .table-shopping-cart .table_row td {
+            .table-shopping-cart .table_row td {
                 padding-bottom: 20px;
             }
 
@@ -429,7 +431,7 @@
                     padding-bottom: 20px;
                 }
 
-    .table-shopping-cart .table_head th {
+        .table-shopping-cart .table_head th {
             font-family: Poppins-Bold;
             font-size: 13px;
             color: #555;
@@ -439,7 +441,7 @@
             padding-bottom: 15px;
         }
 
-    .table-shopping-cart td {
+        .table-shopping-cart td {
             font-family: Poppins-Regular;
             color: #555;
             line-height: 1.6;
@@ -452,11 +454,11 @@
         cursor: pointer;
     }
 
-    .how-itemcart1 img {
+        .how-itemcart1 img {
             width: 100%;
         }
 
-    .how-itemcart1::after {
+        .how-itemcart1::after {
             content: '\e870';
             font-family: Linearicons-Free;
             font-size: 16px;
@@ -486,13 +488,13 @@
         padding: 0 !important;
     }
 
-    .modal:before {
+        .modal:before {
             content: '';
             display: inline-block;
             height: 100%;
             vertical-align: middle;
             margin-right: -4px;
-    }
+        }
 
     .modal-dialog {
         display: inline-block;
@@ -510,175 +512,207 @@
         <hr style="height: 10px; border: 0;box-shadow: 0 10px 10px -10px #8c8b8b inset;" />
     </div>
     <!-- CART ITEM -->
-    <div class="panel panel-primary">
-        <div class="panel-body">
-            <!-- List item-->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="wrap-table-shopping-cart">
-                        <table class="table table-condensed text-center">
-                            <thead class="thead-light">
-                            <th>Product</th>
-                            <th></th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Total</th>
-                            <th></th>
-                            </thead>
-                            <tr class="table-row">
-                                <td class="column-1">
-                                    <div class="text-center">
-                                        <img class="how-itemcart1" src="~/Assets/images/biet-hai-long.jpg" alt="product-image" />
-                                    </div>
-                                </td>
-                                <td class="column-2">Biết hài lòng</td>
-                                <td class="column-3">$22.00</td>
-                                <td class="column-4">
-                                    <div class="input-group form-group-sm justify-content-sm-center">
-                                        <div class="input-group-prepend">
-                                            <button class="btn btn-outline-secondary btn-number" type="button" data-type="minus" data-field="quantity">
-                                                <i class="fa fa-minus"></i>
-                                            </button>
-                                        </div>
 
-                                        <input name="quantity" type="text" class="form-control border-secondary input-number" style="max-width:50px; text-align: center" value="1" min="1" max="10">
+    @if (Model == null)
+    {
+        <h4 class="text-center">Your cart is empty !</h4>
+        <p class="text-center">Please buy something</p>
+    }
+    else
+    {
+        <div class="panel panel-primary">
+            <div class="panel-body">
+                <!-- List item-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="wrap-table-shopping-cart">
 
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary btn-number" type="button" data-type="plus" data-field="quantity">
-                                                <i class="fa fa-plus"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="column-5">$44.00</td>
-                                <td class="column-6">
-                                    <button class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
-                                        <span>
-                                            <i class="fa fa-remove"></i>
-                                        </span>
-                                    </button>
-                                </td>
-                                <!--Modal-->
-                                <div class="modal modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                           
-                                            <div class="modal-body">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
+                            <table class="table table-condensed text-center">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="selectAll">
+                                                <label class="custom-control-label" for="selectAll">All</label>
                                             </div>
-                                           
-                                        </div>
-                                    </div>
-                                </div>
-                            </tr>
+                                        </th>
+                                        <th>Image</th>
+                                        <th>Title</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Total</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.CartItems)
+                                    {
+                                        <tr class="table-row">
+                                            <td>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                                    <label class="custom-control-label" for="customCheck1"> </label>
+                                                </div>
+                                            </td>
+                                            <td class="column-1">
+                                                <div class="text-center">
+                                                    <img class="how-itemcart1" src="~/Assets/images/biet-hai-long.jpg" alt="product-image" />
+                                                </div>
+                                            </td>
+                                            <td class="column-2">
+                                                @item.Book.Title
+                                            </td>
+                                            <td class="column-3">@item.Book.Price</td>
+                                            <td class="column-4">
+                                                <div class="input-group form-group-sm justify-content-sm-center">
+                                                    <div class="input-group-prepend">
+                                                        <button class="btn btn-outline-secondary btn-number" type="button" data-type="minus" data-field="quantity">
+                                                            <i class="fa fa-minus"></i>
+                                                        </button>
+                                                    </div>
 
+                                                    <input name="quantity" type="text" class="form-control border-secondary input-number" style="max-width:50px; text-align: center" value="@item.Quantity" min="1" max="10">
+
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-outline-secondary btn-number" type="button" data-type="plus" data-field="quantity">
+                                                            <i class="fa fa-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            @{
+                                                var total = item.Book.Price * item.Quantity;
+                                            }
+                                            <td class="column-5">@total</td>
+                                            <td class="column-6">
+                                                <button class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
+                                                    <span>
+                                                        <i class="fa fa-remove"></i>
+                                                    </span>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Total -->
+                <div class="row">
+                    <div class="col-lg-8"></div>
+                    <div class="col-lg-4">
+                        <table class="table table-borderless" style="text-align: right">
+                            <tr class="table-row">
+                                <td>
+                                    <b>
+                                        TOTAL:
+                                    </b>
+                                </td>
+                                <td>
+                                    <bold>
+                                        @string.Format("{0:0,0}", Model.TotalAmount)
+                                    </bold>
+                                </td>
+                            </tr>
                         </table>
                     </div>
                 </div>
-            </div>
-            <!-- Total -->
-            <div class="row">
-                <div class="col-lg-8"></div>
-                <div class="col-lg-4">
-                    <table class="table table-borderless" style="text-align: right">
-                        <tr class="table-row">
-                            <td>
-                                <b>
-                                    TOTAL:
-                                </b>
-                            </td>
-                            <td>
-                                <bold>
-                                    $44.00
-                                </bold>
-                            </td>
-                        </tr>
-                    </table>
+                <!-- Payment button-->
+                <div class="row justify-content-center">
+                    <div class="col-lg-3 ">
+                        <button type="submit" class="btn btn-lg btn-outline-primary" style="width: 100%;">
+                            <b>PAYMENT</b>
+                        </button>
+                    </div>
                 </div>
+
             </div>
-            <!-- Payment button-->
-            <div class="row justify-content-center">
-                <div class="col-lg-3 ">
-                    <button type="submit" class="btn btn-lg btn-outline-primary" style="width: 100%;">
-                        <b>PAYMENT</b>
-                    </button>
-                </div>
-            </div>
-            
         </div>
-    </div>
+    }
+
 </div>
+
+
 <!-- Script for quantity-->
 @section Js {
-<script>
-    $('.btn-number').click(function (e) {
-        e.preventDefault();
-        fieldName = $(this).attr('data-field');
-        type = $(this).attr('data-type');
-        var input = $("input[name='" + fieldName + "']");
-        var currentVal = parseInt(input.val());
-        if (!isNaN(currentVal)) {
-            if (type == 'minus') {
-                if (currentVal > input.attr('min')) {
-                    input.val(currentVal - 1).change();
+    <script>
+        $(function () {
+            $('#selectAll').change(function () {
+                var checkboxes = $(this).closest('form').find(':checkbox');
+                if ($(this).prop('checked')) {
+                    checkboxes.prop('checked', true);
+                } else {
+                    checkboxes.prop('checked', false);
                 }
-                if (parseInt(input.val()) == input.attr('min')) {
-                    $(this).attr('disable', true);
-                }
-            }
-            else if (type == 'plus') {
-                if (currentVal < input.attr('max')) {
-                    input.val(currentVal + 1).change();
-                }
-                if (parseInt(input.val()) == input.attr('max')) {
-                    $(this).attr('disable', true);
-                }
-            }
-        }
-        else {
-            input.val(0);
-        }
-    });
-    $('.input-number').focusin(function () {
-        $(this).data('oldValue', $(this).val());
-    });
-    $('.input-number').change(function () {
-
-        minValue = parseInt($(this).attr('min'));
-        maxValue = parseInt($(this).attr('max'));
-        valueCurrent = parseInt($(this).val());
-
-        name = $(this).attr('name');
-        if (valueCurrent >= minValue) {
-            $(".btn-number[data-type='minus'][data-field='" + name + "']").removeAttr('disabled')
-        } else {
-            alert('Sorry, the minimum value was reached');
-            $(this).val($(this).data('oldValue'));
-        }
-        if (valueCurrent <= maxValue) {
-            $(".btn-number[data-type='plus'][data-field='" + name + "']").removeAttr('disabled')
-        } else {
-            alert('Sorry, the maximum value was reached');
-            $(this).val($(this).data('oldValue'));
-        }
-    });
-    $(".input-number").keydown(function (e) {
-        // Allow: backspace, delete, tab, escape, enter and .
-        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
-            // Allow: Ctrl+A
-            (e.keyCode == 65 && e.ctrlKey === true) ||
-            // Allow: home, end, left, right
-            (e.keyCode >= 35 && e.keyCode <= 39)) {
-            // let it happen, don't do anything
-            return;
-        }
-        // Ensure that it is a number and stop the keypress
-        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            });
+        });
+        $('.btn-number').click(function (e) {
             e.preventDefault();
-        }
-    });
-</script>}
+            fieldName = $(this).attr('data-field');
+            type = $(this).attr('data-type');
+            var input = $("input[name='" + fieldName + "']");
+            var currentVal = parseInt(input.val());
+            if (!isNaN(currentVal)) {
+                if (type == 'minus') {
+                    if (currentVal > input.attr('min')) {
+                        input.val(currentVal - 1).change();
+                    }
+                    if (parseInt(input.val()) == input.attr('min')) {
+                        $(this).attr('disable', true);
+                    }
+                }
+                else if (type == 'plus') {
+                    if (currentVal < input.attr('max')) {
+                        input.val(currentVal + 1).change();
+                    }
+                    if (parseInt(input.val()) == input.attr('max')) {
+                        $(this).attr('disable', true);
+                    }
+                }
+            }
+            else {
+                input.val(0);
+            }
+        });
+        $('.input-number').focusin(function () {
+            $(this).data('oldValue', $(this).val());
+        });
+        $('.input-number').change(function () {
+
+            minValue = parseInt($(this).attr('min'));
+            maxValue = parseInt($(this).attr('max'));
+            valueCurrent = parseInt($(this).val());
+
+            name = $(this).attr('name');
+            if (valueCurrent >= minValue) {
+                $(".btn-number[data-type='minus'][data-field='" + name + "']").removeAttr('disabled')
+            } else {
+                alert('Sorry, the minimum value was reached');
+                $(this).val($(this).data('oldValue'));
+            }
+            if (valueCurrent <= maxValue) {
+                $(".btn-number[data-type='plus'][data-field='" + name + "']").removeAttr('disabled')
+            } else {
+                alert('Sorry, the maximum value was reached');
+                $(this).val($(this).data('oldValue'));
+            }
+        });
+        $(".input-number").keydown(function (e) {
+            // Allow: backspace, delete, tab, escape, enter and .
+            if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+                // Allow: Ctrl+A
+                (e.keyCode == 65 && e.ctrlKey === true) ||
+                // Allow: home, end, left, right
+                (e.keyCode >= 35 && e.keyCode <= 39)) {
+                // let it happen, don't do anything
+                return;
+            }
+            // Ensure that it is a number and stop the keypress
+            if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                e.preventDefault();
+            }
+        });
+    </script>}
+

@@ -163,6 +163,10 @@
     <Compile Include="Migrations\201904050449452_Initial.Designer.cs">
       <DependentUpon>201904050449452_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904071428173_removePriceCartItem.cs" />
+    <Compile Include="Migrations\201904071428173_removePriceCartItem.Designer.cs">
+      <DependentUpon>201904071428173_removePriceCartItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Author.cs" />
@@ -556,7 +560,6 @@
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Error\Index1.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
-    <Content Include="Views\Cart\IndexTest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -578,6 +581,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201904050449452_Initial.resx">
       <DependentUpon>201904050449452_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904071428173_removePriceCartItem.resx">
+      <DependentUpon>201904071428173_removePriceCartItem.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

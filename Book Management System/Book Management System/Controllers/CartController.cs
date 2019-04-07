@@ -60,9 +60,9 @@ namespace Book_Management_System.Controllers
                     var cartItem = db.CartItems.Where(x => x.IdCard == CurrentCartId.Id).ToList();
                     return View(new CartViewModel()
                     {
-                        CartItems = cartItem,
-                        TotalQuantity = cartItem != null ? cartItem.Sum(x => x.Quantity) : 0,
-                        TotalAmount = cartItem != null ? cartItem.Sum(x => x.Price) : 0
+                        CartItems = cartItem,  // List CartItem
+                        TotalQuantity = cartItem != null ? cartItem.Sum(x => x.Quantity) : 0,  // Sum Quantity all Item
+                        TotalAmount = cartItem != null ? cartItem.Sum(x => x.Book.Price) : 0  // Sum Price all Price of Item
                     });
                 }
             }
@@ -104,7 +104,7 @@ namespace Book_Management_System.Controllers
                             Id = FindNextIdCartItem(),
                             IdCard = cart.Id,
                             IdBook = id,
-                            Price = Convert.ToInt32(string.Format("{0:0,0}", book.Price)) ,
+                           // Price = Convert.ToInt32(string.Format("{0:0,0}", book.Price)) , không sử dụng
                             Quantity = quantity
                         };
                         db.CartItems.Add(cartItem);

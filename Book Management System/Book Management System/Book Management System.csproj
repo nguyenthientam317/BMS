@@ -57,6 +57,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -148,20 +149,31 @@
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\LoginModel.cs" />
+    <Compile Include="Common\OrderItemViewModel.cs" />
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserLoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\CommonMethod.cs" />
     <Compile Include="Infrastructure\ConstantDefine.cs" />
     <Compile Include="Infrastructure\PaginatedList.cs" />
     <Compile Include="Migrations\201904050449452_Initial.cs" />
     <Compile Include="Migrations\201904050449452_Initial.Designer.cs">
       <DependentUpon>201904050449452_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904080136277_RemovePrice.cs" />
+    <Compile Include="Migrations\201904080136277_RemovePrice.Designer.cs">
+      <DependentUpon>201904080136277_RemovePrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904080159375_MethodPayment.cs" />
+    <Compile Include="Migrations\201904080159375_MethodPayment.Designer.cs">
+      <DependentUpon>201904080159375_MethodPayment.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
@@ -360,6 +372,7 @@
     <Content Include="Assets\js\bootstrap.bundle.min.js" />
     <Content Include="Assets\js\bootstrap.js" />
     <Content Include="Assets\js\bootstrap.min.js" />
+    <Content Include="Assets\js\Customer.js" />
     <Content Include="Assets\js\MyJav.js" />
     <Content Include="Assets\js\Payment.js" />
     <Content Include="Assets\js_payment\jquery.zoom.min.js" />
@@ -567,6 +580,7 @@
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Shared\LayoutPayment.cshtml" />
     <Content Include="Views\Payment\Index.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -588,6 +602,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201904050449452_Initial.resx">
       <DependentUpon>201904050449452_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904080136277_RemovePrice.resx">
+      <DependentUpon>201904080136277_RemovePrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904080159375_MethodPayment.resx">
+      <DependentUpon>201904080159375_MethodPayment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

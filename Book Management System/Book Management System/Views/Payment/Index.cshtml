@@ -1,11 +1,12 @@
 ﻿@model Book_Management_System.Models.Cart
+ 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/LayoutPayment.cshtml";
-    var SubPrice = 0.0;
+    var TotalPrice = 0.0;
     foreach (var item in Model.CartItems)
     {
-        SubPrice += item.Price;
+        TotalPrice += item.Book.Price * item.Quantity;
     }
 }
 @section Js{
@@ -39,13 +40,13 @@
                     <div class="panel panel-default">
                         <div class="panel-body InfoPayment">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="idShippingMethod" id="cod" value="1" checked>
+                                <input class="form-check-input" type="radio" name="idShippingMethod" id="cod" value="COD" checked>
                                 <label class="form-check-label" for="exampleRadios1">
                                     Thanh toán khi nhận hàng (Ship COD)
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="idShippingMethod" id="online" value="2">
+                                <input class="form-check-input" type="radio" name="idShippingMethod" id="paypal" value="PAYPAL">
                                 <label class="form-check-label" for="exampleRadios2">
                                     Thanh toán online
                                 </label>
@@ -61,6 +62,7 @@
             <div style="height:fit-content;" class="col-md-5 order-details">
                 <div class="section-title text-center">
                     <h3 class="title">Your Order</h3>
+                    <p id="IdCart" class="hidden">@Model.Id</p>
                 </div>
                 <div class="order-summary">
                     <div class="order-col">
@@ -71,9 +73,10 @@
                     <div class="order-products">
                         @foreach (var item in Model.CartItems)
                         {
+                            var SubTotal = @item.Book.Price * @item.Quantity;
                             <div class="order-col">
                                 <div>@item.Quantity x @item.Book.Title</div>
-                                <div>@item.Price</div>
+                                <div>@SubTotal $</div>
                             </div>
                         }
 
@@ -84,7 +87,7 @@
                     </div>
                     <div class="order-col">
                         <div><strong>TOTAL</strong></div>
-                        <div><strong class="order-total">@SubPrice</strong></div>
+                        <div id="IdTotalPrice"><strong class="order-total">@TotalPrice $</strong></div>
                     </div>
                 </div>
 

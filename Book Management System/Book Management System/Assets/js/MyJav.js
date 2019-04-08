@@ -37,7 +37,7 @@
                 CommenterName: Name,
                 Content: Contents,
                 idBook: IdBook
-            });
+            }); // thành mảng list
 
             $.ajax({
                 url: Host + 'Home/AddComment',

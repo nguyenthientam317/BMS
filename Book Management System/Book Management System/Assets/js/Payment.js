@@ -1,6 +1,8 @@
-﻿var Payment = {
+﻿var TotalPrice = 0
+var Payment = {
     Init: function () {
-
+        TotalPrice = Payment.GetTotalPrice();
+        console.log(TotalPrice);
     },
     RegisterEvent: function () {
         $('#cod').off('Click').on('click', function () {
@@ -8,10 +10,15 @@
             $('#paypal-button-container').addClass("hidden");
 
         });
-        $('#online').off('Click').on('click', function () {
+        $('#paypal').off('Click').on('click', function () {
             $('#btnFinishCheckOut').addClass("hidden");
             $('#paypal-button-container').removeClass("hidden");
         });
+        $('#btnFinishCheckOut').click(function () {
+            console.log('in');
+            Payment.CompletePayment();
+        });
+
 
         
         paypal.Button.render({
@@ -56,7 +63,7 @@
                         transactions: [
                             {
                                 amount: {
-                                    total: 100,
+                                    total: TotalPrice,
                                     currency: 'USD'
                                 }
                             }
@@ -69,10 +76,46 @@
                 return actions.payment.execute()
                     .then(function () {
                         window.alert('Payment Complete!');
+                        Payment.CompletePayment();
                     });
             }
         }, '#paypal-button-container');
+    },
+    GetTotalPrice: function () {
+        return $('#IdTotalPrice').text();
+    },
+    CompletePayment: function () {
+        var idCart = $('#IdCart').text();
+        var paymentMethod = $('#paypal').val();
+        var checkPay = $('#cod').prop('checked');
+        if (checkPay == true) {
+            paymentMethod = $('#cod').val();
+        }
+        console.log(idCart)
+        console.log(paymentMethod)
+
+        var Order = { IdCard: idCart, MethodPayment: paymentMethod } // 1 đối tượng
+        $.ajax({
+            url: Host+'Payment/CompletePayment',
+            data: {
+                orderJson: JSON.stringify(Order)
+            },
+            type: 'POST',
+            success: function (response) {
+                if (response.status) {
+                    alert('Payment Successfully');
+                    window.location.href = "/";
+                }
+                else {
+                    alert('Payment Fail');
+                }
+            }
+
+        })
+
+        
     }
 }
+var Host = 'http://localhost:60528/';
 Payment.Init()
 Payment.RegisterEvent();

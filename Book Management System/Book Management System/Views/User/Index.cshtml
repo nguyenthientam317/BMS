@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Book_Management_System.Models.Order>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LayoutPayment.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <h3>Account</h3>
+            <hr />
+            <div class="menu-left">
+                <ul>
+                    <li>
+                        <a href="#"><i class="fa fa-user" aria-hidden="true"></i>User Infomation</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Order Management</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-address-card" aria-hidden="true"></i>User Infomation</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <h3>Your Order</h3>
+            <hr />
+            <table class="table table-condensed">
+                <thead>
+                    <tr class="table-active">
+                        <th scope="col">Id Order</th>
+                        <th scope="col">Date Buying</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th>@item.Id</th>
+                            <td>@item.CreateDate</td>
+                            <td>@item.Cart.Total $</td>
+                            <td>@item.Status</td>
+                            <td>
+                                <a id="@item.Id" href="#"><i class="fa fa-info-circle" aria-hidden="true"></i> </a>
+                                @if (item.Status == "Processing")
+                                {
+                                    <a id="@item.Id" onclick="Customer.ViewDetail('@item.Id')" style="margin-left: 15px" href="#">
+                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                    </a>
+                                }
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>
+

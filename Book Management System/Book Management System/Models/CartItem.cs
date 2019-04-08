@@ -14,8 +14,6 @@ namespace Book_Management_System.Models
 
         public int Quantity { get; set; }
 
-        public double Price { get; set; }
-
         [Required]
         [StringLength(10)]
         public string IdBook { get; set; }

@@ -1,0 +1,134 @@
+﻿@model Book_Management_System.Common.CartViewModel
+
+
+@if (Model.CartItems.Count() == 0)
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="wrap-table-shopping-cart">
+                <h4 class="text-center">Your cart is empty !</h4>
+                <p class="text-center">Please buy something</p>
+            </div>
+        </div>
+    </div>
+    <div id="quantityCart" hidden data-id="@Model.TotalQuantity"></div>
+    <div id="total" hidden data-id="@Model.TotalAmount"></div>
+}
+else
+{
+
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <!-- List item-->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="wrap-table-shopping-cart">
+
+                        <table class="table table-condensed text-center" id="all">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="selectAll">
+                                            <label class="custom-control-label" for="selectAll">All</label>
+                                        </div>
+                                    </th>
+                                    <th>Image</th>
+                                    <th>Title</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.CartItems)
+                                {
+                                    <tr class="table-row">
+                                        <td>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck+'@item.Id'" checked="@item.IsActive">
+                                                <label class="custom-control-label" for="customCheck+'@item.Id'"> </label>
+                                            </div>
+                                        </td>
+                                        <td class="column-1">
+                                            <div class="text-center">
+                                                <img class="how-itemcart1" src="@item.Book.ImageURL" alt="product-image" />
+                                            </div>
+                                        </td>
+                                        <td class="column-2">
+                                            @item.Book.Title
+                                        </td>
+                                        <td class="column-3"> @string.Format("{0:0,0}", item.Book.Price)$</td>
+                                        <td class="column-4">
+                                            <div class="input-group form-group-sm justify-content-sm-center">
+                                                <div class="input-group-prepend">
+                                                    <button class="btn btn-outline-secondary btn-number" type="button" data-type="minus" data-field="quantity+'@item.Id'">
+                                                        <i class="fa fa-minus"></i>
+                                                    </button>
+                                                </div>
+
+                                                <input name="quantity+'@item.Id'" id="@item.IdBook" type="text" class="form-control border-secondary input-number" style="max-width:50px; text-align: center" data-total="@item.Id" data-id="@item.Book.Quantity" data-price="@item.Book.Price" value="@item.Quantity" min="1" max="5">
+
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-outline-secondary btn-number" type="button" data-type="plus" data-field="quantity+'@item.Id'">
+                                                        <i class="fa fa-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        @{
+                                            var total = item.Book.Price * item.Quantity;
+                                        }
+                                        <td class="column-5 " id="@item.Id">$@string.Format("{0:0,0}", total)</td>
+                                        <td class="column-6">
+                                            <button class="btn btn-danger" onclick="Delete('@item.IdBook')" id="delete" data-id="@item.IdBook">
+                                                <!--data-toggle="modal" data-target="#myModal"-->
+                                                <span>
+                                                    <i class="fa fa-remove"></i>
+                                                </span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Total -->
+            <div class="row">
+                <div class="col-lg-8"></div>
+                <div class="col-lg-4">
+                    <table class="table table-borderless" style="text-align: right">
+                        <tr class="table-row">
+                            <td>
+                                <b>
+                                    TOTAL:
+                                </b>
+                            </td>
+                            <td>
+                                <bold id="total" data-id="@Model.TotalAmount">
+                                    $@string.Format("{0:0,0}", Model.TotalAmount)
+                                </bold>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!-- Payment button-->
+            <div class="row justify-content-center">
+                <div class="col-lg-3 ">
+                    <button type="submit" class="btn btn-lg btn-outline-primary" style="width: 100%;">
+                        <b>PAYMENT</b>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="quantityCart" hidden data-id="@Model.TotalQuantity"></div>
+}
+

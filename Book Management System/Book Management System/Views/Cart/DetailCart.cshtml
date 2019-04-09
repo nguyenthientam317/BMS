@@ -1,12 +1,7 @@
-﻿@model Book_Management_System.Common.CartResponseModel
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+﻿@model Book_Management_System.Models.Book
 
 
 <style>
-    <style >
 
     .panel {
         margin-bottom: 20px;
@@ -503,182 +498,81 @@
     }
 </style>
 
-<div class="main_content" >
-    <!-- TITLE-->
-    <div class="sidebar_title">
-        <h5 style="font-weight: bolder">
-            Cart
-        </h5>
-        <hr style="height: 10px; border: 0;box-shadow: 0 10px 10px -10px #8c8b8b inset;" />
-    </div>
-    <!-- CART ITEM -->
-    <div id="main">
 
-        @{ Html.RenderAction("IndexTest", "Cart");}
-        @*@if (Model == null)
-        {
+<div class="">
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <!-- List item-->
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-lg-12">
                     <div class="wrap-table-shopping-cart">
-                        <h4 class="text-center">Your cart is empty !</h4>
-                        <p class="text-center">Please buy something</p>
-                    </div>
-                </div>
-            </div>
-        }
-        else
-        {
-            <div class="panel panel-primary">
-                <div class="panel-body">
-                    <!-- List item-->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="wrap-table-shopping-cart">
 
-                                <table class="table table-condensed text-center" id="all">
-                                    <thead class="thead-light">
-                                        <tr>
-                                            <th>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="selectAll">
-                                                    <label class="custom-control-label" for="selectAll">All</label>
-                                                </div>
-                                            </th>
-                                            <th>Image</th>
-                                            <th>Title</th>
-                                            <th>Price</th>
-                                            <th>Quantity</th>
-                                            <th>Total</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (var item in Model.CartItems)
-                                        {
-                                            <tr class="table-row">
-                                                <td>
-                                                    <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="customCheck+'@item.Id'" checked="@item.IsActive">
-                                                        <label class="custom-control-label" for="customCheck+'@item.Id'"> </label>
-                                                    </div>
-                                                </td>
-                                                <td class="column-1">
-                                                    <div class="text-center">
-                                                        <img class="how-itemcart1" src="@item.Book.ImageURL" alt="product-image" />
-                                                    </div>
-                                                </td>
-                                                <td class="column-2">
-                                                    @item.Book.Title
-                                                </td>
-                                                <td class="column-3"> @string.Format("{0:0,0}", item.Book.Price)$</td>
-                                                <td class="column-4">
-                                                    <div class="input-group form-group-sm justify-content-sm-center">
-                                                        <div class="input-group-prepend">
-                                                            <button class="btn btn-outline-secondary btn-number" type="button" data-type="minus" data-field="quantity+'@item.Id'">
-                                                                <i class="fa fa-minus"></i>
-                                                            </button>
-                                                        </div>
+                        <table class="table table-condensed text-center">
+                            <thead class="thead-light">
+                                <tr>
 
-                                                        <input name="quantity+'@item.Id'" id="@item.IdBook" type="text" class="form-control border-secondary input-number" style="max-width:50px; text-align: center" data-total="@item.Id" data-id="@item.Book.Quantity" data-price="@item.Book.Price" value="@item.Quantity" min="1" max="5">
-
-                                                        <div class="input-group-append">
-                                                            <button class="btn btn-outline-secondary btn-number" type="button" data-type="plus" data-field="quantity+'@item.Id'">
-                                                                <i class="fa fa-plus"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                @{
-                                                    var total = item.Book.Price * item.Quantity;
-                                                }
-                                                <td class="column-5 " id="@item.Id">$@string.Format("{0:0,0}", total)</td>
-                                                <td class="column-6">
-                                                    <!--data-toggle="modal" data-target="#myModal"-->
-                                                    <button class="btn btn-danger" id="delete" onclick="Delete('@item.IdBook')" data-id="@item.IdBook">
-                                                        <span>
-                                                            <i class="fa fa-remove"></i>
-                                                        </span>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        }
-                                    </tbody>
-                                </table>
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Total -->
-                    <div class="row">
-                        <div class="col-lg-8"></div>
-                        <div class="col-lg-4">
-                            <table class="table table-borderless" style="text-align: right">
-                                <tr class="table-row">
-                                    <td>
-                                        <b>
-                                            TOTAL:
-                                        </b>
-                                    </td>
-                                    <td>
-                                        <bold id="total">
-                                            $@string.Format("{0:0,0}", Model.TotalAmount)
-                                        </bold>
-
-                                    </td>
+                                    <th>Image</th>
+                                    <th>Title</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                    <th></th>
                                 </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <!-- Payment button-->
-                    <div class="row justify-content-center">
-                        <div class="col-lg-3 ">
-                            <button type="submit" class="btn btn-lg btn-outline-primary" style="width: 100%;">
-                                <b>PAYMENT</b>
-                            </button>
-                        </div>
-                    </div>
+                            </thead>
+                            <tbody>
 
+                                <tr class="table-row">
+
+                                    <td class="column-1">
+                                        <div class="text-center">
+                                            <img id="img" data-id="@Model.Id" class="how-itemcart1" src="@Html.DisplayFor(model => model.ImageURL)" alt="product-image" />
+                                        </div>
+                                    </td>
+                                    <td class="column-2">
+                                        @Html.DisplayFor(model => model.Title)
+                                    </td>
+                                    <td class="column-3"> @string.Format("{0:0,0}", Model.Price)$</td>
+                                    <td class="column-4">
+                                        <div class="input-group form-group-sm justify-content-sm-center">
+                                            <div class="input-group-prepend">
+                                                <button class="btn btn-outline-secondary btn-number" type="button" data-type="minus" data-field="quantity">
+                                                    <i class="fa fa-minus"></i>
+                                                </button>
+                                            </div>
+
+                                            <input name="quantity" type="text" class="form-control border-secondary input-number" data-id="@Model.Quantity" data-price="@Model.Price" style="max-width:50px; text-align: center" value="1" min="1" max="5">
+
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-secondary btn-number" type="button" data-type="plus" data-field="quantity">
+                                                    <i class="fa fa-plus"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                    <td class="column-5" id="price">@string.Format("{0:0,0}", Model.Price)$ </td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
                 </div>
             </div>
-        }*@
-    </div>
-    
-
-</div>
-
-<!-- The Modal -->
-<div class="modal fade" id="myModal">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-
-            <!-- Modal body -->
-            <div class="modal-body" id="content">
-                <div class="panel panel-primary">
-                    <div class="panel-body">
-                        <!-- List item-->
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <h5>Do you want to delete this book ?</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-right">
-                    <button type="button" class="btn btn-warning" id="submit" data-dismiss="modal">Yes</button>
-                    <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
-                </div>
-
-            </div>
-
         </div>
     </div>
+
+
+</div>
+<div class="text-right">
+ 
 </div>
 
 <!-- Script for quantity-->
-@section Js {
-    <script>
+<script>
         $(document).ready(function () {
-            $('.btn-number').on('click', (function (event) {
+            $('.btn-number').on('click',(function (event) {
                 event.preventDefault();
                 fieldName = $(this).attr('data-field');
                 type = $(this).attr('data-type');
@@ -698,7 +592,7 @@
                             input.val(currentVal + 1).change();
                         }
 
-                        if (parseInt(input.val()) == input.attr('max') || parseInt(input.val()) == input.attr('data-id')) {
+                        if (parseInt(input.val()) == input.attr('max') || parseInt(input.val()) == input.attr('data-id') ) {
                             $(this).attr('disable', true);
                         }
                     }
@@ -710,20 +604,15 @@
             $('.input-number').focusin(function () {
                 $(this).data('oldValue', $(this).val());
             });
-            $('.input-number').change(function (event) {
-                event.preventDefault();
-                const formatter = new Intl.NumberFormat('en-US', {
-                    style: 'currency',
-                    currency: 'USD',
-                    minimumFractionDigits: 0
-                })
+            $('.input-number').change(function () {
 
                 minValue = parseInt($(this).attr('min'));
                 maxValue = parseInt($(this).attr('max'));
+                price = parseInt($(this).attr('data-price'));
                 valueCurrent = parseInt($(this).val());
-                var Id = $(this).attr('data-total');
-                name = $(this).attr('name');
+                total = parseInt(valueCurrent * price).toLocaleString();
 
+                name = $(this).attr('name');
                 if (valueCurrent >= minValue) {
                     $(".btn-number[data-type='minus'][data-field='" + name + "']").removeAttr('disabled')
                 } else {
@@ -736,30 +625,7 @@
                     alert('Sorry, the maximum value was reached');
                     $(this).val($(this).data('oldValue'));
                 }
-
-                // Update Price
-                 $.ajax({
-                    type: 'Get',
-                    url: "@Url.Action("UpdateCart","Cart")",
-                     dataType: 'Json',
-                     data: {
-                         id: $(this).attr('id'),
-                         quantity: valueCurrent
-                     },
-                     cache: false,
-                     success: function (response) {
-                         console.log();
-                         if (response.Result == true) {
-                             alert(response.Message);
-                             $("#total").html(formatter.format(parseInt(response.Total)));
-                             $("#" + Id).html(formatter.format(parseInt(response.New)));
-                             $("#totalCart").html(formatter.format(parseInt(response.Total)));
-                         }
-                         else {
-                             alert(response.Message);
-                         }
-                    },
-                })
+                $('#price').html(total + '$');    // update total when change in quantity
             });
             $(".input-number").keydown(function (e) {
                 // Allow: backspace, delete, tab, escape, enter and .
@@ -777,59 +643,9 @@
                 }
             });
 
+           
         });
 
-
-        //Checkbox All
-        $(function () {
-            $('#selectAll').change(function () {
-                var checkboxes = $(this).closest('#all').find(':checkbox');
-                if ($(this).prop('checked')) {
-                    checkboxes.prop('checked', true);
-                } else if ($(this).prop('checked', false)){
-                    checkboxes.prop('checked', false);
-                }
-            });
-
-        });
-
-        // Delete CartItem
-        function Delete(Id) {
-
-            const formatter = new Intl.NumberFormat('en-US', {
-                style: 'currency',
-                currency: 'USD',
-                minimumFractionDigits: 2
-            })
-
-            $('#myModal').modal('show');
-            $('#submit').on('click', function (event) {
-                event.preventDefault();
-                $.ajax({
-                    type: 'Get',
-                    url: "@Url.Action("Delete","Cart")",
-                    //dataType: 'Json',
-                    data: { id: Id },
-                    success: function (response) {
-                        $('#main').html(response);
-                        var a = parseInt($('#quantityCart').attr('data-id'));
-                        var b = parseInt($('#total').attr('data-id'));
-                        $('#amountCart').html(a);
-                        $('#totalCart').html(formatter.format(b));
-                        //if (response.Result == true) {
-                        //    alert(response.Message);
-                        //    $("#total").html(formatter.format(parseInt(response.Total)));
-                        //    $("#amountCart").html(formatter.format(parseInt(response.Amount)));
-                        //    $("#totalCart").html(formatter.format(parseInt(response.Total)));
-
-                        //}
-                        //else {
-                        //    alert(response.Message);
-                        //}
-                    }
-                });
-            });
-        };
-    </script>
-}
+        
+</script>
 

@@ -560,6 +560,9 @@
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Error\Index1.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Cart\DetailCart.cshtml" />
+    <Content Include="Views\Home\TopNav.cshtml" />
+    <Content Include="Views\Cart\IndexTest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

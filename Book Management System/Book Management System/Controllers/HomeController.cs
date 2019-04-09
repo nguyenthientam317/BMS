@@ -1,4 +1,5 @@
-﻿using Book_Management_System.Infrastructure;
+﻿using Book_Management_System.Common;
+using Book_Management_System.Infrastructure;
 using Book_Management_System.Models;
 using Newtonsoft.Json;
 using System;
@@ -12,11 +13,60 @@ namespace Book_Management_System.Controllers
     public class HomeController : Controller
     {
         Model Db = new Model();
+        private UserLogin CurrentUserId
+        {
+            get { return (UserLogin)HttpContext.Session[Constants.USER_SESSION]; }
+        }
+      
         // GET: Home
         public ActionResult Index(int? page)
         {
             var ListBook = Db.Books.ToList();
             return View(PaginatedList<Book>.CreateAsync(ListBook, page ?? 1, ConstantDefine.PAGE_SIZE_INDEX)); // page: đang ở trang nào, trang 1 2 ,3,..
+        }
+
+        // GET: Top Navbar
+        [ChildActionOnly]
+        public ActionResult TopNav()
+        {
+            // make sure User has already logined
+            if (CurrentUserId != null)
+            {
+                var CurrentCartId = Db.Carts.Where(x => x.IdUser == CurrentUserId.UserId).FirstOrDefault();
+                if(CurrentCartId == null)
+                {
+                    ViewBag.numberItem = 0;
+                    ViewBag.TotalAmount = 0;
+                }
+                else
+                {
+                    double total = 0;
+                    var cart = Db.CartItems.Where(x => x.IdCard == CurrentCartId.Id).ToList();
+                    // Sum Price all Price of Item
+                    foreach (var item in cart)
+                    {
+                        total += item.Book.Price * item.Quantity;
+                    }
+                    // make sure Cart is not null
+                    if (cart != null)
+                    {
+                        ViewBag.numberItem = cart.Count(); // the number of item in Cart
+                        ViewBag.TotalAmount = total; //Sum value of cart
+                    }
+                    else if (cart == null)
+                    {
+                        ViewBag.numberItem = 0;
+                        ViewBag.TotalAmount = 0;
+                    }
+                }
+               
+            }
+            else
+            {
+                ViewBag.numberItem = 0;
+                ViewBag.TotalAmount = 0;
+            }
+            return PartialView("TopNav");
         }
         public ActionResult DetailProduct(string idBook)
         {

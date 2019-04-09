@@ -3,9 +3,7 @@
     ViewBag.Title = "DetailProduct";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@section Js{
-    <script src="~/Assets/js/MyJav.js"></script>
-}
+
 <style>
 
     .panel {
@@ -411,18 +409,34 @@
                     <div class="">
                         <div class="panel-body">
                             <div class="container detail-title">
-                                <a href="#"><h4>@Model.Title</h4></a>
+                                <a href="#" id="img" data-id="@Model.Id"><h4>@Model.Title</h4></a>
                                 <h5>Tác giả:  <strong>@Model.Author.Name</strong> </h5>
                                 <h5>Thể loại: <i><a href="#">@Model.BookCategory.CateName</a></i></h5>
                                 <h5>Lượt xem: 2000</h5>
 
                                 <hr style="border: 0; border-bottom: 1px dashed #ccc;background: #999;" />
 
-                                <h3 class="col-xs-12"> $22.00</h3>
+                                <div class="input-group form-group-sm justify-content-sm">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-secondary btn-number" type="button" data-type="minus" data-field="quantity">
+                                            <i class="fa fa-minus"></i>
+                                        </button>
+                                    </div>
+
+                                    <input id="quantity" name="quantity" type="text" class="form-control border-secondary input-number" data-id="@Model.Quantity" data-price="@Model.Price" style="max-width:50px; text-align: center" value="1" min="1" max="5">
+
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary btn-number" type="button" data-type="plus" data-field="quantity">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div><br />
+
+                                <h3 class="col-xs-12" id="price">@string.Format("{0:0,0}", Model.Price)$</h3>
 
                                 <p class="inline">
                                     <button class="btn btn-primary"><i class="fa fa-shopping-cart"> BUY NOW</i></button>
-                                    <button class="btn btn-danger"><i class="fa fa-cart-plus"> ADD TO CART</i></button>
+                                    <button class="btn btn-danger" onclick="Add('@Model.Id')" id="addCart"><i class="fa fa-cart-plus"> ADD TO CART</i></button>
                                 </p>
                             </div>
                         </div>
@@ -441,12 +455,124 @@
             <hr style="border: 0; height: 0; border-top: 1px solid rgba(0, 0, 0, 0.1); border-bottom: 1px solid rgba(255, 255, 255, 0.3)" />
             @{ Html.RenderAction("Comments", "Home", new { idBook = Model.Id });}
             @*<ul class="pagination justify-content-center" style="margin-bottom: 20px">
-                <li class="page-item disabled"><a class="page-link" href="javascript:void(0);">Previous</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
-            </ul>*@
+                    <li class="page-item disabled"><a class="page-link" href="javascript:void(0);">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+                    <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+                    <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+                    <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
+                </ul>*@
         </div>
     </div>
 </div>
+
+@section Js{
+    <script src="~/Assets/js/MyJav.js"></script>
+   
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.btn-number').on('click', (function (event) {
+                event.preventDefault();
+                fieldName = $(this).attr('data-field');
+                type = $(this).attr('data-type');
+                var input = $("input[name='" + fieldName + "']");
+                var currentVal = parseInt(input.val());
+                if (!isNaN(currentVal)) {
+                    if (type == 'minus') {
+                        if (currentVal > input.attr('min')) {
+                            input.val(currentVal - 1).change();
+                        }
+                        if (parseInt(input.val()) == input.attr('min')) {
+                            $(this).attr('disable', true);
+                        }
+                    }
+                    else if (type == 'plus') {
+                        if (currentVal < input.attr('max') && currentVal < input.attr('data-id')) {
+                            input.val(currentVal + 1).change();
+                        }
+
+                        if (parseInt(input.val()) == input.attr('max') || parseInt(input.val()) == input.attr('data-id')) {
+                            $(this).attr('disable', true);
+                        }
+                    }
+                }
+                else {
+                    input.val(0);
+                }
+            }));
+            $('.input-number').focusin(function () {
+                $(this).data('oldValue', $(this).val());
+            });
+            $('.input-number').change(function () {
+
+                minValue = parseInt($(this).attr('min'));
+                maxValue = parseInt($(this).attr('max'));
+                valueCurrent = parseInt($(this).val());
+                price = parseInt($(this).attr('data-price'));
+                total = parseInt(valueCurrent * price).toLocaleString();
+
+                name = $(this).attr('name');
+                if (valueCurrent >= minValue) {
+                    $(".btn-number[data-type='minus'][data-field='" + name + "']").removeAttr('disabled')
+                } else {
+                    alert('Sorry, the minimum value was reached');
+                    $(this).val($(this).data('oldValue'));
+                }
+                if (valueCurrent <= maxValue) {
+                    $(".btn-number[data-type='plus'][data-field='" + name + "']").removeAttr('disabled')
+                } else {
+                    alert('Sorry, the maximum value was reached');
+                    $(this).val($(this).data('oldValue'));
+                }
+                $('#price').html(total+'$');    // update total when change in quantity
+            });
+            $(".input-number").keydown(function (e) {
+                // Allow: backspace, delete, tab, escape, enter and .
+                if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+                    // Allow: Ctrl+A
+                    (e.keyCode == 65 && e.ctrlKey === true) ||
+                    // Allow: home, end, left, right
+                    (e.keyCode >= 35 && e.keyCode <= 39)) {
+                    // let it happen, don't do anything
+                    return;
+                }
+                // Ensure that it is a number and stop the keypress
+                if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                    e.preventDefault();
+                }
+            });
+        });
+        function Add(currentId) {
+            event.preventDefault();
+
+            const formatter = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 2
+            })
+
+            var input = $("#quantity");
+            var currentVal = parseInt(input.val());
+              $.ajax({
+                    type: "Get",
+                    url: "@Url.Action("AddCart","Cart")",
+                    dataType:'Json',
+                    data: {
+                          id: currentId,
+                          quantity: currentVal
+                    },
+                    cache: false,
+                    success: function (response) {
+                          console.log(response);
+                          if (response.Result == true) {
+                              alert(response.Message);
+                              $('#amountCart').html(response.Amount);
+                              $('#totalCart').html(formatter.format(response.Total));
+                          } else {
+                              alert(response.Message);
+                          }
+                      
+                    },
+                })
+            };
+    </script>
+}

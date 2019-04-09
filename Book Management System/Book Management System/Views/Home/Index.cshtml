@@ -45,8 +45,8 @@
 
                     </div>
                     <div class="btn-group" style="width:100%; margin-top:-1px; margin-bottom: 10px;">
-                        <button class="btn-dark" style="width:50%;font-size: 18px;">BUY NOW</button>
-                        <button class="btn-price btn-outline-primary" style="width:50%; pointer-events: none"><span style="font-size: 15px">22$</span></button>
+                        <button class="btn-dark" id="buyNow" onclick="Open('@item.Id')" style="width:50%;font-size: 18px;">BUY NOW</button>
+                        <button class="btn-price btn-outline-primary" style="width:50%; pointer-events: none"><span style="font-size: 15px">@string.Format("{0:0,0}", item.Price)$</span></button>
                     </div>
                 </div>
             }
@@ -79,28 +79,78 @@
     </ul>
     <!-- END PAGINATION -->
 </div>
-
 <!-- MAIN CONTENT -->
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog  modal-lg">
-
-        <!-- Modal content-->
-        <div class=" modal-content">
+            <!-- Modal Header -->
             <div class="modal-header">
+                <h4 class="modal-title">Detail</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Notify</h4>
             </div>
-            <div class="modal-body " id="content">
-                <!--Content-->
 
+            <!-- Modal body -->
+            <div class="modal-body" id="content">
+                @*Content*@
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-warning" data-dismiss="modal">Add to Cart</button>
+                <button type="button" class="btn btn-warning" id="addCart" data-dismiss="modal">Add to Cart</button>
                 <button type="button" class="btn btn-success" data-dismiss="modal">Buy Now</button>
             </div>
         </div>
-
     </div>
 </div>
+@section Js{
+    <script type="text/javascript">
+      function Open(currentId) {
+        $.ajax({
+            type: "Get",
+            url: "@Url.Action("DetailCart","Cart")",
+            data: { id: currentId },
+            success: function (data) {
+                $('#content').html(data);
+                $('#myModal').modal('show');
+             
+            }
+        })
+        };
+
+         $('#addCart').on('click', function (event) {
+             event.preventDefault();
+
+             const formatter = new Intl.NumberFormat('en-US', {
+                 style: 'currency',
+                 currency: 'USD',
+                 minimumFractionDigits: 2
+             })
+
+            currentId = $('#img').attr('data-id');
+            var input = $("input[name= quantity]");
+            var currentVal = parseInt(input.val());
+                $.ajax({
+                    type: "Get",
+                    url: "@Url.Action("AddCart","Cart")",
+                    dataType:'Json',
+                  data: {
+                      id: currentId,
+                      quantity: currentVal
+                    },
+                    cache: false,
+                  success: function (response) {
+                      console.log(response);
+                      if (response.Result == true) {
+                          alert(response.Message);
+                          $('#amountCart').html(response.Amount);
+                          $('#totalCart').html(formatter.format(response.Total));
+                      } else {
+                          alert(response.Message);
+                      }
+                      
+                    },
+                })
+            });
+      
+    </script>
+}

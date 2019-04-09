@@ -92,18 +92,18 @@
             <div class="col product_section clearfix">
                 <!-- BREADCUM -->
                 <div class="breadcrumbs">
-                   @using (Html.BeginForm("Search", "Home", FormMethod.Get, new { @class = "form-horizontal" }))
-                        {
+                    @using (Html.BeginForm("Search", "Home", FormMethod.Get, new { @class = "form-horizontal" }))
+                    {
                         <div class="input-group">
                             @Html.TextBox("searchString", null, new { @class = "form-control", @placeholder = "Search" })
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
                             </div>
                         </div>
-                        }
+                    }
                 </div>
                 <!-- BREADCUM-->
-                <!-- SIDEBAR -->    
+                <!-- SIDEBAR -->
                 <div class="sidebar">
 
                     <!-- CATEROGIES LIST-->
@@ -139,9 +139,9 @@
     </footer>
     <!-- END FOOTER -->
     <script src="~/Areas/Admin/Assets/js/jquery-1.10.2.js"></script>
-    <script type="text/javascript" href="~/Assets/js/bootstrap/min.js"></script>
+    <script src="~/Assets/js/bootstrap.min.js"></script>
     <script src="~/bower_components/mustache.js/mustache.js"></script>
-    @RenderSection("Js",required: false)
+    @RenderSection("Js", required: false)
 </body>
     
     

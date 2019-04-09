@@ -3,7 +3,9 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/LayoutPayment.cshtml";
 }
-
+@section Js{
+    <script src="~/Assets/js/Customer.js"></script>
+}
 
 <div class="container">
     <div class="row">
@@ -46,10 +48,10 @@
                             <td>@item.Cart.Total $</td>
                             <td>@item.Status</td>
                             <td>
-                                <a id="@item.Id" href="#"><i class="fa fa-info-circle" aria-hidden="true"></i> </a>
+                                <a id="@item.Id" onclick="Customer.ViewDetail('@item.IdCard')" href="#"><i class="fa fa-info-circle" aria-hidden="true"></i> </a>
                                 @if (item.Status == "Processing")
                                 {
-                                    <a id="@item.Id" onclick="Customer.ViewDetail('@item.Id')" style="margin-left: 15px" href="#">
+                                    <a id="@item.Id" onclick="Customer.DeleteOrder('@item.IdCard')" style="margin-left: 15px" href="#">
                                         <i class="fa fa-trash-o" aria-hidden="true"></i>
                                     </a>
                                 }
@@ -65,3 +67,46 @@
 
 </div>
 
+<div id="ModalViewDetail" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Orders Detail</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">BookName</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Total Price</th>
+                        </tr>
+                    </thead>
+                    <tbody id="RenderModalContent">
+                        
+                    </tbody>
+                </table>
+                @*<div id="RenderModalContent">
+
+                </div>*@
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="TemplateViewDetailModal" type="x-tmpl-mustache">
+    <tr>
+        <td>{{Name}}</td>
+        <td>{{Quantity}}</td>
+        <td>{{Price}} $</td>
+        <td>{{TotalPrice}} $</td>
+
+    </tr>
+</script>

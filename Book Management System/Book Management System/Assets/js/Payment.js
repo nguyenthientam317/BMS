@@ -15,8 +15,7 @@ var Payment = {
             $('#paypal-button-container').removeClass("hidden");
         });
         $('#btnFinishCheckOut').click(function () {
-            console.log('in');
-            Payment.CompletePayment();
+             Payment.CompletePayment();
         });
 
 

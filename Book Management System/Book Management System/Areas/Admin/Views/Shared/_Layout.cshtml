@@ -169,6 +169,7 @@
                     </ul>
                 </li>
             </ul>
+           
             <!-- END NAV HEADER -->
             <!-- END DROPDOWN -->
             <!-- START SIDE MENU-->
@@ -202,7 +203,7 @@
                         <li>
                             <a href="@Url.Action("Index","ManageBook")"><i class=" fa fa-wrench fa-fw"></i> Book management</a>
                         </li>
-                      
+
                         <li>
                             <a href="@Url.Action("Index","ManageAccount")"><i class=" fa fa-users fa-fw"></i> User management</a>
                         </li>
@@ -212,6 +213,8 @@
             <!-- END SIDE MENU-->
             <!-- /.navbar-static-side -->
         </nav>
+       
+
         <!--START PAGE WRAPPER-->
         @RenderBody();
         <!--END PAGE WRAPPER-->

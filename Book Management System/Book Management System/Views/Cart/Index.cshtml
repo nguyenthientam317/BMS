@@ -721,11 +721,11 @@
                         }
                     }
                     else if (type == 'plus') {
-                        if (currentVal < input.attr('max') && currentVal < input.attr('data-id')) {
+                        if (currentVal < input.attr('max') ) {
                             input.val(currentVal + 1).change();
                         }
 
-                        if (parseInt(input.val()) == input.attr('max') || parseInt(input.val()) == input.attr('data-id')) {
+                        if (parseInt(input.val()) == input.attr('max') ) {
                             $(this).attr('disabled', true);
                         }
                     }

@@ -76,7 +76,7 @@ else
                                                         </button>
                                                     </div>
 
-                                                    <input readonly name="quantity+'@item.Id'" id="@item.IdBook" type="text" class="form-control border-secondary input-number" style="max-width:50px; text-align: center" data-total="@item.Id" data-id="@item.Book.Quantity" data-price="@item.Book.Price" value="@item.Quantity" min="1" max="5">
+                                                    <input readonly name="quantity+'@item.Id'" id="@item.IdBook" type="text" class="form-control border-secondary input-number" style="max-width:50px; text-align: center" data-total="@item.Id"  data-price="@item.Book.Price" value="@item.Quantity" min="1" max="@item.Book.Quantity">
 
                                                     <div class="input-group-append">
                                                         <button class="btn btn-outline-secondary btn-number" type="button" data-type="plus" data-field="quantity+'@item.Id'">

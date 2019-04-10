@@ -144,19 +144,30 @@ namespace Book_Management_System.Controllers
         [HttpPost]
         public JsonResult LoadCommentByIdBook(string idBook)
         {
-            var Item = Db.Comments.Where(l => l.IdBook.Equals(idBook)).ToList();
-            Item = Item.OrderByDescending(l => l.CreateDate).Take(5).ToList();
-            //var JsonItem = new JavaScriptSerializer().Serialize(Item);
-            var Jsonlist = JsonConvert.SerializeObject(Item,
+            var Checked = false;
+            var Item = from l in Db.Comments.ToList()
+                       where l.IdBook == idBook
+                       select new
+                       {
+                           l.CommenterName,
+                           l.Content,
+                           l.CreateDate
+                       };
+            var ItemList = Item.OrderByDescending(l => l.CreateDate).Take(5).ToList();
+            var Jsonlist = JsonConvert.SerializeObject(ItemList,
                 Formatting.None,
                 new JsonSerializerSettings()
                 {
                     ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
                 });
+            if(Jsonlist != null)
+            {
+                Checked = true;
+            }
             return Json(new
             {
                 data = Jsonlist,
-                status = true
+                status = Checked
             }); 
         }
         public string FindNextId()

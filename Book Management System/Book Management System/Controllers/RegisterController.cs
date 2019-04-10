@@ -90,8 +90,9 @@ namespace Book_Management_System.Controllers
                     account.Id = FindNextIdAccount();
                     account.UserName = register.UserName;
                     account.Password = Encryptor.ToMD5(register.Password);   // Encrypt Password
-                    account.IdRole = "3"; //Default role is User
+                    account.IdRole = "3"; //Set default role is User
                     account.IsActive = true;
+                    //Add to db
                     db.Accounts.Add(account);
                     db.SaveChanges();
                     
@@ -125,7 +126,7 @@ namespace Book_Management_System.Controllers
                         f.SaveAs(path);
                         user.Avatar = (link + @"\" + f.FileName);
                     }
-
+                    //Add to db
                     db.Users.Add(user);
                     db.SaveChanges();
                     //Commit transaction

@@ -12,9 +12,9 @@
     <link href="~/Areas/Admin/Assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/Areas/Admin/Assets/font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="~/Areas/Admin/Assets/css/mycss/mystyle.css" rel="stylesheet" />
-    <!-- Bootstrap Validator -->
+    <!-- Bootstrap Validator CSS -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" />
-    <!-- Bootstrap DatePicker-->
+    <!-- Bootstrap DatePicker CSS-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker3.min.css">
     <style>
         .avatar-wrapper {
@@ -92,7 +92,7 @@
                     <hr />
                 </div>
                 <div class="panel-body">
-                    @using (Html.BeginForm("Create", "Register", FormMethod.Post, new { @class = "form-horizontal", @id = "RegisterForm", @style = "margin-top: -15px" ,enctype = "multipart/form-data" }))
+                    @using (Html.BeginForm("Create", "Register", FormMethod.Post, new { @class = "form-horizontal", @id = "RegisterForm", @style = "margin-top: -15px", enctype = "multipart/form-data" }))
                     {
 
                         @Html.AntiForgeryToken()
@@ -185,10 +185,11 @@
                         <!-- Submit and clear text button -->
                         <div class="form-group">
                             <div class="col-sm-offset-4 col-sm-8">
-                                <button type="submit" class="btn btn-success">Save</button>
-                                <button type="reset" class="btn btn-default">Reset</button>
+                                <button type="submit" id="submit_register" class="btn btn-success">Save</button>
+                                <button type="reset" id="reset" class="btn btn-default">Reset</button>
                             </div>
                         </div>
+
                     }
                 </div>
             </div>
@@ -202,8 +203,11 @@
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
     <!-- Bootstrap DatePicker-->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+    <!-- SweerAlert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
     <!-- SCRIPTS -->
-    
+    <!-- Bootstrap validator-->
     <script type="text/javascript">
         /*Bootstrap validator*/
         $(document).ready(function () {
@@ -333,6 +337,7 @@
             })
         });
     </script>
+    <!--Date picker-->
     <script>
         $('#datepicker-birthday').datepicker({
             autoclose: true,
@@ -364,6 +369,16 @@
                 $(".file-upload").click();
             });
         });
+    </script>
+    <!-- Notification for submit -->
+    <script>
+        document.getElementById('submit_register').onclick = function () {
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!'
+            })
+        }
     </script>
 </body>
 </html>

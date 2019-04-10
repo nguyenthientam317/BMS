@@ -21,10 +21,6 @@
                     <div class="panel-body">
                         <img class="img-responsive" src="@Model.ImageURL" style="width:100%; height:90%" />
                     </div>
-                    <div class="panel-footer">
-                        Hình ảnh
-                    </div>
-
                 </div>
             </div>
             <div class="col-lg-7">
@@ -212,16 +208,15 @@
                         message: 'The category is not valid !',
                         validators: {
                             notEmpty: {
-                                message: 'The ISBN cannot be empty !'
+                                message: 'The ISBN can not be empty !'
                             },
                             stringLength: {
                                 min: 6,
-                                max: 30,
-                                message: 'The category must be more 6 characters and less than 30 characters long !'
+                                message: 'The ISBN must be more 6 characters'
                             },
                             regexp: {
-                                regexp: /^[\d`~!@@#$%^&*()\-_=+{}|<,>?:;"']+$/,
-                                message: "Caterogy name cannot allow special characters and alphabets"
+                                regexp: /^[0-9]+$/,
+                                message: "ISBN must be number"
 
                             }
                         }

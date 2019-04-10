@@ -143,16 +143,19 @@
     <Compile Include="Areas\Admin\Controllers\ManageBookController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageCommentsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManagePublishersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrdersController.cs" />
     <Compile Include="Common\AccountValidation.cs" />
     <Compile Include="Common\AuthorizeUser.cs" />
     <Compile Include="Common\CartModel.cs" />
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\LoginModel.cs" />
+    <Compile Include="Common\Register.cs" />
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\UserLoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -341,6 +344,9 @@
     <Content Include="Areas\Admin\Assets\js\plugins\morris\morris.js" />
     <Content Include="Areas\Admin\Assets\js\plugins\morris\raphael-2.1.0.min.js" />
     <Content Include="Areas\Admin\Assets\js\sb-admin.js" />
+    <Content Include="Assets\book-image\13\avatar1.jpg" />
+    <Content Include="Assets\book-image\13\avatar2.jpg" />
+    <Content Include="Assets\book-image\419_2\avatar2.jpg" />
     <Content Include="Assets\css\bootstrap-grid.css" />
     <Content Include="Assets\css\bootstrap-grid.min.css" />
     <Content Include="Assets\css\bootstrap-reboot.css" />
@@ -350,7 +356,6 @@
     <Content Include="Assets\css\categories_responsive.css" />
     <Content Include="Assets\css\categories_styles.css" />
     <Content Include="Assets\css\MyStyle.css" />
-    <Content Include="Assets\images\avartar.png" />
     <Content Include="Assets\images\biet-hai-long.jpg" />
     <Content Include="Assets\images\cung-con-truong-thanh.jpg" />
     <Content Include="Assets\images\ky-nang-di-truoc-dam-me.jpg" />
@@ -508,7 +513,6 @@
     <Content Include="Areas\Admin\Views\ManageBook\Create.cshtml" />
     <Content Include="Areas\Admin\Views\ManageBook\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\ManageBook\Detail.cshtml" />
-    <Content Include="Areas\Admin\Views\ManageBook\Details.cshtml" />
     <Content Include="Areas\Admin\Views\ManageBook\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ManageBook\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ManageAccount\Create.cshtml" />
@@ -524,6 +528,11 @@
     <Content Include="Areas\Admin\Views\ManagePublishers\Details.cshtml" />
     <Content Include="Areas\Admin\Views\ManagePublishers\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ManagePublishers\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Orders\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Orders\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Orders\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Orders\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Orders\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -560,10 +569,13 @@
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Error\Index1.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Register\Index.cshtml" />
+    <Content Include="Views\Register\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Assets\book-image\18\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

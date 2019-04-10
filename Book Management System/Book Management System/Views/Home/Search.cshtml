@@ -12,7 +12,7 @@
     </div>
     <!-- LIST PRODUCT -->
     <div class="row">
-        
+
         @{
             foreach (var item in Model)
             {
@@ -35,7 +35,7 @@
 
                     </div>
                     <div class="btn-group" style="width:100%; margin-top:-1px; margin-bottom: 10px;">
-                        <button class="btn-dark" style="width:50%;font-size: 18px;">BUY NOW</button>
+                        <button class="btn-dark" style="width:50%;font-size: 18px;" onclick="Open('@item.Id')"  id="buyNow" >BUY NOW</button>
                         <button class="btn-price btn-outline-primary" style="width:50%"><span style="font-size: 15px;" ;>22$</span></button>
                     </div>
                 </div>
@@ -49,13 +49,13 @@
     <!-- PAGINATION -->
     <ul class="pagination justify-content-center">
         <li class="page-item @prevDisabled">
-            @Html.ActionLink("Previous", "Search", new { @page = Model.PageIndex - 1 , @searchString = TempData["CurrentFilter"]}, new { @class = "page-link" })
+            @Html.ActionLink("Previous", "Search", new { @page = Model.PageIndex - 1, @searchString = TempData["CurrentFilter"] }, new { @class = "page-link" })
         </li>
         @for (int i = 1; i <= Model.TotalPages; i++)
         {
 
             <li class="page-item">
-                @Html.ActionLink(i.ToString(), "Search", new { @page = i, @searchString = TempData["CurrentFilter"] },  new { @class = "page-link" })
+                @Html.ActionLink(i.ToString(), "Search", new { @page = i, @searchString = TempData["CurrentFilter"] }, new { @class = "page-link" })
             </li>
         }
         @*<li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
@@ -68,4 +68,89 @@
     </ul>
     <!-- END PAGINATION -->
 </div>
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
 
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Detail</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body" id="content">
+                @*Content*@
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" id="addCart" data-dismiss="modal">Add to Cart</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal">Buy Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section Js{
+    <script type="text/javascript">
+      function Open(currentId) {
+        $.ajax({
+            type: "Get",
+            url: "@Url.Action("DetailCart","Cart")",
+            data: { id: currentId },
+            success: function (data) {
+                $('#content').html(data);
+                $('#myModal').modal('show');
+
+            }
+        })
+        };
+
+         $('#addCart').on('click', function (event) {
+             event.preventDefault();
+
+             const formatter = new Intl.NumberFormat('en-US', {
+                 style: 'currency',
+                 currency: 'USD',
+                 minimumFractionDigits: 2
+             })
+
+            currentId = $('#img').attr('data-id');
+            var input = $("input[name= quantity]");
+            var currentVal = parseInt(input.val());
+                $.ajax({
+                    type: "Get",
+                    url: "@Url.Action("AddCart","Cart")",
+                    dataType:'Json',
+                  data: {
+                      id: currentId,
+                      quantity: currentVal
+                    },
+                    cache: false,
+                  success: function (response) {
+                      console.log(response);
+                      if (response.Result == true) {
+                          $('#amountCart').html(response.Amount);
+                          $('#totalCart').html(formatter.format(response.Total));
+                          Swal.fire({
+                                  type: 'success',
+                                  width: 400,
+                                  height: 300,
+                                  text: response.Message,
+                                  showConfirmButton: false,
+                                  footer: '<a href="@Url.Action("Index","Cart")">Go to Cart ?</a>'
+                              });
+                      } else {
+                          Swal.fire({
+                              type: 'error',
+                              width: 400,
+                              height: 300,
+                              text: response.Message
+                          });
+                      }
+
+                    },
+                })
+            });
+
+    </script>
+}

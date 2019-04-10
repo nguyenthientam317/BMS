@@ -154,15 +154,32 @@
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\LoginModel.cs" />
+
+
+    <Compile Include="Common\Register.cs" />
+
+    <Compile Include="Common\OrderItemViewModel.cs" />
+
+
     <Compile Include="Common\Register.cs" />
     <Compile Include="Common\OrderItemViewModel.cs" />
+
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+
+
+    <Compile Include="Controllers\RegisterController.cs" />
+
+    <Compile Include="Controllers\PaymentController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+
+
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+
     <Compile Include="Controllers\UserLoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -170,9 +187,29 @@
     <Compile Include="Infrastructure\CommonMethod.cs" />
     <Compile Include="Infrastructure\ConstantDefine.cs" />
     <Compile Include="Infrastructure\PaginatedList.cs" />
+
+    <Compile Include="Migrations\201904050449452_Initial.cs" />
+    <Compile Include="Migrations\201904050449452_Initial.Designer.cs">
+      <DependentUpon>201904050449452_Initial.cs</DependentUpon>
+    </Compile>
+
+    <Compile Include="Migrations\201904071428173_removePriceCartItem.cs" />
+    <Compile Include="Migrations\201904071428173_removePriceCartItem.Designer.cs">
+      <DependentUpon>201904071428173_removePriceCartItem.cs</DependentUpon>
+
+    <Compile Include="Migrations\201904080136277_RemovePrice.cs" />
+    <Compile Include="Migrations\201904080136277_RemovePrice.Designer.cs">
+      <DependentUpon>201904080136277_RemovePrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904080159375_MethodPayment.cs" />
+    <Compile Include="Migrations\201904080159375_MethodPayment.Designer.cs">
+      <DependentUpon>201904080159375_MethodPayment.cs</DependentUpon>
+
+
     <Compile Include="Migrations\201904100359099_new.cs" />
     <Compile Include="Migrations\201904100359099_new.Designer.cs">
       <DependentUpon>201904100359099_new.cs</DependentUpon>
+
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
@@ -363,11 +400,19 @@
     <Content Include="Assets\css\categories_responsive.css" />
     <Content Include="Assets\css\categories_styles.css" />
     <Content Include="Assets\css\MyStyle.css" />
+
+
+
+
+
     <Content Include="Assets\css_payment\nouislider.min.css" />
     <Content Include="Assets\css_payment\slick-theme.css" />
     <Content Include="Assets\css_payment\slick.css" />
     <Content Include="Assets\css_payment\style.css" />
     <Content Include="Assets\images\avartar.png" />
+
+
+
     <Content Include="Assets\images\biet-hai-long.jpg" />
     <Content Include="Assets\images\cung-con-truong-thanh.jpg" />
     <Content Include="Assets\images\ky-nang-di-truoc-dam-me.jpg" />
@@ -587,15 +632,24 @@
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Error\Index1.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
+
+
     <Content Include="Views\Register\Index.cshtml" />
     <Content Include="Views\Register\Create.cshtml" />
+
+
+    <Content Include="Views\Register\Index.cshtml" />
+    <Content Include="Views\Register\Create.cshtml" />
+
     <Content Include="Views\Shared\LayoutPayment.cshtml" />
     <Content Include="Views\Payment\Index.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
+
     <Content Include="Views\Cart\DetailCart.cshtml" />
     <Content Include="Views\Home\TopNav.cshtml" />
     <Content Include="Views\Cart\IndexPartialView.cshtml" />
     <Content Include="Views\Shared\KeepAlive.ashx" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -616,8 +670,24 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+
+    <EmbeddedResource Include="Migrations\201904050449452_Initial.resx">
+      <DependentUpon>201904050449452_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+
+    <EmbeddedResource Include="Migrations\201904071428173_removePriceCartItem.resx">
+      <DependentUpon>201904071428173_removePriceCartItem.cs</DependentUpon>
+
+    <EmbeddedResource Include="Migrations\201904080136277_RemovePrice.resx">
+      <DependentUpon>201904080136277_RemovePrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904080159375_MethodPayment.resx">
+      <DependentUpon>201904080159375_MethodPayment.cs</DependentUpon>
+
+
     <EmbeddedResource Include="Migrations\201904100359099_new.resx">
       <DependentUpon>201904100359099_new.cs</DependentUpon>
+
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

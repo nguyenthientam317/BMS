@@ -19,17 +19,18 @@
                     var Template = $('#TemplateViewDetailModal').html();
                     var Html = '';
                     $.each(JSON.parse(response.data), function (i, item) {
-                        console.log(item.Name);
-                        console.log(item.Book.Title);
                         Html += Mustache.render(Template, {
-                            Name: item.Book.Title,
+                            Name: item.Name,
                             Quantity: item.Quantity,
-                            Price: item.Book.Price,
-                            TotalPrice: item.Book.Price * item.Quantity
+                            Price: item.Price,
+                            TotalPrice: item.Price * item.Quantity
                         });
                     });
                     $('#RenderModalContent').html(Html);
                     $('#ModalViewDetail').modal('show');
+                }
+                else {
+                    alert('Fail to load detail order');
                 }
             }
         })

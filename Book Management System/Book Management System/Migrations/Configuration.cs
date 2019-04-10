@@ -419,8 +419,8 @@
             context.Carts.AddOrUpdate(l => l.Id,
                 new Models.Cart()
                 {
-                    Id="1",
-                    IdUser ="1",
+                    Id = "1",
+                    IdUser = "1",
                     CreateDate = Now,
                     IsActive = true,
                     Total = 50
@@ -431,7 +431,7 @@
                 {
                     Id = "1",
                     IdCard = "1",
-                    IdBook ="1",
+                    IdBook = "1",
                     Quantity = 2,
                     IsActive = true,
                 },
@@ -444,62 +444,98 @@
                      IsActive = true,
                  }
                 );
-            context.Carts.AddOrUpdate(l => l.Id,
-               new Models.Cart()
-               {
-                   Id = "2",
-                   IdUser = "1",
-                   CreateDate = Now,
-                   IsActive = true,
-                   Total = 50
-               }
-               );
-            context.CartItems.AddOrUpdate(l => l.Id,
-                new Models.CartItem()
-                {
-                    Id = "3",
-                    IdCard = "2",
-                    IdBook = "1",
-                    Quantity = 2,
-                    IsActive = true,
-                },
-                 new Models.CartItem()
-                 {
-                     Id = "4",
-                     IdCard = "2",
-                     IdBook = "2",
-                     Quantity = 1,
-                     IsActive = true,
-                 }
-                );
-            context.Carts.AddOrUpdate(l => l.Id,
-              new Models.Cart()
-              {
-                  Id = "3",
-                  IdUser = "1",
-                  CreateDate = Now,
-                  IsActive = true,
-                  Total = 50
-              }
-              );
-            context.CartItems.AddOrUpdate(l => l.Id,
-                new Models.CartItem()
-                {
-                    Id = "5",
-                    IdCard = "3",
-                    IdBook = "3",
-                    Quantity = 2,
-                    IsActive = true,
-                },
-                 new Models.CartItem()
-                 {
-                     Id = "6",
-                     IdCard = "3",
-                     IdBook = "4",
-                     Quantity = 1,
-                     IsActive = true,
-                 }
-                );
+            //context.Carts.AddOrUpdate(l => l.Id,
+            //   new Models.Cart()
+            //   {
+            //       Id = "2",
+            //       IdUser = "1",
+            //       CreateDate = Now,
+            //       IsActive = false,
+            //       Total = 50
+            //   }
+            //   );
+            //context.CartItems.AddOrUpdate(l => l.Id,
+            //    new Models.CartItem()
+            //    {
+            //        Id = "3",
+            //        IdCard = "2",
+            //        IdBook = "1",
+            //        Quantity = 2,
+            //        IsActive = true,
+            //    },
+            //     new Models.CartItem()
+            //     {
+            //         Id = "4",
+            //         IdCard = "2",
+            //         IdBook = "2",
+            //         Quantity = 1,
+            //         IsActive = true,
+            //     }
+            //    );
+            //context.Carts.AddOrUpdate(l => l.Id,
+            //  new Models.Cart()
+            //  {
+            //      Id = "3",
+            //      IdUser = "1",
+            //      CreateDate = Now,
+            //      IsActive = false,
+            //      Total = 50
+            //  }
+            //  );
+            //context.CartItems.AddOrUpdate(l => l.Id,
+            //    new Models.CartItem()
+            //    {
+            //        Id = "5",
+            //        IdCard = "3",
+            //        IdBook = "3",
+            //        Quantity = 2,
+            //        IsActive = true,
+            //    },
+            //     new Models.CartItem()
+            //     {
+            //         Id = "6",
+            //         IdCard = "3",
+            //         IdBook = "4",
+            //         Quantity = 1,
+            //         IsActive = true,
+            //     }
+            //    );
+            //context.Carts.AddOrUpdate(l => l.Id,
+            //  new Models.Cart()
+            //  {
+            //      Id = "4",
+            //      IdUser = "1",
+            //      CreateDate = Now,
+            //      IsActive = true,
+            //      Total = 50
+            //  }
+            //  );
+            //context.CartItems.AddOrUpdate(l => l.Id,
+            //    new Models.CartItem()
+            //    {
+            //        Id = "7",
+            //        IdCard = "4",
+            //        IdBook = "3",
+            //        Quantity = 2,
+            //        IsActive = true,
+            //    },
+            //     new Models.CartItem()
+            //     {
+            //         Id = "8",
+            //         IdCard = "4",
+            //         IdBook = "4",
+            //         Quantity = 7,
+            //         IsActive = true,
+            //     },
+            //      new Models.CartItem()
+            //      {
+            //          Id = "9",
+            //          IdCard = "4",
+            //          IdBook = "5",
+            //          Quantity = 3,
+            //          IsActive = true,
+            //      }
+            //    );
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
 

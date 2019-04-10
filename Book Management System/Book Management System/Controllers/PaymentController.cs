@@ -51,6 +51,7 @@ namespace Book_Management_System.Controllers
         {
             using (var Transaction = DB.Database.BeginTransaction())
             {
+                bool check = false;
                 try
                 {
                     var OrderItem = CommonMethod.JsonDeserialize<Order>(orderJson);
@@ -66,19 +67,19 @@ namespace Book_Management_System.Controllers
                     DB.SaveChanges();
 
                     Transaction.Commit();
-                    return Json(new
-                    {
-                        status = true
-                    });
+                    check = true;
+                    
                 }
                 catch(Exception ex)
                 {
                     Transaction.Rollback();
-                    return Json(new
-                    {
-                        status = false
-                    });
+                    
                 }
+                return Json(new
+                {
+                    status = check
+                });
+
             }
         }
     }

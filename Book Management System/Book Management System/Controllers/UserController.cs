@@ -1,4 +1,5 @@
-﻿using Book_Management_System.Infrastructure;
+﻿using Book_Management_System.Common;
+using Book_Management_System.Infrastructure;
 using Book_Management_System.Models;
 using Newtonsoft.Json;
 using System;
@@ -26,41 +27,56 @@ namespace Book_Management_System.Controllers
         [HttpPost]
         public JsonResult ViewDetail(string id)
         {
+            var check = false;
             var CartItems = from o in DB.CartItems.ToList()
                             where o.IdCard == id
-                            select o;
-            var JsonListCartItems = CommonMethod.JsonSerialize<CartItem>(CartItems.ToList());
+                            select new
+                            {
+                                Name = o.Book.Title,
+                                o.Quantity,
+                                o.Book.Price
+                            };
+
+            var JsonListCartItems = JsonConvert.SerializeObject(CartItems.ToList(),
+            Formatting.None,
+            new JsonSerializerSettings()
+            {
+                ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            });
+
+            if(JsonListCartItems != null)
+            {
+                check = true;
+            }
+
             return Json(new
             {
                 data = JsonListCartItems,
-                status = true
+                status = check
 
             });
-
         }
         [HttpPost]
         public JsonResult DeleteOrder(string idCart)
         {
+            var check = false;
             try
             {
                 var item = DB.Orders.Where(l => l.IdCard.Equals(idCart)).FirstOrDefault();
                 item.Status = "Cancel";
                 DB.Entry(item).State = EntityState.Modified;
                 DB.SaveChanges();
-
-                return Json(new
-                {
-                    status = true
-                });
+                check = true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                return Json(new
-                {
-                    status = false
-                });
+
             }
-            
+            return Json(new
+            {
+                status = check
+            });
+
         }
 
     }

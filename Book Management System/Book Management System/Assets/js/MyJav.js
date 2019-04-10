@@ -8,10 +8,6 @@
         $('#btnComment').click(function () {
             Check.AddComment();
         });
-        //$('#fAddComment').submit(function () {
-        //    Check.AddComment();
-        //});
-       
     },
     ResetValueEmptyForInput: function (arrTextBox) {
         $.each(arrTextBox, function (index, value) {

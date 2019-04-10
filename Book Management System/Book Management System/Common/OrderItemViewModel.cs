@@ -7,11 +7,11 @@ namespace Book_Management_System.Common
 {
     public class OrderItemViewModel
     {
-        public string IdOrder { get; set; }
 
-        public string OrderItemName { get; set; }
+        public string Name { get; set; }
+        public string Quantity { get; set; }
+        public string Price { get; set; }
 
-        public DateTime CreateDate { get; set; }
 
 
 

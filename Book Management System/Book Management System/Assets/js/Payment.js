@@ -1,7 +1,8 @@
 ﻿var TotalPrice = 0
 var Payment = {
     Init: function () {
-        TotalPrice = Payment.GetTotalPrice();
+        var Price = Payment.GetTotalPrice();
+        TotalPrice = Number(Price);
         console.log(TotalPrice);
     },
     RegisterEvent: function () {

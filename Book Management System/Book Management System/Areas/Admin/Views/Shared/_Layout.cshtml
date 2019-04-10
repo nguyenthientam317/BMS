@@ -203,6 +203,7 @@
                         <li>
                             <a href="@Url.Action("Index","ManageBook")"><i class=" fa fa-book"></i> Book management</a>
                         </li>
+
                         <li>
                             <a href="@Url.Action("Index","ManageAccount")"><i class=" fa fa-users fa-fw"></i> User management</a>
                         </li>
@@ -247,6 +248,17 @@
             });
         });
     </script>
+
+    <!--Maintain Login-->
+    <script>
+        function heartBeat() {
+            $.get("KeepAliveAdmin.ashx?", function (data) { });
+        }
+        $(function () {
+            setInterval("heartBeat()", 1000 * 30); // 30s gửi request một lần
+        });
+    </script>
+
     @RenderSection("scripts", false);
 </body>
 </html>

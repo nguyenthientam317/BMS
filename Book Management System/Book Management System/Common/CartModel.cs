@@ -18,6 +18,15 @@ namespace Book_Management_System.Common
         public bool Result { get; set; }
         public string Message { get; set; }
         public double Total { get; set; }
+        public int Amount { get; set; }
+    }
+
+    public class UpdateCart
+    {
+        public bool Result { get; set; }
+        public string Message { get; set; }
+        public double Total { get; set; }
+        public double New { get; set; }
     }
 
 }

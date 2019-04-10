@@ -1,8 +1,5 @@
 ﻿@model Book_Management_System.Models.Book
-@{
-    ViewBag.Title = "DetailProduct";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+
 
 <style>
 
@@ -365,139 +362,217 @@
         font-size: 20px
     }
 
-
-    .card-body img {
-        max-height: 70px;
-        max-width: 70px;
+    .wrap-table-shopping-cart {
+        overflow: auto;
+        border-top: solid 1px #DEE2E6;
+        border-left: solid 1px #DEE2E6;
+        border-right: solid 1px #DEE2E6;
+        border-bottom: solid 1px #DEE2E6;
     }
 
-    .card-body p {
-        font-size: 13px;
+        .wrap-table-shopping-cart td {
+            vertical-align: middle
+        }
+
+    .table-shopping-cart {
+        border-collapse: collapse;
+        width: 100%;
+        min-width: 680px;
     }
 
-    .card-inner {
-        margin-top: 15px;
-        margin-left: 4rem;
+        .table-shopping-cart tr {
+            border-top: 1px solid #e6e6e6;
+            border-bottom: 1px solid #e6e6e6;
+        }
+
+        .table-shopping-cart .column-1 {
+            width: 133px;
+            padding-left: 50px;
+        }
+
+        .table-shopping-cart .column-2 {
+            width: 220px;
+            font-size: 15px;
+        }
+
+        .table-shopping-cart .column-3 {
+            width: 120px;
+            font-size: 16px;
+        }
+
+        .table-shopping-cart .column-4 {
+            width: 145px;
+        }
+
+        .table-shopping-cart .column-5 {
+            width: 172px;
+            padding-right: 50px;
+            font-size: 16px;
+        }
+
+        .table-shopping-cart .column-6 {
+            vertical-align: middle;
+        }
+
+        .table-shopping-cart .table_row {
+            height: 185px;
+        }
+
+            .table-shopping-cart .table_row td {
+                padding-bottom: 20px;
+            }
+
+                .table-shopping-cart .table_row td.column-1 {
+                    padding-bottom: 20px;
+                }
+
+        .table-shopping-cart .table_head th {
+            font-family: Poppins-Bold;
+            font-size: 13px;
+            color: #555;
+            text-transform: uppercase;
+            line-height: 1.6;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        .table-shopping-cart td {
+            font-family: Poppins-Regular;
+            color: #555;
+            line-height: 1.6;
+            vertical-align: middle
+        }
+
+    .how-itemcart1 {
+        width: 80px;
+        position: relative;
+        cursor: pointer;
+    }
+
+        .how-itemcart1 img {
+            width: 100%;
+        }
+
+        .how-itemcart1::after {
+            content: '\e870';
+            font-family: Linearicons-Free;
+            font-size: 16px;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0,0.5);
+            color: #fff;
+            transition: all 0.3s;
+            -webkit-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            opacity: 0;
+        }
+
+    .modal {
+        text-align: center;
+        padding: 0 !important;
+    }
+
+        .modal:before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+            margin-right: -4px;
+        }
+
+    .modal-dialog {
+        display: inline-block;
+        text-align: left;
+        vertical-align: middle;
     }
 </style>
 
-<div class="main_content">
-    <div class="sidebar_title">
-        <h5 style="font-weight: bolder">Detail</h5>
-        <hr style="height: 10px; border: 0;box-shadow: 0 10px 10px -10px #8c8b8b inset;" />
-    </div>
 
-
-    <div class="panel panel-default>
+<div class="">
+    <div class="panel panel-primary">
         <div class="panel-body">
-            <!-- INFO -->
+            <!-- List item-->
             <div class="row">
-                <div class="col-md-4">
-                    <div>
-                        <div class="panel-body">
-                            <div class="row ">
-                                <div class="col-md-12">
-                                    <div style="padding: 0px 15px 0px 15px;">
-                                        <img class="img-thumbnail" src="https://sachvui.com/cover/2019/ky-nang-di-truoc-dam-me.jpg" width="100%" style="max-width: 150px; margin-left: 30px" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <div class="">
-                        <div class="panel-body">
-                            <div class="container detail-title">
-                                <a href="#" id="img" data-id="@Model.Id"><h4>@Model.Title</h4></a>
-                                <h5>Tác giả:  <strong>@Model.Author.Name</strong> </h5>
-                                <h5>Thể loại: <i><a href="#">@Model.BookCategory.CateName</a></i></h5>
-                                <h5>Lượt xem: 2000</h5>
+                <div class="col-lg-12">
+                    <div class="wrap-table-shopping-cart">
 
-                                <hr style="border: 0; border-bottom: 1px dashed #ccc;background: #999;" />
+                        <table class="table table-condensed text-center">
+                            <thead class="thead-light">
+                                <tr>
 
-                                <div class="input-group form-group-sm justify-content-sm">
-                                    <div class="input-group-prepend">
-                                        <button class="btn btn-outline-secondary btn-number" type="button" data-type="minus" data-field="quantity">
-                                            <i class="fa fa-minus"></i>
-                                        </button>
-                                    </div>
+                                    <th>Image</th>
+                                    <th>Title</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                                    <input disabled id="quantity" name="quantity" type="text" class="form-control border-secondary input-number"  data-price="@Model.Price" style="max-width:50px; text-align: center" value="1" min="1" max="@Model.Quantity">
+                                <tr class="table-row">
 
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary btn-number" type="button" data-type="plus" data-field="quantity">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div><br />
+                                    <td class="column-1">
+                                        <div class="text-center">
+                                            <img id="img" data-id="@Model.Id" class="how-itemcart1" src="@Html.DisplayFor(model => model.ImageURL)" alt="product-image" />
+                                        </div>
+                                    </td>
+                                    <td class="column-2">
+                                        @Html.DisplayFor(model => model.Title)
+                                    </td>
+                                    <td class="column-3"> @string.Format("{0:0,0}", Model.Price)$</td>
+                                    <td class="column-4">
+                                        <div class="input-group form-group-sm justify-content-sm-center">
+                                            <div class="input-group-prepend">
+                                                <button class="btn btn-outline-secondary btn-number" type="button" data-type="minus" data-field="quantity">
+                                                    <i class="fa fa-minus"></i>
+                                                </button>
+                                            </div>
 
-                                <h3 class="col-xs-12" id="price">@string.Format("{0:0,0}", Model.Price)$</h3>
+                                            <input disabled name="quantity" type="text" class="form-control border-secondary input-number" data-price="@Model.Price" style="max-width:50px; text-align: center" value="1" min="1" max="@Model.Quantity">
 
-                                <p class="inline">
-                                    <button class="btn btn-primary"><i class="fa fa-shopping-cart"> BUY NOW</i></button>
-                                    <button class="btn btn-danger" onclick="Add('@Model.Id')" id="addCart"><i class="fa fa-cart-plus"> ADD TO CART</i></button>
-                                </p>
-                            </div>
-                        </div>
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-secondary btn-number" type="button" data-type="plus" data-field="quantity">
+                                                    <i class="fa fa-plus"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                    <td class="column-5" id="price">@string.Format("{0:0,0}", Model.Price)$ </td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+
                     </div>
                 </div>
             </div>
-
-            <hr style="border: 0; height: 0; border-top: 1px solid rgba(0, 0, 0, 0.1); border-bottom: 1px solid rgba(255, 255, 255, 0.3)" />
-            <!-- DESCRIPTION-->
-            <div class="panel-body">
-                <p>
-                    @Model.Summary
-                </p>
-            </div>
-            <!-- COMMENT-->
-            <hr style="border: 0; height: 0; border-top: 1px solid rgba(0, 0, 0, 0.1); border-bottom: 1px solid rgba(255, 255, 255, 0.3)" />
-            @{ Html.RenderAction("Comments", "Home", new { idBook = Model.Id });}
-            @*<ul class="pagination justify-content-center" style="margin-bottom: 20px">
-                    <li class="page-item disabled"><a class="page-link" href="javascript:void(0);">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
-                </ul>*@
         </div>
     </div>
+
+
+</div>
+<div class="text-right">
+ 
 </div>
 
-<!-- The Modal1 -->
-<div class="modal fade" id="myModal1">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-
-            <!-- Modal body -->
-            <div class="modal-body">
-                <div class="panel panel-primary">
-                    <div class="panel-body">
-                        <!-- List item-->
-                        <div class="row">
-                            <div class="col-lg-12" id="content1">
-                                @*Content*@
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-right">
-                    <button type="button" class="btn-sm btn-success" data-dismiss="modal">Cancel</button>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-</div>
-
-@section Js{
-    <script src="~/Assets/js/MyJav.js"></script>
-
-    <script type="text/javascript">
+<!-- Script for quantity-->
+<script>
         $(document).ready(function () {
-            $('.btn-number').on('click', (function (event) {
+            $('.btn-number').on('click',(function (event) {
                 event.preventDefault();
                 fieldName = $(this).attr('data-field');
                 type = $(this).attr('data-type');
@@ -513,11 +588,11 @@
                         }
                     }
                     else if (type == 'plus') {
-                        if (currentVal < input.attr('max') ) {
+                        if (currentVal < input.attr('max')) {
                             input.val(currentVal + 1).change();
                         }
 
-                        if (parseInt(input.val()) == input.attr('max') ) {
+                        if (parseInt(input.val()) == input.attr('max')) {
                             $(this).attr('disabled', true);
                         }
                     }
@@ -533,8 +608,8 @@
 
                 minValue = parseInt($(this).attr('min'));
                 maxValue = parseInt($(this).attr('max'));
-                valueCurrent = parseInt($(this).val());
                 price = parseInt($(this).attr('data-price'));
+                valueCurrent = parseInt($(this).val());
                 total = parseInt(valueCurrent * price).toLocaleString();
 
                 name = $(this).attr('name');
@@ -550,7 +625,7 @@
                     alert('Sorry, the maximum value was reached');
                     $(this).val($(this).data('oldValue'));
                 }
-                $('#price').html(total+'$');    // update total when change in quantity
+                $('#price').html(total + '$');    // update total when change in quantity
             });
             $(".input-number").keydown(function (e) {
                 // Allow: backspace, delete, tab, escape, enter and .
@@ -567,51 +642,10 @@
                     e.preventDefault();
                 }
             });
+
+           
         });
-        function Add(currentId) {
-            event.preventDefault();
 
-            const formatter = new Intl.NumberFormat('en-US', {
-                style: 'currency',
-                currency: 'USD',
-                minimumFractionDigits: 2
-            })
+        
+</script>
 
-            var input = $("#quantity");
-            var currentVal = parseInt(input.val());
-              $.ajax({
-                    type: "Get",
-                    url: "@Url.Action("AddCart","Cart")",
-                    dataType:'Json',
-                    data: {
-                          id: currentId,
-                          quantity: currentVal
-                    },
-                    cache: false,
-                    success: function (response) {
-                          console.log(response);
-                          if (response.Result == true) {
-                              $('#amountCart').html(response.Amount);
-                              $('#totalCart').html(formatter.format(response.Total));
-                              Swal.fire({
-                                  type: 'success',
-                                  width: 400,
-                                  height: 300,
-                                  text: response.Message,
-                                  showConfirmButton: false,
-                                  footer: '<a href="@Url.Action("Index","Cart")">Go to Cart ?</a>'
-                              });
-                          } else {
-                              Swal.fire({
-                                  type: 'error',
-                                  width: 400,
-                                  height: 300,
-                                  text: response.Message,
-                              });
-                          }
-
-                    },
-                })
-            };
-    </script>
-}

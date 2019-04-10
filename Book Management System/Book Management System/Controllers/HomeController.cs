@@ -15,7 +15,7 @@ namespace Book_Management_System.Controllers
         // GET: Home
         public ActionResult Index(int? page)
         {
-            var ListBook = Db.Books.ToList();
+            var ListBook = Db.Books.Where(l=>l.IsActive.Equals(true)).OrderBy(l=>l.CreateDate).ToList();
             return View(PaginatedList<Book>.CreateAsync(ListBook, page ?? 1, ConstantDefine.PAGE_SIZE_INDEX)); // page: đang ở trang nào, trang 1 2 ,3,..
         }
         public ActionResult DetailProduct(string idBook)
@@ -144,20 +144,31 @@ namespace Book_Management_System.Controllers
         [HttpPost]
         public JsonResult LoadCommentByIdBook(string idBook)
         {
-            var Item = Db.Comments.Where(l => l.IdBook.Equals(idBook)).ToList();
-            Item = Item.OrderByDescending(l => l.CreateDate).Take(5).ToList();
-            //var JsonItem = new JavaScriptSerializer().Serialize(Item);
-            var Jsonlist = JsonConvert.SerializeObject(Item,
+            var Checked = false;
+            var Item = from l in Db.Comments.ToList()
+                       where l.IdBook == idBook
+                       select new
+                       {
+                           l.CommenterName,
+                           l.Content,
+                           l.CreateDate
+                       };
+            var ItemList = Item.OrderByDescending(l => l.CreateDate).Take(5).ToList();
+            var Jsonlist = JsonConvert.SerializeObject(ItemList,
                 Formatting.None,
                 new JsonSerializerSettings()
                 {
                     ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
                 });
+            if(Jsonlist != null)
+            {
+                Checked = true;
+            }
             return Json(new
             {
                 data = Jsonlist,
-                status = true
-            });
+                status = Checked
+            }); 
         }
         public string FindNextId()
         {

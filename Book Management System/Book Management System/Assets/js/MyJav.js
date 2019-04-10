@@ -8,10 +8,6 @@
         $('#btnComment').click(function () {
             Check.AddComment();
         });
-        //$('#fAddComment').submit(function () {
-        //    Check.AddComment();
-        //});
-       
     },
     ResetValueEmptyForInput: function (arrTextBox) {
         $.each(arrTextBox, function (index, value) {
@@ -37,7 +33,7 @@
                 CommenterName: Name,
                 Content: Contents,
                 idBook: IdBook
-            });
+            }); // thành mảng list
 
             $.ajax({
                 url: Host + 'Home/AddComment',
@@ -83,15 +79,18 @@
                 if (response.status) {
                     var Template = $('#TemplateComment').html();
                     var Html = ''
-                    $.each(JSON.parse(response.data), function (i,item) {
+                    $.each(JSON.parse(response.data), function (i, item) {
                         Html += Mustache.render(Template, {
-                            Date : item.CreateDate,
-                            Name : item.CommenterName,
-                            Content : item.Content
+                            Date: item.CreateDate,
+                            Name: item.CommenterName,
+                            Content: item.Content
                         });
 
                     });
                     $('#RenderComment').html(Html);
+                }
+                else {
+                    alert('Can not load comments')
                 }
             }
 

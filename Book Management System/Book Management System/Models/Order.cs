@@ -19,6 +19,10 @@ namespace Book_Management_System.Models
         public DateTime CreateDate { get; set; }
 
         [Required]
+        [StringLength(100)]
+        public string MethodPayment { get; set; }   
+
+        [Required]
         [StringLength(200)]
         public string Status { get; set; }
 

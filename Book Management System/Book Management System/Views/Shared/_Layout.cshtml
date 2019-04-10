@@ -20,6 +20,9 @@
             font-family: 'Times New Roman';
             font-size: 20px;
         }
+        .swl-wide{
+            margin-right:20px;
+        }
     </style>
 </head>
 
@@ -29,54 +32,7 @@
         <div class="super_container">
             <header class="header trans_300">
                 <!-- TOP NAV -->
-                <div class="top_nav">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12 text-right">
-                                <div class="top_nav_right">
-                                    <ul class="top_nav_menu">
-                                        @{ var session = (Book_Management_System.Common.UserLogin)Session[Book_Management_System.Common.Constants.USER_SESSION];}
-                                        @{ if (session != null)
-                                            {
-                                                <li class="account">
-                                                    <a href="#" class="visitor_name">
-                                                        Welcome, <b> @session.UserName </b>
-                                                    </a>
-                                                </li>
-                                                <li class="account">
-                                                    <a href="@Url.Action("Logout","UserLogin")" class="visitor_name">
-                                                        Log out
-                                                    </a>
-                                                </li>
-
-                                            }
-                                            else
-                                            {
-                                                <li class="account">
-                                                    <a href="@Url.Action("Login","UserLogin")" class="visitor_name">
-                                                        Log in
-                                                    </a>
-                                                </li>
-                                                <li class="account">
-                                                    <a href="@Url.Action("Create","Register")" class="visitor_name">
-                                                        Sign in
-                                                    </a>
-                                                </li>
-                                            }
-                                        }
-                                        <li class="account">
-                                            <a href="#">
-                                                <i class="fa fa-shopping-basket"></i>
-                                                Shopping cart (0) <b> $0.00 </b>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+                @{ Html.RenderAction("TopNav", "Home");}
                 <!-- TOP NAV -->
                 <!-- START MAIN HEADER -->
                 <div class="main_nav_container">
@@ -162,8 +118,20 @@
     </footer>
     <!-- END FOOTER -->
     <script src="~/Areas/Admin/Assets/js/jquery-1.10.2.js"></script>
-    <script src="~/Assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Assets/js/bootstrap.min.js"></script>
     <script src="~/bower_components/mustache.js/mustache.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <!--Maintain login-->
+    <script>
+        function heartBeat() {
+            $.get("KeepAlive.ashx?", function (data) { });
+        }
+        $(function () {
+            setInterval("heartBeat()", 1000 * 30); // 30s gửi request một lần
+        });
+    </script>
+
+
     @RenderSection("Js", required: false)
 </body>
     

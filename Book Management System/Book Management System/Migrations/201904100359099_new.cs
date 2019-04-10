@@ -3,16 +3,16 @@ namespace Book_Management_System.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class RemovePrice : DbMigration
+    public partial class _new : DbMigration
     {
         public override void Up()
         {
-            DropColumn("dbo.CartItem", "Price");
+            AddColumn("dbo.Order", "MethodPayment", c => c.String(nullable: false, maxLength: 100));
         }
         
         public override void Down()
         {
-            AddColumn("dbo.CartItem", "Price", c => c.Double(nullable: false));
+            DropColumn("dbo.Order", "MethodPayment");
         }
     }
 }

@@ -396,7 +396,6 @@
     <Content Include="Assets\plugins\OwlCarousel2-2.2.1\owl.carousel.js" />
     <Content Include="Assets\plugins\OwlCarousel2-2.2.1\owl.theme.default.css" />
     <Content Include="Assets\plugins\OwlCarousel2-2.2.1\owl.video.play.png" />
-    <Content Include="Assets\user-avatar\1\avatar1.jpg" />
     <Content Include="bower_components\mustache.js\mustache.js" />
     <Content Include="bower_components\mustache.js\mustache.min.js" />
     <Content Include="bower_components\mustache.js\spec\_files\bom_as_whitespace.js" />
@@ -593,12 +592,10 @@
     <Content Include="Views\Shared\LayoutPayment.cshtml" />
     <Content Include="Views\Payment\Index.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
-
     <Content Include="Views\Cart\DetailCart.cshtml" />
     <Content Include="Views\Home\TopNav.cshtml" />
     <Content Include="Views\Cart\IndexPartialView.cshtml" />
     <Content Include="Views\Shared\KeepAlive.ashx" />
-
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

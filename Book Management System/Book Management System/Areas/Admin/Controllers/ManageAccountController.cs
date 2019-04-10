@@ -174,7 +174,7 @@ namespace Book_Management_System.Areas.Admin.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             User user = db.Users.Find(id);
-            user.Avatar = "/Assets/user-avatar/" + user.Id + "/" + Path.GetFileName(user.Avatar); 
+            user.Avatar = "/Assets/user-avatar/" + user.Id + "/" + Path.GetFileName(user.Avatar);
             if (user == null)
             {
                 return HttpNotFound();
@@ -198,11 +198,13 @@ namespace Book_Management_System.Areas.Admin.Controllers
                     try
                     {
                         string link = Server.MapPath(@"~\Assets\user-avatar\" + user.Id);
+                        var model = db.Accounts.Find(user.Id);
                         if (!Directory.Exists(link))
                         {
                             Directory.CreateDirectory(Server.MapPath(@"~\Assets\user-avatar\" + user.Id));
                         }
                         var f = Request.Files["Avatar"];
+                        
                         if (f != null && f.ContentLength > 0)
                         {
                             string fullPath = link + f.FileName;
@@ -213,11 +215,16 @@ namespace Book_Management_System.Areas.Admin.Controllers
                             var path = (link + @"\" + f.FileName);
                             f.SaveAs(path);
                             user.Avatar = (link + @"\" + f.FileName);
+                            model.IsActive = user.IsActive;
+                            db.Entry(user).State = EntityState.Modified;
+                            db.Entry(model).State = EntityState.Modified;
                         }
-                        var model = db.Accounts.Find(user.Id);
-                        model.IsActive = user.IsActive;
-                        db.Entry(user).State = EntityState.Modified;
-                        db.Entry(model).State = EntityState.Modified;
+                        else
+                        {
+                            model.IsActive = user.IsActive;
+                            db.Entry(model).State = EntityState.Modified;
+                        }
+                     
                         db.SaveChanges();
                         tran.Commit();
                         return RedirectToAction("Index");

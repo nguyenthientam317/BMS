@@ -117,7 +117,6 @@
                                                 <div class="upload-button">
                                                     <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
                                                 </div>
-                                              
                                                 @Html.EditorFor(model => model.Avatar, new { htmlAttributes = new { @class = "form-control file-upload", @type = "file", @accept = "image/*" } })
                                                 @Html.ValidationMessageFor(model => model.Avatar, "", new { @class = "text-danger" })
                                             </div>

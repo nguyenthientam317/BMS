@@ -49,7 +49,7 @@ namespace Book_Management_System.Controllers
             }
             return NewId;
         }
-        public ActionResult IndexTest()
+        public ActionResult IndexPartialView()
         {
             if (CurrentUserId != null)
             {
@@ -87,8 +87,11 @@ namespace Book_Management_System.Controllers
                 return View();
 
         }
+
+        //Add book to your Cart
         public ActionResult AddCart(string id, int quantity)
         {
+            // make sure user has already log in
             if(CurrentUserId != null)
             {
                 var cart = db.Carts.Where(x => x.IdUser == CurrentUserId.UserId).FirstOrDefault();
@@ -133,7 +136,19 @@ namespace Book_Management_System.Controllers
                     }
                     else
                     {
-                        cartItem.Quantity += quantity;
+                        if((cartItem.Quantity+quantity) <= cartItem.Book.Quantity)
+                        {
+                            cartItem.Quantity += quantity;
+                        }
+                        else
+                        {
+                            return Json(new CartResponseModel()
+                            {
+                                Result = false,
+                                Message = "Sorry, the number of current books is not enough."
+                            }, JsonRequestBehavior.AllowGet);
+                        }
+                        
                     }
                     db.SaveChanges();
 
@@ -171,14 +186,162 @@ namespace Book_Management_System.Controllers
             var model = db.Books.Find(id);
             return PartialView("DetailCart",model);
         }
+
+
+        //Update State CartItem
+        [AuthorizeUser]
+        public ActionResult UpdateState(string id)
+        {
+            var model = db.CartItems.Where(x => x.IdCard == CurrentCartId.Id && x.IdBook == id).FirstOrDefault();
+            if(model != null)
+            {
+                using (DbContextTransaction tran = db.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        if (model.IsActive == true)
+                        {
+                            model.IsActive = false;
+                            db.Entry(model).State = EntityState.Modified;
+                            db.SaveChanges();
+                            tran.Commit();
+                            return Json(new CartResponseModel()
+                            {
+                                Result = true,
+                                Message = "Don't choose this book."
+                            }, JsonRequestBehavior.AllowGet);
+                        }
+                        else
+                        {
+                            model.IsActive = true;
+                            db.Entry(model).State = EntityState.Modified;
+                            db.SaveChanges();
+                            tran.Commit();
+                            return Json(new CartResponseModel()
+                            {
+                                Result = true,
+                                Message = "Choose this book."
+                            }, JsonRequestBehavior.AllowGet);
+                        }
+                    }
+                    catch
+                    {
+                        tran.Rollback();
+                        return Json(new CartResponseModel()
+                        {
+                            Result = false,
+                            Message = "An error is currently."
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                }
+               
+            }
+            return Json(new CartResponseModel()
+            {
+                Result = false,
+                Message = "This book has been deleted or sold out."
+            },JsonRequestBehavior.AllowGet);
+        }
+
+        [AuthorizeUser]
+        public ActionResult SelectAll()
+        {
+            var model = db.CartItems.Where(x => x.IdCard == CurrentCartId.Id ).ToList();
+            if (model != null)
+            {
+                using (DbContextTransaction tran = db.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        foreach (var item in model)
+                        {
+
+                           item.IsActive = true;
+                           db.Entry(item).State = EntityState.Modified;
+                        }
+                       
+                        db.SaveChanges();
+                        tran.Commit();
+                        return Json(new CartResponseModel()
+                        {
+                            Result = true,
+                            Message = "Choose all book."
+                        }, JsonRequestBehavior.AllowGet);
+
+                    }
+                    catch
+                    {
+                        tran.Rollback();
+                        return Json(new CartResponseModel()
+                        {
+                            Result = false,
+                            Message = "An error is currently."
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                }
+
+            }
+            return Json(new CartResponseModel()
+            {
+                Result = false,
+                Message = "Nothing in Your cart."
+            }, JsonRequestBehavior.AllowGet);
+        }
+
+        [AuthorizeUser]
+        public ActionResult RemoveSelectAll()
+        {
+            var model = db.CartItems.Where(x => x.IdCard == CurrentCartId.Id).ToList();
+            if (model != null)
+            {
+                using (DbContextTransaction tran = db.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        foreach (var item in model)
+                        {
+
+                            item.IsActive = false;
+                            db.Entry(item).State = EntityState.Modified;
+
+                        }
+                        db.SaveChanges();
+                        tran.Commit();
+                        return Json(new CartResponseModel()
+                        {
+                            Result = true,
+                            Message = "Don't Choose all book."
+                        }, JsonRequestBehavior.AllowGet);
+
+                    }
+                    catch
+                    {
+                        tran.Rollback();
+                        return Json(new CartResponseModel()
+                        {
+                            Result = false,
+                            Message = "An error is currently."
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                }
+
+            }
+            return Json(new CartResponseModel()
+            {
+                Result = false,
+                Message = "Nothing in Your cart."
+            }, JsonRequestBehavior.AllowGet);
+        }
+
         // Update quantity and price of book.
-        public ActionResult UpdateCart(string id,int quantity)
+        [AuthorizeUser]
+        public ActionResult UpdateCart(string idItem, string id, int quantity)
         {
             using (DbContextTransaction tran = db.Database.BeginTransaction())
             {
+                var model = db.CartItems.Where(x => x.IdCard == CurrentCartId.Id && x.IdBook == id && x.Id == idItem).FirstOrDefault();
                 try
-                {
-                    var model = db.CartItems.Where(x => x.IdCard == CurrentCartId.Id && x.IdBook == id).FirstOrDefault();
+                {                    
                     model.Quantity = quantity;
 
                     var newValue = (model.Quantity * model.Book.Price); //  new value of this book
@@ -215,10 +378,11 @@ namespace Book_Management_System.Controllers
         }
 
         //Delete book
-        public ActionResult Delete(string id)
+        [AuthorizeUser]
+        public ActionResult Delete(string idItem, string id)
         {
 
-            var model = db.CartItems.Where(x => x.IdBook == id && x.IdCard == CurrentCartId.Id).FirstOrDefault();
+            var model = db.CartItems.Where(x => x.IdBook == id && x.IdCard == CurrentCartId.Id && x.Id == idItem).FirstOrDefault();
             if (model != null)
             {
                 using (DbContextTransaction tran = db.Database.BeginTransaction())
@@ -235,18 +399,18 @@ namespace Book_Management_System.Controllers
                         {
                             total += (item.Quantity * item.Book.Price);
                         }
-                        return RedirectToAction("IndexTest");
+                        return RedirectToAction("IndexPartialView");
                     }
                     catch
                     {
                         tran.Rollback();
-                        return RedirectToAction("IndexTest");
+                        return RedirectToAction("IndexPartialView");
                     }
                 }
             }
             else
             {
-                return RedirectToAction("IndexTest");
+                return RedirectToAction("IndexPartialView");
             }
         }
     }

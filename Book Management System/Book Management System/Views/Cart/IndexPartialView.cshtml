@@ -44,45 +44,58 @@ else
                             <tbody>
                                 @foreach (var item in Model.CartItems)
                                 {
-                                    <tr class="table-row">
-                                        <td>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck+'@item.Id'" checked="@item.IsActive">
-                                                <label class="custom-control-label" for="customCheck+'@item.Id'"> </label>
-                                            </div>
-                                        </td>
-                                        <td class="column-1">
-                                            <div class="text-center">
-                                                <img class="how-itemcart1" src="@item.Book.ImageURL" alt="product-image" />
-                                            </div>
-                                        </td>
-                                        <td class="column-2">
-                                            @item.Book.Title
-                                        </td>
-                                        <td class="column-3"> @string.Format("{0:0,0}", item.Book.Price)$</td>
-                                        <td class="column-4">
-                                            <div class="input-group form-group-sm justify-content-sm-center">
-                                                <div class="input-group-prepend">
-                                                    <button class="btn btn-outline-secondary btn-number" type="button" data-type="minus" data-field="quantity+'@item.Id'">
-                                                        <i class="fa fa-minus"></i>
-                                                    </button>
-                                                </div>
+                                <tr class="table-row">
+                                    <td>
+                                        <div class="custom-control custom-checkbox">
+                                            <input name="check" type="checkbox" data-id="@item.Book.Id" class="custom-control-input" id="customCheck+'@item.Id'" checked="@item.IsActive">
+                                            <label class="custom-control-label" for="customCheck+'@item.Id'"> </label>
+                                        </div>
+                                    </td>
+                                    <td class="column-1">
+                                        <div class="text-center">
+                                            <a href="@Url.Action("DetailProduct","Home",new { idBook = item.Book.Id})"><img class="how-itemcart1" src="@item.Book.ImageURL" alt="product-image" /></a>
+                                        </div>
+                                    </td>
+                                    <td class="column-2">
+                                        @item.Book.Title
+                                    </td>
+                                    <td class="column-3"> @string.Format("{0:0,0}", item.Book.Price)$</td>
+                                    <td class="column-4">
+                                        @{
+                                            if (item.Quantity == 0)
+                                            {
+                                                <button class="btn-sm btn-danger" style="pointer-events:none">Hết</button>
+                                            }
+                                            else
+                                            {
 
-                                                <input name="quantity+'@item.Id'" id="@item.IdBook" type="text" class="form-control border-secondary input-number" style="max-width:50px; text-align: center" data-total="@item.Id" data-id="@item.Book.Quantity" data-price="@item.Book.Price" value="@item.Quantity" min="1" max="5">
+                                                <div class="input-group form-group-sm justify-content-sm-center">
+                                                    <div class="input-group-prepend">
+                                                        <button class="btn btn-outline-secondary btn-number" type="button" data-type="minus" data-field="quantity+'@item.Id'">
+                                                            <i class="fa fa-minus"></i>
+                                                        </button>
+                                                    </div>
 
-                                                <div class="input-group-append">
-                                                    <button class="btn btn-outline-secondary btn-number" type="button" data-type="plus" data-field="quantity+'@item.Id'">
-                                                        <i class="fa fa-plus"></i>
-                                                    </button>
+                                                    <input readonly name="quantity+'@item.Id'" id="@item.IdBook" type="text" class="form-control border-secondary input-number" style="max-width:50px; text-align: center" data-total="@item.Id" data-id="@item.Book.Quantity" data-price="@item.Book.Price" value="@item.Quantity" min="1" max="5">
+
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-outline-secondary btn-number" type="button" data-type="plus" data-field="quantity+'@item.Id'">
+                                                            <i class="fa fa-plus"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            
+                                            }
+                                        }
                                         </td>
+
+
                                         @{
                                             var total = item.Book.Price * item.Quantity;
                                         }
                                         <td class="column-5 " id="@item.Id">$@string.Format("{0:0,0}", total)</td>
                                         <td class="column-6">
-                                            <button class="btn btn-danger" onclick="Delete('@item.IdBook')" id="delete" data-id="@item.IdBook">
+                                            <button class="btn btn-danger" onclick="Delete('@item.Id','@item.IdBook')" id="delete" data-id="@item.IdBook">
                                                 <!--data-toggle="modal" data-target="#myModal"-->
                                                 <span>
                                                     <i class="fa fa-remove"></i>

@@ -423,7 +423,7 @@
                                         </button>
                                     </div>
 
-                                    <input id="quantity" name="quantity" type="text" class="form-control border-secondary input-number" data-id="@Model.Quantity" data-price="@Model.Price" style="max-width:50px; text-align: center" value="1" min="1" max="5">
+                                    <input disabled id="quantity" name="quantity" type="text" class="form-control border-secondary input-number"  data-price="@Model.Price" style="max-width:50px; text-align: center" value="1" min="1" max="@Model.Quantity">
 
                                     <div class="input-group-append">
                                         <button class="btn btn-outline-secondary btn-number" type="button" data-type="plus" data-field="quantity">
@@ -465,9 +465,36 @@
     </div>
 </div>
 
+<!-- The Modal1 -->
+<div class="modal fade" id="myModal1">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="panel panel-primary">
+                    <div class="panel-body">
+                        <!-- List item-->
+                        <div class="row">
+                            <div class="col-lg-12" id="content1">
+                                @*Content*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <button type="button" class="btn-sm btn-success" data-dismiss="modal">Cancel</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
 @section Js{
     <script src="~/Assets/js/MyJav.js"></script>
-   
+
     <script type="text/javascript">
         $(document).ready(function () {
             $('.btn-number').on('click', (function (event) {
@@ -482,16 +509,16 @@
                             input.val(currentVal - 1).change();
                         }
                         if (parseInt(input.val()) == input.attr('min')) {
-                            $(this).attr('disable', true);
+                            $(this).attr('disabled', true);
                         }
                     }
                     else if (type == 'plus') {
-                        if (currentVal < input.attr('max') && currentVal < input.attr('data-id')) {
+                        if (currentVal < input.attr('max') ) {
                             input.val(currentVal + 1).change();
                         }
 
-                        if (parseInt(input.val()) == input.attr('max') || parseInt(input.val()) == input.attr('data-id')) {
-                            $(this).attr('disable', true);
+                        if (parseInt(input.val()) == input.attr('max') ) {
+                            $(this).attr('disabled', true);
                         }
                     }
                 }
@@ -564,13 +591,25 @@
                     success: function (response) {
                           console.log(response);
                           if (response.Result == true) {
-                              alert(response.Message);
                               $('#amountCart').html(response.Amount);
                               $('#totalCart').html(formatter.format(response.Total));
+                              Swal.fire({
+                                  type: 'success',
+                                  width: 400,
+                                  height: 300,
+                                  text: response.Message,
+                                  showConfirmButton: false,
+                                  footer: '<a href="@Url.Action("Index","Cart")">Go to Cart ?</a>'
+                              });
                           } else {
-                              alert(response.Message);
+                              Swal.fire({
+                                  type: 'error',
+                                  width: 400,
+                                  height: 300,
+                                  text: response.Message,
+                              });
                           }
-                      
+
                     },
                 })
             };

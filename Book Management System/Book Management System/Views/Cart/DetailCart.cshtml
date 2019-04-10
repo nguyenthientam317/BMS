@@ -540,7 +540,7 @@
                                                 </button>
                                             </div>
 
-                                            <input name="quantity" type="text" class="form-control border-secondary input-number" data-id="@Model.Quantity" data-price="@Model.Price" style="max-width:50px; text-align: center" value="1" min="1" max="5">
+                                            <input disabled name="quantity" type="text" class="form-control border-secondary input-number" data-price="@Model.Price" style="max-width:50px; text-align: center" value="1" min="1" max="@Model.Quantity">
 
                                             <div class="input-group-append">
                                                 <button class="btn btn-outline-secondary btn-number" type="button" data-type="plus" data-field="quantity">
@@ -584,16 +584,16 @@
                             input.val(currentVal - 1).change();
                         }
                         if (parseInt(input.val()) == input.attr('min')) {
-                            $(this).attr('disable', true);
+                            $(this).attr('disabled', true);
                         }
                     }
                     else if (type == 'plus') {
-                        if (currentVal < input.attr('max') && currentVal < input.attr('data-id')) {
+                        if (currentVal < input.attr('max')) {
                             input.val(currentVal + 1).change();
                         }
 
-                        if (parseInt(input.val()) == input.attr('max') || parseInt(input.val()) == input.attr('data-id') ) {
-                            $(this).attr('disable', true);
+                        if (parseInt(input.val()) == input.attr('max')) {
+                            $(this).attr('disabled', true);
                         }
                     }
                 }

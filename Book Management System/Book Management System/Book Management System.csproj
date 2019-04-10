@@ -143,6 +143,9 @@
     <Compile Include="Areas\Admin\Controllers\ManageBookController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageCommentsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManagePublishersController.cs" />
+    <Compile Include="Areas\Admin\Views\Shared\KeepAliveAdmin.ashx.cs">
+      <DependentUpon>KeepAliveAdmin.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Common\AccountValidation.cs" />
     <Compile Include="Common\AuthorizeUser.cs" />
     <Compile Include="Common\CartModel.cs" />
@@ -182,6 +185,9 @@
     <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Shared\KeepAlive.ashx.cs">
+      <DependentUpon>KeepAlive.ashx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Assets\css\bootstrap.css" />
@@ -524,6 +530,7 @@
     <Content Include="Areas\Admin\Views\ManagePublishers\Details.cshtml" />
     <Content Include="Areas\Admin\Views\ManagePublishers\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ManagePublishers\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\KeepAliveAdmin.ashx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -562,7 +569,8 @@
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\DetailCart.cshtml" />
     <Content Include="Views\Home\TopNav.cshtml" />
-    <Content Include="Views\Cart\IndexTest.cshtml" />
+    <Content Include="Views\Cart\IndexPartialView.cshtml" />
+    <Content Include="Views\Shared\KeepAlive.ashx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

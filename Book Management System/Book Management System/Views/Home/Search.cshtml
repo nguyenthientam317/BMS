@@ -129,11 +129,23 @@
                   success: function (response) {
                       console.log(response);
                       if (response.Result == true) {
-                          alert(response.Message);
                           $('#amountCart').html(response.Amount);
                           $('#totalCart').html(formatter.format(response.Total));
+                          Swal.fire({
+                                  type: 'success',
+                                  width: 400,
+                                  height: 300,
+                                  text: response.Message,
+                                  showConfirmButton: false,
+                                  footer: '<a href="@Url.Action("Index","Cart")">Go to Cart ?</a>'
+                              });
                       } else {
-                          alert(response.Message);
+                          Swal.fire({
+                              type: 'error',
+                              width: 400,
+                              height: 300,
+                              text: response.Message
+                          });
                       }
 
                     },

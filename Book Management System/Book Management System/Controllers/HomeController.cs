@@ -59,14 +59,15 @@ namespace Book_Management_System.Controllers
                         ViewBag.TotalAmount = 0;
                     }
                 }
-               
+                return PartialView("TopNav");
             }
             else
             {
                 ViewBag.numberItem = 0;
                 ViewBag.TotalAmount = 0;
+                return PartialView("TopNav");
             }
-            return PartialView("TopNav");
+         
         }
         public ActionResult DetailProduct(string idBook)
         {

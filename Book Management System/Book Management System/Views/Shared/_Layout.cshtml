@@ -20,6 +20,9 @@
             font-family: 'Times New Roman';
             font-size: 20px;
         }
+        .swl-wide{
+            margin-right:20px;
+        }
     </style>
 </head>
 
@@ -117,7 +120,16 @@
     <script src="~/Areas/Admin/Assets/js/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="~/Assets/js/bootstrap.min.js"></script>
     <script src="~/bower_components/mustache.js/mustache.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <!--Maintain login-->
+    <script>
+        function heartBeat() {
+            $.get("KeepAlive.ashx?", function (data) { });
+        }
+        $(function () {
+            setInterval("heartBeat()", 1000 * 30); // 30s gửi request một lần
+        });
+    </script>
 
 
     @RenderSection("Js", required: false)

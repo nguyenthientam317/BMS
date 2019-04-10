@@ -3,6 +3,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <!-- MAIN CONTENT -->
 <div class="main_content">
     <!-- TITLE -->
@@ -102,6 +103,8 @@
         </div>
     </div>
 </div>
+
+
 @section Js{
     <script type="text/javascript">
       function Open(currentId) {
@@ -112,7 +115,7 @@
             success: function (data) {
                 $('#content').html(data);
                 $('#myModal').modal('show');
-             
+
             }
         })
         };
@@ -129,28 +132,41 @@
             currentId = $('#img').attr('data-id');
             var input = $("input[name= quantity]");
             var currentVal = parseInt(input.val());
-                $.ajax({
-                    type: "Get",
-                    url: "@Url.Action("AddCart","Cart")",
-                    dataType:'Json',
-                  data: {
-                      id: currentId,
-                      quantity: currentVal
-                    },
-                    cache: false,
-                  success: function (response) {
-                      console.log(response);
-                      if (response.Result == true) {
-                          alert(response.Message);
-                          $('#amountCart').html(response.Amount);
-                          $('#totalCart').html(formatter.format(response.Total));
-                      } else {
-                          alert(response.Message);
-                      }
-                      
-                    },
-                })
+             $.ajax({
+                 type: "Get",
+                 url: "@Url.Action("AddCart","Cart")",
+                 dataType: 'Json',
+                 cache: false,
+                 contentType: "application/json; charset=utf-8",
+                 data: {
+                     id: currentId,
+                     quantity: currentVal
+                 },
+                 success: function (response) {
+                     console.log(response);
+                     if (response.Result == true) {
+                         $('#amountCart').html(response.Amount);
+                         $('#totalCart').html(formatter.format(response.Total));
+                         Swal.fire({
+                             type: 'success',
+                             width: 400,
+                             height: 300,
+                             text: response.Message,
+                             showConfirmButton: false,
+                             footer: '<a href="@Url.Action("Index","Cart")">Go to Cart ?</a>'
+                         });
+                     } else {
+                         Swal.fire({
+                             type: 'error',
+                             width: 400,
+                             height: 300,
+                             text: response.Message,
+                         })
+                     }
+
+                 },
+             });
             });
-      
+
     </script>
 }

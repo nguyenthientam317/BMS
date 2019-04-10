@@ -2,7 +2,7 @@
 {
     height: 50px;
     line-height: 50px;
-    font_size: 13px;
+    font-size: 13px;
     color: #b5aec4;
 }
 
@@ -33,5 +33,24 @@
     font-size: 25px;
     color: white;
 }
-
-
+.InfoPayment{
+    font-size: 16px;
+}
+.hidden{
+    display: none;
+}
+.menu-left {
+    width: 250px;
+    padding-right: 0;
+    padding-left: 0;
+    float: left;
+    margin-right: 10px;
+    padding-bottom: 20px;
+}
+.menu-left ul li{
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+.menu-left ul li a i{
+    padding-right: 10px
+}

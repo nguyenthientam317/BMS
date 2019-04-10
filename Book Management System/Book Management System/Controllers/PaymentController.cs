@@ -17,7 +17,7 @@ namespace Book_Management_System.Controllers
         public ActionResult Index()
         {
             var IdUser = "1";
-            //var Cart = DB.Carts.Where(l => l.IdUser.Equals(IdUser) && l.IsActive.Equals(true)).FirstOrDefault(); can not use
+
             var Cart = from c in DB.Carts.ToList()
                        where c.IdUser == IdUser && c.IsActive == true
                        select c;

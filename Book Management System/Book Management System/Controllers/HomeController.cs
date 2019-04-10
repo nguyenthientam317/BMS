@@ -15,7 +15,7 @@ namespace Book_Management_System.Controllers
         // GET: Home
         public ActionResult Index(int? page)
         {
-            var ListBook = Db.Books.Where(l=>l.IsActive.Equals(true)).OrderBy(l=>l.CreateDate).ToList();
+            var ListBook = Db.Books.Where(l => l.IsActive.Equals(true)).OrderBy(l => l.CreateDate).ToList();
             return View(PaginatedList<Book>.CreateAsync(ListBook, page ?? 1, ConstantDefine.PAGE_SIZE_INDEX)); // page: đang ở trang nào, trang 1 2 ,3,..
         }
         public ActionResult DetailProduct(string idBook)

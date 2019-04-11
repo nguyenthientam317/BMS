@@ -136,7 +136,7 @@ namespace Book_Management_System.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            return View(user);  // return to a Detail partial View
+            return PartialView(user);  // return to a Detail partial View
         }
 
         // Delete a User

@@ -1,7 +1,8 @@
-﻿@model IEnumerable<Book_Management_System.Models.Order>
+﻿@model IEnumerable<Book_Management_System.Common.OrderItemViewModel>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/LayoutPayment.cshtml";
+    
 }
 @section Js{
     <script src="~/Assets/js/Customer.js"></script>
@@ -48,7 +49,7 @@
                         <td>@item.CreateDate.ToShortDateString()</td>
                         <td>@item.Status</td>
                         <td>@item.MethodPayment</td>
-                        <td>@item.Cart.Total $</td>
+                        <td> @item.TotalPrice $</td>
                         <td>
                             <a id="@item.Id" onclick="Customer.ViewDetail('@item.IdCard')" href="#"><i class="fa fa-info-circle" aria-hidden="true"></i> </a>
                             @if (item.Status == "Processing")

@@ -18,11 +18,28 @@ namespace Book_Management_System.Controllers
         public ActionResult Index()
         {
             string IdUser = "1";
+            //OrderItemViewModel ListOrder = new OrderItemViewModel();
             var ListOrder = from o in DB.Orders.ToList()
-                            where o.Cart.IdUser == IdUser
-                            select o;
+                            from l in DB.CartItems.ToList()
+                            where o.Cart.IdUser == IdUser && o.IdCard == l.IdCard
+                            select new OrderItemViewModel() {
+                                Id = o.Id,
+                                IdCard = o.IdCard,
+                                Status = o.Status,
+                                MethodPayment = o.MethodPayment,
+                                CreateDate = o.CreateDate,
+                                ListCartItem = o.Cart.CartItems,
+                            };
+            var ListOrders = ListOrder.ToList();
+            foreach (var x in ListOrders)
+            {
+                foreach (var y in x.ListCartItem)
+                {
+                    x.TotalPrice += y.Quantity * y.Book.Price;
+                }
+            }
 
-            return View(ListOrder);
+            return View(ListOrders);
         }
         [HttpPost]
         public JsonResult ViewDetail(string id)

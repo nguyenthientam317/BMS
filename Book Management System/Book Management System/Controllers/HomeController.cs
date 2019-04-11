@@ -4,6 +4,7 @@ using Book_Management_System.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
@@ -22,6 +23,11 @@ namespace Book_Management_System.Controllers
         public ActionResult Index(int? page)
         {
             var ListBook = Db.Books.Where(l => l.IsActive.Equals(true)).OrderBy(l => l.CreateDate).ToList();
+            //foreach(var item in ListBook)
+            //{
+            //    item.ImageURL = "/Assets/book-image/" + item.Id + "/" + Path.GetFileName(item.ImageURL);
+            //}
+
             return View(PaginatedList<Book>.CreateAsync(ListBook, page ?? 1, ConstantDefine.PAGE_SIZE_INDEX)); // page: đang ở trang nào, trang 1 2 ,3,..
         }
 
@@ -72,7 +78,8 @@ namespace Book_Management_System.Controllers
         public ActionResult DetailProduct(string idBook)
         {
             var Item = Db.Books.Find(idBook);
-            if(Item != null)
+            //Item.ImageURL = "/Assets/book-image/" + Item.Id + "/" + Path.GetFileName(Item.ImageURL);
+            if (Item != null)
             {
                 return View(Item);
             }

@@ -7,13 +7,13 @@ namespace Book_Management_System.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class removeRequired : IMigrationMetadata
+    public sealed partial class Initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(removeRequired));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201904110808182_removeRequired"; }
+            get { return "201904110830026_Initial"; }
         }
         
         string IMigrationMetadata.Source

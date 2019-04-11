@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -60,6 +61,10 @@ namespace Book_Management_System.Controllers
                 {
                     double total = 0;
                     var cartItem = db.CartItems.Where(x => x.IdCard == CurrentCartId.Id).ToList();
+                    //foreach (var item in cartItem)
+                    //{
+                    //    item.Book.ImageURL = "/Assets/book-image/" + item.Id + "/" + Path.GetFileName(item.Book.ImageURL);
+                    //}
                     // Sum Price all Price of Item
                     foreach (var item in cartItem)
                     {
@@ -85,6 +90,10 @@ namespace Book_Management_System.Controllers
                     db.Carts.Add(cart);
                     db.SaveChanges();
                     var cartItem = db.CartItems.Where(x => x.IdCard == CurrentCartId.Id).ToList();
+                    //foreach (var item in cartItem)
+                    //{
+                    //    item.Book.ImageURL = "/Assets/book-image/" + item.Id + "/" + Path.GetFileName(item.Book.ImageURL);
+                    //}
                     return PartialView(new CartViewModel()
                     {
                         CartItems = cartItem,  // List CartItem
@@ -205,6 +214,7 @@ namespace Book_Management_System.Controllers
         public ActionResult DetailCart(string id)
         {
             var model = db.Books.Find(id);
+            model.ImageURL = "/Assets/book-image/" + model.Id + "/" + Path.GetFileName(model.ImageURL);
             return PartialView("DetailCart",model);
         }
 

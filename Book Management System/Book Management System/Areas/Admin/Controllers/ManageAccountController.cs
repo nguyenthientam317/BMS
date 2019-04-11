@@ -131,7 +131,7 @@ namespace Book_Management_System.Areas.Admin.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             User user = db.Users.Find(id);
-            user.Avatar = "/Assets/user-avatar/" + user.Id + "/" + Path.GetFileName(user.Avatar);
+            //ser.Avatar = "/Assets/user-avatar/" + user.Id + "/" + Path.GetFileName(user.Avatar);
             if (user == null)
             {
                 return HttpNotFound();
@@ -216,7 +216,7 @@ namespace Book_Management_System.Areas.Admin.Controllers
                             }
                             var path = (link + @"\" + f.FileName);
                             f.SaveAs(path);
-                            user.Avatar = (link + @"\" + f.FileName);
+                            user.Avatar = (@"\Assets\user-avatar\" + user.Id + @"\" + f.FileName);
 
                             db.Entry(user).State = EntityState.Modified;
 

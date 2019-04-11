@@ -78,9 +78,9 @@ namespace Book_Management_System.Areas.Admin.Controllers
                     {
                         System.IO.File.Delete(fullPath);
                     }
-                    var path = (link + @"\" + f.FileName);
+                    var path = link + @"\" + f.FileName;
                     f.SaveAs(path);
-                    book.ImageURL = (link + @"\" + f.FileName);
+                    book.ImageURL = @"\Assets\book-image\" + book.Id + @"\" + f.FileName;
                 }
                
                 db.Books.Add(book);
@@ -102,7 +102,7 @@ namespace Book_Management_System.Areas.Admin.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Book book = db.Books.Find(id);
-            book.ImageURL = "/Assets/book-image/" + book.Id + "/" + Path.GetFileName(book.ImageURL);
+            //book.ImageURL = "/Assets/book-image/" + book.Id + "/" + Path.GetFileName(book.ImageURL);
             if (book == null)
             {
                 return HttpNotFound();
@@ -136,13 +136,15 @@ namespace Book_Management_System.Areas.Admin.Controllers
                     {
                         System.IO.File.Delete(fullPath);
                     }
-                    var path = (link + @"\" + f.FileName);
+                    var path = link  + @"\" + f.FileName;
                     f.SaveAs(path);
-                    book.ImageURL = (link + @"\" + f.FileName);
+                    book.ModifiedDate = DateTime.Now;
+                    book.ImageURL = @"\Assets\book-image\" + book.Id +@"\"+ f.FileName;
                     db.Entry(book).State = EntityState.Modified;
                 }
                 else
                 {
+                    book.ModifiedDate = DateTime.Now;
                     book.ImageURL = oldBook;
                     db.Entry(book).State = EntityState.Modified;
                 }

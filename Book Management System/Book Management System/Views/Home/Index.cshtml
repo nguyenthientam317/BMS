@@ -112,6 +112,7 @@
             type: "Get",
             url: "@Url.Action("DetailCart","Cart")",
             data: { id: currentId },
+            cache: false,
             success: function (data) {
                 $('#content').html(data);
                 $('#myModal').modal('show');

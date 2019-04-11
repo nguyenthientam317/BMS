@@ -120,7 +120,8 @@
                 $.ajax({
                     type: "Get",
                     url: "@Url.Action("AddCart","Cart")",
-                    dataType:'Json',
+                    dataType: 'Json',
+                    cache: false,
                   data: {
                       id: currentId,
                       quantity: currentVal

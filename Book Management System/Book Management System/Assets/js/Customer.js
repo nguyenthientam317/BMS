@@ -39,9 +39,9 @@
         var rep = confirm('Are you sure to cancel this order ?');
         if (rep == true) {
             $.ajax({
-                url: Host + 'User/DeleteOrder',
+                url: Host + 'Admin/Orders/SetCancelled',
                 data: {
-                    idCart: CrId
+                    id: CrId
                 },
                 type: 'POST',
                 dataType: 'json',
@@ -56,7 +56,52 @@
                 }
             })
         }
+    },
+    SetDelivering: function (CrId) {
+        var rep = confirm('Are you sure to change status to Delivering ?');
+        if (rep == true) {
+            $.ajax({
+                url: Host + 'Admin/Orders/SetDelivering',
+                data: {
+                    id: CrId
+                },
+                type: 'POST',
+                dataType: 'json',
+                success: function (response) {
+                    if (response.status) {
+                        alert('Change status successfully');
+                        location.reload();
+                    }
+                    else {
+                        alert('Fail');
+                    }
+                }
+            })
+        }
+    },
+    SetCompleted: function (CrId) {
+        var rep = confirm('Are you sure to change status to Completed ?');
+        if (rep == true) {
+            $.ajax({
+                url: Host + 'Admin/Orders/SetCompleted',
+                data: {
+                    id: CrId
+                },
+                type: 'POST',
+                dataType: 'json',
+                success: function (response) {
+                    if (response.status) {
+                        alert('Change status successfully');
+                        location.reload();
+                    }
+                    else {
+                        alert('Fail');
+                    }
+                }
+            })
+        }
     }
+
    
 }
 var Host = 'http://localhost:60528/';

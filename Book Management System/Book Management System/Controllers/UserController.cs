@@ -20,8 +20,7 @@ namespace Book_Management_System.Controllers
             string IdUser = "1";
             //OrderItemViewModel ListOrder = new OrderItemViewModel();
             var ListOrder = from o in DB.Orders.ToList()
-                            from l in DB.CartItems.ToList()
-                            where o.Cart.IdUser == IdUser && o.IdCard == l.IdCard
+                            where o.Cart.IdUser == IdUser 
                             select new OrderItemViewModel() {
                                 Id = o.Id,
                                 IdCard = o.IdCard,
@@ -74,25 +73,44 @@ namespace Book_Management_System.Controllers
             });
         }
         [HttpPost]
-        public JsonResult DeleteOrder(string idCart)
+        public JsonResult DeleteOrder(string id)
         {
-            var check = false;
-            try
+            using (var Transaction = DB.Database.BeginTransaction())
             {
-                var item = DB.Orders.Where(l => l.IdCard.Equals(idCart)).FirstOrDefault();
-                item.Status = ConstantDefine.CANCELLED;
-                DB.Entry(item).State = EntityState.Modified;
-                DB.SaveChanges();
-                check = true;
-            }
-            catch (Exception ex)
-            {
+                bool check = false;
+                try
+                {
+                    var item = DB.Orders.Find(id);
+                    item.Status = ConstantDefine.CANCELLED;
+                    DB.Entry(item).State = EntityState.Modified;
+                    DB.SaveChanges();
+                    
+                    var ListCart = DB.Carts.Find(item.IdCard);
+                    var ListCartItem = ListCart.CartItems;
+                    foreach(var entity in ListCartItem)
+                    {
+                        var itemBook = DB.Books.Find(entity.IdBook);
+                        itemBook.Quantity += entity.Quantity;
+                        DB.Entry(itemBook).State = EntityState.Modified;
+                        DB.SaveChanges();
+                    }
+                    Transaction.Commit();
+                    check = true;
 
+                }
+                catch (Exception ex)
+                {
+                    check = false;
+                    Transaction.Rollback();
+                }
+                return Json(new
+                {
+                    status = check
+                });
             }
-            return Json(new
-            {
-                status = check
-            });
+
+           
+            
 
         }
 

@@ -66,6 +66,14 @@ namespace Book_Management_System.Controllers
                     DB.Entry(CartItem).State = EntityState.Modified;
                     DB.SaveChanges();
 
+                    foreach(var item in CartItem.CartItems)
+                    {
+                        var itemBook = DB.Books.Find(item.IdBook);
+                        itemBook.Quantity -= item.Quantity;
+                        DB.Entry(itemBook).State = EntityState.Modified;
+                        DB.SaveChanges();
+                    }
+
                     Transaction.Commit();
                     check = true;
                     

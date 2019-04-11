@@ -223,8 +223,9 @@
                                 message: 'User name can not be empty'
                             },
                             stringLength: {
-                                min: 2,
-                                max: 50
+                                min: 6,
+                                max: 50,
+                                message: 'User name must be more 6 characters'
                             },
                             remote: {
                                 url: "@Url.Action("IsUserNameUnique", "Register")",

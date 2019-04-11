@@ -596,6 +596,9 @@
     <Content Include="Views\Home\TopNav.cshtml" />
     <Content Include="Views\Cart\IndexPartialView.cshtml" />
     <Content Include="Views\Shared\KeepAlive.ashx" />
+    <Content Include="Views\Shared\LayoutUser.cshtml" />
+    <Content Include="Views\User\EditInfo.cshtml" />
+    <Content Include="Views\User\ChangePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

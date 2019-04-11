@@ -1,4 +1,5 @@
-﻿using Book_Management_System.Infrastructure;
+﻿using Book_Management_System.Common;
+using Book_Management_System.Infrastructure;
 using Book_Management_System.Models;
 using System;
 using System.Collections.Generic;
@@ -10,13 +11,18 @@ using System.Web.Script.Serialization;
 
 namespace Book_Management_System.Controllers
 {
+    [AuthorizeUser]
     public class PaymentController : Controller
     {
+        private UserLogin CurrentUserId
+        {
+            get { return (UserLogin)HttpContext.Session[Constants.USER_SESSION]; }
+        }
         // GET: Payment
         Model DB = new Model();
         public ActionResult Index()
         {
-            var IdUser = "1";
+            var IdUser = CurrentUserId.UserId;
 
             var Cart = from c in DB.Carts.ToList()
                        where c.IdUser == IdUser && c.IsActive == true

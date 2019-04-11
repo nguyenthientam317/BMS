@@ -222,6 +222,7 @@ namespace Book_Management_System.Areas.Admin.Controllers
                         else
                         {
                             model.IsActive = user.IsActive;
+                            db.Entry(user).State = EntityState.Modified;
                             db.Entry(model).State = EntityState.Modified;
                         }
                      

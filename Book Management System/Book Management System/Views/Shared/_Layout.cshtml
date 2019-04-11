@@ -69,7 +69,7 @@
     <div class="container product_section_container">
         <div class="row">
             <div class="col product_section clearfix">
-                <!-- BREADCUM -->
+                <!-- Search bar -->
                 <div class="breadcrumbs">
                     @using (Html.BeginForm("Search", "Home", FormMethod.Get, new { @class = "form-horizontal" }))
                     {
@@ -81,18 +81,17 @@
                         </div>
                     }
                 </div>
-                <!-- BREADCUM-->
+                <!-- Search bar-->
                 <!-- SIDEBAR -->
                 <div class="sidebar">
-
                     <!-- CATEROGIES LIST-->
                     @{Html.RenderAction("BookCategories", "Home"); }
                     <!-- AUTHOR LIST -->
                     @{Html.RenderAction("Authors", "Home");}
                 </div>
+                <!-- SIDEBAR -->
                 @RenderBody()
             </div>
-            <!-- SIDEBAR -->
         </div>
     </div>
     <!-- END NAVIGATION LEFT -->

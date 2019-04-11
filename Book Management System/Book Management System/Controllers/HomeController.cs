@@ -32,7 +32,7 @@ namespace Book_Management_System.Controllers
             // make sure User has already logined
             if (CurrentUserId != null)
             {
-                var CurrentCartId = Db.Carts.Where(x => x.IdUser == CurrentUserId.UserId).FirstOrDefault();
+                var CurrentCartId = Db.Carts.Where(x => x.IdUser == CurrentUserId.UserId && x.IsActive == true).FirstOrDefault();
                 if(CurrentCartId == null)
                 {
                     ViewBag.numberItem = 0;

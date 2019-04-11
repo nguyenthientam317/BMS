@@ -21,7 +21,7 @@ namespace Book_Management_System.Controllers
         }
         private Cart CurrentCartId
         {
-            get { return db.Carts.Where(x => x.IdUser == CurrentUserId.UserId).FirstOrDefault(); }
+            get { return db.Carts.Where(x => x.IdUser == CurrentUserId.UserId && x.IsActive == true).FirstOrDefault(); }
         }
         public string FindNextIdCart()
         {
@@ -53,12 +53,13 @@ namespace Book_Management_System.Controllers
         {
             if (CurrentUserId != null)
             {
-                var cart = db.Carts.Where(x => x.IdUser == CurrentUserId.UserId).FirstOrDefault();
+                var cart = db.Carts.Where(x => x.IdUser == CurrentUserId.UserId && x.IsActive == true).FirstOrDefault();
+
                 // Cart have already exist
                 if (cart != null)
                 {
                     double total = 0;
-                    var cartItem = db.CartItems.Where(x => x.IdCard == CurrentCartId.Id).ToList();                  
+                    var cartItem = db.CartItems.Where(x => x.IdCard == CurrentCartId.Id).ToList();
                     // Sum Price all Price of Item
                     foreach (var item in cartItem)
                     {
@@ -69,6 +70,26 @@ namespace Book_Management_System.Controllers
                         CartItems = cartItem,  // List CartItem
                         TotalQuantity = cartItem != null ? cartItem.Count() : 0,  // Sum Quantity all Item
                         TotalAmount = cartItem != null ? total : 0
+                    });
+                }
+                else
+                {
+                    cart = new Cart()
+                    {
+                        Id = FindNextIdCart(),
+                        IdUser = CurrentUserId.UserId,
+                        Total = 0,
+                        CreateDate = DateTime.Now,
+                        IsActive = true
+                    };
+                    db.Carts.Add(cart);
+                    db.SaveChanges();
+                    var cartItem = db.CartItems.Where(x => x.IdCard == CurrentCartId.Id).ToList();
+                    return PartialView(new CartViewModel()
+                    {
+                        CartItems = cartItem,  // List CartItem
+                        TotalQuantity = 0,  // Sum Quantity all Item
+                        TotalAmount = 0
                     });
                 }
             }
@@ -94,7 +115,7 @@ namespace Book_Management_System.Controllers
             // make sure user has already log in
             if(CurrentUserId != null)
             {
-                var cart = db.Carts.Where(x => x.IdUser == CurrentUserId.UserId).FirstOrDefault();
+                var cart = db.Carts.Where(x => x.IdUser == CurrentUserId.UserId && x.IsActive == true).FirstOrDefault();
                 var product = db.Books.Where(x => x.Id == id).Select(x => x.Price).FirstOrDefault();
 
                 // User's Cart hasn't already existed
@@ -104,7 +125,7 @@ namespace Book_Management_System.Controllers
                     {
                         Id = FindNextIdCart(),
                         IdUser = CurrentUserId.UserId,
-                        Total = product,
+                        Total = 0,
                         CreateDate = DateTime.Now,
                         IsActive = true
                     };

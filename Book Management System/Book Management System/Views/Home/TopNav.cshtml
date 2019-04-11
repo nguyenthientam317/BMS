@@ -8,7 +8,7 @@
                         @{ if (session != null)
                             {
                                 <li class="account">
-                                    <a href="#" class="visitor_name">
+                                    <a href="@Url.Action("EditInfo","User", new {id = session.UserId })" class="visitor_name">
                                         Welcome, <b> @session.UserName </b>
                                     </a>
                                 </li>
@@ -27,7 +27,7 @@
                                     </a>
                                 </li>
                                 <li class="account">
-                                    <a href="@Url.Action("","")" class="visitor_name">
+                                    <a href="@Url.Action("Create","Register")" class="visitor_name">
                                         Sign in
                                     </a>
                                 </li>

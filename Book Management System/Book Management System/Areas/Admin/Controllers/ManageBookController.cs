@@ -123,6 +123,7 @@ namespace Book_Management_System.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 string link = Server.MapPath(@"~\Assets\book-image\" + book.Id);
+                var oldBook = db.Books.Where(x => x.Id == book.Id).Select(x => x.ImageURL).FirstOrDefault();
                 if (!Directory.Exists(link))
                 {
                     Directory.CreateDirectory(Server.MapPath(@"~\Assets\book-image\" + book.Id));
@@ -139,15 +140,15 @@ namespace Book_Management_System.Areas.Admin.Controllers
                     f.SaveAs(path);
                     book.ImageURL = (link + @"\" + f.FileName);
                     db.Entry(book).State = EntityState.Modified;
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
                 }
                 else
                 {
+                    book.ImageURL = oldBook;
                     db.Entry(book).State = EntityState.Modified;
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
                 }
+                
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
             ViewBag.IdAuthor = new SelectList(db.Authors, "Id", "Name", book.IdAuthor);
             ViewBag.IdCategory = new SelectList(db.BookCategories, "Id", "CateName", book.IdCategory);

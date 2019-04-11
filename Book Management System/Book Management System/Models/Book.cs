@@ -26,7 +26,7 @@ namespace Book_Management_System.Models
         [Required]
         public string Summary { get; set; }
 
-        [Required]
+
         public string ImageURL { get; set; }
 
         [Required]

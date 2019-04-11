@@ -174,6 +174,10 @@
     <Compile Include="Migrations\201904100359099_new.Designer.cs">
       <DependentUpon>201904100359099_new.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904110808182_removeRequired.cs" />
+    <Compile Include="Migrations\201904110808182_removeRequired.Designer.cs">
+      <DependentUpon>201904110808182_removeRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Author.cs" />
@@ -618,6 +622,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201904100359099_new.resx">
       <DependentUpon>201904100359099_new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904110808182_removeRequired.resx">
+      <DependentUpon>201904110808182_removeRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -221,6 +221,8 @@ namespace Book_Management_System.Areas.Admin.Controllers
                         }
                         else
                         {
+                            var oldUser = db.Users.Find(user.Id);
+                            user.Avatar = oldUser.Avatar;
                             model.IsActive = user.IsActive;
                             db.Entry(model).State = EntityState.Modified;
                         }

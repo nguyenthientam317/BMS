@@ -138,10 +138,16 @@ namespace Book_Management_System.Areas.Admin.Controllers
                     var path = (link + @"\" + f.FileName);
                     f.SaveAs(path);
                     book.ImageURL = (link + @"\" + f.FileName);
+                    db.Entry(book).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
                 }
-                db.Entry(book).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                else
+                {
+                    db.Entry(book).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
             ViewBag.IdAuthor = new SelectList(db.Authors, "Id", "Name", book.IdAuthor);
             ViewBag.IdCategory = new SelectList(db.BookCategories, "Id", "CateName", book.IdCategory);

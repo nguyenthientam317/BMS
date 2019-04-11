@@ -944,34 +944,43 @@
                     $.ajax({
                         type: 'Get',
                         url: "@Url.Action("Delete","Cart")",
-                        //dataType: 'Json',
+                        dataType: 'Json',
                         data: {
                             idItem: IdItem,
                             id: Id
                         },
                         success: function (response) {
-                            $('#main').html(response);
-                            var a = parseInt($('#quantityCart').attr('data-id'));
-                            var b = parseInt($('#total').attr('data-id'));
-                            $('#amountCart').html(a);
-                            $('#totalCart').html(formatter.format(b));
+                            //$('#main').html(response);
+                            //var a = parseInt($('#quantityCart').attr('data-id'));
+                            //var b = parseInt($('#total').attr('data-id'));
+                            //$('#amountCart').html(a);
+                            //$('#totalCart').html(formatter.format(b));
 
-                            //Sweet alert
-                            swalWithBootstrapButtons.fire(
-                                'Deleted!',
-                                'Your book has been deleted.',
-                                'success'
-                            )
-                            //if (response.Result == true) {
-                            //    alert(response.Message);
-                            //    $("#total").html(formatter.format(parseInt(response.Total)));
-                            //    $("#amountCart").html(formatter.format(parseInt(response.Amount)));
-                            //    $("#totalCart").html(formatter.format(parseInt(response.Total)));
+                            ////Sweet alert
+                            //swalWithBootstrapButtons.fire(
+                            //    'Deleted!',
+                            //    'Your book has been deleted.',
+                            //    'success'
+                            //)
 
-                            //}
-                            //else {
-                            //    alert(response.Message);
-                            //}
+                            if (response.Result == true) {
+                                $('#main').load("/Cart/IndexPartialView");
+                                $("#total").html(formatter.format(parseInt(response.Total)));
+                                $("#amountCart").html(response.Amount);
+                                $("#totalCart").html(formatter.format(parseInt(response.Total)));
+                                swalWithBootstrapButtons.fire(
+                                    'Deleted!',
+                                    response.Message,
+                                    'success'
+                                );
+                            }
+                            else {
+                                swalWithBootstrapButtons.fire(
+                                    'Error',
+                                    response.Message,
+                                    'error'
+                                );
+                            }
                         }
                     });
 

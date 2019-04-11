@@ -337,43 +337,57 @@ namespace Book_Management_System.Controllers
         [AuthorizeUser]
         public ActionResult UpdateCart(string idItem, string id, int quantity)
         {
-            using (DbContextTransaction tran = db.Database.BeginTransaction())
+            var model = db.CartItems.Where(x => x.IdCard == CurrentCartId.Id && x.IdBook == id && x.Id == idItem).FirstOrDefault();
+            if(model != null)
             {
-                var model = db.CartItems.Where(x => x.IdCard == CurrentCartId.Id && x.IdBook == id && x.Id == idItem).FirstOrDefault();
-                try
-                {                    
-                    model.Quantity = quantity;
-
-                    var newValue = (model.Quantity * model.Book.Price); //  new value of this book
-
-                    db.Entry(model).State = EntityState.Modified;
-                    db.SaveChanges();
-                    tran.Commit();
-
-                    double total = 0;
-                    var amount = db.CartItems.Where(x => x.IdCard == CurrentCartId.Id).ToList();
-                    foreach (var item in amount)
-                    {
-                        total += (item.Quantity * item.Book.Price); // sum value of items
-                    }
-
-                    return Json(new UpdateCart() {
-                        Result = true,
-                        Message = "Update cart is successful.",
-                        Total = total,
-                        New = newValue
-                    }, JsonRequestBehavior.AllowGet);
-                }
-                catch
+                using (DbContextTransaction tran = db.Database.BeginTransaction())
                 {
-                    tran.Rollback();
-                    return Json(new UpdateCart()
+
+                    try
                     {
-                        Result = false,
-                        Message = "Update cart is failed.",
-                    }, JsonRequestBehavior.AllowGet);
-                } 
+                        model.Quantity = quantity;
+
+                        var newValue = (model.Quantity * model.Book.Price); //  new value of this book
+
+                        db.Entry(model).State = EntityState.Modified;
+                        db.SaveChanges();
+                        tran.Commit();
+
+                        double total = 0;
+                        var amount = db.CartItems.Where(x => x.IdCard == CurrentCartId.Id).ToList();
+                        foreach (var item in amount)
+                        {
+                            total += (item.Quantity * item.Book.Price); // sum value of items
+                        }
+
+                        return Json(new UpdateCart()
+                        {
+                            Result = true,
+                            Message = "Update cart is successful.",
+                            Total = total,
+                            New = newValue
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                    catch
+                    {
+                        tran.Rollback();
+                        return Json(new UpdateCart()
+                        {
+                            Result = false,
+                            Message = "Update cart is failed.",
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                }
             }
+            else
+            {
+                return Json(new UpdateCart()
+                {
+                    Result = false,
+                    Message = "This book is not exist. Please reload page !",
+                }, JsonRequestBehavior.AllowGet);
+            }
+            
         
         }
 

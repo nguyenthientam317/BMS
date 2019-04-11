@@ -166,9 +166,11 @@
     <Compile Include="Infrastructure\CommonMethod.cs" />
     <Compile Include="Infrastructure\ConstantDefine.cs" />
     <Compile Include="Infrastructure\PaginatedList.cs" />
-    <Compile Include="Migrations\201904110830026_Initial.cs" />
-    <Compile Include="Migrations\201904110830026_Initial.Designer.cs">
-      <DependentUpon>201904110830026_Initial.cs</DependentUpon>
+
+    <Compile Include="Migrations\201904111510599_Initial.cs" />
+    <Compile Include="Migrations\201904111510599_Initial.Designer.cs">
+      <DependentUpon>201904111510599_Initial.cs</DependentUpon>
+
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
@@ -616,8 +618,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201904110830026_Initial.resx">
-      <DependentUpon>201904110830026_Initial.cs</DependentUpon>
+
+    <EmbeddedResource Include="Migrations\201904111510599_Initial.resx">
+      <DependentUpon>201904111510599_Initial.cs</DependentUpon>
+
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

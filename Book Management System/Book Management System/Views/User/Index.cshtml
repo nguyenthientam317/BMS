@@ -33,9 +33,9 @@
                         <td> @item.TotalPrice $</td>
                         <td>
                             <a id="@item.Id" onclick="Customer.ViewDetail('@item.IdCard')" href="#"><i class="fa fa-info-circle" aria-hidden="true"></i> </a>
-                            @if (item.Status == "Processing")
+                            @if (item.Status == "Ordered")
                             {
-                                <a id="@item.Id" onclick="Customer.DeleteOrder('@item.IdCard')" style="margin-left: 15px" href="#">
+                                <a id="@item.Id" onclick="Customer.DeleteOrder('@item.Id')" style="margin-left: 15px" href="#">
                                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                                 </a>
                             }

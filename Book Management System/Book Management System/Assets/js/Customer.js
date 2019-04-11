@@ -39,7 +39,7 @@
         var rep = confirm('Are you sure to cancel this order ?');
         if (rep == true) {
             $.ajax({
-                url: Host + 'Admin/Orders/SetCancelled',
+                url: Host+'User/DeleteOrder',
                 data: {
                     id: CrId
                 },

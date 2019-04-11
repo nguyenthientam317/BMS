@@ -450,7 +450,7 @@
                    Id = "2",
                    IdUser = "1",
                    CreateDate = Now,
-                   IsActive = true,
+                   IsActive = false,
                    Total = 50
                }
                );
@@ -472,34 +472,34 @@
                      IsActive = true,
                  }
                 );
-            //context.Carts.AddOrUpdate(l => l.Id,
-            //  new Models.Cart()
-            //  {
-            //      Id = "3",
-            //      IdUser = "1",
-            //      CreateDate = Now,
-            //      IsActive = false,
-            //      Total = 50
-            //  }
-            //  );
-            //context.CartItems.AddOrUpdate(l => l.Id,
-            //    new Models.CartItem()
-            //    {
-            //        Id = "5",
-            //        IdCard = "3",
-            //        IdBook = "3",
-            //        Quantity = 2,
-            //        IsActive = true,
-            //    },
-            //     new Models.CartItem()
-            //     {
-            //         Id = "6",
-            //         IdCard = "3",
-            //         IdBook = "4",
-            //         Quantity = 1,
-            //         IsActive = true,
-            //     }
-            //    );
+            context.Carts.AddOrUpdate(l => l.Id,
+              new Models.Cart()
+              {
+                  Id = "3",
+                  IdUser = "1",
+                  CreateDate = Now,
+                  IsActive = true,
+                  Total = 50
+              }
+              );
+            context.CartItems.AddOrUpdate(l => l.Id,
+                new Models.CartItem()
+                {
+                    Id = "5",
+                    IdCard = "3",
+                    IdBook = "3",
+                    Quantity = 2,
+                    IsActive = true,
+                },
+                 new Models.CartItem()
+                 {
+                     Id = "6",
+                     IdCard = "3",
+                     IdBook = "4",
+                     Quantity = 1,
+                     IsActive = true,
+                 }
+                );
             //context.Carts.AddOrUpdate(l => l.Id,
             //  new Models.Cart()
             //  {

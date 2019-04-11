@@ -198,6 +198,9 @@ namespace Book_Management_System.Areas.Admin.Controllers
                     try
                     {
                         string link = Server.MapPath(@"~\Assets\user-avatar\" + user.Id);
+                        var model = db.Accounts.Find(user.Id);
+                        model.IsActive = user.IsActive;
+                        var oldUser = db.Users.Where(x=>x.Id == user.Id).Select(x=>x.Avatar).FirstOrDefault();
                         if (!Directory.Exists(link))
                         {
                             Directory.CreateDirectory(Server.MapPath(@"~\Assets\user-avatar\" + user.Id));
@@ -213,10 +216,15 @@ namespace Book_Management_System.Areas.Admin.Controllers
                             var path = (link + @"\" + f.FileName);
                             f.SaveAs(path);
                             user.Avatar = (link + @"\" + f.FileName);
+                         
+                            db.Entry(user).State = EntityState.Modified;
+
                         }
-                        var model = db.Accounts.Find(user.Id);
-                        model.IsActive = user.IsActive;
-                        db.Entry(user).State = EntityState.Modified;
+                        else
+                        {
+                            user.Avatar = oldUser;
+                            db.Entry(user).State = EntityState.Modified;
+                        }
                         db.Entry(model).State = EntityState.Modified;
                         db.SaveChanges();
                         tran.Commit();

@@ -26,44 +26,44 @@
     </style>
 </head>
 
-<body>
+<body >
     <!-- START HEADER -->
-    <header>
-        <div class="super_container">
-            <header class="header trans_300">
-                <!-- TOP NAV -->
-                @{ Html.RenderAction("TopNav", "Home");}
-                <!-- TOP NAV -->
-                <!-- START MAIN HEADER -->
-                <div class="main_nav_container">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12 text-right">
-                                <div class="logo_container">
-                                    <a href="~/">
-                                        BestSeller
-                                        <br />
-                                        <span>BookStore</span>
-                                    </a>
-                                </div>
-                                <nav class="navbar">
-                                    <ul class="navbar_menu">
-                                        <li class="active"><a href="#">Home</a></li>
-                                        <li><a href="#">Products</a></li>
-                                        <li><a href="#">Promotions</a></li>
-                                        <li><a href="#">Profile</a></li>
-                                        <li><a href="#">About Us</a></li>
-                                        <li><a href="#">Contacts</a></li>
-                                    </ul>
-                                </nav>
+
+    <div class="super_container">
+        <header class="header trans_300">
+            <!-- TOP NAV -->
+            @{ Html.RenderAction("TopNav", "Home");}
+            <!-- TOP NAV -->
+            <!-- START MAIN HEADER -->
+            <div class="main_nav_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-right">
+                            <div class="logo_container">
+                                <a href="~/">
+                                    BestSeller
+                                    <br />
+                                    <span>BookStore</span>
+                                </a>
                             </div>
+                            <nav class="navbar">
+                                <ul class="navbar_menu">
+                                    <li class="active"><a href="#">Home</a></li>
+                                    <li><a href="#">Products</a></li>
+                                    <li><a href="#">Promotions</a></li>
+                                    <li><a href="#">Profile</a></li>
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Contacts</a></li>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </div>
-                <!-- END MAIN HEADER -->
-            </header>
-        </div>
-    </header>
+            </div>
+            <!-- END MAIN HEADER -->
+        </header>
+    </div>
+
     <!-- END HEADER -->
     <!-- START NAVIGATION LEFT-->
     <div class="container product_section_container">
@@ -129,7 +129,7 @@
             setInterval("heartBeat()", 1000 * 30); // 30s gửi request một lần
         });
     </script>
-
+    
 
     @RenderSection("Js", required: false)
 </body>

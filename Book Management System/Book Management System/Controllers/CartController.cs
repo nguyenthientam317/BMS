@@ -358,43 +358,57 @@ namespace Book_Management_System.Controllers
         [AuthorizeUser]
         public ActionResult UpdateCart(string idItem, string id, int quantity)
         {
-            using (DbContextTransaction tran = db.Database.BeginTransaction())
+            var model = db.CartItems.Where(x => x.IdCard == CurrentCartId.Id && x.IdBook == id && x.Id == idItem).FirstOrDefault();
+            if(model != null)
             {
-                var model = db.CartItems.Where(x => x.IdCard == CurrentCartId.Id && x.IdBook == id && x.Id == idItem).FirstOrDefault();
-                try
-                {                    
-                    model.Quantity = quantity;
-
-                    var newValue = (model.Quantity * model.Book.Price); //  new value of this book
-
-                    db.Entry(model).State = EntityState.Modified;
-                    db.SaveChanges();
-                    tran.Commit();
-
-                    double total = 0;
-                    var amount = db.CartItems.Where(x => x.IdCard == CurrentCartId.Id).ToList();
-                    foreach (var item in amount)
-                    {
-                        total += (item.Quantity * item.Book.Price); // sum value of items
-                    }
-
-                    return Json(new UpdateCart() {
-                        Result = true,
-                        Message = "Update cart is successful.",
-                        Total = total,
-                        New = newValue
-                    }, JsonRequestBehavior.AllowGet);
-                }
-                catch
+                using (DbContextTransaction tran = db.Database.BeginTransaction())
                 {
-                    tran.Rollback();
-                    return Json(new UpdateCart()
+
+                    try
                     {
-                        Result = false,
-                        Message = "Update cart is failed.",
-                    }, JsonRequestBehavior.AllowGet);
-                } 
+                        model.Quantity = quantity;
+
+                        var newValue = (model.Quantity * model.Book.Price); //  new value of this book
+
+                        db.Entry(model).State = EntityState.Modified;
+                        db.SaveChanges();
+                        tran.Commit();
+
+                        double total = 0;
+                        var amount = db.CartItems.Where(x => x.IdCard == CurrentCartId.Id).ToList();
+                        foreach (var item in amount)
+                        {
+                            total += (item.Quantity * item.Book.Price); // sum value of items
+                        }
+
+                        return Json(new UpdateCart()
+                        {
+                            Result = true,
+                            Message = "Update cart is successful.",
+                            Total = total,
+                            New = newValue
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                    catch
+                    {
+                        tran.Rollback();
+                        return Json(new UpdateCart()
+                        {
+                            Result = false,
+                            Message = "Update cart is failed.",
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                }
             }
+            else
+            {
+                return Json(new UpdateCart()
+                {
+                    Result = false,
+                    Message = "This book is not exist. Please reload page !",
+                }, JsonRequestBehavior.AllowGet);
+            }
+            
         
         }
 
@@ -413,26 +427,70 @@ namespace Book_Management_System.Controllers
                         db.CartItems.Remove(model);
                         db.SaveChanges();
                         tran.Commit();
-
                         double total = 0;
                         var amount = db.CartItems.Where(x => x.IdCard == CurrentCartId.Id).ToList();
                         foreach (var item in amount)
                         {
                             total += (item.Quantity * item.Book.Price);
                         }
-                        return RedirectToAction("IndexPartialView");
+                        return Json(new CartResponseModel()
+                        {
+                            Result = true,
+                            Total = total,
+                            Amount = amount.Count(),
+                            Message = "Your book has been deleted."
+
+                        }, JsonRequestBehavior.AllowGet);
                     }
                     catch
                     {
                         tran.Rollback();
-                        return RedirectToAction("IndexPartialView");
+                        return Json(new CartResponseModel()
+                        {
+                            Result = false,
+                            Message = "An error is current !"
+                        }, JsonRequestBehavior.AllowGet);
                     }
                 }
+               
             }
             else
             {
-                return RedirectToAction("IndexPartialView");
+                return Json(new CartResponseModel()
+                {
+                    Result = false,
+                    Message = "This book is not exist. Please reload page !"
+                }, JsonRequestBehavior.AllowGet);
             }
+            //if (model != null)
+            //{
+            //    using (DbContextTransaction tran = db.Database.BeginTransaction())
+            //    {
+            //        try
+            //        {
+            //            db.CartItems.Remove(model);
+            //            db.SaveChanges();
+            //            tran.Commit();
+
+            //            double total = 0;
+            //            var amount = db.CartItems.Where(x => x.IdCard == CurrentCartId.Id).ToList();
+            //            foreach (var item in amount)
+            //            {
+            //                total += (item.Quantity * item.Book.Price);
+            //            }
+            //            return RedirectToAction("IndexPartialView");
+            //        }
+            //        catch
+            //        {
+            //            tran.Rollback();
+            //            return RedirectToAction("IndexPartialView");
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    return RedirectToAction("IndexPartialView");
+            //}
         }
     }
 }

@@ -69,7 +69,7 @@ namespace Book_Management_System.Areas.Admin.Controllers
                 MyDictionary.Add("valid", false);
                 return Json(MyDictionary, JsonRequestBehavior.AllowGet);
             }
-            else 
+            else
             {
                 var MyDictionary = new Dictionary<string, bool>();
                 MyDictionary.Add("valid", true);
@@ -84,7 +84,7 @@ namespace Book_Management_System.Areas.Admin.Controllers
         }
 
         // POST: Admin/ManageAccount/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,UserName,Password,IdRole,IsActive")] Account account)
@@ -98,7 +98,7 @@ namespace Book_Management_System.Areas.Admin.Controllers
                         User user = new User();
                         user.Id = FindNextIdAccount();
                         user.IsActive = account.IsActive;
-                        account.Id = user.Id;   // Auto create 1 new Id 
+                        account.Id = user.Id;   // Auto create 1 new Id
                         account.Password = Encryptor.ToMD5(account.Password);   // Encrypt Passord
 
                         db.Users.Add(user);
@@ -110,11 +110,11 @@ namespace Book_Management_System.Areas.Admin.Controllers
                     catch
                     {
                         tran.Rollback();
-                       
+
                     }
-                    
+
                 }
-               
+
             }
 
             ViewBag.IdRole = new SelectList(db.Roles, "Id", "RoleName", account.IdRole);
@@ -136,7 +136,7 @@ namespace Book_Management_System.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            return View(user);  // return to a Detail partial View 
+            return View(user);  // return to a Detail partial View
         }
 
         // Delete a User
@@ -164,7 +164,7 @@ namespace Book_Management_System.Areas.Admin.Controllers
            }
 
        }*/
-    
+
 
         // GET: Admin/ManageAccount/Edit/5
         public ActionResult Edit(string id)
@@ -184,7 +184,7 @@ namespace Book_Management_System.Areas.Admin.Controllers
         }
 
         // POST: Admin/ManageAccount/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -199,12 +199,14 @@ namespace Book_Management_System.Areas.Admin.Controllers
                     {
                         string link = Server.MapPath(@"~\Assets\user-avatar\" + user.Id);
                         var model = db.Accounts.Find(user.Id);
+                        model.IsActive = user.IsActive;
+                        var oldUser = db.Users.Where(x=>x.Id == user.Id).Select(x=>x.Avatar).FirstOrDefault();
                         if (!Directory.Exists(link))
                         {
                             Directory.CreateDirectory(Server.MapPath(@"~\Assets\user-avatar\" + user.Id));
                         }
                         var f = Request.Files["Avatar"];
-                        
+
                         if (f != null && f.ContentLength > 0)
                         {
                             string fullPath = link + f.FileName;
@@ -215,17 +217,17 @@ namespace Book_Management_System.Areas.Admin.Controllers
                             var path = (link + @"\" + f.FileName);
                             f.SaveAs(path);
                             user.Avatar = (link + @"\" + f.FileName);
-                            model.IsActive = user.IsActive;
+
                             db.Entry(user).State = EntityState.Modified;
-                            db.Entry(model).State = EntityState.Modified;
+
                         }
                         else
                         {
-                            model.IsActive = user.IsActive;
+
+                            user.Avatar = oldUser;
                             db.Entry(user).State = EntityState.Modified;
-                            db.Entry(model).State = EntityState.Modified;
                         }
-                     
+                        db.Entry(model).State = EntityState.Modified;
                         db.SaveChanges();
                         tran.Commit();
                         return RedirectToAction("Index");
@@ -235,9 +237,9 @@ namespace Book_Management_System.Areas.Admin.Controllers
                         tran.Rollback();
                     }
                 }
-                   
+
             }
-         
+
             return View(user);
         }
 
@@ -276,6 +278,6 @@ namespace Book_Management_System.Areas.Admin.Controllers
             base.Dispose(disposing);
         }
 
-       
+
     }
 }

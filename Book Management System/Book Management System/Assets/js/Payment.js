@@ -103,11 +103,11 @@ var Payment = {
             type: 'POST',
             success: function (response) {
                 if (response.status) {
-                    alert('Payment Successfully');
+                    alert('Order Successfully');
                     window.location.href = "/";
                 }
                 else {
-                    alert('Payment Fail');
+                    alert('Order fail');
                 }
             }
 

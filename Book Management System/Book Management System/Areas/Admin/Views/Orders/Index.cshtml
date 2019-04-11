@@ -57,15 +57,13 @@
                             <button onclick="Customer.ViewDetail('@item.IdCard')" type="button" class="btn btn-info">Detail</button>
                             <button onclick="Customer.SetDelivering('@item.Id')" type="button" class="btn btn-primary">Delivering</button>
                             <button onclick="Customer.DeleteOrder('@item.Id')" type="button" class="btn btn-danger">Cancelle</button>
-                            @*@Html.ActionLink("Delivering", "SetDelivering", new { id = item.Id }, new { @class = "btn btn-primary" })
-                @Html.ActionLink("Cancel", "SetCancelled", new { id = item.Id }, new { @class = "btn btn-danger" })*@
+                          
 
                         }
                         else if (item.Status == "Delivering")
                         {
                             <button onclick="Customer.ViewDetail('@item.IdCard')" type="button" class="btn btn-info">Detail</button>
                             <button onclick="Customer.SetCompleted('@item.Id')" type="button" class="btn btn-success">Complete</button>
-                            @*@Html.ActionLink("Complete", "SetCompleted", new { id = item.Id }, new { @class = "btn btn-success" })*@
                         }
                         else
                         {

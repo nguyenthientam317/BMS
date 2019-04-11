@@ -14,6 +14,9 @@ namespace Book_Management_System.Infrastructure
         public const string PRICE_DESC_SORT = "PriceDesc";
         public const string PRICE_SORT = "Price";
 
-        public const string PROCESSING = "Processing";
+        public const string PROCESSING = "Ordered";
+        public const string DELIVERING = "Delivering";
+        public const string COMPLETED = "Completed";
+        public const string CANCELLED = "Cancelled";
     }
 }

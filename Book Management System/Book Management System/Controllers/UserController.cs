@@ -63,7 +63,7 @@ namespace Book_Management_System.Controllers
             try
             {
                 var item = DB.Orders.Where(l => l.IdCard.Equals(idCart)).FirstOrDefault();
-                item.Status = "Cancel";
+                item.Status = ConstantDefine.CANCELLED;
                 DB.Entry(item).State = EntityState.Modified;
                 DB.SaveChanges();
                 check = true;

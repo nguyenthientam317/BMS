@@ -2,7 +2,6 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Details</h2>
@@ -25,6 +24,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MethodPayment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MethodPayment)
         </dd>
 
         <dt>

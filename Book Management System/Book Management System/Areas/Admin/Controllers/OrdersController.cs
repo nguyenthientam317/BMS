@@ -6,12 +6,11 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Book_Management_System.Common;
+using Book_Management_System.Infrastructure;
 using Book_Management_System.Models;
 
 namespace Book_Management_System.Areas.Admin.Controllers
 {
-    [AuthorizeUser]
     public class OrdersController : Controller
     {
         private Model db = new Model();
@@ -50,7 +49,7 @@ namespace Book_Management_System.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,IdCard,CreateDate,Status")] Order order)
+        public ActionResult Create([Bind(Include = "Id,IdCard,CreateDate,MethodPayment,Status")] Order order)
         {
             if (ModelState.IsValid)
             {
@@ -84,7 +83,7 @@ namespace Book_Management_System.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,IdCard,CreateDate,Status")] Order order)
+        public ActionResult Edit([Bind(Include = "Id,IdCard,CreateDate,MethodPayment,Status")] Order order)
         {
             if (ModelState.IsValid)
             {
@@ -94,6 +93,67 @@ namespace Book_Management_System.Areas.Admin.Controllers
             }
             ViewBag.IdCard = new SelectList(db.Carts, "Id", "IdUser", order.IdCard);
             return View(order);
+        }
+        public JsonResult SetDelivering(string id)
+        {
+            var Checked = false;
+            var order = db.Orders.Find(id);
+            try
+            {
+                order.Status = ConstantDefine.DELIVERING;
+                db.Entry(order).State = EntityState.Modified;
+                db.SaveChanges();
+                Checked = true;
+            }
+            catch(Exception ex)
+            {
+            }
+            
+            return Json(new
+            {
+                status = Checked
+            });
+               
+        }
+        public JsonResult SetCompleted(string id)
+        {
+            var Checked = false;
+            var order = db.Orders.Find(id);
+            try
+            {
+                order.Status = ConstantDefine.COMPLETED;
+                db.Entry(order).State = EntityState.Modified;
+                db.SaveChanges();
+                Checked = true;
+            }
+            catch (Exception ex)
+            {
+            }
+
+            return Json(new
+            {
+                status = Checked
+            });
+        }
+        public ActionResult SetCancelled(string id)
+        {
+            var Checked = false;
+            var order = db.Orders.Find(id);
+            try
+            {
+                order.Status = ConstantDefine.CANCELLED;
+                db.Entry(order).State = EntityState.Modified;
+                db.SaveChanges();
+                Checked = true;
+            }
+            catch (Exception ex)
+            {
+            }
+
+            return Json(new
+            {
+                status = Checked
+            });
         }
 
         // GET: Admin/Orders/Delete/5

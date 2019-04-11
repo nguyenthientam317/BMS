@@ -2,77 +2,120 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-
-
+@section scripts{
+    <script src="~/Assets/js/Customer.js"></script>
+}
 <div id="page-wrapper">
     <div class="row">
-        <div class="col-md-12">
-            <h1 class="page-header">Manage order</h1>
+        <div class="col-lg-12">
+            <h2>Edit</h2>
         </div>
+        <!-- /.col-lg-12 -->
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="table-responsive">
-                <p>
-                    @Html.ActionLink("Create New", "Create")
-                </p>
+    <h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cart.IdUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MethodPayment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cart.IdUser)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MethodPayment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @{
+                        if (item.Status == "Ordered")
+                        {
+                            <button onclick="Customer.ViewDetail('@item.IdCard')" type="button" class="btn btn-info">Detail</button>
+                            <button onclick="Customer.SetDelivering('@item.Id')" type="button" class="btn btn-primary">Delivering</button>
+                            <button onclick="Customer.DeleteOrder('@item.Id')" type="button" class="btn btn-danger">Cancelle</button>
+                            @*@Html.ActionLink("Delivering", "SetDelivering", new { id = item.Id }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Cancel", "SetCancelled", new { id = item.Id }, new { @class = "btn btn-danger" })*@
+
+                        }
+                        else if (item.Status == "Delivering")
+                        {
+                            <button onclick="Customer.ViewDetail('@item.IdCard')" type="button" class="btn btn-info">Detail</button>
+                            <button onclick="Customer.SetCompleted('@item.Id')" type="button" class="btn btn-success">Complete</button>
+                            @*@Html.ActionLink("Complete", "SetCompleted", new { id = item.Id }, new { @class = "btn btn-success" })*@
+                        }
+                        else
+                        {
+                            <button onclick="Customer.ViewDetail('@item.IdCard')" type="button" class="btn btn-info">Detail</button>
+                        }
+                    }
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<div id="ModalViewDetail" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Orders Detail</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
                 <table class="table">
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Cart.IdUser)
-                            
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.CreateDate)
-
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Status)
-                        </th>
-                        <th>
-                            Option
-                        </th>
-                        <th>
-
-                        </th>
-                    </tr>
-
-                    @*@foreach (var item in Model)
-                    {*@
+                    <thead>
                         <tr>
-                            <td>
-                                @*@Html.DisplayFor(modelItem => item.Cart.IdUser)*@
-                                419_1
-                            </td>
-                            <td>
-                                @*@Html.DisplayFor(modelItem => item.CreateDate)*@
-                                04/10/2019
-                            </td>
-                            <td>
-                                @*@Html.DisplayFor(modelItem => item.Status)*@
-                                Processing
-                            </td>
-                            <td>
-                                @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
-                                Edit|Detail|Delete (cc)
-                            </td>
-                            <td>
-                                <button class="btn btn-success">
-                                    Accept
-                                </button>
-                                <button class="btn btn-danger">
-                                    Decline
-                                </button>
-                            </td>
+                            <th scope="col">BookName</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Total Price</th>
                         </tr>
-                    @*}*@
-
+                    </thead>
+                    <tbody id="RenderModalContent"></tbody>
                 </table>
+                @*<div id="RenderModalContent">
+
+                    </div>*@
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
+
+<script id="TemplateViewDetailModal" type="x-tmpl-mustache">
+    <tr>
+        <td>{{Name}}</td>
+        <td>{{Quantity}}</td>
+        <td>{{Price}} $</td>
+        <td>{{TotalPrice}} $</td>
+
+    </tr>
+</script>

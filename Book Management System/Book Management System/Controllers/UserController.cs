@@ -38,12 +38,30 @@ namespace Book_Management_System.Controllers
         Model DB = new Model();
         public ActionResult Index()
         {
-            string IdUser = CurrentUserId.UserId;
-            var ListOrder = from o in DB.Orders.ToList()
-                            where o.Cart.IdUser == IdUser
-                            select o;
 
-            return View(ListOrder);
+            string IdUser = CurrentUserId.UserId;
+
+            var ListOrder = from o in DB.Orders.ToList()
+                            from l in DB.CartItems.ToList()
+                            where o.Cart.IdUser == IdUser && o.IdCard == l.IdCard
+                            select new OrderItemViewModel() {
+                                Id = o.Id,
+                                IdCard = o.IdCard,
+                                Status = o.Status,
+                                MethodPayment = o.MethodPayment,
+                                CreateDate = o.CreateDate,
+                                ListCartItem = o.Cart.CartItems,
+                            };
+            var ListOrders = ListOrder.ToList();
+            foreach (var x in ListOrders)
+            {
+                foreach (var y in x.ListCartItem)
+                {
+                    x.TotalPrice += y.Quantity * y.Book.Price;
+                }
+            }
+
+            return View(ListOrders);
         }
         //View detail order
         [HttpPost]
@@ -172,7 +190,7 @@ namespace Book_Management_System.Controllers
 
             return View(user);
         }
-        //GET: Change password 
+        //GET: Change password
         public ActionResult ChangePassword(string id)
         {
             if (id == null)
@@ -190,7 +208,7 @@ namespace Book_Management_System.Controllers
             return PartialView(account);
         }
 
-        //POST: Change password 
+        //POST: Change password
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ChangePassword([Bind(Include = "Id,UserName,Password,IdRole,IsActive")] Account account)

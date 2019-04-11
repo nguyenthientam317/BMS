@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Book_Management_System.Models.Order>
+﻿@model IEnumerable<Book_Management_System.Common.OrderItemViewModel>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/LayoutUser.cshtml";
@@ -24,21 +24,23 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <th>@item.Id</th>
-                            <td>@item.CreateDate.ToShortDateString()</td>
-                            <td>@item.Status</td>
-                            <td>@item.MethodPayment</td>
-                            <td>@item.Cart.Total $</td>
-                            <td>
-                                <a id="@item.Id" onclick="Customer.ViewDetail('@item.IdCard')" href="#"><i class="fa fa-info-circle" aria-hidden="true"></i> </a>
-                                @if (item.Status == "Processing")
-                                {
-                                    <a id="@item.Id" onclick="Customer.DeleteOrder('@item.IdCard')" style="margin-left: 15px" href="#">
-                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                    </a>
-                                }
-                            </td>
+
+                    <tr>
+                        <th>@item.Id</th>
+                        <td>@item.CreateDate.ToShortDateString()</td>
+                        <td>@item.Status</td>
+                        <td>@item.MethodPayment</td>
+                        <td> @item.TotalPrice $</td>
+                        <td>
+                            <a id="@item.Id" onclick="Customer.ViewDetail('@item.IdCard')" href="#"><i class="fa fa-info-circle" aria-hidden="true"></i> </a>
+                            @if (item.Status == "Processing")
+                            {
+                                <a id="@item.Id" onclick="Customer.DeleteOrder('@item.IdCard')" style="margin-left: 15px" href="#">
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                </a>
+                            }
+                        </td>
+
 
                         </tr>
                     }

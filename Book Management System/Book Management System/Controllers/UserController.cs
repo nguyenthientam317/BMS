@@ -145,7 +145,7 @@ namespace Book_Management_System.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             User user = DB.Users.Find(id);
-            user.Avatar = "/Assets/user-avatar/" + user.Id + "/" + Path.GetFileName(user.Avatar);
+            //user.Avatar = "/Assets/user-avatar/" + user.Id + "/" + Path.GetFileName(user.Avatar);
             if (user == null)
             {
                 return HttpNotFound();

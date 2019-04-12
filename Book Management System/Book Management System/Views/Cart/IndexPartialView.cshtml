@@ -62,9 +62,9 @@ else
                                     <td class="column-3"> @string.Format("{0:0,0}", item.Book.Price)$</td>
                                     <td class="column-4">
                                         @{
-                                            if (item.Quantity == 0)
+                                            if (item.Book.Quantity == 0)
                                             {
-                                                <button class="btn-sm btn-danger" style="pointer-events:none">Hết</button>
+                                                <button class="btn-sm btn-danger" style="pointer-events:none">Sold out</button>
                                             }
                                             else
                                             {

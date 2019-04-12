@@ -60,7 +60,7 @@ namespace Book_Management_System.Controllers
                 if (cart != null)
                 {
                     double total = 0;
-                    var cartItem = db.CartItems.Where(x => x.IdCard == CurrentCartId.Id).ToList();
+                    var cartItem = db.CartItems.Where(x => x.IdCard == CurrentCartId.Id && x.Book.IsActive == true).ToList();
                     //foreach (var item in cartItem)
                     //{
                     //    item.Book.ImageURL = "/Assets/book-image/" + item.Id + "/" + Path.GetFileName(item.Book.ImageURL);
@@ -368,7 +368,7 @@ namespace Book_Management_System.Controllers
         [AuthorizeUser]
         public ActionResult UpdateCart(string idItem, string id, int quantity)
         {
-            var model = db.CartItems.Where(x => x.IdCard == CurrentCartId.Id && x.IdBook == id && x.Id == idItem).FirstOrDefault();
+            var model = db.CartItems.Where(x => x.IdCard == CurrentCartId.Id && x.IdBook == id && x.Id == idItem &&  x.Book.IsActive == true).FirstOrDefault();
             if(model != null)
             {
                 using (DbContextTransaction tran = db.Database.BeginTransaction())
@@ -427,7 +427,7 @@ namespace Book_Management_System.Controllers
         public ActionResult Delete(string idItem, string id)
         {
 
-            var model = db.CartItems.Where(x => x.IdBook == id && x.IdCard == CurrentCartId.Id && x.Id == idItem).FirstOrDefault();
+            var model = db.CartItems.Where(x => x.IdBook == id && x.IdCard == CurrentCartId.Id && x.Id == idItem ).FirstOrDefault();
             if (model != null)
             {
                 using (DbContextTransaction tran = db.Database.BeginTransaction())

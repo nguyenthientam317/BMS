@@ -47,7 +47,7 @@ namespace Book_Management_System.Controllers
                 else
                 {
                     double total = 0;
-                    var cart = Db.CartItems.Where(x => x.IdCard == CurrentCartId.Id).ToList();
+                    var cart = Db.CartItems.Where(x => x.IdCard == CurrentCartId.Id && x.Book.IsActive == true).ToList();
                     // Sum Price all Price of Item
                     foreach (var item in cart)
                     {
@@ -116,7 +116,7 @@ namespace Book_Management_System.Controllers
             }
             if (searchString !=null)
             {
-                ListBookSearch = ListBookSearch.Where(l => l.Title.Contains(searchString)).ToList();
+                ListBookSearch = ListBookSearch.Where(l => l.Title.Contains(searchString) && l.IsActive.Equals(true)).ToList();
             }
             else if (currentFilter != null)
             {

@@ -18,6 +18,18 @@ namespace Book_Management_System.Controllers
         {
             get { return (UserLogin)HttpContext.Session[Constants.USER_SESSION]; }
         }
+        public int CheckBook(Cart cart)
+        {
+            var cartItem = DB.CartItems.Where(x => x.IdCard == cart.Id).ToList();
+            foreach(var item in cartItem)
+            {
+                if(item.Book.Quantity == 0 || item.Book.IsActive == false || item.Book.BookCategory.IsActive == false)
+                {
+                    return 0;
+                }
+            }
+            return 1;
+        }
         // GET: Payment
         Model DB = new Model();
         public ActionResult Index()
@@ -28,7 +40,7 @@ namespace Book_Management_System.Controllers
                        where c.IdUser == IdUser && c.IsActive == true
                        select c;
             var Carts = Cart.FirstOrDefault();
-            if (Carts != null)
+            if (Carts != null && CheckBook(Carts) == 1)
             {
                 return View(Carts);
             }

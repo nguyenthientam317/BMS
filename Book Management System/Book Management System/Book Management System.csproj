@@ -192,7 +192,27 @@
     <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+
     <Compile Include="Resources\Admin\BookCategory\Resources.Designer.cs">
+
+
+    <Compile Include="Resources\Client\CartResource\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Client\HomeResource\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Client\PaymentResource\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+</Compile>
+    <Compile Include="Resources\Admin\BookCategoryResource_EN.Designer.cs">
+
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -206,6 +226,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+
     </Compile>
     <Compile Include="Views\Shared\KeepAlive.ashx.cs">
       <DependentUpon>KeepAlive.ashx</DependentUpon>
@@ -618,13 +639,18 @@
     <Content Include="Views\Shared\LayoutUser.cshtml" />
     <Content Include="Views\User\EditInfo.cshtml" />
     <Content Include="Views\User\ChangePassword.cshtml" />
+    <Content Include="Views\Home\Navbar_menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\BaseAdmin\" />
     <Folder Include="Assets\book-image\18\" />
+
+    <Folder Include="Resources\Admin\" />
+
     <Folder Include="Resources\Client\" />
+
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
@@ -652,6 +678,7 @@
     <EmbeddedResource Include="Migrations\201904150900007_Initial.resx">
       <DependentUpon>201904150900007_Initial.cs</DependentUpon>
     </EmbeddedResource>
+
     <EmbeddedResource Include="Resources\Admin\BookCategory\Resources.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.en.Designer.cs</LastGenOutput>
@@ -664,7 +691,33 @@
     <EmbeddedResource Include="Resources\Admin\Layout\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+
+
+    <EmbeddedResource Include="Resources\Client\CartResource\Resources.en.resx">
+      <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Client\CartResource\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Client\HomeResource\Resources.en.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Client\HomeResource\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Client\PaymentResource\Resources.en.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Client\PaymentResource\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -8,7 +8,7 @@
 <div class="main_content">
     <!-- TITLE -->
     <div class="sidebar_title">
-        <h5 style="font-weight: bolder">Features product</h5>
+        <h5 style="font-weight: bolder">@Book_Management_System.Resources.Client.HomeResource.Resources.Home_Feature</h5>
         <hr style="height: 10px; border: 0;box-shadow: 0 10px 10px -10px #8c8b8b inset;" />
     </div>
     <!-- LIST PRODUCT -->
@@ -46,7 +46,7 @@
 
                     </div>
                     <div class="btn-group" style="width:100%; margin-top:-1px; margin-bottom: 10px;">
-                        <button class="btn-dark" id="buyNow" onclick="Open('@item.Id')" style="width:50%;font-size: 18px;">BUY NOW</button>
+                        <button class="btn-dark" id="buyNow" onclick="Open('@item.Id')" style="width:50%;font-size: 18px;">@Book_Management_System.Resources.Client.HomeResource.Resources.Home_BuyNow</button>
                         <button class="btn-price btn-outline-primary" style="width:50%; pointer-events: none"><span style="font-size: 15px">@string.Format("{0:0,0}", item.Price)$</span></button>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
     <!-- PAGINATION -->
     <ul class="pagination justify-content-center">
         <li class="page-item @prevDisabled">
-            @Html.ActionLink("Previous", "Index", new { @page = Model.PageIndex - 1 }, new { @class = "page-link" })
+            @Html.ActionLink(@Book_Management_System.Resources.Client.HomeResource.Resources.Home_Prev, "Index", new { @page = Model.PageIndex - 1 }, new { @class = "page-link" })
         </li>
         @for (int i = 1; i <= Model.TotalPages; i++)
         {
@@ -75,7 +75,7 @@
 
 
         <li class="page-item @nextDisabled">
-            @Html.ActionLink("Next", "Index", new { @page = Model.PageIndex + 1 }, new { @class = "page-link" })
+            @Html.ActionLink(@Book_Management_System.Resources.Client.HomeResource.Resources.Home_Next, "Index", new { @page = Model.PageIndex + 1 }, new { @class = "page-link" })
         </li>
     </ul>
     <!-- END PAGINATION -->
@@ -97,7 +97,7 @@
                 @*Content*@
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-warning" id="addCart" data-dismiss="modal">Add to Cart</button>
+                <button type="button" class="btn btn-warning" id="addCart" data-dismiss="modal">@Book_Management_System.Resources.Client.HomeResource.Resources.Home_AddToCart</button>
         
             </div>
         </div>

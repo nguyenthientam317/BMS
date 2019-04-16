@@ -46,16 +46,7 @@
                                     <span>BookStore</span>
                                 </a>
                             </div>
-                            <nav class="navbar">
-                                <ul class="navbar_menu">
-                                    <li class="active"><a href="#">Home</a></li>
-                                    <li><a href="#">@Book_Management_System.Infrastructure.StaticResource.Resources.Products</a></li>
-                                    <li><a href="#">@Book_Management_System.Infrastructure.StaticResource.Resources.Promotions</a></li>
-                                    <li><a href="#">@Book_Management_System.Infrastructure.StaticResource.Resources.Profile</a></li>
-                                    <li><a href="#">@Book_Management_System.Infrastructure.StaticResource.Resources.AboutUs</a></li>
-                                    <li><a href="#">@Book_Management_System.Infrastructure.StaticResource.Resources.Contact</a></li>
-                                </ul>
-                            </nav>
+                            @RenderPage("~/Views/Home/Navbar_menu.cshtml")
                         </div>
                     </div>
                 </div>
@@ -71,15 +62,7 @@
             <div class="col product_section clearfix">
                 <!-- Search bar -->
                 <div class="breadcrumbs">
-                    @using (Html.BeginForm("Search", "Home", FormMethod.Get, new { @class = "form-horizontal" }))
-                    {
-                        <div class="input-group">
-                            @Html.TextBox("searchString", null, new { @class = "form-control", @placeholder = "Search" })
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
-                            </div>
-                        </div>
-                    }
+                   
                 </div>
                 <!-- Search bar-->
                 <!-- SIDEBAR -->

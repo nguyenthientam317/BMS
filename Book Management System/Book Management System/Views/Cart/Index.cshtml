@@ -507,7 +507,7 @@
     <!-- TITLE-->
     <div class="sidebar_title">
         <h5 style="font-weight: bolder">
-            Cart
+            @Book_Management_System.Resources.Client.CartResource.Resources.Cart
         </h5>
         <hr style="height: 10px; border: 0;box-shadow: 0 10px 10px -10px #8c8b8b inset;" />
     </div>
@@ -785,7 +785,7 @@
                                 type: 'success',
                                 width: 400,
                                 height: 300,
-                                text: response.Message,
+                                text: $('#selectAll').attr('data-update-success'),
                             });
                         }
                         else {
@@ -793,7 +793,7 @@
                                 type: 'error',
                                 width: 400,
                                 height: 300,
-                                text: response.Message,
+                                text: $('#selectAll').attr('data-update-fail'),
                             });
                         }
                     },
@@ -835,7 +835,7 @@
                                     type: 'success',
                                     width: 400,
                                     height: 300,
-                                    text: response.Message,
+                                    text: $('#selectAll').attr('data-select-all'),
                                 });
                             }
                             else {
@@ -863,7 +863,7 @@
                                         type: 'success',
                                         width: 400,
                                         height: 300,
-                                        text: response.Message,
+                                        text: $('#selectAll').attr('data-unselect-all'),
                                     });
                                 }
                                 else {
@@ -897,7 +897,7 @@
                               type: 'success',
                               width: 400,
                               height: 300,
-                              text: response.Message,
+                              text: $('#selectAll').attr('data-unselect-this'),
                           });
                     }
                     else {
@@ -906,6 +906,14 @@
                             width: 400,
                             height: 300,
                             text: response.Message,
+                        });
+                    }
+                    if (response.Result == true && response.Message =='Choose this book.') {
+                        Swal.fire({
+                            type: 'success',
+                            width: 400,
+                            height: 300,
+                            text: $('#selectAll').attr('data-select-this'),
                         });
                     }
 
@@ -931,12 +939,12 @@
             })
                //Sweet alert
             swalWithBootstrapButtons.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
+                title: $('#delete').attr('data-sure-question'),
+                text: $('#delete').attr('data-warning'),
                 type: 'warning',
                 showCancelButton: true,
-                confirmButtonText: 'Yes, delete it!',
-                cancelButtonText: 'No, Cancel!',
+                confirmButtonText: $('#delete').attr('data-yes'),
+                cancelButtonText: $('#delete').attr('data-no'),
                 reverseButtons: true
             }).then((result) => {
                 if (result.value) {
@@ -969,8 +977,8 @@
                                 $("#amountCart").html(response.Amount);
                                 $("#totalCart").html(formatter.format(parseInt(response.Total)));
                                 swalWithBootstrapButtons.fire(
-                                    'Deleted!',
-                                    response.Message,
+                                     $('#selectAll').attr('data-delete'),
+                                    $('#selectAll').attr('data-delete-info'),
                                     'success'
                                 );
                             }

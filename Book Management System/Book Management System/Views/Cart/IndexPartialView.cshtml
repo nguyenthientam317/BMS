@@ -6,8 +6,8 @@
     <div class="row">
         <div class="col-md-12">
             <div class="wrap-table-shopping-cart">
-                <h4 class="text-center">Your cart is empty !</h4>
-                <p class="text-center">Please buy something</p>
+                <h4 class="text-center">@Book_Management_System.Resources.Client.CartResource.Resources.Cart_Empty !</h4>
+                <p class="text-center">@Book_Management_System.Resources.Client.CartResource.Resources.Cart_ChooseSth</p>
             </div>
         </div>
     </div>
@@ -29,16 +29,26 @@ else
                                 <tr>
                                     <th>
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="selectAll">
-                                            <label class="custom-control-label" for="selectAll">All</label>
+                                            <input type="checkbox" class="custom-control-input" id="selectAll"
+                                                   data-update-success="@Book_Management_System.Resources.Client.CartResource.Resources.Cart_Update_Success"
+                                                   data-update-fail="@Book_Management_System.Resources.Client.CartResource.Resources.Cart_Update_Fail"
+                                                   data-select-all="@Book_Management_System.Resources.Client.CartResource.Resources.Cart_ChooseAllBook"
+                                                   data-unselect-all="@Book_Management_System.Resources.Client.CartResource.Resources.Cart_DontChooseAllBook"
+                                                   data-unselect-this="@Book_Management_System.Resources.Client.CartResource.Resources.Cart_DontChooseThisBook"
+                                                   data-select-this="@Book_Management_System.Resources.Client.CartResource.Resources.Cart_ChooseThisBook"
+                                                   data-delete="@Book_Management_System.Resources.Client.CartResource.Resources.Cart_Deleted"
+                                                   data-delete-info="@Book_Management_System.Resources.Client.CartResource.Resources.Cart_Deleted_Info"
+                                                   >
+                                            <label class="custom-control-label" for="selectAll">@Book_Management_System.Resources.Client.CartResource.Resources.Cart_All</label>
                                         </div>
                                     </th>
-                                    <th>Image</th>
-                                    <th>Title</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
-                                    <th>Total</th>
+                                    <th>@Book_Management_System.Resources.Client.CartResource.Resources.Cart_Image</th>
+                                    <th>@Book_Management_System.Resources.Client.CartResource.Resources.Cart_Title</th>
+                                    <th>@Book_Management_System.Resources.Client.CartResource.Resources.Cart_Price</th>
+                                    <th>@Book_Management_System.Resources.Client.CartResource.Resources.Cart_Quantity</th>
+                                    <th>@Book_Management_System.Resources.Client.CartResource.Resources.Cart_Total</th>
                                     <th></th>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -95,7 +105,12 @@ else
                                         }
                                         <td class="column-5 " id="@item.Id">$@string.Format("{0:0,0}", total)</td>
                                         <td class="column-6">
-                                            <button class="btn btn-danger" onclick="Delete('@item.Id','@item.IdBook')" id="delete" data-id="@item.IdBook">
+                                            <button class="btn btn-danger" onclick="Delete('@item.Id','@item.IdBook')" id="delete"
+                                                    data-id="@item.IdBook" data-sure-question="@Book_Management_System.Resources.Client.CartResource.Resources.Cart_SureQuestion" 
+                                                    data-warning ="@Book_Management_System.Resources.Client.CartResource.Resources.Cart_Warning"
+                                                    data-yes="@Book_Management_System.Resources.Client.CartResource.Resources.Cart_Yes"
+                                                    data-no ="@Book_Management_System.Resources.Client.CartResource.Resources.Cart_No"
+                                                    >
                                                 <!--data-toggle="modal" data-target="#myModal"-->
                                                 <span>
                                                     <i class="fa fa-remove"></i>
@@ -118,7 +133,7 @@ else
                         <tr class="table-row">
                             <td>
                                 <b>
-                                    TOTAL:
+                                    @Book_Management_System.Resources.Client.CartResource.Resources.Cart_Total:
                                 </b>
                             </td>
                             <td>
@@ -136,7 +151,7 @@ else
                 <div class="col-lg-3 ">
                     <a href="@Url.Action("Index","Payment")">
                         <button type="submit" class="btn btn-lg btn-outline-primary" style="width: 100%;">
-                            <b>PAYMENT</b>
+                            <b>@Book_Management_System.Resources.Client.CartResource.Resources.Cart_Payment</b>
                         </button>
                     </a>
                 </div>

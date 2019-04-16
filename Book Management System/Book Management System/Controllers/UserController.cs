@@ -16,7 +16,7 @@ using System.Web.Mvc;
 namespace Book_Management_System.Controllers
 {
     [AuthorizeUser]
-    public class UserController : Controller
+    public class UserController : BaseController
     {
         private UserLogin CurrentUserId
         {

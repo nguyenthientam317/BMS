@@ -23,7 +23,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.CateName, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.CateName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enterr caterogy name" } })
+                    @Html.EditorFor(model => model.CateName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enterr caterogy name" ,data_id = Book_Management_System.Infrastructure.StaticResource.Resources.Error,id ='a'} })
                     @Html.ValidationMessageFor(model => model.CateName, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -78,7 +78,7 @@
                     CateName: {
                         validators: {
                             notEmpty: {
-                                message: 'The CateName cannot be empty !'
+                                message: $('#a').attr('data-id')
                             },
                             stringLength: {
                                 min: 6,

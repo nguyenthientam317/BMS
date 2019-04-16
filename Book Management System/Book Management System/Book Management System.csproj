@@ -207,7 +207,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-
+</Compile>
     <Compile Include="Resources\Admin\BookCategoryResource_EN.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -693,7 +693,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
-
+</EmbeddedResource>
     <EmbeddedResource Include="Resources\Admin\BookCategoryResource_EN.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>BookCategoryResource_EN.Designer.cs</LastGenOutput>

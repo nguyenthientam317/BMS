@@ -23,7 +23,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.CateName, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.CateName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enterr caterogy name" ,data_id = Book_Management_System.Infrastructure.StaticResource.Resources.Error,id ='a'} })
+                    @Html.EditorFor(model => model.CateName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enterr caterogy name",data_lenght= Book_Management_System.Infrastructure.StaticResource.Resources.LenghtError, data_empty = Book_Management_System.Infrastructure.StaticResource.Resources.Error,id ='a'} })
                     @Html.ValidationMessageFor(model => model.CateName, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -78,12 +78,12 @@
                     CateName: {
                         validators: {
                             notEmpty: {
-                                message: $('#a').attr('data-id')
+                                message: $('#a').attr('data-empty')
                             },
                             stringLength: {
                                 min: 6,
                                 max: 30,
-                                message: 'The CateName must be more than 6 or less than 30 characters long !'
+                                message: $('#a').attr('data-lenght')
                             },
                             regexp: {
                                 regexp: /^[^\d`~!@@#$%^&*()\-_=+{}|<,>?:;"']+$/,

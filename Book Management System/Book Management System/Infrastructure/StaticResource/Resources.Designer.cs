@@ -61,6 +61,15 @@ namespace Book_Management_System.Infrastructure.StaticResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nội dung danh mục.
+        /// </summary>
+        public static string Category_Description {
+            get {
+                return ResourceManager.GetString("Category_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tên danh mục.
         /// </summary>
         public static string Category_Name {

@@ -60,7 +60,19 @@
             </div>
             <!-- START DROPDOWN -->
             <ul class="nav navbar-top-links navbar-right">
+
                 <!-- Dropdown Message-->
+                <li>
+                    @using (Html.BeginForm("ChangeCulture", "BaseAdmin"))
+                    {
+                        @Html.Hidden("returnUrl", Request.RawUrl)
+                        @Html.DropDownList("ddlCulture", new SelectList(new[] {
+                            new{value ="vi-VN",text= Book_Management_System.Infrastructure.StaticResource.Resources.Vietnamese },
+                            new{value ="en-US",text= Book_Management_System.Infrastructure.StaticResource.Resources.English },
+
+                            }, "value", "text",Session[Book_Management_System.Infrastructure.ConstantDefine.CURRENT_CULTURE]),new {onchange="this.form.submit();"} )
+                    }
+                </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>

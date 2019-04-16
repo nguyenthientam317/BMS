@@ -18,5 +18,7 @@ namespace Book_Management_System.Infrastructure
         public const string DELIVERING = "Delivering";
         public const string COMPLETED = "Completed";
         public const string CANCELLED = "Cancelled";
+
+        public static string CURRENT_CULTURE {get;set;}
     }
 }

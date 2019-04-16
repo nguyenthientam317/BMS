@@ -12,7 +12,7 @@ using Book_Management_System.Models;
 namespace Book_Management_System.Areas.Admin.Controllers
 {
     [AuthorizeUser]
-    public class BookCategoriesController : Controller
+    public class BookCategoriesController : BaseAdminController
     {
         private Model db = new Model();
 

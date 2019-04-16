@@ -20,6 +20,7 @@ namespace Book_Management_System.Models
 
         [Required]
         [StringLength(50)]
+        [Display(Name ="Category_Name",ResourceType = typeof(Infrastructure.StaticResource.Resources))]
         public string CateName { get; set; }
 
         public bool IsActive { get; set; }

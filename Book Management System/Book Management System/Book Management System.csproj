@@ -133,6 +133,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BaseAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\BookCategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\ChangePasswordController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageAccountController.cs" />
@@ -153,6 +154,7 @@
     <Compile Include="Common\Register.cs" />
     <Compile Include="Common\OrderItemViewModel.cs" />
     <Compile Include="Common\UserLogin.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -166,11 +168,14 @@
     <Compile Include="Infrastructure\CommonMethod.cs" />
     <Compile Include="Infrastructure\ConstantDefine.cs" />
     <Compile Include="Infrastructure\PaginatedList.cs" />
-
-    <Compile Include="Migrations\201904111510599_Initial.cs" />
-    <Compile Include="Migrations\201904111510599_Initial.Designer.cs">
-      <DependentUpon>201904111510599_Initial.cs</DependentUpon>
-
+    <Compile Include="Infrastructure\StaticResource\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Migrations\201904150900007_Initial.cs" />
+    <Compile Include="Migrations\201904150900007_Initial.Designer.cs">
+      <DependentUpon>201904150900007_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
@@ -602,7 +607,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\BaseAdmin\" />
     <Folder Include="Assets\book-image\18\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -618,10 +625,13 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-
-    <EmbeddedResource Include="Migrations\201904111510599_Initial.resx">
-      <DependentUpon>201904111510599_Initial.cs</DependentUpon>
-
+    <EmbeddedResource Include="Infrastructure\StaticResource\Resources.en.resx" />
+    <EmbeddedResource Include="Infrastructure\StaticResource\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904150900007_Initial.resx">
+      <DependentUpon>201904150900007_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

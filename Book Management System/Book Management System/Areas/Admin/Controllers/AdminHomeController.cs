@@ -8,7 +8,7 @@ using System.Web.Mvc;
 namespace Book_Management_System.Areas.Admin.Controllers
 {
     [AuthorizeUser]
-    public class AdminHomeController : Controller
+    public class AdminHomeController : BaseAdminController
     {
         // GET: Admin/Home
         

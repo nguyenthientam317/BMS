@@ -192,15 +192,20 @@
     <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\Admin\BookCategoryResource_EN.Designer.cs">
+    <Compile Include="Resources\Admin\BookCategory\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BookCategoryResource_EN.resx</DependentUpon>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resources\Admin\BookCategoryResource_VN.Designer.cs">
+    <Compile Include="Resources\Admin\BookCategory\Resources.en.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BookCategoryResource_VN.resx</DependentUpon>
+      <DependentUpon>Resources.en.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Admin\Layout\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Views\Shared\KeepAlive.ashx.cs">
       <DependentUpon>KeepAlive.ashx</DependentUpon>
@@ -647,13 +652,18 @@
     <EmbeddedResource Include="Migrations\201904150900007_Initial.resx">
       <DependentUpon>201904150900007_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Admin\BookCategoryResource_EN.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>BookCategoryResource_EN.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="Resources\Admin\BookCategory\Resources.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.en.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Admin\BookCategoryResource_VN.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>BookCategoryResource_VN.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="Resources\Admin\BookCategory\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Admin\Layout\Resources.en.resx" />
+    <EmbeddedResource Include="Resources\Admin\Layout\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

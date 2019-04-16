@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using Book_Management_System.Common;
 using Book_Management_System.Models;
 
+
 namespace Book_Management_System.Areas.Admin.Controllers
 {
     [AuthorizeUser]
@@ -34,7 +35,7 @@ namespace Book_Management_System.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            return View(bookCategory);
+            return PartialView(bookCategory);
         }
 
         // GET: Admin/BookCategories/Create

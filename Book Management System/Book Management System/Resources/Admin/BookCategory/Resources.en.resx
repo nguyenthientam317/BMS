@@ -123,8 +123,38 @@
   <data name="CateName" xml:space="preserve">
     <value>Category Name</value>
   </data>
+  <data name="CateNamePlace" xml:space="preserve">
+    <value>Enter category name</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="CreateCategory" xml:space="preserve">
+    <value>Create New Category</value>
+  </data>
   <data name="Description" xml:space="preserve">
     <value>Category Description</value>
+  </data>
+  <data name="DescriptionErrorLength" xml:space="preserve">
+    <value>Category Name must be more than 6 and less than 500 characters</value>
+  </data>
+  <data name="DescriptionPlace" xml:space="preserve">
+    <value>Enter category description</value>
+  </data>
+  <data name="EditCategory" xml:space="preserve">
+    <value>Edit Category</value>
+  </data>
+  <data name="ErrorEmpty" xml:space="preserve">
+    <value>Category Name can't be empty</value>
+  </data>
+  <data name="ErrorLength" xml:space="preserve">
+    <value>Category Name must be more than 6 and less than 30 characters</value>
+  </data>
+  <data name="ErrorRegexp" xml:space="preserve">
+    <value>Caterogy name cannot allow special characters and number</value>
+  </data>
+  <data name="Infor" xml:space="preserve">
+    <value>Book Category Detail</value>
   </data>
   <data name="IsActive" xml:space="preserve">
     <value>IsActive</value>

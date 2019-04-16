@@ -29,54 +29,7 @@
         <div class="super_container">
             <header class="header trans_300">
                 <!-- TOP NAV -->
-                <div class="top_nav">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12 text-right">
-                                <div class="top_nav_right">
-                                    <ul class="top_nav_menu">
-                                        @{ var session = (Book_Management_System.Common.UserLogin)Session[Book_Management_System.Common.Constants.USER_SESSION];}
-                                        @{ if (session != null)
-                                            {
-                                                <li class="account">
-                                                    <a href="#" class="visitor_name">
-                                                        Welcome, <b> @session.UserName </b>
-                                                    </a>
-                                                </li>
-                                                <li class="account">
-                                                    <a href="@Url.Action("Logout","UserLogin")" class="visitor_name">
-                                                        Log out
-                                                    </a>
-                                                </li>
-
-                                            }
-                                            else
-                                            {
-                                                <li class="account">
-                                                    <a href="@Url.Action("Login","UserLogin")" class="visitor_name">
-                                                        Log in
-                                                    </a>
-                                                </li>
-                                                <li class="account">
-                                                    <a href="@Url.Action("Create","Register")" class="visitor_name">
-                                                        Sign in
-                                                    </a>
-                                                </li>
-                                            }
-                                        }
-                                        <li class="account">
-                                            <a href="#">
-                                                <i class="fa fa-shopping-basket"></i>
-                                                Shopping cart (0) <b> $0.00 </b>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+                @{ Html.RenderAction("TopNav", "Home");}
                 <!-- TOP NAV -->
                 <!-- START MAIN HEADER -->
                 <div class="main_nav_container">
@@ -90,16 +43,7 @@
                                         <span>BookStore</span>
                                     </a>
                                 </div>
-                                <nav class="navbar">
-                                    <ul class="navbar_menu">
-                                        <li class="active"><a href="#">Home</a></li>
-                                        <li><a href="#">Products</a></li>
-                                        <li><a href="#">Promotions</a></li>
-                                        <li><a href="#">Profile</a></li>
-                                        <li><a href="#">About Us</a></li>
-                                        <li><a href="#">Contacts</a></li>
-                                    </ul>
-                                </nav>
+                                @RenderPage("~/Views/Home/Navbar_menu.cshtml")
                             </div>
                         </div>
                     </div>

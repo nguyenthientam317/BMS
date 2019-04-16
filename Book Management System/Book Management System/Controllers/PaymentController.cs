@@ -12,7 +12,7 @@ using System.Web.Script.Serialization;
 namespace Book_Management_System.Controllers
 {
     [AuthorizeUser]
-    public class PaymentController : Controller
+    public class PaymentController : BaseController
     {
         private UserLogin CurrentUserId
         {

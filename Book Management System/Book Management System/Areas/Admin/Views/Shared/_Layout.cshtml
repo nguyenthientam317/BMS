@@ -67,10 +67,10 @@
                     {
                         @Html.Hidden("returnUrl", Request.RawUrl)
                         @Html.DropDownList("ddlCulture", new SelectList(new[] {
-                            new{value ="vi-VN",text= Book_Management_System.Infrastructure.StaticResource.Resources.Vietnamese },
+                            new{value ="vi-VN",text= Book_Management_System.Infrastructure.StaticResource.Resources.Vietnamese},
                             new{value ="en-US",text= Book_Management_System.Infrastructure.StaticResource.Resources.English },
 
-                            }, "value", "text",Session[Book_Management_System.Infrastructure.ConstantDefine.CURRENT_CULTURE]),new {onchange="this.form.submit();"} )
+                            }, "value", "text",Session[Book_Management_System.Infrastructure.ConstantDefine.CURRENT_CULTURE]),new {onchange="this.form.submit();",id = "table"} )
                     }
                 </li>
                 <li class="dropdown">
@@ -256,10 +256,34 @@
     <script>
         /*DataTable*/
         $(document).ready(function () {
-            $('#table1').DataTable({
+            var value = $('#table :selected').val();
+            if (value == 'vi-VN') {
+                $('#table1').DataTable({
+                    "language": {
+                        "sProcessing": "Đang xử lý...",
+                        "sLengthMenu": "Xem _MENU_ mục",
+                        "sZeroRecords": "Không tìm thấy dòng nào phù hợp",
+                        "sInfo": "Đang xem _START_ đến _END_ trong tổng số _TOTAL_ mục",
+                        "sInfoEmpty": "Đang xem 0 đến 0 trong tổng số 0 mục",
+                        "sInfoFiltered": "(được lọc từ _MAX_ mục)",
+                        "sInfoPostFix": "",
+                        "sSearch": "Tìm kiếm",
+                        "sUrl": "",
+                        "oPaginate": {
+                            "sFirst": "Đầu",
+                            "sPrevious": "Trước",
+                            "sNext": "Tiếp",
+                            "sLast": "Cuối"
+                        }
+                    }
+                });
+            }
+            else {
+                    $('#table1').DataTable({
 
-            });
-        });
+                    });
+            }
+        }); 
     </script>
 
     <!--Maintain Login-->

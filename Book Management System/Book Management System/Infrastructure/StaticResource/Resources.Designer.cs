@@ -79,6 +79,24 @@ namespace Book_Management_System.Infrastructure.StaticResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Không thể trống.
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tìm.
+        /// </summary>
+        public static string Search {
+            get {
+                return ResourceManager.GetString("Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tiếng Việt.
         /// </summary>
         public static string Vietnamese {

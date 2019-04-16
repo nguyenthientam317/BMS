@@ -123,6 +123,12 @@
   <data name="English" xml:space="preserve">
     <value>English</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
   <data name="Vietnamese" xml:space="preserve">
     <value>Vietnamese</value>
   </data>

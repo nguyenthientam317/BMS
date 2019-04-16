@@ -123,6 +123,12 @@
   <data name="English" xml:space="preserve">
     <value>English</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Không thể trống</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Tìm</value>
+  </data>
   <data name="Vietnamese" xml:space="preserve">
     <value>Tiếng Việt</value>
   </data>

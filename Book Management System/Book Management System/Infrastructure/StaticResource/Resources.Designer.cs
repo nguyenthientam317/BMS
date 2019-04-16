@@ -69,6 +69,17 @@ namespace Book_Management_System.Infrastructure.StaticResource {
             }
         }
         
+
+        /// <summary>
+        ///   Looks up a localized string similar to Tên Cate phải dài hơn 6 hoặc ít hơn 30 ký tự !.
+        /// </summary>
+        public static string Book_Caterogy_LenghtError {
+            get {
+                return ResourceManager.GetString("Book_Caterogy_LenghtError", resourceCulture);
+            }
+        }
+        
+
         /// <summary>
         ///   Looks up a localized string similar to Nội dung danh mục.
         /// </summary>

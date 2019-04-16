@@ -79,6 +79,15 @@ namespace Book_Management_System.Infrastructure.StaticResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to haha.
+        /// </summary>
+        public static string haha {
+            get {
+                return ResourceManager.GetString("haha", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tiếng Việt.
         /// </summary>
         public static string Vietnamese {

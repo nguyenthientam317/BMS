@@ -10,8 +10,8 @@
 
 namespace Book_Management_System.Infrastructure.StaticResource {
     using System;
-
-
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -23,15 +23,15 @@ namespace Book_Management_System.Infrastructure.StaticResource {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
-
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
@@ -45,7 +45,7 @@ namespace Book_Management_System.Infrastructure.StaticResource {
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
@@ -59,7 +59,7 @@ namespace Book_Management_System.Infrastructure.StaticResource {
                 resourceCulture = value;
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Giới thiệu.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Book_Management_System.Infrastructure.StaticResource {
                 return ResourceManager.GetString("AboutUs", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Nội dung danh mục.
         /// </summary>
@@ -77,7 +77,7 @@ namespace Book_Management_System.Infrastructure.StaticResource {
                 return ResourceManager.GetString("Category_Description", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Tên danh mục.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Book_Management_System.Infrastructure.StaticResource {
                 return ResourceManager.GetString("Category_Name", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Liên hệ.
         /// </summary>
@@ -95,7 +95,7 @@ namespace Book_Management_System.Infrastructure.StaticResource {
                 return ResourceManager.GetString("Contact", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to English.
         /// </summary>
@@ -104,7 +104,16 @@ namespace Book_Management_System.Infrastructure.StaticResource {
                 return ResourceManager.GetString("English", resourceCulture);
             }
         }
-
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Không thể trống.
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Sản phẩm.
         /// </summary>
@@ -113,7 +122,7 @@ namespace Book_Management_System.Infrastructure.StaticResource {
                 return ResourceManager.GetString("Products", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Hồ sơ.
         /// </summary>
@@ -122,22 +131,16 @@ namespace Book_Management_System.Infrastructure.StaticResource {
                 return ResourceManager.GetString("Profile", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Quảng cáo.
         /// </summary>
         public static string Promotions {
             get {
                 return ResourceManager.GetString("Promotions", resourceCulture);
-
-        ///   Looks up a localized string similar to Không thể trống.
-        /// </summary>
-        public static string Error {
-            get {
-                return ResourceManager.GetString("Error", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Tìm.
         /// </summary>
@@ -146,7 +149,7 @@ namespace Book_Management_System.Infrastructure.StaticResource {
                 return ResourceManager.GetString("Search", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Tiếng Việt.
         /// </summary>

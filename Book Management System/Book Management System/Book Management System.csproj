@@ -609,6 +609,8 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\BaseAdmin\" />
     <Folder Include="Assets\book-image\18\" />
+    <Folder Include="Resources\Admin\" />
+    <Folder Include="Resources\Client\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
@@ -625,10 +627,13 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Infrastructure\StaticResource\Resources.en.resx" />
+    <EmbeddedResource Include="Infrastructure\StaticResource\Resources.en.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Infrastructure\StaticResource\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904150900007_Initial.resx">
       <DependentUpon>201904150900007_Initial.cs</DependentUpon>

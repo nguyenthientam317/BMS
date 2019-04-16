@@ -141,6 +141,7 @@
   </data>
   <data name="Promotions" xml:space="preserve">
     <value>Quảng cáo</value>
+    </data>
 
   <data name="Error" xml:space="preserve">
     <value>Không thể trống</value>

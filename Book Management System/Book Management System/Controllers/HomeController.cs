@@ -11,7 +11,7 @@ using System.Web.Script.Serialization;
 
 namespace Book_Management_System.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         Model Db = new Model();
         private UserLogin CurrentUserId

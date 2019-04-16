@@ -61,6 +61,15 @@ namespace Book_Management_System.Infrastructure.StaticResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Giới thiệu.
+        /// </summary>
+        public static string AboutUs {
+            get {
+                return ResourceManager.GetString("AboutUs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nội dung danh mục.
         /// </summary>
         public static string Category_Description {
@@ -79,6 +88,15 @@ namespace Book_Management_System.Infrastructure.StaticResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Liên hệ.
+        /// </summary>
+        public static string Contact {
+            get {
+                return ResourceManager.GetString("Contact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to English.
         /// </summary>
         public static string English {
@@ -88,11 +106,29 @@ namespace Book_Management_System.Infrastructure.StaticResource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to haha.
+        ///   Looks up a localized string similar to Sản phẩm.
         /// </summary>
-        public static string haha {
+        public static string Products {
             get {
-                return ResourceManager.GetString("haha", resourceCulture);
+                return ResourceManager.GetString("Products", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hồ sơ.
+        /// </summary>
+        public static string Profile {
+            get {
+                return ResourceManager.GetString("Profile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quảng cáo.
+        /// </summary>
+        public static string Promotions {
+            get {
+                return ResourceManager.GetString("Promotions", resourceCulture);
             }
         }
         

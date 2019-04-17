@@ -117,82 +117,103 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Book_IsDeleted" xml:space="preserve">
-    <value>Your chosen book was out of stock ! Please choose others</value>
+  <data name="Add" xml:space="preserve">
+    <value>Create New</value>
   </data>
-  <data name="Cart" xml:space="preserve">
-    <value>Cart</value>
+  <data name="BookName" xml:space="preserve">
+    <value>Book Name</value>
   </data>
-  <data name="Cart_Add_Fail_Log_In" xml:space="preserve">
-    <value>Please log in first </value>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
   </data>
-  <data name="Cart_Add_Success" xml:space="preserve">
-    <value>Add to cart successfully</value>
+  <data name="CancelFail" xml:space="preserve">
+    <value>Fail </value>
   </data>
-  <data name="Cart_All" xml:space="preserve">
-    <value>All</value>
+  <data name="CancelSuccess" xml:space="preserve">
+    <value>Cancel successfully </value>
   </data>
-  <data name="Cart_ChooseAllBook" xml:space="preserve">
-    <value>Select all books</value>
+  <data name="ChageStatusFail" xml:space="preserve">
+    <value>Change status fail</value>
   </data>
-  <data name="Cart_ChooseSth" xml:space="preserve">
-    <value>Please buy something</value>
+  <data name="ChageStatusSuccess" xml:space="preserve">
+    <value>Change status successfully</value>
   </data>
-  <data name="Cart_ChooseThisBook" xml:space="preserve">
-    <value>Choose this book</value>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
   </data>
-  <data name="Cart_Deleted" xml:space="preserve">
-    <value>Deleted !</value>
+  <data name="Complete" xml:space="preserve">
+    <value>Complete</value>
   </data>
-  <data name="Cart_Deleted_Info" xml:space="preserve">
-    <value>Your book has been deleted</value>
+  <data name="ConfirmCancel" xml:space="preserve">
+    <value>Are you sure to cancel this order ?</value>
   </data>
-  <data name="Cart_DontChooseAllBook" xml:space="preserve">
-    <value>Uncheck all books</value>
+  <data name="ConfirmComplete" xml:space="preserve">
+    <value>Are you sure to change status to Completed ?</value>
   </data>
-  <data name="Cart_DontChooseThisBook" xml:space="preserve">
-    <value>Uncheck this book</value>
+  <data name="ConfirmDeli" xml:space="preserve">
+    <value>Are you sure to change status to Delivering ?</value>
   </data>
-  <data name="Cart_Empty" xml:space="preserve">
-    <value>Your cart is empty !</value>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
   </data>
-  <data name="Cart_GoTo" xml:space="preserve">
-    <value>Go to cart</value>
+  <data name="CreateDate" xml:space="preserve">
+    <value>Create date</value>
   </data>
-  <data name="Cart_Image" xml:space="preserve">
-    <value>Image</value>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
   </data>
-  <data name="Cart_No" xml:space="preserve">
-    <value>No, cancle !</value>
+  <data name="Delivering" xml:space="preserve">
+    <value>Delivering</value>
   </data>
-  <data name="Cart_Payment" xml:space="preserve">
-    <value>Payment</value>
+  <data name="Detail" xml:space="preserve">
+    <value>Detail</value>
   </data>
-  <data name="Cart_Price" xml:space="preserve">
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Fail" xml:space="preserve">
+    <value>Fail</value>
+  </data>
+  <data name="IdCart" xml:space="preserve">
+    <value>IdCart</value>
+  </data>
+  <data name="IsActive" xml:space="preserve">
+    <value>Is Active</value>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>Manage </value>
+  </data>
+  <data name="MethodPay" xml:space="preserve">
+    <value>Method payment</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>order</value>
+  </data>
+  <data name="OrderManagement" xml:space="preserve">
+    <value>Order Management</value>
+  </data>
+  <data name="Orders_Detail" xml:space="preserve">
+    <value>Orders Detail</value>
+  </data>
+  <data name="PLH_NamePublisher" xml:space="preserve">
+    <value>Enter name publisher</value>
+  </data>
+  <data name="Price" xml:space="preserve">
     <value>Price</value>
   </data>
-  <data name="Cart_Quantity" xml:space="preserve">
+  <data name="Quantity" xml:space="preserve">
     <value>Quantity</value>
   </data>
-  <data name="Cart_SureQuestion" xml:space="preserve">
-    <value>Are you sure ?</value>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
   </data>
-  <data name="Cart_Title" xml:space="preserve">
-    <value>Title</value>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
   </data>
-  <data name="Cart_Total" xml:space="preserve">
-    <value>Total</value>
-  </data>
-  <data name="Cart_Update_Success" xml:space="preserve">
-    <value>Update cart successfully</value>
-  </data>
-  <data name="Cart_Warning" xml:space="preserve">
-    <value>You won't be able to revert this !</value>
-  </data>
-  <data name="Cart_Yes" xml:space="preserve">
-    <value>Yes, delete it !</value>
-  </data>
-  <data name="Log_In" xml:space="preserve">
-    <value>Go to log in</value>
+  <data name="TotalPrice" xml:space="preserve">
+    <value>Total price</value>
   </data>
 </root>

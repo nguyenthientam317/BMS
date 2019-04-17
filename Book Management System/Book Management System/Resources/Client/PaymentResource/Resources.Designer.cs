@@ -115,11 +115,47 @@ namespace Book_Management_System.Resources.Client.PaymentResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Đặt hàng thất bại .
+        /// </summary>
+        public static string Order_fail {
+            get {
+                return ResourceManager.GetString("Order_fail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Đặt hàng thành công.
+        /// </summary>
+        public static string Order_success {
+            get {
+                return ResourceManager.GetString("Order_success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Thông tin khách hàng.
         /// </summary>
         public static string Pay_CustomerInfo {
             get {
                 return ResourceManager.GetString("Pay_CustomerInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thanh toán thành công.
+        /// </summary>
+        public static string Payment_Complete {
+            get {
+                return ResourceManager.GetString("Payment_Complete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thanh toán thất bại .
+        /// </summary>
+        public static string Payment_fail {
+            get {
+                return ResourceManager.GetString("Payment_fail", resourceCulture);
             }
         }
         

@@ -62,7 +62,11 @@
             <div style="height:fit-content;" class="col-md-5 order-details">
                 <div class="section-title text-center">
                     <h3 class="title">@Book_Management_System.Resources.Client.PaymentResource.Resources.YourProduct</h3>
-                    <p id="IdCart" class="hidden">@Model.Id</p>
+                    <p id="IdCart" class="hidden" data-pay-success="@Book_Management_System.Resources.Client.PaymentResource.Resources.Payment_Complete"
+                       data-pay-fail="@Book_Management_System.Resources.Client.PaymentResource.Resources.Payment_fail"
+                       data-order-success="@Book_Management_System.Resources.Client.PaymentResource.Resources.Order_success"
+                       data-order-fail="@Book_Management_System.Resources.Client.PaymentResource.Resources.Order_fail"
+                       >@Model.Id</p>
                 </div>
                 <div class="order-summary">
                     <div class="order-col">

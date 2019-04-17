@@ -153,4 +153,16 @@
   <data name="YourProduct" xml:space="preserve">
     <value>Your Product</value>
   </data>
+  <data name="Order_fail" xml:space="preserve">
+    <value>Order fail</value>
+  </data>
+  <data name="Order_success" xml:space="preserve">
+    <value>Order successfully</value>
+  </data>
+  <data name="Payment_Complete" xml:space="preserve">
+    <value>Payment Complete</value>
+  </data>
+  <data name="Payment_fail" xml:space="preserve">
+    <value>Payment Fail </value>
+  </data>
 </root>

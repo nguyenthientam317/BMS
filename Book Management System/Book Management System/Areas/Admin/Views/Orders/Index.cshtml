@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 @section scripts{
     <script src="~/Assets/js/Customer.js"></script>
@@ -9,66 +10,77 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Order management</h1>
+            <h1 class="page-header">@Book_Management_System.Resources.Admin.OrderResource.Resources.OrderManagement</h1>
+            <p id="detailOrder" class="hidden" data-confirm-deli="@Book_Management_System.Resources.Admin.OrderResource.Resources.ConfirmDeli"
+               data-fail="@Book_Management_System.Resources.Admin.OrderResource.Resources.Fail"
+               data-success="@Book_Management_System.Resources.Admin.OrderResource.Resources.ChageStatusSuccess"
+               data-confirm-cancel="@Book_Management_System.Resources.Admin.OrderResource.Resources.ConfirmCancel"
+               data-cancel-success="@Book_Management_System.Resources.Admin.OrderResource.Resources.CancelSuccess"
+               data-confirm-complete="@Book_Management_System.Resources.Admin.OrderResource.Resources.ConfirmComplete"></p>
         </div>
         <!-- /.col-lg-12 -->
     </div>
 
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Cart.IdUser)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreateDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MethodPayment)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
+    <table class="table table-hover" id="table1">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cart.IdUser)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CreateDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MethodPayment)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Status)
-                </td>
-                <td>
-                    @{
-                        if (item.Status == "Ordered")
-                        {
-                            <button onclick="Customer.ViewDetail('@item.IdCard')" type="button" class="btn btn-info">Detail</button>
-                            <button onclick="Customer.SetDelivering('@item.Id')" type="button" class="btn btn-primary">Delivering</button>
-                            <button onclick="Customer.DeleteOrder('@item.Id')" type="button" class="btn btn-danger">Cancel</button>
-                          
-
-                        }
-                        else if (item.Status == "Delivering")
-                        {
-                            <button onclick="Customer.ViewDetail('@item.IdCard')" type="button" class="btn btn-info">Detail</button>
-                            <button onclick="Customer.SetCompleted('@item.Id')" type="button" class="btn btn-success">Complete</button>
-                        }
-                        else
-                        {
-                            <button onclick="Customer.ViewDetail('@item.IdCard')" type="button" class="btn btn-info">Detail</button>
-                        }
-                    }
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cart.IdUser)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreateDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MethodPayment)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th></th>
             </tr>
-        }
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cart.IdUser)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreateDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MethodPayment)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @{
+                            if (item.Status == "Ordered")
+                            {
+                                <button onclick="Customer.ViewDetail('@item.IdCard')" type="button" class="btn btn-info">@Book_Management_System.Resources.Admin.OrderResource.Resources.Detail</button>
+                                <button onclick="Customer.SetDelivering('@item.Id')" type="button" class="btn btn-primary">@Book_Management_System.Resources.Admin.OrderResource.Resources.Delivering</button>
+                                <button onclick="Customer.DeleteOrder('@item.Id')" type="button" class="btn btn-danger">@Book_Management_System.Resources.Admin.OrderResource.Resources.Cancel</button>
+
+
+                            }
+                            else if (item.Status == "Delivering")
+                            {
+                                <button onclick="Customer.ViewDetail('@item.IdCard')" type="button" class="btn btn-info">@Book_Management_System.Resources.Admin.OrderResource.Resources.Detail</button>
+                                <button onclick="Customer.SetCompleted('@item.Id')" type="button" class="btn btn-success">@Book_Management_System.Resources.Admin.OrderResource.Resources.Complete</button>
+                            }
+                            else
+                            {
+                                <button onclick="Customer.ViewDetail('@item.IdCard')" type="button" class="btn btn-info">@Book_Management_System.Resources.Admin.OrderResource.Resources.Detail</button>
+                            }
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+
 
     </table>
 </div>
@@ -76,8 +88,8 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Orders Detail</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" id="exampleModalLabel">@Book_Management_System.Resources.Admin.OrderResource.Resources.Orders_Detail</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="@Book_Management_System.Resources.Admin.OrderResource.Resources.Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -85,10 +97,10 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">BookName</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Total Price</th>
+                            <th scope="col">@Book_Management_System.Resources.Admin.OrderResource.Resources.BookName</th>
+                            <th scope="col">@Book_Management_System.Resources.Admin.OrderResource.Resources.Quantity</th>
+                            <th scope="col">.@Book_Management_System.Resources.Admin.OrderResource.Resources.Price</th>
+                            <th scope="col">@Book_Management_System.Resources.Admin.OrderResource.Resources.TotalPrice</th>
                         </tr>
                     </thead>
                     <tbody id="RenderModalContent"></tbody>
@@ -98,7 +110,7 @@
                     </div>*@
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">@Book_Management_System.Resources.Admin.OrderResource.Resources.Close</button>
             </div>
         </div>
     </div>

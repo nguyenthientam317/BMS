@@ -117,82 +117,104 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Book_IsDeleted" xml:space="preserve">
-    <value>Your chosen book was out of stock ! Please choose others</value>
+  <data name="Add" xml:space="preserve">
+    <value>Thêm mới</value>
   </data>
-  <data name="Cart" xml:space="preserve">
-    <value>Cart</value>
+  <data name="BookName" xml:space="preserve">
+    <value>Tên sách</value>
+    <comment>1</comment>
   </data>
-  <data name="Cart_Add_Fail_Log_In" xml:space="preserve">
-    <value>Please log in first </value>
+  <data name="Cancel" xml:space="preserve">
+    <value>Hủy</value>
   </data>
-  <data name="Cart_Add_Success" xml:space="preserve">
-    <value>Add to cart successfully</value>
+  <data name="CancelFail" xml:space="preserve">
+    <value>Hủy đơn hàng thất bại </value>
   </data>
-  <data name="Cart_All" xml:space="preserve">
-    <value>All</value>
+  <data name="CancelSuccess" xml:space="preserve">
+    <value>Hủy đơn hàng thành công </value>
   </data>
-  <data name="Cart_ChooseAllBook" xml:space="preserve">
-    <value>Select all books</value>
+  <data name="ChageStatusFail" xml:space="preserve">
+    <value>Thất bại </value>
   </data>
-  <data name="Cart_ChooseSth" xml:space="preserve">
-    <value>Please buy something</value>
+  <data name="ChageStatusSuccess" xml:space="preserve">
+    <value>Thay đổi trạng thái thành công</value>
   </data>
-  <data name="Cart_ChooseThisBook" xml:space="preserve">
-    <value>Choose this book</value>
+  <data name="Close" xml:space="preserve">
+    <value>Đóng</value>
   </data>
-  <data name="Cart_Deleted" xml:space="preserve">
-    <value>Deleted !</value>
+  <data name="Complete" xml:space="preserve">
+    <value>Hoàn tất</value>
   </data>
-  <data name="Cart_Deleted_Info" xml:space="preserve">
-    <value>Your book has been deleted</value>
+  <data name="ConfirmCancel" xml:space="preserve">
+    <value>Bạn có chắc chắn muốn hủy đơn hàng này ?</value>
   </data>
-  <data name="Cart_DontChooseAllBook" xml:space="preserve">
-    <value>Uncheck all books</value>
+  <data name="ConfirmComplete" xml:space="preserve">
+    <value>Bạn có chắc chắn muốn chuyển trạng thái đơn hàng này thành hoàn thành ?</value>
   </data>
-  <data name="Cart_DontChooseThisBook" xml:space="preserve">
-    <value>Uncheck this book</value>
+  <data name="ConfirmDeli" xml:space="preserve">
+    <value>Chuyển cho bên giao hàng ?</value>
   </data>
-  <data name="Cart_Empty" xml:space="preserve">
-    <value>Your cart is empty !</value>
+  <data name="Create" xml:space="preserve">
+    <value>Tạo mới</value>
   </data>
-  <data name="Cart_GoTo" xml:space="preserve">
-    <value>Go to cart</value>
+  <data name="CreateDate" xml:space="preserve">
+    <value>Ngày tạo</value>
   </data>
-  <data name="Cart_Image" xml:space="preserve">
-    <value>Image</value>
+  <data name="Delete" xml:space="preserve">
+    <value>Xóa</value>
   </data>
-  <data name="Cart_No" xml:space="preserve">
-    <value>No, cancle !</value>
+  <data name="Delivering" xml:space="preserve">
+    <value>Đang vận chuyển</value>
   </data>
-  <data name="Cart_Payment" xml:space="preserve">
-    <value>Payment</value>
+  <data name="Detail" xml:space="preserve">
+    <value>Chi tiết</value>
   </data>
-  <data name="Cart_Price" xml:space="preserve">
-    <value>Price</value>
+  <data name="Edit" xml:space="preserve">
+    <value>Chỉnh sửa</value>
   </data>
-  <data name="Cart_Quantity" xml:space="preserve">
-    <value>Quantity</value>
+  <data name="Fail" xml:space="preserve">
+    <value>Thất bại </value>
   </data>
-  <data name="Cart_SureQuestion" xml:space="preserve">
-    <value>Are you sure ?</value>
+  <data name="IdCart" xml:space="preserve">
+    <value>Mã giỏ hàng</value>
   </data>
-  <data name="Cart_Title" xml:space="preserve">
-    <value>Title</value>
+  <data name="IsActive" xml:space="preserve">
+    <value>Đang hoạt động</value>
   </data>
-  <data name="Cart_Total" xml:space="preserve">
-    <value>Total</value>
+  <data name="Manage" xml:space="preserve">
+    <value>Quản lý </value>
   </data>
-  <data name="Cart_Update_Success" xml:space="preserve">
-    <value>Update cart successfully</value>
+  <data name="MethodPay" xml:space="preserve">
+    <value>Phương thức thanh toán</value>
   </data>
-  <data name="Cart_Warning" xml:space="preserve">
-    <value>You won't be able to revert this !</value>
+  <data name="Name" xml:space="preserve">
+    <value>Tên</value>
   </data>
-  <data name="Cart_Yes" xml:space="preserve">
-    <value>Yes, delete it !</value>
+  <data name="Order" xml:space="preserve">
+    <value>hóa đơn</value>
   </data>
-  <data name="Log_In" xml:space="preserve">
-    <value>Go to log in</value>
+  <data name="OrderManagement" xml:space="preserve">
+    <value>Quản lý đơn hàng</value>
+  </data>
+  <data name="Orders_Detail" xml:space="preserve">
+    <value>Chi tiết hóa đơn</value>
+  </data>
+  <data name="PLH_NamePublisher" xml:space="preserve">
+    <value>Nhập tên nhà xuất bản</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Giá</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Số lượng </value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Lưu</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="TotalPrice" xml:space="preserve">
+    <value>Tổng cộng</value>
   </data>
 </root>

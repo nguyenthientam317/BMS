@@ -1,9 +1,9 @@
 ﻿var Customer = {
-    Init: function(){
-
+    Init: function () {
+        console.log($('#detailOrder').attr('data-confirm-deli'))
     },
     RegisterEvent() {
-
+        
     },
 
     ViewDetail: function (CurrentId) {
@@ -30,13 +30,13 @@
                     $('#ModalViewDetail').modal('show');
                 }
                 else {
-                    alert('Fail to load detail order');
+                    alert($('#detailOrder').attr('data-fail'));
                 }
             }
         })
     },
     DeleteOrder: function (CrId) {
-        var rep = confirm('Are you sure to cancel this order ?');
+        var rep = confirm($('#detailOrder').attr('data-confirm-cancel'));
         if (rep == true) {
             $.ajax({
                 url: Host+'User/DeleteOrder',
@@ -47,18 +47,18 @@
                 dataType: 'json',
                 success: function (response) {
                     if (response.status) {
-                        alert('Cancel successfully');
+                        alert($('#detailOrder').attr('data-cancel-success'));
                         location.reload();
                     }
                     else {
-                        alert('Fail');
+                        alert($('#detailOrder').attr('data-fail'));
                     }
                 }
             })
         }
     },
     SetDelivering: function (CrId) {
-        var rep = confirm('Are you sure to change status to Delivering ?');
+        var rep = confirm($('#detailOrder').attr('data-confirm-deli'));
         if (rep == true) {
             $.ajax({
                 url: Host + 'Admin/Orders/SetDelivering',
@@ -69,18 +69,18 @@
                 dataType: 'json',
                 success: function (response) {
                     if (response.status) {
-                        alert('Change status successfully');
+                        alert($('#detailOrder').attr('data-success'));
                         location.reload();
                     }
                     else {
-                        alert('Fail');
+                        alert($('#detailOrder').attr('data-fail'));
                     }
                 }
             })
         }
     },
     SetCompleted: function (CrId) {
-        var rep = confirm('Are you sure to change status to Completed ?');
+        var rep = confirm($('#detailOrder').attr('data-confirm-complete'));
         if (rep == true) {
             $.ajax({
                 url: Host + 'Admin/Orders/SetCompleted',
@@ -91,11 +91,11 @@
                 dataType: 'json',
                 success: function (response) {
                     if (response.status) {
-                        alert('Change status successfully');
+                        alert($('#detailOrder').attr('data-success'));
                         location.reload();
                     }
                     else {
-                        alert('Fail');
+                        alert($('#detailOrder').attr('data-fail'));
                     }
                 }
             })
@@ -105,3 +105,4 @@
    
 }
 var Host = 'http://localhost:60528/';
+Customer.Init();

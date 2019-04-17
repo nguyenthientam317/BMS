@@ -46,7 +46,11 @@
 
                     </div>
                     <div class="btn-group" style="width:100%; margin-top:-1px; margin-bottom: 10px;">
-                        <button class="btn-dark" id="buyNow" onclick="Open('@item.Id')" style="width:50%;font-size: 18px;">@Book_Management_System.Resources.Client.HomeResource.Resources.Home_BuyNow</button>
+                        <button class="btn-dark" id="buyNow" onclick="Open('@item.Id')" style="width:50%;font-size: 18px;" data-cart-success="@Book_Management_System.Resources.Client.CartResource.Resources.Cart_Add_Success"
+                                data-cart-fail-logIn="@Book_Management_System.Resources.Client.CartResource.Resources.Cart_Add_Fail_Log_In"
+                                data-cart-fail-bookIsDeleted="@Book_Management_System.Resources.Client.CartResource.Resources.Book_IsDeleted"
+                                >
+                        @Book_Management_System.Resources.Client.HomeResource.Resources.Home_BuyNow</button>
                         <button class="btn-price btn-outline-primary" style="width:50%; pointer-events: none"><span style="font-size: 15px">@string.Format("{0:0,0}", item.Price)$</span></button>
                     </div>
                 </div>
@@ -152,17 +156,27 @@
                              type: 'success',
                              width: 400,
                              height: 300,
-                             text: response.Message,
+                             text: $('#buyNow').attr('data-cart-success'),
                              showConfirmButton: false,
-                             footer: '<a href="@Url.Action("Index","Cart")">Go to Cart ?</a>'
+                             footer: '<a href="@Url.Action("Index","Cart")">@Book_Management_System.Resources.Client.CartResource.Resources.Cart_GoTo ?</a>'
                          });
                      } else {
                          Swal.fire({
                              type: 'error',
                              width: 400,
                              height: 300,
-                             text: response.Message,
+                             text: $('#buyNow').attr('data-cart-fail-logIn'),
+                             footer: '<a href="@Url.Action("Login","UserLogin")">@Book_Management_System.Resources.Client.CartResource.Resources.Log_In</a>'
                          })
+                     }
+                     if (response.Result == true && response.Message == "This book has been deleted !") {
+                         Swal.fire({
+                             type: 'success',
+                             width: 400,
+                             height: 300,
+                             text: $('#buyNow').attr('data-cart-fail-bookIsDeleted'),
+                             showConfirmButton: false,
+                         });
                      }
 
                  },

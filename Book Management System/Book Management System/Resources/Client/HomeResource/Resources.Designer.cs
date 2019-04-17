@@ -61,6 +61,33 @@ namespace Book_Management_System.Resources.Client.HomeResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Chim khôn kêu tiếng rãnh rang người khôn bình luận dịu dàng dễ nghe.
+        /// </summary>
+        public static string Cmt_Content {
+            get {
+                return ResourceManager.GetString("Cmt_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tên bạn là gì ?.
+        /// </summary>
+        public static string Cmt_InputName {
+            get {
+                return ResourceManager.GetString("Cmt_InputName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chia sẻ.
+        /// </summary>
+        public static string Cmt_Share {
+            get {
+                return ResourceManager.GetString("Cmt_Share", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Thêm vào giỏ hàng.
         /// </summary>
         public static string Home_AddToCart {

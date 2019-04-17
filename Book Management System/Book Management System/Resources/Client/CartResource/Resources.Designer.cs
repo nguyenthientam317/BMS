@@ -61,11 +61,38 @@ namespace Book_Management_System.Resources.Client.CartResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sách hết hàng dòi. Chọn quyển khác nhaa .
+        /// </summary>
+        public static string Book_IsDeleted {
+            get {
+                return ResourceManager.GetString("Book_IsDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Giỏ hàng.
         /// </summary>
         public static string Cart {
             get {
                 return ResourceManager.GetString("Cart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vào đăng nhập rồi mới chọn sách nha người ơi  .
+        /// </summary>
+        public static string Cart_Add_Fail_Log_In {
+            get {
+                return ResourceManager.GetString("Cart_Add_Fail_Log_In", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thêm vào giỏ hàng thành công.
+        /// </summary>
+        public static string Cart_Add_Success {
+            get {
+                return ResourceManager.GetString("Cart_Add_Success", resourceCulture);
             }
         }
         
@@ -147,6 +174,15 @@ namespace Book_Management_System.Resources.Client.CartResource {
         public static string Cart_Empty {
             get {
                 return ResourceManager.GetString("Cart_Empty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Xem giỏ hàng.
+        /// </summary>
+        public static string Cart_GoTo {
+            get {
+                return ResourceManager.GetString("Cart_GoTo", resourceCulture);
             }
         }
         
@@ -255,6 +291,15 @@ namespace Book_Management_System.Resources.Client.CartResource {
         public static string Cart_Yes {
             get {
                 return ResourceManager.GetString("Cart_Yes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Đăng nhập.
+        /// </summary>
+        public static string Log_In {
+            get {
+                return ResourceManager.GetString("Log_In", resourceCulture);
             }
         }
     }

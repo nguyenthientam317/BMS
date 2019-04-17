@@ -3,7 +3,6 @@ var Payment = {
     Init: function () {
         var Price = Payment.GetTotalPrice();
         TotalPrice = Number(Price);
-        console.log(TotalPrice);
     },
     RegisterEvent: function () {
         $('#cod').off('Click').on('click', function () {
@@ -75,7 +74,7 @@ var Payment = {
             onAuthorize: function (data, actions) {
                 return actions.payment.execute()
                     .then(function () {
-                        window.alert('Payment Complete!');
+                        window.alert($('#IdCart').attr('data-pay-success'));
                         Payment.CompletePayment();
                     });
             }
@@ -103,11 +102,11 @@ var Payment = {
             type: 'POST',
             success: function (response) {
                 if (response.status) {
-                    alert('Order Successfully');
+                    alert($('#IdCart').attr('data-order-success'));
                     window.location.href = "/";
                 }
                 else {
-                    alert('Order fail');
+                    alert($('#IdCart').attr('data-order-fail'));
                 }
             }
 

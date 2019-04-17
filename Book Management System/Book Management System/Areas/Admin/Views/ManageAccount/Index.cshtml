@@ -8,7 +8,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">User management</h1>
+            <h1 class="page-header">@Book_Management_System.Resources.Admin.User.Resource.User_management</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -17,7 +17,7 @@
         <div class="col-lg-12">
             <div class="table-responsive">
                 <p>
-                    @Html.ActionLink("Create New", "Create")
+                    @Html.ActionLink(@Book_Management_System.Resources.Admin.User.Resource.Create, "Create")
                 </p>
                 <table class="table table-hover" id="table1">
                     <thead>
@@ -39,26 +39,20 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.UserName)
                             </td>
-                          
-                           
-                           
                             <td>
                                 @{ if (item.IsActive == true)
                                     {
-                                        <button class="btn btn-success" style="pointer-events:none;">IsActived</button>
+                                        <button class="btn btn-success" style="pointer-events:none;">@Book_Management_System.Resources.Admin.User.Resource.IsActive</button>
                                     }
                                     else if(item.IsActive == false)
                                     {
-                                        <button class="btn btn-danger" style="pointer-events:none;">Block</button>
+                                        <button class="btn btn-danger" style="pointer-events:none;">@Book_Management_System.Resources.Admin.User.Resource.Block</button>
                                     }
                                 }
-                                
                             </td>
-                            
                             <td>
-                                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                                <a id="detail" onclick="Open('@item.Id')" class="don"> Detail </a> |
-                                @Html.ActionLink("Delete", "", new { id = item.Id }, new { @class = "isDisabled" })
+                                @Html.ActionLink(@Book_Management_System.Resources.Admin.User.Resource.Edit, "Edit", new { id = item.Id }) |
+                                <a id="detail" onclick="Open('@item.Id')" class="don"> @Book_Management_System.Resources.Admin.User.Resource.Detail </a> 
                             </td>
                         </tr>
                         }
@@ -77,13 +71,13 @@
         <div class="modal-content">
             <div class="modal-header" style="background-color:steelblue; color: white">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Your account</h4>
+                <h4 class="modal-title">@Book_Management_System.Resources.Admin.User.Resource.Detail</h4>
             </div>
             <div class="modal-body" id="Preview">
                 @*Content*@
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">@Book_Management_System.Resources.Admin.User.Resource.Close</button>
             </div>
         </div>
 

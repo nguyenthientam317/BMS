@@ -14,24 +14,40 @@
             @Html.HiddenFor(model => model.UserName)
 
             <div class="form-group">
-                <label class="col-md-3 control-label">New password: </label>
+                <label class="col-md-3 control-label">@Book_Management_System.Resources.Admin.User.Resource.New_Password:</label>
                 <div class="col-md-9">
-                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @type= "password", @placeholder = "6-30 characters" } })
+                    @Html.EditorFor(model => model.Password,
+                   new { htmlAttributes = new { @class = "form-control",
+                       @type = "password",
+                       @placeholder = @Book_Management_System.Resources.Admin.User.Resource.PH_New_Password,
+                       data_length = @Book_Management_System.Resources.Admin.User.Resource.Length_New_Password,
+                       data_format = @Book_Management_System.Resources.Admin.User.Resource.Format_New_Password,
+                       data_empty = @Book_Management_System.Resources.Admin.User.Resource.Empty_New_Password,
+                       id = "newpassword"}
+                   })
                     @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="control-label col-md-3">Confirm password: </label>
+                <label class="control-label col-md-3">@Book_Management_System.Resources.Admin.User.Resource.Confirm_New_Password: </label>
                 <div class="col-md-9">
-                    @Html.Editor("Confirm_Password", new { htmlAttributes = new { @class = "form-control", @type = "password", @placeholder = "6-30 characters" } })
+                    @Html.Editor("Confirm_Password",
+                   new { htmlAttributes = new { @class = "form-control",
+                       @type = "password",
+                       @placeholder = @Book_Management_System.Resources.Admin.User.Resource.PH_Confirm_New_Password,
+                       data_length = @Book_Management_System.Resources.Admin.User.Resource.Length_Confirm_New_Password,
+                       data_empty = @Book_Management_System.Resources.Admin.User.Resource.Empty_Confirm_New_Password,
+                       data_identical = @Book_Management_System.Resources.Admin.User.Resource.Identical_New_Password,
+                       id = "confirmnewpassword"}
+                   })
                     @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-md-offset-3 col-md-9">
-                    <input type="submit" value="Save" class="btn btn-success" />
+                    <input type="submit" value=@Book_Management_System.Resources.Admin.User.Resource.Save class="btn btn-success" />
                 </div>
             </div>
         </div>

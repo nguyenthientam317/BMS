@@ -117,116 +117,38 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Account" xml:space="preserve">
-    <value>Tài khoản</value>
+  <data name="Add_Author" xml:space="preserve">
+    <value>Thêm tác giả</value>
   </data>
-  <data name="Address" xml:space="preserve">
-    <value>Địa chỉ</value>
+  <data name="Author_IsActive" xml:space="preserve">
+    <value>Kích hoạt</value>
   </data>
-  <data name="Birthday" xml:space="preserve">
-    <value>Ngày sinh</value>
-  </data>
-  <data name="Change_Password" xml:space="preserve">
-    <value>Đổi mật khẩu</value>
-  </data>
-  <data name="Confirm_New_Password" xml:space="preserve">
-    <value>Xác nhận mật khẩu</value>
-  </data>
-  <data name="Edit_information" xml:space="preserve">
-    <value>Thay đổi thông tin</value>
-  </data>
-  <data name="Email" xml:space="preserve">
-    <value>Email</value>
-  </data>
-  <data name="Empty_Confirm_New_Password" xml:space="preserve">
-    <value>Xác nhận mật khẩu không dược để trống</value>
-  </data>
-  <data name="Empty_Email" xml:space="preserve">
-    <value>Email không thể để trống</value>
-  </data>
-  <data name="Empty_Firstname" xml:space="preserve">
-    <value>Tên không thể để trống</value>
-  </data>
-  <data name="Empty_Gender" xml:space="preserve">
-    <value>Vui lòng chọn giới tính của bạn</value>
-  </data>
-  <data name="Empty_Lastname" xml:space="preserve">
-    <value>Họ không thể để trống</value>
-  </data>
-  <data name="Empty_New_Password" xml:space="preserve">
-    <value>Mật khẩu không được để trống</value>
-  </data>
-  <data name="Female" xml:space="preserve">
-    <value>Nữ</value>
-  </data>
-  <data name="Firstname" xml:space="preserve">
+  <data name="Author_Name" xml:space="preserve">
     <value>Tên</value>
   </data>
-  <data name="Format_Birthday" xml:space="preserve">
-    <value>Ngày không hợp lệ</value>
+  <data name="Back_to_list" xml:space="preserve">
+    <value>Quay về danh sách</value>
   </data>
-  <data name="Format_Email" xml:space="preserve">
-    <value>Email không hợp lệ</value>
+  <data name="Close" xml:space="preserve">
+    <value>Đóng</value>
   </data>
-  <data name="Format_New_Password" xml:space="preserve">
-    <value>Mật khẩu phải có 6-30 ký tự, ít nhất một chữ cái viết hoa, một chữ cái viết thường, một số và không có khoảng trắng (cho phép kí tự đặc biệt)</value>
+  <data name="Create" xml:space="preserve">
+    <value>Thêm mới</value>
   </data>
-  <data name="Gender" xml:space="preserve">
-    <value>Giới tính</value>
+  <data name="Detail" xml:space="preserve">
+    <value>Chi tiết</value>
   </data>
-  <data name="Identical_Confirm_New_Password" xml:space="preserve">
-    <value>Mật khẩu không giống nhau</value>
+  <data name="Edit" xml:space="preserve">
+    <value>Chỉnh sửa</value>
   </data>
-  <data name="Invalid_Email" xml:space="preserve">
-    <value>Email này đã được sử dụng, vui lòng chọn một email khác</value>
+  <data name="Edit_Author" xml:space="preserve">
+    <value>Chỉnh sửa tác giả</value>
   </data>
-  <data name="Lastname" xml:space="preserve">
-    <value>Họ</value>
+  <data name="Manage_Author" xml:space="preserve">
+    <value>Quản lí tác giả</value>
   </data>
-  <data name="Length_Address" xml:space="preserve">
-    <value>Địa chỉ ít hơn 100 kí tự</value>
-  </data>
-  <data name="Length_Confirm_New_Password" xml:space="preserve">
-    <value>Xác nhận mật khẩu có ít nhất 6 kí tự</value>
-  </data>
-  <data name="Length_Email" xml:space="preserve">
-    <value>Email không thể nhiều hơn 100 ký tự</value>
-  </data>
-  <data name="Length_Firstname" xml:space="preserve">
-    <value>Tên phải có ít nhất 2 và nhiều nhất 50 kí tự</value>
-  </data>
-  <data name="Length_Lastname" xml:space="preserve">
-    <value>Họ phải có ít nhất 2 và nhiều nhất 50 kí tự</value>
-  </data>
-  <data name="Length_New_Password" xml:space="preserve">
-    <value>Mật khẩu có ít nhất 6 và nhiều nhất 30 kí tự</value>
-  </data>
-  <data name="Male" xml:space="preserve">
-    <value>Nam</value>
-  </data>
-  <data name="New_Password" xml:space="preserve">
-    <value>Mật khẩu mới</value>
-  </data>
-  <data name="Order_management" xml:space="preserve">
-    <value>Quản lí đơn hàng</value>
-  </data>
-  <data name="PH_Address" xml:space="preserve">
-    <value>Nhập địa chỉ</value>
-  </data>
-  <data name="PH_Confirm_New_Password" xml:space="preserve">
-    <value>Xác nhận mật khẩu mới</value>
-  </data>
-  <data name="PH_Email" xml:space="preserve">
-    <value>Nhập email </value>
-  </data>
-  <data name="PH_Firstname" xml:space="preserve">
-    <value>Nhập tên </value>
-  </data>
-  <data name="PH_Lastname" xml:space="preserve">
-    <value>Nhập họ</value>
-  </data>
-  <data name="PH_New_Password" xml:space="preserve">
-    <value>Nhập mật khẩu mới</value>
+  <data name="PH_AuthorName" xml:space="preserve">
+    <value>Tên tác giả</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Lưu</value>

@@ -138,6 +138,9 @@
   <data name="Email" xml:space="preserve">
     <value>Email</value>
   </data>
+  <data name="Empty_Confirm_New_Password" xml:space="preserve">
+    <value>Confirm password can not be empty</value>
+  </data>
   <data name="Empty_Email" xml:space="preserve">
     <value>Email can not be empty</value>
   </data>
@@ -149,6 +152,9 @@
   </data>
   <data name="Empty_Lastname" xml:space="preserve">
     <value>Last name can not be empty</value>
+  </data>
+  <data name="Empty_New_Password" xml:space="preserve">
+    <value>Password can not be empty</value>
   </data>
   <data name="Female" xml:space="preserve">
     <value>Female</value>
@@ -162,8 +168,14 @@
   <data name="Format_Email" xml:space="preserve">
     <value>The value is not invalid email</value>
   </data>
+  <data name="Format_New_Password" xml:space="preserve">
+    <value>Password must be 6-30 characters, at least one uppercase letter, one lowercase letter, one number and no whitespace (special characters are allowed)</value>
+  </data>
   <data name="Gender" xml:space="preserve">
     <value>Gender</value>
+  </data>
+  <data name="Identical_Confirm_New_Password" xml:space="preserve">
+    <value>Password does not match</value>
   </data>
   <data name="Invalid_Email" xml:space="preserve">
     <value>This email has already taken, please choose another one</value>
@@ -174,6 +186,9 @@
   <data name="Length_Address" xml:space="preserve">
     <value>Address can not be more than 100 characters</value>
   </data>
+  <data name="Length_Confirm_New_Password" xml:space="preserve">
+    <value>Confirm password must have at least 6 characters</value>
+  </data>
   <data name="Length_Email" xml:space="preserve">
     <value>Email can not be more than 100 characters</value>
   </data>
@@ -182,6 +197,9 @@
   </data>
   <data name="Length_Lastname" xml:space="preserve">
     <value>Last name must have at least 2 characters</value>
+  </data>
+  <data name="Length_New_Password" xml:space="preserve">
+    <value>Password must have at least 6 and less than 30 characters</value>
   </data>
   <data name="Male" xml:space="preserve">
     <value>Male</value>

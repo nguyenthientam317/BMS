@@ -193,7 +193,7 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
 
-    <Compile Include="Resources\Admin\OrderResource\Resources.Designer.cs">
+    <Compile Include="Resources\Admin\OrderResource\Resources.Designer.cs"></Compile>
 
     <Compile Include="Resources\Admin\Book\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

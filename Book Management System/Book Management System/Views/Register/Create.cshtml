@@ -89,6 +89,15 @@
             <div class="panel ">
                 <div class="panel-heading">
                     <b class="title ">Register</b>
+                    @using (Html.BeginForm("ChangeCulture", "Base"))
+                    {
+                        @Html.Hidden("returnUrl", Request.RawUrl)
+                        @Html.DropDownList("ddlCulture", new SelectList(new[] {
+                            new{value ="vi-VN",text= Book_Management_System.Infrastructure.StaticResource.Resources.Vietnamese },
+                            new{value ="en-US",text= Book_Management_System.Infrastructure.StaticResource.Resources.English },
+
+                            }, "value", "text",Session[Book_Management_System.Infrastructure.ConstantDefine.CURRENT_CULTURE]),new {onchange="this.form.submit();"} )
+                    }
                     <hr />
                 </div>
                 <div class="panel-body">
@@ -112,72 +121,123 @@
                         </div>
                         <!-- Input username -->
                         <div class="form-group">
-                            <label class="control-label col-sm-4">Username: </label>
+                            <label class="control-label col-sm-4">@Book_Management_System.Resources.Client.RegisterResource.Resource.Username:</label>
                             <div class="col-sm-7">
-                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "Enter user name" })
+                                @Html.TextBoxFor(m => m.UserName,
+                               new { @class = "form-control",
+                                   @placeholder = @Book_Management_System.Resources.Client.RegisterResource.Resource.PH_Username,
+                                   data_length = @Book_Management_System.Resources.Client.RegisterResource.Resource.Length_Firstname,
+                                   data_empty = @Book_Management_System.Resources.Client.RegisterResource.Resource.Empty_Username,
+                                   data_invalid = @Book_Management_System.Resources.Client.RegisterResource.Resource.Invalid_Username,
+                                   id = "username"})
                             </div>
                         </div>
                         <!-- Input password -->
                         <div class="form-group">
-                            <label class="control-label col-sm-4">Password: </label>
+                            <label class="control-label col-sm-4">@Book_Management_System.Resources.Client.RegisterResource.Resource.Password:</label>
                             <div class="col-sm-7">
-                                @Html.EditorFor(m => m.Password, new { htmlAttributes = new { @class = "form-control", @placeholder = "6-30 characters", @type = "password" } })
+                                @Html.EditorFor(m => m.Password,
+                               new { htmlAttributes = new { @class = "form-control",
+                                   @placeholder = @Book_Management_System.Resources.Client.RegisterResource.Resource.PH_Password,
+                                   @type = "password",
+                                   data_length = @Book_Management_System.Resources.Client.RegisterResource.Resource.Length_Password,
+                                   data_format = @Book_Management_System.Resources.Client.RegisterResource.Resource.Format_Password,
+                                   data_empty = @Book_Management_System.Resources.Client.RegisterResource.Resource.Empty_Password,
+                                   id = "password"} })
                             </div>
                         </div>
                         <!-- Re-enter password -->
                         <div class="form-group">
-                            <label class="control-label col-sm-4">Re-enter password: </label>
+                            <label class="control-label col-sm-4">@Book_Management_System.Resources.Client.RegisterResource.Resource.Confirm_password:</label>
                             <div class="col-sm-7">
-                                @Html.Editor("Confirm_Password", new { htmlAttributes = new { @class = "form-control", @type = "password", @placeholder = "6-30 characters" } })
+                                @Html.Editor("Confirm_Password",
+                               new { htmlAttributes = new { @class = "form-control",
+                                   @type = "password",
+                                   @placeholder = @Book_Management_System.Resources.Client.RegisterResource.Resource.PH_Confirm_password,
+                                   data_length = @Book_Management_System.Resources.Client.RegisterResource.Resource.Length_Confirm_Password,
+                                   data_empty = @Book_Management_System.Resources.Client.RegisterResource.Resource.Empty_Confirm_Password,
+                                   data_identical = @Book_Management_System.Resources.Client.RegisterResource.Resource.Identical_Password,
+                                   id = "confirm_password"} })
                             </div>
                         </div>
                         <!-- Input firstname -->
                         <div class="form-group">
-                            <label class="control-label col-sm-4">First name: </label>
+                            <label class="control-label col-sm-4">@Book_Management_System.Resources.Client.RegisterResource.Resource.Firstname:</label>
                             <div class="col-sm-7">
-                                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @placeholder = "Enter first name" })
+                                @Html.TextBoxFor(m => m.FirstName,
+                               new { @class = "form-control",
+                                   @placeholder = @Book_Management_System.Resources.Client.RegisterResource.Resource.PH_Firstname,
+                                   data_length = @Book_Management_System.Resources.Client.RegisterResource.Resource.Length_Firstname,
+                                   data_empty = @Book_Management_System.Resources.Client.RegisterResource.Resource.Empty_Firstname,
+                                   id = "firstname"})
                             </div>
                         </div>
                         <!-- Input lastname -->
                         <div class="form-group">
-                            <label class="control-label col-sm-4">Last name: </label>
+                            <label class="control-label col-sm-4">@Book_Management_System.Resources.Client.RegisterResource.Resource.Lastname:</label>
                             <div class="col-sm-7">
-                                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @placeholder = "Enter last name" })
+                                @Html.TextBoxFor(m => m.LastName,
+                               new { @class = "form-control",
+                                   @placeholder = @Book_Management_System.Resources.Client.RegisterResource.Resource.PH_Lastname,
+                                   data_length = @Book_Management_System.Resources.Client.RegisterResource.Resource.Length_Lastname,
+                                   data_empty = @Book_Management_System.Resources.Client.RegisterResource.Resource.Empty_Lastname,
+                                   id = "lastname"
+                               })
                             </div>
                         </div>
                         <!-- Choose birthday -->
                         <div class="form-group">
-                            <label class="control-label col-sm-4">Birthday</label>
+                            <label class="control-label col-sm-4">@Book_Management_System.Resources.Client.RegisterResource.Resource.Birthday:</label>
                             <div class="col-sm-7">
-                                @Html.TextBoxFor(m => m.Birthday, new { @class = "form-control", id = "datepicker-birthday", @placeholder = "MM/DD/YYYY", @type = "datetime" })
+                                @Html.TextBoxFor(m => m.Birthday,
+                               new { @class = "form-control",
+                                   id = "datepicker-birthday",
+                                   @placeholder = @Book_Management_System.Resources.Client.RegisterResource.Resource.PH_Birthday,
+                                   @type = "datetime",
+                                   data_format = @Book_Management_System.Resources.Client.RegisterResource.Resource.Format_Birthday
+                               })
                             </div>
                         </div>
                         <!-- Input Email -->
                         <div class="form-group">
-                            <label class="control-label col-sm-4">Email: </label>
+                            <label class="control-label col-sm-4">@Book_Management_System.Resources.Client.RegisterResource.Resource.Email:</label>
                             <div class="col-sm-7">
-                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Enter your email", @type = "email" })
+                                @Html.TextBoxFor(m => m.Email,
+                               new { @class = "form-control",
+                                   @placeholder = @Book_Management_System.Resources.Client.RegisterResource.Resource.PH_Email,
+                                   @type = "email",
+                                   data_length = @Book_Management_System.Resources.Client.RegisterResource.Resource.Length_Email,
+                                   data_empty = @Book_Management_System.Resources.Client.RegisterResource.Resource.Empty_Email,
+                                   data_format = @Book_Management_System.Resources.Client.RegisterResource.Resource.Format_Email,
+                                   data_invalid = @Book_Management_System.Resources.Client.RegisterResource.Resource.Invalid_Email,
+                                   id = "email"
+                               })
                             </div>
                         </div>
                         <!-- Input address -->
                         <div class="form-group">
-                            <label class="control-label col-sm-4">Address: </label>
+                            <label class="control-label col-sm-4">@Book_Management_System.Resources.Client.RegisterResource.Resource.Address:</label>
                             <div class="col-sm-7">
-                                @Html.TextBoxFor(m => m.Address, new { @class = "form-control", @placeholder = "Enter address" })
+                                @Html.TextBoxFor(m => m.Address,
+                               new { @class = "form-control",
+                                   @placeholder = @Book_Management_System.Resources.Client.RegisterResource.Resource.PH_Address,
+                                   data_empty = @Book_Management_System.Resources.Client.RegisterResource.Resource.Empty_Address,
+                                   id = "address"
+                               })
                             </div>
                         </div>
                         <!-- Select gender-->
                         <div class="form-group">
-                            <label class="control-label col-sm-4" for="gender">Gender:</label>
+                            <label class="control-label col-sm-4" for="gender">@Book_Management_System.Resources.Client.RegisterResource.Resource.Gender:</label>
                             <div class="col-sm-7">
                                 <div class="radio-inline">
                                     <label>
-                                        @Html.RadioButtonFor(m => m.Gender, true, new { @id = "male" }) Male
+                                        @Html.RadioButtonFor(m => m.Gender, true, new { @id = "gender", data_empty = @Book_Management_System.Resources.Client.RegisterResource.Resource.Empty_Gender }) @Book_Management_System.Resources.Client.RegisterResource.Resource.Male
                                     </label>
                                 </div>
                                 <div class="radio-inline">
                                     <label>
-                                        @Html.RadioButtonFor(m => m.Gender, false, new { @id = "female" }) Female
+                                        @Html.RadioButtonFor(m => m.Gender, false, new { @id = "gender", data_empty = @Book_Management_System.Resources.Client.RegisterResource.Resource.Empty_Gender }) @Book_Management_System.Resources.Client.RegisterResource.Resource.Female
                                     </label>
                                 </div>
                             </div>
@@ -185,12 +245,14 @@
                         <!-- Submit and clear text button -->
                         <div class="form-group">
                             <div class="col-sm-offset-4 col-sm-8">
-                                <button type="submit" id="submit_register" class="btn btn-success">Save</button>
-                                <button type="reset" id="reset" class="btn btn-default">Reset</button>
+                                <button type="submit" id="submit_register" class="btn btn-success">@Book_Management_System.Resources.Client.RegisterResource.Resource.Save</button>
+                                <button type="reset" id="reset" class="btn btn-default">@Book_Management_System.Resources.Client.RegisterResource.Resource.Reset</button>
                             </div>
                         </div>
 
+
                     }
+                    
                 </div>
             </div>
         </div>
@@ -220,12 +282,12 @@
                     UserName: {
                         validators: {
                             notEmpty: {
-                                message: 'User name can not be empty'
+                                message: $('#username').attr('data-empty')
                             },
                             stringLength: {
                                 min: 6,
                                 max: 50,
-                                message: 'User name must be more 6 characters'
+                                message: $('#username').attr('data-length')
                             },
                             remote: {
                                 url: "@Url.Action("IsUserNameUnique", "Register")",
@@ -234,7 +296,7 @@
                                         UserName: validator.getFieldElements('UserName').val()
                                     };
                                 },
-                                message: 'The username is not available'
+                                message: $('#username').attr('data-invalid')
                             }
                         }
                     },
@@ -243,14 +305,14 @@
                             stringLength: {
                                 min: 6,
                                 max: 30,
-                                message: 'Password must have at least 6 and less than 30 characters'
+                                message: $('#password').attr('data-length')
                             },
                             notEmpty: {
-                                message: 'Password can not be empty'
+                                message: $('#password').attr('data-empty')
                             },
                             regexp: {
                                 regexp: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z0-9\S]{6,30}$/,
-                                message: 'Password must be 6-30 characters, at least one uppercase letter, one lowercase letter, one number and no whitespace (special characters are allowed)'
+                                message: $('#password').attr('data-format')
                             }
                         }
                     },
@@ -259,46 +321,52 @@
                             stringLength: {
                                 min: 6,
                                 max: 30,
-                                message: 'Confirm password must have at least 6 characters'
+                                message: $('#confirm_password').attr('data-length')
                             },
                             notEmpty: {
-                                message: "Confirm password can not be empty"
+                                message: $('#confirm_password').attr('data-empty')
                             },
                             identical: {
                                 field: 'Password',
-                                message: 'Password does not match'
+                                message: $('#confirm_password').attr('data-identical')
                             }
                         }
                     },
                     FirstName: {
                         validators: {
                             notEmpty: {
-                                message: 'First name can not be empty'
+                                message: $('#firstname').attr('data-empty')
                             },
                             stringLength: {
                                 min: 2,
-                                max: 50
+                                max: 50,
+                                message: $('#firstname').attr('data-length')
                             }
                         }
                     },
                     LastName: {
                         validators: {
                             notEmpty: {
-                                message: 'Last name can not be empty'
+                                message: $('#lastname').attr('data-empty')
                             },
                             stringLength: {
                                 min: 2,
-                                max: 50
+                                max: 50,
+                                message: $('#lastname').attr('data-length')
                             }
                         }
                     },
                     Email: {
                         validators: {
                             notEmpty: {
-                                message: 'Email can not be empty'
+                                message: $('#email').attr('data-empty')
                             },
                             stringLength: {
-                                max: 100
+                                max: 100,
+                                message: $('#email').attr('data-length')
+                            },
+                            emailAddress: {
+                                message: $('#email').attr('data-format')
                             },
                             remote: {
                                 url: "@Url.Action("IsEmailUnique", "Register")",
@@ -307,7 +375,7 @@
                                         UserName: validator.getFieldElements('Email').val()
                                     };
                                 },
-                                message: 'Email is already taken, please choose another one'
+                                message: $('#email').attr('data-invalid')
                             }
                         }
                     },
@@ -315,21 +383,21 @@
                         validators: {
                             date: {
                                 format: 'MM/DD/YYYY',
-                                message: 'The value is not a valid date'
+                                message: $('#datepicker-birthday').attr('data-format')
                             }
                         }
                     },
                     Address: {
                         validators: {
                             notEmpty: {
-                                message: 'Address can not be empty'
+                                message: $('#address').attr('data-empty')
                             }
                         }
                     },
                     Gender: {
                         validators: {
                             notEmpty: {
-                                message: 'Please choose your gender'
+                                message: $('#gender').attr('data-empty')
                             }
                         }
                     }

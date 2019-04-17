@@ -386,9 +386,7 @@
         <h5 style="font-weight: bolder">Detail</h5>
         <hr style="height: 10px; border: 0;box-shadow: 0 10px 10px -10px #8c8b8b inset;" />
     </div>
-
-
-    <div class="panel panel-default>
+    <div class="panel">
         <div class="panel-body">
             <!-- INFO -->
             <div class="row">
@@ -410,10 +408,8 @@
                         <div class="panel-body">
                             <div class="container detail-title">
                                 <a href="#" id="img" data-id="@Model.Id"><h4>@Model.Title</h4></a>
-                                <h5>Tác giả:  <strong>@Model.Author.Name</strong> </h5>
-                                <h5>Thể loại: <i><a href="#">@Model.BookCategory.CateName</a></i></h5>
-                                <h5>Lượt xem: 2000</h5>
-
+                                <h5>@Book_Management_System.Resources.Client.DetailResource.Resource.Author:  <strong>@Model.Author.Name</strong> </h5>
+                                <h5>@Book_Management_System.Resources.Client.DetailResource.Resource.Caterogy: <i><a href="#">@Model.BookCategory.CateName</a></i></h5>
                                 <hr style="border: 0; border-bottom: 1px dashed #ccc;background: #999;" />
 
                                 <div class="input-group form-group-sm justify-content-sm">
@@ -436,7 +432,7 @@
 
                                 <p class="inline">
                               
-                                    <button class="btn btn-danger" onclick="Add('@Model.Id')" id="addCart"><i class="fa fa-cart-plus"> ADD TO CART</i></button>
+                                    <button class="btn btn-danger" onclick="Add('@Model.Id')" id="addCart"><i class="fa fa-cart-plus"> @Book_Management_System.Resources.Client.DetailResource.Resource.Add_to_cart</i></button>
                                 </p>
                             </div>
                         </div>
@@ -454,13 +450,6 @@
             <!-- COMMENT-->
             <hr style="border: 0; height: 0; border-top: 1px solid rgba(0, 0, 0, 0.1); border-bottom: 1px solid rgba(255, 255, 255, 0.3)" />
             @{ Html.RenderAction("Comments", "Home", new { idBook = Model.Id });}
-            @*<ul class="pagination justify-content-center" style="margin-bottom: 20px">
-                    <li class="page-item disabled"><a class="page-link" href="javascript:void(0);">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
-                </ul>*@
         </div>
     </div>
 </div>

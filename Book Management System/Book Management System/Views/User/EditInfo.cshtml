@@ -79,81 +79,114 @@
             @using (Html.BeginForm("EditInfo", "User", FormMethod.Post, new { @id = "edit-info-user", enctype = "multipart/form-data" }))
             {
                 @Html.AntiForgeryToken()
-                <div class="form-horizontal">
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Id)
+                @Html.HiddenFor(model => model.IsActive)
+                <!-- Upload avatar-->
+                <div class="avatar-wrapper">
+                    <img class="profile-pic" src="@Model.Avatar">
+                    <div class="upload-button">
+                        <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                    </div>
+                    @Html.EditorFor(model => model.Avatar,
+                    new { htmlAttributes = new { @class = "form-control file-upload",
+                       @type = "file",
+                       @accept = "image/*",
+                       @style = "display: none" } })
+                    @Html.ValidationMessageFor(model => model.Avatar, "", new { @class = "text-danger" })
+                </div>
+                <!-- Input first name & last name-->
+                <div class="form-group">
 
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    @Html.HiddenFor(model => model.Id)
-                    @Html.HiddenFor(model => model.IsActive)
-                    <!-- Upload avatar-->
-                    <div class="avatar-wrapper">
-                        <img class="profile-pic" src="@Model.Avatar">
-                        <div class="upload-button">
-                            <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
-                        </div>
-                        @Html.EditorFor(model => model.Avatar, new { htmlAttributes = new { @class = "form-control file-upload", @type = "file", @accept = "image/*", @style = "display: none" } })
-                        @Html.ValidationMessageFor(model => model.Avatar, "", new { @class = "text-danger" })
-                    </div>
-
-                    <!-- Input first name & last name-->
-                    <div class="form-group">
-
-                        <label class="control-label col-lg-2">First name: </label>
-                        <div class="col-lg-3">
-                            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter first name" } })
-                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
-                        </div>
-                        <label class="control-label col-lg-2">Last name: </label>
-                        <div class="col-lg-5">
-                            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter last name" } })
-                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <!-- Select birthday and enter email-->
-                    <div class="form-group">
-                        <label class="control-label col-lg-2">Birthday: </label>
-                        <div class="col-lg-3">
-                            @Html.EditorFor(model => model.Birthday, new { htmlAttributes = new { @class = "form-control", @id = "datepicker-birthday", @placeholder = "Click to select", @readonly = "" } })
-                            @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
-                        </div>
-                        <label class="control-label col-lg-2">Email: </label>
-                        <div class="col-lg-5">
-                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @type = "email", @placeholder = "Enter your email", @id = "txtuseremail" } })
-                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <!-- Input address-->
-                    <div class="form-group">
-                        <label class="control-label col-lg-2">Address: </label>
-                        <div class="col-lg-10">
-                            @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your address" } })
-                            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <!-- Select gender -->
-                    <div class="form-group">
-                        <label class="control-label col-lg-2">Gender: </label>
-                        <div class="col-lg-10">
-                            <div class="radio-inline">
-                                @Html.RadioButtonFor(model => model.Gender, true) Male
-                            </div>
-                            <div class="radio-inline">
-                                @Html.RadioButtonFor(model => model.Gender, false) Female
-                            </div>
-                        </div>
+                    <label class="control-label col-lg-2">@Book_Management_System.Resources.Client.UserResource.Resource.Firstname:</label>
+                    <div class="col-lg-3">
+                        @Html.EditorFor(model => model.FirstName,
+                       new { htmlAttributes = new { @class = "form-control",
+                           @placeholder = @Book_Management_System.Resources.Client.UserResource.Resource.PH_Firstname,
+                           data_length = @Book_Management_System.Resources.Client.UserResource.Resource.Length_Firstname,
+                           data_empty = @Book_Management_System.Resources.Client.UserResource.Resource.Empty_Firstname,
+                           id = "firstname"
+                       } })
+                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
                     </div>
 
-                    <!-- Save button-->
-                    <div class="form-group">
-                        <div class="col-lg-12">
-                            <input type="submit" value="Save" class="btn btn-success center-block" />
+                    <label class="control-label col-lg-2">@Book_Management_System.Resources.Client.UserResource.Resource.Lastname: </label>
+                    <div class="col-lg-5">
+                        @Html.EditorFor(model => model.LastName,
+                       new { htmlAttributes = new { @class = "form-control",
+                           @placeholder = @Book_Management_System.Resources.Client.UserResource.Resource.PH_Lastname,
+                           data_length = @Book_Management_System.Resources.Client.UserResource.Resource.Length_Lastname,
+                           data_empty = @Book_Management_System.Resources.Client.UserResource.Resource.Empty_Lastname,
+                           id = "lastname"
+                       } })
+                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+                <!-- Select birthday and enter email-->
+                <div class="form-group">
+                    <label class="control-label col-lg-2">@Book_Management_System.Resources.Client.UserResource.Resource.Birthday:: </label>
+                    <div class="col-lg-3">
+                        @Html.EditorFor(model => model.Birthday,
+                       new { htmlAttributes = new { @class = "form-control",
+                           @id = "datepicker-birthday",
+                           @placeholder = "Click to select",
+                           @readonly = "",
+                           data_format = @Book_Management_System.Resources.Client.UserResource.Resource.Format_Birthday
+                       } })
+                        @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
+                    </div>
+                    <label class="control-label col-lg-2">@Book_Management_System.Resources.Client.UserResource.Resource.Email: </label>
+                    <div class="col-lg-5">
+                        @Html.EditorFor(model => model.Email,
+                       new { htmlAttributes = new { @class = "form-control",
+                           @type = "email",
+                           @placeholder = @Book_Management_System.Resources.Client.UserResource.Resource.PH_Email,
+                           data_length = @Book_Management_System.Resources.Client.UserResource.Resource.Length_Email,
+                           data_empty = @Book_Management_System.Resources.Client.UserResource.Resource.Empty_Email,
+                           data_format = @Book_Management_System.Resources.Client.UserResource.Resource.Format_Email,
+                           data_invalid = @Book_Management_System.Resources.Client.UserResource.Resource.Invalid_Email,
+                           @id = "email" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <!-- Input address-->
+                <div class="form-group">
+                    <label class="control-label col-lg-2">@Book_Management_System.Resources.Client.UserResource.Resource.Address: </label>
+                    <div class="col-lg-10">
+                        @Html.EditorFor(model => model.Address,
+                       new { htmlAttributes = new { @class = "form-control",
+                           @placeholder = @Book_Management_System.Resources.Client.UserResource.Resource.PH_Address,
+                           data_length = @Book_Management_System.Resources.Client.UserResource.Resource.Length_Address,
+                           id = "address"} })
+                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <!-- Select gender -->
+                <div class="form-group">
+                    <label class="control-label col-lg-2">@Book_Management_System.Resources.Client.UserResource.Resource.Gender: </label>
+                    <div class="col-lg-10">
+                        <div class="radio-inline">
+                            @Html.RadioButtonFor(model => model.Gender, true, new { @id = "gender", data_empty = @Book_Management_System.Resources.Client.UserResource.Resource.Empty_Gender }) @Book_Management_System.Resources.Client.UserResource.Resource.Male
+                        </div>
+                        <div class="radio-inline">
+                            @Html.RadioButtonFor(model => model.Gender, false, new { @id = "gender", data_empty = @Book_Management_System.Resources.Client.UserResource.Resource.Empty_Gender }) @Book_Management_System.Resources.Client.UserResource.Resource.Female
                         </div>
                     </div>
                 </div>
-            }
+
+                <!-- Save button-->
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        <input type="submit" value=@Book_Management_System.Resources.Client.UserResource.Resource.Save class="btn btn-success center-block" />
+                    </div>
+                </div>
+            </div>
+            }  
         </div>
     </div>
 </div>
-
 <!--SCRIPT-->
 @section Js {
     <!-- DatePicker-->
@@ -206,10 +239,11 @@
                         validators: {
                             stringLength: {
                                 min: 2,
-                                message: 'First name must have at least 2 characters'
+                                max: 50,
+                                message: $('#firstname').attr('data-length')
                             },
                             notEmpty: {
-                                message: 'Please supply your first name'
+                                message: $('#firstname').attr('data-empty')
                             }
                         }
                     },
@@ -217,19 +251,27 @@
                         validators: {
                             stringLength: {
                                 min: 2,
-                                message: 'Last name must have at least 2 characters'
+                                max: 50,
+                                message: $('#lastname').attr('data-length')
                             },
                             notEmpty: {
-                                message: 'Please supply your last name'
+                                message: $('#lastname').attr('data-empty')
                             }
                         }
                     },
                     Email: {
                         validators: {
-                            notEmpty: {
-                                message: 'Email can not be empty'
+                            emailAddress: {
+                                message: $('#email').attr('data-format')
                             },
-                           remote: {
+                            stringLength: {
+                                max: 100,
+                                message: $('#email').attr('data-length')
+                            },
+                            notEmpty: {
+                                message: $('#email').attr('data-empty')
+                            },
+                            remote: {
                                 url: "@Url.Action("IsEmailUnique", "ManageAccount",new { id = Model.Id})",
                                 // Send { username: 'its value', email: 'its value' } to the back-end
                                 data: function (validator) {
@@ -237,7 +279,30 @@
                                         Email: validator.getFieldElements('Email').val()
                                     };
                                 },
-                                message: 'The email is already exist'
+                                message: $('#email').attr('data-invalid')
+                            }
+                        }
+                    },
+                    Birthday: {
+                        validators: {
+                            date: {
+                                format: 'MM/DD/YYYY',
+                                message: $('#datepicker-birthday').attr('data-format')
+                            }
+                        }
+                    },
+                    Address: {
+                        validators: {
+                            stringLength: {
+                                max: 100,
+                                message: $('#address').attr('data-length')
+                            }
+                        }
+                    },
+                    Gender: {
+                        validators: {
+                            notEmpty: {
+                                message: $('#gender').attr('data-empty')
                             }
                         }
                     }

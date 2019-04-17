@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace Book_Management_System.Controllers
 {
-    public class RegisterController : Controller
+    public class RegisterController : BaseController
     {
         private Model db = new Model();
         // GET: Register

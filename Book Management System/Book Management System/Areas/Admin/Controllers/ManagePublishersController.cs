@@ -12,7 +12,7 @@ using Book_Management_System.Models;
 namespace Book_Management_System.Areas.Admin.Controllers
 {
     [AuthorizeUser]
-    public class ManagePublishersController : Controller
+    public class ManagePublishersController : BaseAdminController
     {
         private Model db = new Model();
 
@@ -34,7 +34,7 @@ namespace Book_Management_System.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            return View(publisher);
+            return PartialView(publisher);
         }
 
         // GET: Admin/ManagePublishers/Create

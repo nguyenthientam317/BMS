@@ -117,8 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Book_IsDeleted" xml:space="preserve">
+    <value>Sách hết hàng dòi. Chọn quyển khác nhaa </value>
+  </data>
   <data name="Cart" xml:space="preserve">
     <value>Giỏ hàng</value>
+  </data>
+  <data name="Cart_Add_Fail_Log_In" xml:space="preserve">
+    <value>Vào đăng nhập rồi mới chọn sách nha người ơi  </value>
+  </data>
+  <data name="Cart_Add_Success" xml:space="preserve">
+    <value>Thêm vào giỏ hàng thành công</value>
   </data>
   <data name="Cart_All" xml:space="preserve">
     <value>Tất cả</value>
@@ -146,6 +155,9 @@
   </data>
   <data name="Cart_Empty" xml:space="preserve">
     <value>Không còn món hàng nào trong giỏ hàng của bạn </value>
+  </data>
+  <data name="Cart_GoTo" xml:space="preserve">
+    <value>Xem giỏ hàng</value>
   </data>
   <data name="Cart_Image" xml:space="preserve">
     <value>Hình ảnh</value>
@@ -182,5 +194,8 @@
   </data>
   <data name="Cart_Yes" xml:space="preserve">
     <value>Quất ! Tao lại sợ mày quá cơ </value>
+  </data>
+  <data name="Log_In" xml:space="preserve">
+    <value>Đăng nhập</value>
   </data>
 </root>

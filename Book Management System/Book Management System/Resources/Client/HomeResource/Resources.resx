@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Cmt_Content" xml:space="preserve">
+    <value>Chim khôn kêu tiếng rãnh rang người khôn bình luận dịu dàng dễ nghe</value>
+  </data>
+  <data name="Cmt_InputName" xml:space="preserve">
+    <value>Tên bạn là gì ?</value>
+  </data>
+  <data name="Cmt_Share" xml:space="preserve">
+    <value>Chia sẻ</value>
+  </data>
   <data name="Home_AddToCart" xml:space="preserve">
     <value>Thêm vào giỏ hàng</value>
   </data>

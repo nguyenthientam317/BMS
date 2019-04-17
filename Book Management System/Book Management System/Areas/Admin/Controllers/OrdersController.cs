@@ -11,7 +11,7 @@ using Book_Management_System.Models;
 
 namespace Book_Management_System.Areas.Admin.Controllers
 {
-    public class OrdersController : Controller
+    public class OrdersController : BaseAdminController
     {
         private Model db = new Model();
 

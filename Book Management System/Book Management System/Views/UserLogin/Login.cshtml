@@ -1,5 +1,5 @@
 ﻿@model Book_Management_System.Common.LoginModel
-
+@using Book_Management_System.Resources.Admin.Login;
 @{
     Layout = null;
 }
@@ -46,11 +46,12 @@
     </style>
 </head>
 <body>
+   
     <div class="container">
         <div class="row col-md-offset-3 col-md-6">
             <div class="panel ">
-                <div class="panel-heading">                  
-                    <b class="title ">Login</b>
+                <div class="panel-heading">
+                    <b class="title ">@Resources.Login</b>
                     <hr />
                 </div>
 
@@ -59,52 +60,51 @@
                     {
                         @Html.AntiForgeryToken()
 
-                    <div class=" form-horizontal" style="margin-left:20px;margin-right:20px;">
-                        @Html.ValidationSummary(true, "", new { @class = "error" })
-                        <div class="form-group  inputIcon">
-                            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control input-lg", id = "Username", placeholder = "Username", autofocus = "autofocus" } })
-                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
-                        </div>
+                        <div class=" form-horizontal" style="margin-left:20px;margin-right:20px;">
+                            @Html.ValidationSummary(true, "", new { @class = "error" })
+                            <div class="form-group  inputIcon">
+                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control input-lg", id = "Username", placeholder = Resources.UserName, autofocus = "autofocus" , data_empty = Resources.ErrorEmpty, data_length = Resources.ErrorLength } })
+                                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                            </div>
 
-                        <div class="form-group  inputIcon">
-                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control input-lg", id = "Password", placeholder = "Password", type = "password" } })
-                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                        </div>
+                            <div class="form-group  inputIcon">
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control input-lg", id = "Password", placeholder = Resources.Password, type = "password", data_empty = Resources.ErrorEmpty, data_length = Resources.ErrorLength } })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
 
-                        <div class="form-group text-center">
-                            @Html.EditorFor(model => model.RememberMe, new { @class = "form-check-input " })
-                            @Html.LabelFor(model => model.RememberMe, htmlAttributes: new { @class = "form-check-label" })
-                            @Html.ValidationMessageFor(model => model.RememberMe, "", new { @class = "text-danger" })
-                        </div>
+                            <div class="form-group text-center">
+                                @Html.EditorFor(model => model.RememberMe, new { @class = "form-check-input " })
+                                <label class = "form-check-label" for="male">@Resources.Remember</label>
+                            </div>
 
-                        <div class="form-group text-center">
-                            <input type="submit" value="LOG IN" class="btn btn-info " />
+                            <div class="form-group text-center">
+                                <input type="submit" value=@Resources.Button class="btn btn-info " />
+                            </div>
+                            <div style="text-align:center   ">
+                                <a href="@Url.Action("Create","Register")">@Resources.Create</a>
+                            </div>
                         </div>
-                        <div style="text-align:center   ">
-                            <a href="@Url.Action("Create","Register")">Create new account</a>
-                        </div>
-                    </div>
                     }
                     <!--<form name="formMain" id="formDemo" method="post">
-                        <div class="form-group inputIcon ">
-                            <input id="Username" name="Username" type="text" class=" form-control input-lg" placeholder="Username" value="">
+                    <div class="form-group inputIcon ">
+                        <input id="Username" name="Username" type="text" class=" form-control input-lg" placeholder="Username" value="">
 
-                        </div>
-                        <div class="form-group inputIcon">
-                            <input name="Password" type="password" class=" form-control input-lg" placeholder="Password">
-                        </div>
-                        <div class="form-group text-center">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Remember Me</label>
-                        </div>
-                        <div class="form-group text-center">
-                            <button type="submit" class="btn btn-info ">LOG IN</button>
-                        </div>
-                        <div class=" form-group text-center">
-                            <a href="#">Forgot Password?</a>
-                        </div>
+                    </div>
+                    <div class="form-group inputIcon">
+                        <input name="Password" type="password" class=" form-control input-lg" placeholder="Password">
+                    </div>
+                    <div class="form-group text-center">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+                    </div>
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-info ">LOG IN</button>
+                    </div>
+                    <div class=" form-group text-center">
+                        <a href="#">Forgot Password?</a>
+                    </div>
 
-                    </form>-->
+                </form>-->
                 </div>
             </div>
         </div>
@@ -122,26 +122,22 @@
                 rules: {
                     UserName: {
                         required: true,
-                        minlength: 6,
-                        maxlength: 50,
+                        minlength: 6
                     },
                     Password: {
                         required: true,
-                        minlength: 6,
-                        maxlength:200,
+                        minlength: 6
                     }
 
                 },
                 messages: {
                     UserName: {
-                        required: "Enter a Username !",
-                        minlength: "Username must be more than 6 characters",
-                        maxlength:"Username must be less than 50 characters"
+                        required: $('#Username').attr('data-empty'),
+                        minlength: $('#Username').attr('data-length'),
                     },
                     Password: {
-                        required: "Enter a Password !",
-                        minlength: "Password must be more than 6 characters",
-                        maxlength: "Username must be less than 200 characters"
+                        required: $('#Password').attr('data-empty'),
+                        minlength: $('#Password').attr('data-length'),
                     },
                     highlight: function (element, errorClass, validClass) {
                         $(element).addClass(this.settings.errorElementClass).removeClass(errorClass);

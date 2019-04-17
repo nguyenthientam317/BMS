@@ -153,4 +153,16 @@
   <data name="YourProduct" xml:space="preserve">
     <value>Sản phẩm của bạn </value>
   </data>
+  <data name="Order_fail" xml:space="preserve">
+    <value>Đặt hàng thất bại </value>
+  </data>
+  <data name="Order_success" xml:space="preserve">
+    <value>Đặt hàng thành công</value>
+  </data>
+  <data name="Payment_Complete" xml:space="preserve">
+    <value>Thanh toán thành công</value>
+  </data>
+  <data name="Payment_fail" xml:space="preserve">
+    <value>Thanh toán thất bại </value>
+  </data>
 </root>

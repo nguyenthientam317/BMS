@@ -173,9 +173,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Migrations\201904150900007_Initial.cs" />
-    <Compile Include="Migrations\201904150900007_Initial.Designer.cs">
-      <DependentUpon>201904150900007_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201904170833394_Initial.cs" />
+    <Compile Include="Migrations\201904170833394_Initial.Designer.cs">
+      <DependentUpon>201904170833394_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
@@ -192,6 +192,7 @@
     <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+
     <Compile Include="Resources\Admin\Author\Resource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -211,6 +212,30 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.en.resx</DependentUpon>
+
+
+    <Compile Include="Resources\Admin\OrderResource\Resources.Designer.cs">
+
+    <Compile Include="Resources\Admin\Book\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Admin\Book\Resources.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.en.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Admin\Login\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Admin\Login\Resources.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.en.resx</DependentUpon>
+
     </Compile>
     <Compile Include="Resources\Client\DetailResource\Resource.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -237,6 +262,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
+
     <Compile Include="Resources\Client\UserResource\Resource.en.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -245,10 +271,28 @@
     <Compile Include="Resources\Admin\BookCategory\Resources.Designer.cs">
     </Compile>
     <Compile Include="Resources\Client\CartResource\Resources.Designer.cs">
+
       <DependentUpon>Resources.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Resources\Admin\OrderResource\Resources.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.en.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Admin\PulisherResource\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Client\CartResource\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+
+    </Compile>
+
     <Compile Include="Resources\Client\HomeResource\Resources.Designer.cs">
       <DependentUpon>Resources.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -258,7 +302,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+
     </Compile>
+
     <Compile Include="Resources\Admin\BookCategory\Resources.en.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -268,6 +314,10 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+
+
+
+
     </Compile>
     <Compile Include="Views\Shared\KeepAlive.ashx.cs">
       <DependentUpon>KeepAlive.ashx</DependentUpon>
@@ -711,9 +761,26 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904150900007_Initial.resx">
-      <DependentUpon>201904150900007_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904170833394_Initial.resx">
+      <DependentUpon>201904170833394_Initial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Admin\Book\Resources.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Admin\Book\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Admin\Login\Resources.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Admin\Login\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+
     <EmbeddedResource Include="Resources\Admin\Author\Resource.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.en.Designer.cs</LastGenOutput>
@@ -767,6 +834,27 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+
+
+    <EmbeddedResource Include="Resources\Admin\OrderResource\Resources.en.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Admin\OrderResource\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Admin\PulisherResource\Resources.en.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Admin\PulisherResource\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+
     <EmbeddedResource Include="Resources\Client\CartResource\Resources.en.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>

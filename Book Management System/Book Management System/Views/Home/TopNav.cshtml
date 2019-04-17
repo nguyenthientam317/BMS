@@ -41,7 +41,7 @@
                             </a>
                         </li>
                         <li class="account">
-                            @using (Html.BeginForm("ChangeCulture", "BaseAdmin"))
+                            @using (Html.BeginForm("ChangeCulture", "Base"))
                             {
                                 @Html.Hidden("returnUrl", Request.RawUrl)
                                 @Html.DropDownList("ddlCulture", new SelectList(new[] {

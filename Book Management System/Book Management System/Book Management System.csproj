@@ -225,7 +225,7 @@
 </Compile>
 
     <Compile Include="Resources\Admin\BookCategory\Resources.Designer.cs">
-
+</Compile>
 
     <Compile Include="Resources\Client\CartResource\Resources.Designer.cs">
       <DependentUpon>Resources.resx</DependentUpon>
@@ -751,7 +751,7 @@
     <EmbeddedResource Include="Resources\Admin\Layout\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-
+</EmbeddedResource>
 
     <EmbeddedResource Include="Resources\Client\CartResource\Resources.en.resx">
       <SubType>Designer</SubType>

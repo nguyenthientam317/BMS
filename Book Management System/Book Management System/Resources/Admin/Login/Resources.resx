@@ -117,16 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BookCategoryManager" xml:space="preserve">
-    <value>Book Categories Manager</value>
+  <data name="Button" xml:space="preserve">
+    <value>Đăng nhập</value>
   </data>
-  <data name="CateName" xml:space="preserve">
-    <value>Category Name</value>
+  <data name="Create" xml:space="preserve">
+    <value>Tạo tài khảo mới</value>
   </data>
-  <data name="Description" xml:space="preserve">
-    <value>Category Description</value>
+  <data name="ErrorEmpty" xml:space="preserve">
+    <value>Không được trống</value>
   </data>
-  <data name="IsActive" xml:space="preserve">
-    <value>IsActive</value>
+  <data name="ErrorLength" xml:space="preserve">
+    <value>Ít nhất 6 kí tự</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Đăng nhập</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Mật khẩu</value>
+  </data>
+  <data name="Remember" xml:space="preserve">
+    <value>Lưu tài khoản</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Tên đăng nhập</value>
   </data>
 </root>

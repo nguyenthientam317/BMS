@@ -1,5 +1,5 @@
 ﻿@model Book_Management_System.Models.BookCategory
-
+@using Book_Management_System.Resources.Admin.BookCategory;
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -7,7 +7,7 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Edit Book Repository</h1>
+            <h1 class="page-header">@Resources.EditCategory</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -22,7 +22,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.CateName, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.CateName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter caterogy name" } })
+                    @Html.EditorFor(model => model.CateName, new { htmlAttributes = new { @class = "form-control", @placeholder = Resources.CateNamePlace, data_length = Resources.ErrorLength, data_empty = Resources.ErrorEmpty, data_regexp = Resources.ErrorRegexp, id = "cateName" } })
                     @Html.ValidationMessageFor(model => model.CateName, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -40,27 +40,27 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter description" } })
+                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", @placeholder = Resources.DescriptionPlace, data_length = Resources.DescriptionErrorLength, data_empty = Resources.ErrorEmpty, id = "des" } })
                     @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
+                    <input type="submit" value=@Book_Management_System.Resources.Admin.Layout.Resources.Save class="btn btn-default" />
                 </div>
             </div>
         </div>
     }
 
     <div>
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink(Book_Management_System.Resources.Admin.Layout.Resources.BacktoList, "Index")
     </div>
 </div>
 @section scripts {
 
     <script>
-       $(document).ready(function () {
+        $(document).ready(function () {
 
             $("#form").bootstrapValidator({
                 feedbackIcons: {
@@ -74,36 +74,36 @@
                     CateName: {
                         validators: {
                             notEmpty: {
-                                message: 'The CateName cannot be empty !'
+                                message: $('#cateName').attr('data-empty')
                             },
                             stringLength: {
                                 min: 6,
                                 max: 30,
-                                message: 'The CateName must be more than 6 or less than 30 characters long !'
+                                message: $('#cateName').attr('data-length')
                             },
                             regexp: {
                                 regexp: /^[^\d`~!@@#$%^&*()\-_=+{}|<,>?:;"']+$/,
-                                message: "Caterogy name cannot allow special characters and number"
+                                message: $('#cateName').attr('data-regexp')
                             }
                         }
+
                     },
                     Description: {
                         validators: {
                             notEmpty: {
-                                message: 'The Description cannot be empty !'
+                                message: $('#des').attr('data-empty')
                             },
                             stringLength: {
                                 min: 6,
                                 max: 500,
-                                message: 'The Description must be more than 6 or less than 500 characters long !'
+                                message: $('#des').attr('data-length')
+
                             }
                         }
                     },
-
-
                 }
             });
-       });
+        });
     </script>
 }
 

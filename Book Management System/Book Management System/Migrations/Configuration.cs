@@ -75,7 +75,9 @@
                 {
                     Id = "1",
                     Title = "Kỹ năng đi trước đam mê",
+                    EnTitle = "Skills ahead of passion",
                     Summary = "Niềm tin sáo rỗng này không những sai sót ở chỗ là những đam mê tồn tại sẵn có thường hiếm hoi.",
+                    EnSummary = "This belief is not only flawed in that existential passions are rare.",
                     ImageURL = "/Assets/images/ky-nang-di-truoc-dam-me.jpg",
                     ISBN = "1111",
                     Price = 10,
@@ -90,7 +92,9 @@
                 {
                     Id = "2",
                     Title = "Cùng con trưởng thành",
+                    EnTitle = "Growing up with children",
                     Summary = "Sau khi đưa ra dẫn chứng chống lại niềm tin vào đam mê, Newport bắt đầu cuộc hành trình khám phá thực tế ",
+                    EnSummary = "After giving evidence against belief in passion, Newport began the journey of real discovery",
                     ImageURL = "/Assets/images/cung-con-truong-thanh.jpg",
                     ISBN = "2222",
                     Price = 20,
@@ -105,7 +109,9 @@
                 {
                     Id = "3",
                     Title = "Nghệ thuật đàm phán",
+                    EnTitle = "Art of negotiation",
                     Summary = "Nói cách khác, cách bạn làm việc thì quan trọng hơn nhiều so với công việc bạn làm.",
+                    EnSummary = "In other words, the way you work is much more important than the work you do.",
                     ImageURL = "/Assets/images/nghe-thuat-dam-phan.jpg",
                     ISBN = "3333",
                     Price = 30,
@@ -120,7 +126,9 @@
                 {
                     Id = "4",
                     Title = "Biết hài lòng",
+                    EnTitle = "Satisfied",
                     Summary = "Đông Tử đã cho độc giả được lắng mình chiêm nghiệm và yêu thương cha hơn qua cuốn sách Cùng con trưởng thành.",
+                    EnSummary = "Dong Tu has allowed readers to contemplate and love their father more through the book Together with an adult.",
                     ImageURL = "/Assets/images/biet-hai-long.jpg",
                     ISBN = "4444",
                     Price = 15,
@@ -135,7 +143,9 @@
                 {
                     Id = "5",
                     Title = "Quân khu Nam Đồng",
+                    EnTitle = "Nam Dong Military Region",
                     Summary = "Cùng con trưởng thành nói về vai trò của người cha trong từng giai đoạn phát triển của trẻ.",
+                    EnSummary = "Together with your adult child talk about the role of the father in each stage of the child's development.",
                     ImageURL = "/Assets/images/quan-khu-nam-dong-binh-ca.jpg",
                     ISBN = "5555",
                     Price = 12,
@@ -150,7 +160,9 @@
                 {
                     Id = "6",
                     Title = "Kỹ năng đi trước đam mê 2",
+                    EnTitle = "Skills ahead of passion 2",
                     Summary = "Cuộc sống có bao nhiêu niềm hạnh phúc, dù là cơm ngon áo ấm, cuộc sống như ý hay ước mơ.",
+                    EnSummary = "Cuộc sống có bao nhiêu niềm hạnh phúc, dù là cơm ngon áo ấm, cuộc sống như ý hay ước mơ.",
                     ImageURL = "/Assets/images/ky-nang-di-truoc-dam-me.jpg",
                     ISBN = "1111",
                     Price = 10,
@@ -165,7 +177,9 @@
                 {
                     Id = "7",
                     Title = "Cùng con trưởng thành 2",
+                    EnTitle = "The same adult children 2",
                     Summary = "Đọc cuốn sách này, mỗi người sẽ cảm nhận được những khoảnh khắc vô cùng ý nghĩa khi người đàn ông.",
+                    EnSummary = "Read this book, each person will feel extremely meaningful moments when the man.",
                     ImageURL = "/Assets/images/cung-con-truong-thanh.jpg",
                     ISBN = "2222",
                     Price = 20,
@@ -180,7 +194,9 @@
                 {
                     Id = "8",
                     Title = "Nghệ thuật đàm phán 2",
-                    Summary = "Cuốn sách Cùng con trưởng thành người đọc là cuốn sách hay và ý nghĩa về tình cha con, ",
+                    EnTitle = "Art of negotiation 2",
+                    Summary = "Cuốn sách Cùng con trưởng thành người đọc là cuốn sách hay và ý nghĩa về tình cha con",
+                    EnSummary = "The book Growing up with a child is a good book and the meaning of father and son",
                     ImageURL = "/Assets/images/nghe-thuat-dam-phan.jpg",
                     ISBN = "3333",
                     Price = 30,
@@ -195,7 +211,9 @@
                 {
                     Id = "9",
                     Title = "Biết hài lòng 2",
-                    Summary = "Đây là những gì mà một người cha phải làm cho đứa con yêu của mình”.",
+                    EnTitle = "Satisfied 2",
+                    Summary = "Đây là những gì mà một người cha phải làm cho đứa con yêu của mình.",
+                    EnSummary = "This is what a father must do for his beloved child.",
                     ImageURL = "/Assets/images/biet-hai-long.jpg",
                     ISBN = "4444",
                     Price = 15,
@@ -210,7 +228,9 @@
                 {
                     Id = "10",
                     Title = "Quân khu Nam Đồng 2",
+                    EnTitle = "South Dong Military Region 2",
                     Summary = "Quyển sách cho chúng ta thấy cách Trump làm việc mỗi ngày - cách ông điều hành công việc .",
+                    EnSummary = "The book shows us how Trump works every day - the way he runs the job.",
                     ImageURL = "/Assets/images/quan-khu-nam-dong-binh-ca.jpg",
                     ISBN = "5555",
                     Price = 12,
@@ -225,7 +245,9 @@
                  {
                      Id = "11",
                      Title = "Kỹ năng đi trước đam mê 3",
+                     EnTitle = "Skills ahead of passion 3",
                      Summary = "Quyển sách đi sâu vào đầu óc của một doanh nhân xuất sắc và khám phá một cách khoa học .",
+                     EnSummary = "The book goes into the mind of an excellent entrepreneur and explores it scientifically",
                      ImageURL = "/Assets/images/ky-nang-di-truoc-dam-me.jpg",
                      ISBN = "1111",
                      Price = 10,
@@ -240,7 +262,9 @@
                 {
                     Id = "12",
                     Title = "Cùng con trưởng thành 3",
+                    EnTitle = "The same adult children 3",
                     Summary = "Đây là một cuốn sách thú vị về đàm phán và kinh doanh – và là một cuốn sách nên đọc cho bất kỳ ai quan tâm đến đầu tư.",
+                    EnSummary = "This is an interesting book on negotiation and business - and a book to read for anyone interested in investing.",
                     ImageURL = "/Assets/images/cung-con-truong-thanh.jpg",
                     ISBN = "2222",
                     Price = 20,
@@ -255,7 +279,9 @@
                 {
                     Id = "13",
                     Title = "Nghệ thuật đàm phán 3",
-                    Summary = "Biết Hài Lòng” là một quyển sách khá hay của Leo Babauta. Nếu bạn đang gặp khó khăn.",
+                    EnTitle = "Art of negotiation 3",
+                    Summary = "Biết Hài Lòng là một quyển sách khá hay của Leo Babauta. Nếu bạn đang gặp khó khăn.",
+                    EnSummary = "Satisfaction is a good book by Leo Babauta.If you are having trouble.",
                     ImageURL = "/Assets/images/nghe-thuat-dam-phan.jpg",
                     ISBN = "3333",
                     Price = 30,
@@ -270,7 +296,9 @@
                 {
                     Id = "14",
                     Title = "Biết hài lòng 3",
+                    EnTitle = "Satisfied 3",
                     Summary = "Đọc trong một giờ. Không phải đọc sơ sơ rồi bỏ đó, mà là đọc thực sự.",
+                    EnSummary = "Read in an hour. It is not a preliminary reading and then leaving it, but a real reading.",
                     ImageURL = "/Assets/images/biet-hai-long.jpg",
                     ISBN = "4444",
                     Price = 15,
@@ -285,7 +313,9 @@
                 {
                     Id = "15",
                     Title = "Quân khu Nam Đồng 3",
+                    EnTitle = "South Dong Military Region 3",
                     Summary = "Dale Carnegie từng tuyên bố thu nhập một triệu đôla còn dễ dàng hơn là thêm vào ngôn ngữ của nhân loại một tựa sách được cả thế giới biết đến..",
+                    EnSummary = "Dale Carnegie once claimed that the one million dollar income was easier than adding human language to a title known worldwide.",
                     ImageURL = "/Assets/images/quan-khu-nam-dong-binh-ca.jpg",
                     ISBN = "5555",
                     Price = 12,
@@ -300,7 +330,9 @@
                 {
                     Id = "16",
                     Title = "Kỹ năng đi trước đam mê 4",
-                    Summary = "Vivamus suscipit tortor eget felis porttitor volutpat. Cras ultricies ligula sed magna dictum porta.",
+                    EnTitle = "Skills ahead of passion 4",
+                    Summary = "Quyển sách đi sâu vào đầu óc của một doanh nhân xuất sắc và khám phá một cách khoa học .",
+                    EnSummary = "The book goes into the mind of an excellent entrepreneur and explores it scientifically",
                     ImageURL = "/Assets/images/ky-nang-di-truoc-dam-me.jpg",
                     ISBN = "1111",
                     Price = 10,
@@ -315,7 +347,9 @@
                 {
                     Id = "17",
                     Title = "Cùng con trưởng thành 4",
+                    EnTitle = "The same adult children 4",
                     Summary = "Những lần xuất bản tiếp theo với nhịp độ dồn dập để đáp ứng một yêu cầu tăng lên không ngừng.",
+                    EnSummary = "Subsequent publications with a rushing pace to meet an ever-increasing demand.",
                     ImageURL = "/Assets/images/cung-con-truong-thanh.jpg",
                     ISBN = "2222",
                     Price = 20,
@@ -330,7 +364,9 @@
                 {
                     Id = "18",
                     Title = "Nghệ thuật đàm phán 4",
+                    EnTitle = "Art of negotiation 4",
                     Summary = "Những lần xuất bản tiếp theo với nhịp độ dồn dập để đáp ứng một yêu cầu tăng lên không ngừng.",
+                    EnSummary = "Subsequent publications with a rushing pace to meet an ever-increasing demand.",
                     ImageURL = "/Assets/images/nghe-thuat-dam-phan.jpg",
                     ISBN = "3333",
                     Price = 30,
@@ -345,7 +381,9 @@
                 {
                     Id = "19",
                     Title = "Biết hài lòng 4",
+                    EnTitle = "Satisfied 4",
                     Summary = "Những lần xuất bản tiếp theo với nhịp độ dồn dập để đáp ứng một yêu cầu tăng lên không ngừng.",
+                    EnSummary = "Subsequent publications with a rushing pace to meet an ever-increasing demand.",
                     ImageURL = "/Assets/images/biet-hai-long.jpg",
                     ISBN = "4444",
                     Price = 15,
@@ -360,7 +398,9 @@
                 {
                     Id = "20",
                     Title = "Quân khu Nam Đồng 4",
+                    EnTitle = "South Dong 4 Military Region",
                     Summary = "Những lần xuất bản tiếp theo với nhịp độ dồn dập để đáp ứng một yêu cầu tăng lên không ngừng.",
+                    EnSummary = "Subsequent publications with a rushing pace to meet an ever-increasing demand.",
                     ImageURL = "/Assets/images/quan-khu-nam-dong-binh-ca.jpg",
                     ISBN = "5555",
                     Price = 12,

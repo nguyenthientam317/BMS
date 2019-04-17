@@ -5,6 +5,7 @@ namespace Book_Management_System.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using Book_Management_System.Resources.Admin.BookCategory;
 
     [Table("BookCategory")]
     public partial class BookCategory
@@ -20,13 +21,14 @@ namespace Book_Management_System.Models
 
         [Required]
         [StringLength(50)]
-        [Display(Name ="Category_Name",ResourceType = typeof(Infrastructure.StaticResource.Resources))]
+        [Display(Name ="CateName",ResourceType = typeof(Resources))]
         public string CateName { get; set; }
 
+        [Display(Name = "IsActive", ResourceType = typeof(Resources))]
         public bool IsActive { get; set; }
 
         [StringLength(500)]
-        [Display(Name = "Category_Description", ResourceType = typeof(Infrastructure.StaticResource.Resources))]
+        [Display(Name = "Description", ResourceType = typeof(Resources))]
         public string Description { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Book_Management_System.Controllers
 {
-    public class UserLoginController : Controller
+    public class UserLoginController : BaseController
     {
         // GET: Admin/Login
         public ActionResult Index()

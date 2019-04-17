@@ -120,13 +120,13 @@
   <data name="AddBook" xml:space="preserve">
     <value>Add Book</value>
   </data>
-  <data name="Author" xml:space="preserve">
+  <data name="IdAuthor" xml:space="preserve">
     <value>Author</value>
   </data>
   <data name="BookManagement" xml:space="preserve">
     <value>Book Management</value>
   </data>
-  <data name="Category" xml:space="preserve">
+  <data name="IdCategory" xml:space="preserve">
     <value>Category</value>
   </data>
   <data name="Createdate" xml:space="preserve">
@@ -189,7 +189,7 @@
   <data name="PricePlace" xml:space="preserve">
     <value>Enter price</value>
   </data>
-  <data name="Publisher" xml:space="preserve">
+  <data name="IdPublisher" xml:space="preserve">
     <value>Publisher</value>
   </data>
   <data name="Quantity" xml:space="preserve">

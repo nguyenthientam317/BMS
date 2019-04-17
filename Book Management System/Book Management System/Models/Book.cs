@@ -54,17 +54,17 @@ namespace Book_Management_System.Models
 
         [Required]
         [StringLength(10)]
-        [Display(Name = "Author", ResourceType = typeof(Resources))]
+        [Display(Name = "IdAuthor", ResourceType = typeof(Resources))]
         public string IdAuthor { get; set; }
 
         [Required]
         [StringLength(10)]
-        [Display(Name = "Publisher", ResourceType = typeof(Resources))]
+        [Display(Name = "IdPublisher", ResourceType = typeof(Resources))]
         public string IdPublisher { get; set; }
 
         [Required]
         [StringLength(10)]
-        [Display(Name = "Category", ResourceType = typeof(Resources))]
+        [Display(Name = "IdCategory", ResourceType = typeof(Resources))]
         public string IdCategory { get; set; }
 
         [Display(Name = "Createdate", ResourceType = typeof(Resources))]

@@ -70,29 +70,11 @@ namespace Book_Management_System.Resources.Admin.Book {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tác giả.
-        /// </summary>
-        public static string Author {
-            get {
-                return ResourceManager.GetString("Author", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Quản lí sách.
         /// </summary>
         public static string BookManagement {
             get {
                 return ResourceManager.GetString("BookManagement", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Danh mục.
-        /// </summary>
-        public static string Category {
-            get {
-                return ResourceManager.GetString("Category", resourceCulture);
             }
         }
         
@@ -147,6 +129,33 @@ namespace Book_Management_System.Resources.Admin.Book {
         public static string EditBook {
             get {
                 return ResourceManager.GetString("EditBook", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tác giả.
+        /// </summary>
+        public static string IdAuthor {
+            get {
+                return ResourceManager.GetString("IdAuthor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Danh mục.
+        /// </summary>
+        public static string IdCategory {
+            get {
+                return ResourceManager.GetString("IdCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nhà phát hành.
+        /// </summary>
+        public static string IdPublisher {
+            get {
+                return ResourceManager.GetString("IdPublisher", resourceCulture);
             }
         }
         
@@ -273,15 +282,6 @@ namespace Book_Management_System.Resources.Admin.Book {
         public static string PricePlace {
             get {
                 return ResourceManager.GetString("PricePlace", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Nhà phát hành.
-        /// </summary>
-        public static string Publisher {
-            get {
-                return ResourceManager.GetString("Publisher", resourceCulture);
             }
         }
         

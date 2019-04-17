@@ -120,13 +120,13 @@
   <data name="AddBook" xml:space="preserve">
     <value>Tạo mới sách</value>
   </data>
-  <data name="Author" xml:space="preserve">
+  <data name="IdAuthor" xml:space="preserve">
     <value>Tác giả</value>
   </data>
   <data name="BookManagement" xml:space="preserve">
     <value>Quản lí sách</value>
   </data>
-  <data name="Category" xml:space="preserve">
+  <data name="IdCategory" xml:space="preserve">
     <value>Danh mục</value>
   </data>
   <data name="Createdate" xml:space="preserve">
@@ -189,7 +189,7 @@
   <data name="PricePlace" xml:space="preserve">
     <value>Nhập giá sách</value>
   </data>
-  <data name="Publisher" xml:space="preserve">
+  <data name="IdPublisher" xml:space="preserve">
     <value>Nhà phát hành</value>
   </data>
   <data name="Quantity" xml:space="preserve">

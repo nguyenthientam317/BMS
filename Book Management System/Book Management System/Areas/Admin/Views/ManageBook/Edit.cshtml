@@ -1,5 +1,5 @@
 ﻿@model Book_Management_System.Models.Book
-
+@using Book_Management_System.Resources.Admin.Book;
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -9,7 +9,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Edit Book</h1>
+            <h1 class="page-header">@Resources.EditBook</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -40,7 +40,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
-                                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter a title" } })
+                                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @placeholder = Resources.TitlePlace, data_empty = Resources.TitleErrorEmpty, data_length = Resources.TitleErrorLength, id = "title" } })
                                         @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -48,7 +48,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Summary, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
-                                        @Html.EditorFor(model => model.Summary, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter a summary" } })
+                                        @Html.EditorFor(model => model.Summary, new { htmlAttributes = new { @class = "form-control", @placeholder = Resources.SummaryPlace, data_empty = Resources.SummaryErrorEmpty, data_length = Resources.SummaryErrorLength, id = "summary" } })
                                         @Html.ValidationMessageFor(model => model.Summary, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -56,7 +56,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.ImageURL, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
-                                        @Html.EditorFor(model => model.ImageURL, new { htmlAttributes = new { @class = "form-control", type = "file" } })
+                                        @Html.EditorFor(model => model.ImageURL, new { htmlAttributes = new { @class = "form-control", type = "file" ,data_empty = Resources.ImageErrorEmpty, data_regexp = Resources.ImageErrorRegexp, id = "image" } })
                                         @Html.ValidationMessageFor(model => model.ImageURL, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -64,7 +64,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.ISBN, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
-                                        @Html.EditorFor(model => model.ISBN, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter a ISBN" } })
+                                        @Html.EditorFor(model => model.ISBN, new { htmlAttributes = new { @class = "form-control", @placeholder = Resources.ISBNPlace, data_empty = Resources.ISBNErrorEmpty, data_length = Resources.ISBNErrorLength, data_regexp = Resources.ISBNErrorRegexp, id = "isbn" } })
                                         @Html.ValidationMessageFor(model => model.ISBN, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -72,7 +72,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
-                                        @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter a price" } })
+                                        @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", @placeholder = Resources.PricePlace, data_empty = Resources.PriceErrorEmpty, data_regexp = Resources.PriceErrorRegexp, id = "price" } })
                                         @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -80,7 +80,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
-                                        @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter a quantity" } })
+                                        @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control", @placeholder = Resources.QuantityPlace, data_empty = Resources.QuantityErrorEmpty, data_regexp = Resources.QuantityErrorRegexp, id = "quantity" } })
                                         @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -126,14 +126,14 @@
 
                                 <div class="form-group">
                                     <div class="col-md-offset-2 col-md-10">
-                                        <input type="submit" value="Save" class="btn btn-default" />
+                                        <input type="submit" value=@Book_Management_System.Resources.Admin.Layout.Resources.Save class="btn btn-default" />
                                     </div>
                                 </div>
                             </div>
                         }
 
                         <div>
-                            @Html.ActionLink("Back to List", "Index")
+                            @Html.ActionLink(Book_Management_System.Resources.Admin.Layout.Resources.BacktoList, "Index")
                         </div>
                     </div>
                 </div>
@@ -152,7 +152,6 @@
 
         /*-------Boostrap validator--------*/
         $(document).ready(function () {
-
             $("#form").bootstrapValidator({
                 feedbackIcons: {
                     valid: 'glyphicon glyphicon-ok',
@@ -166,11 +165,11 @@
                         message: 'The Title is not valid !',
                         validators: {
                             notEmpty: {
-                                message: 'The title cannot be empty !'
+                                message: $('#title').attr('data-empty')
                             },
                             stringLength: {
                                 min: 6,
-                                message: 'The title must be more 6 characters !'
+                                message: $('#title').attr('data-length')
                             },
                         }
                     },
@@ -178,27 +177,28 @@
                         message: 'The summary is not valid !',
                         validators: {
                             notEmpty: {
-                                message: 'The summary cannot be empty !'
+                                message: $('#summary').attr('data-empty')
                             },
                             stringLength: {
                                 min: 6,
-                                message: 'The title must be more 6 characters !'
+                                message: $('#summary').attr('data-length')
                             },
                         }
                     },
                     ISBN: {
-                        message: 'The category is not valid !',
+                        message: 'The ISBN is not valid !',
                         validators: {
                             notEmpty: {
-                                message: 'The ISBN can not be empty !'
+                                message: $('#isbn').attr('data-empty')
                             },
                             stringLength: {
                                 min: 6,
-                                message: 'The ISBN must be more 6 characters'
+                                max: 30,
+                                message: $('#isbn').attr('data-length')
                             },
                             regexp: {
-                                regexp: /^[0-9]+$/,
-                                message: "ISBN must be number"
+                                regexp: /^[\d`~!@@#$%^&*()\-_=+{}|<,>?:;"']+$/,
+                                message: $('#isbn').attr('data-regexp')
 
                             }
                         }
@@ -207,11 +207,11 @@
                         message: 'The price is not valid !',
                         validators: {
                             notEmpty: {
-                                message: 'The price cannot be empty !'
+                                message: $('#price').attr('data-empty')
                             },
                             regexp: {
                                 regexp: /^[0-9]+$/,
-                                message: 'The price must be greater 0 !'
+                                message: $('#price').attr('data-regexp')
                             }
                         }
                     },
@@ -219,21 +219,20 @@
                         message: 'The quantity is not valid !',
                         validators: {
                             notEmpty: {
-                                message: 'The quantity cannot be empty !'
+                                message: $('#quantity').attr('data-empty')
                             },
                             regexp: {
                                 regexp: /^[0-9]+$/,
-                                message: 'The quantity must be greater 0 !'
+                                message: $('#quantity').attr('data-regexp')
                             }
                         }
-                    },
-                  
-
+                    }
                 }
             });
+         
         });
 
-                            /*---------End----------*/
+                                /*---------End----------*/
 
     </script>
 }

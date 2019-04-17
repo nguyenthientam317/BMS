@@ -117,52 +117,115 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AuthorMangement" xml:space="preserve">
-    <value>Author mangement</value>
+  <data name="AddBook" xml:space="preserve">
+    <value>Tạo mới sách</value>
   </data>
-  <data name="Bookcategories" xml:space="preserve">
-    <value>Book categories</value>
+  <data name="Author" xml:space="preserve">
+    <value>Tác giả</value>
   </data>
   <data name="BookManagement" xml:space="preserve">
-    <value>Book management</value>
+    <value>Quản lí sách</value>
   </data>
-  <data name="CreateNew" xml:space="preserve">
-    <value>Create New</value>
+  <data name="Category" xml:space="preserve">
+    <value>Danh mục</value>
   </data>
-  <data name="Dashboard" xml:space="preserve">
-    <value>Dashboard</value>
+  <data name="Createdate" xml:space="preserve">
+    <value>Ngày tạo</value>
   </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Delete</value>
+  <data name="CreatedateErrorEmpty" xml:space="preserve">
+    <value>Ngày tạo không được trống</value>
+  </data>
+  <data name="CreatedateErrorRegexp" xml:space="preserve">
+    <value>Sai định dạng </value>
+  </data>
+  <data name="CreatedatePlace" xml:space="preserve">
+    <value>Nhấn vào để chọn ngày</value>
   </data>
   <data name="Detail" xml:space="preserve">
-    <value>Detail</value>
+    <value>Chi tiết</value>
   </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Edit</value>
+  <data name="EditBook" xml:space="preserve">
+    <value>Thay đổi thông tin sách</value>
   </data>
-  <data name="OrderManagement" xml:space="preserve">
-    <value>Order management</value>
+  <data name="ImageErrorEmpty" xml:space="preserve">
+    <value>Ảnh không được trống</value>
   </data>
-  <data name="PublisherManagement" xml:space="preserve">
-    <value>Publisher management</value>
+  <data name="ImageErrorRegexp" xml:space="preserve">
+    <value>Ảnh phải có phần mở rộng [ jpeg, png, gif, jpg ]</value>
   </data>
-  <data name="Search" xml:space="preserve">
-    <value>Search</value>
+  <data name="ImageURL" xml:space="preserve">
+    <value>Ảnh</value>
   </data>
-  <data name="UserManagement" xml:space="preserve">
-    <value>User management</value>
+  <data name="IsActive" xml:space="preserve">
+    <value>Trạng thái</value>
   </data>
-  <data name="BacktoList" xml:space="preserve">
-    <value>Back to List</value>
+  <data name="ISBN" xml:space="preserve">
+    <value>ISBN</value>
   </data>
-  <data name="Create" xml:space="preserve">
-    <value>Create</value>
+  <data name="ISBNErrorEmpty" xml:space="preserve">
+    <value>ISBN không được trống</value>
   </data>
-  <data name="Save" xml:space="preserve">
-    <value>Save</value>
+  <data name="ISBNErrorLength" xml:space="preserve">
+    <value>ISBN phải từ 6 đến 30 ký tự</value>
   </data>
-  <data name="Close" xml:space="preserve">
-    <value>Close</value>
+  <data name="ISBNErrorRegexp" xml:space="preserve">
+    <value>ISBN không được phép chứa chữ và ký tự đặc biệt</value>
+  </data>
+  <data name="ISBNPlace" xml:space="preserve">
+    <value>Nhập mã ISBN của sách</value>
+  </data>
+  <data name="Modifieddate" xml:space="preserve">
+    <value>Ngày chỉnh sửa</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Giá</value>
+  </data>
+  <data name="PriceErrorEmpty" xml:space="preserve">
+    <value>Giá không được trống</value>
+  </data>
+  <data name="PriceErrorRegexp" xml:space="preserve">
+    <value>Giá không chứa kí tự và lớn hơn 0</value>
+  </data>
+  <data name="PricePlace" xml:space="preserve">
+    <value>Nhập giá sách</value>
+  </data>
+  <data name="Publisher" xml:space="preserve">
+    <value>Nhà phát hành</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Số lượng</value>
+  </data>
+  <data name="QuantityErrorEmpty" xml:space="preserve">
+    <value>Số lượng không được trống</value>
+  </data>
+  <data name="QuantityErrorRegexp" xml:space="preserve">
+    <value>Số lượng không chứa kí tự và lớn hơn 0</value>
+  </data>
+  <data name="QuantityPlace" xml:space="preserve">
+    <value>Nhập số lượng sách</value>
+  </data>
+  <data name="Summary" xml:space="preserve">
+    <value>Tóm tắt</value>
+  </data>
+  <data name="SummaryErrorEmpty" xml:space="preserve">
+    <value>Tóm tắt không được trống</value>
+  </data>
+  <data name="SummaryErrorLength" xml:space="preserve">
+    <value>Tóm tắt phải ít nhất 6 ký tự</value>
+  </data>
+  <data name="SummaryPlace" xml:space="preserve">
+    <value>Nhập tóm tắt nội dụng sách</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Tên sách</value>
+  </data>
+  <data name="TitleErrorEmpty" xml:space="preserve">
+    <value>Tên sách không được trống</value>
+  </data>
+  <data name="TitleErrorLength" xml:space="preserve">
+    <value>Tên sách phải ít nhất 6 kí tự</value>
+  </data>
+  <data name="TitlePlace" xml:space="preserve">
+    <value>Nhập tên sách</value>
   </data>
 </root>

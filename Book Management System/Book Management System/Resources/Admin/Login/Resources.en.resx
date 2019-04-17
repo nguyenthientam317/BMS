@@ -117,52 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AuthorMangement" xml:space="preserve">
-    <value>Author mangement</value>
-  </data>
-  <data name="Bookcategories" xml:space="preserve">
-    <value>Book categories</value>
-  </data>
-  <data name="BookManagement" xml:space="preserve">
-    <value>Book management</value>
-  </data>
-  <data name="CreateNew" xml:space="preserve">
-    <value>Create New</value>
-  </data>
-  <data name="Dashboard" xml:space="preserve">
-    <value>Dashboard</value>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Delete</value>
-  </data>
-  <data name="Detail" xml:space="preserve">
-    <value>Detail</value>
-  </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="OrderManagement" xml:space="preserve">
-    <value>Order management</value>
-  </data>
-  <data name="PublisherManagement" xml:space="preserve">
-    <value>Publisher management</value>
-  </data>
-  <data name="Search" xml:space="preserve">
-    <value>Search</value>
-  </data>
-  <data name="UserManagement" xml:space="preserve">
-    <value>User management</value>
-  </data>
-  <data name="BacktoList" xml:space="preserve">
-    <value>Back to List</value>
+  <data name="Button" xml:space="preserve">
+    <value>LOG IN</value>
   </data>
   <data name="Create" xml:space="preserve">
-    <value>Create</value>
+    <value>Create New Account</value>
   </data>
-  <data name="Save" xml:space="preserve">
-    <value>Save</value>
+  <data name="ErrorEmpty" xml:space="preserve">
+    <value>Enter a Username !</value>
   </data>
-  <data name="Close" xml:space="preserve">
-    <value>Close</value>
+  <data name="ErrorLength" xml:space="preserve">
+    <value>Enter more than 6 characters</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Remember" xml:space="preserve">
+    <value>Remember me</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>UserName</value>
   </data>
 </root>

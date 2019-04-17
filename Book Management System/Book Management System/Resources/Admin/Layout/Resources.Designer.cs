@@ -97,6 +97,15 @@ namespace Book_Management_System.Resources.Admin.Layout {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Đóng.
+        /// </summary>
+        public static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tạo.
         /// </summary>
         public static string Create {

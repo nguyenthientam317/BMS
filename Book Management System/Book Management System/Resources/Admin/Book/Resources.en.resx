@@ -117,52 +117,115 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AuthorMangement" xml:space="preserve">
-    <value>Author mangement</value>
+  <data name="AddBook" xml:space="preserve">
+    <value>Add Book</value>
   </data>
-  <data name="Bookcategories" xml:space="preserve">
-    <value>Book categories</value>
+  <data name="Author" xml:space="preserve">
+    <value>Author</value>
   </data>
   <data name="BookManagement" xml:space="preserve">
-    <value>Book management</value>
+    <value>Book Management</value>
   </data>
-  <data name="CreateNew" xml:space="preserve">
-    <value>Create New</value>
+  <data name="Category" xml:space="preserve">
+    <value>Category</value>
   </data>
-  <data name="Dashboard" xml:space="preserve">
-    <value>Dashboard</value>
+  <data name="Createdate" xml:space="preserve">
+    <value>Create Date</value>
   </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Delete</value>
+  <data name="CreatedateErrorEmpty" xml:space="preserve">
+    <value>The create date cannot be empty !</value>
+  </data>
+  <data name="CreatedateErrorRegexp" xml:space="preserve">
+    <value>The create date is not valid !</value>
+  </data>
+  <data name="CreatedatePlace" xml:space="preserve">
+    <value>Click to select create date</value>
   </data>
   <data name="Detail" xml:space="preserve">
     <value>Detail</value>
   </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Edit</value>
+  <data name="EditBook" xml:space="preserve">
+    <value>Edit Book</value>
   </data>
-  <data name="OrderManagement" xml:space="preserve">
-    <value>Order management</value>
+  <data name="ImageErrorEmpty" xml:space="preserve">
+    <value>The Image cannot be empty !</value>
   </data>
-  <data name="PublisherManagement" xml:space="preserve">
-    <value>Publisher management</value>
+  <data name="ImageErrorRegexp" xml:space="preserve">
+    <value>The selected file is not valid. Extenision must be [ jpeg, png, gif, jpg ]</value>
   </data>
-  <data name="Search" xml:space="preserve">
-    <value>Search</value>
+  <data name="ImageURL" xml:space="preserve">
+    <value>ImageURL</value>
   </data>
-  <data name="UserManagement" xml:space="preserve">
-    <value>User management</value>
+  <data name="IsActive" xml:space="preserve">
+    <value>IsActive</value>
   </data>
-  <data name="BacktoList" xml:space="preserve">
-    <value>Back to List</value>
+  <data name="ISBN" xml:space="preserve">
+    <value>ISBN</value>
   </data>
-  <data name="Create" xml:space="preserve">
-    <value>Create</value>
+  <data name="ISBNErrorEmpty" xml:space="preserve">
+    <value>The ISBN cannot be empty !</value>
   </data>
-  <data name="Save" xml:space="preserve">
-    <value>Save</value>
+  <data name="ISBNErrorLength" xml:space="preserve">
+    <value>The ISBN must be more 6 characters and less than 30 characters long !</value>
   </data>
-  <data name="Close" xml:space="preserve">
-    <value>Close</value>
+  <data name="ISBNErrorRegexp" xml:space="preserve">
+    <value>ISBN cannot allow special characters and alphabets</value>
+  </data>
+  <data name="ISBNPlace" xml:space="preserve">
+    <value>Enter ISBN</value>
+  </data>
+  <data name="Modifieddate" xml:space="preserve">
+    <value>Modified Date</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="PriceErrorEmpty" xml:space="preserve">
+    <value>The price cannot be empty !</value>
+  </data>
+  <data name="PriceErrorRegexp" xml:space="preserve">
+    <value>The price must be greater 0 !</value>
+  </data>
+  <data name="PricePlace" xml:space="preserve">
+    <value>Enter price</value>
+  </data>
+  <data name="Publisher" xml:space="preserve">
+    <value>Publisher</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="QuantityErrorEmpty" xml:space="preserve">
+    <value>The quantity cannot be empty !</value>
+  </data>
+  <data name="QuantityErrorRegexp" xml:space="preserve">
+    <value>The quantity must be greater 0 !</value>
+  </data>
+  <data name="QuantityPlace" xml:space="preserve">
+    <value>Enter quantity</value>
+  </data>
+  <data name="Summary" xml:space="preserve">
+    <value>Summary</value>
+  </data>
+  <data name="SummaryErrorEmpty" xml:space="preserve">
+    <value>The summary cannot be empty !</value>
+  </data>
+  <data name="SummaryErrorLength" xml:space="preserve">
+    <value>The summary must be more 6 characters !</value>
+  </data>
+  <data name="SummaryPlace" xml:space="preserve">
+    <value>Enter a summary</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="TitleErrorEmpty" xml:space="preserve">
+    <value>The title cannot be empty !</value>
+  </data>
+  <data name="TitleErrorLength" xml:space="preserve">
+    <value>The title must be more 6 characters !</value>
+  </data>
+  <data name="TitlePlace" xml:space="preserve">
+    <value>Enter a Title</value>
   </data>
 </root>

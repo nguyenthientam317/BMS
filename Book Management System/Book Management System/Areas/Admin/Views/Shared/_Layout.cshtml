@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    @using Book_Management_System.Resources.Admin.Layout;
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
@@ -12,16 +13,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker3.min.css">
     <style>
         .don {
-            cursor:default;
+            cursor: default;
         }
+
         .isDisabled {
             color: currentColor;
             cursor: not-allowed;
             opacity: 0.5;
             text-decoration: none;
             pointer-events: none;
-
         }
+
         .inputIcon .yes {
             color: limegreen;
             position: absolute;
@@ -37,6 +39,7 @@
             right: 20px;
             font-size: 180%;
         }
+
         .p {
             white-space: nowrap;
             width: 400px;
@@ -191,7 +194,7 @@
                         <!-- Search bar-->
                         <li class="sidebar-search">
                             <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
+                                <input type="text" class="form-control" placeholder="@Resources.Search...">
                                 <span class="input-group-btn">
                                     <button class="btn btn-default" type="button">
                                         <i class="fa fa-search"></i>
@@ -201,26 +204,26 @@
                         </li>
                         <!-- Menu management-->
                         <li>
-                            <a href="@Url.Action("Index","AdminHome")"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="@Url.Action("Index","AdminHome")"><i class="fa fa-dashboard fa-fw"></i> @Resources.Dashboard</a>
                         </li>
                         <li>
-                            <a href="@Url.Action("Index","BookCategories")"><i class="fa fa-list"></i> Book caterogies</a>
+                            <a href="@Url.Action("Index","BookCategories")"><i class="fa fa-list"></i> @Resources.Bookcategories</a>
                         </li>
                         <li>
-                            <a href="@Url.Action("Index","ManageAuthor")"><i class="fa fa-table fa-fw"></i> Author management</a>
+                            <a href="@Url.Action("Index","ManageAuthor")"><i class="fa fa-table fa-fw"></i> @Resources.AuthorMangement</a>
                         </li>
                         <li>
-                            <a href="@Url.Action("Index","ManagePublishers")"><i class="fa fa-edit fa-fw"></i> Publisher management</a>
+                            <a href="@Url.Action("Index","ManagePublishers")"><i class="fa fa-edit fa-fw"></i> @Resources.PublisherManagement</a>
                         </li>
                         <li>
-                            <a href="@Url.Action("Index","ManageBook")"><i class=" fa fa-book"></i> Book management</a>
+                            <a href="@Url.Action("Index","ManageBook")"><i class=" fa fa-book"></i> @Resources.BookManagement</a>
                         </li>
 
                         <li>
-                            <a href="@Url.Action("Index","ManageAccount")"><i class=" fa fa-users fa-fw"></i> User management</a>
+                            <a href="@Url.Action("Index","ManageAccount")"><i class=" fa fa-users fa-fw"></i> @Resources.UserManagement</a>
                         </li>
                         <li>
-                            <a href="@Url.Action("Index","Orders")"><i class=" fa fa-shopping-cart"></i> Order management</a>
+                            <a href="@Url.Action("Index","Orders")"><i class=" fa fa-shopping-cart"></i> @Resources.OrderManagement</a>
                         </li>
                     </ul>
                 </div>

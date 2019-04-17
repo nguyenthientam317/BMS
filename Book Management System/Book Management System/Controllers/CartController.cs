@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace Book_Management_System.Controllers
 {
-    public class CartController : Controller
+    public class CartController : BaseController
     {
 
         Model db = new Model();

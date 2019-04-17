@@ -23,11 +23,11 @@
                 <!-- Billing Details -->
                 <div class="billing-details">
                     <div class="section-title">
-                        <h3 class="title">Customer Infomation</h3>
+                        <h3 class="title">@Book_Management_System.Resources.Client.PaymentResource.Resources.Pay_CustomerInfo</h3>
                     </div>
                     <div class="InfoPayment">
-                        <div><strong> Name: </strong> @Model.Account.User.FirstName @Model.Account.User.LastName</div>
-                        <div><strong> Address: </strong>@Model.Account.User.Address</div>
+                        <div><strong> @Book_Management_System.Resources.Client.PaymentResource.Resources.Cus_Name: </strong> @Model.Account.User.FirstName @Model.Account.User.LastName</div>
+                        <div><strong> @Book_Management_System.Resources.Client.PaymentResource.Resources.Cus_Address: </strong>@Model.Account.User.Address</div>
                     </div>
 
                 </div>
@@ -35,39 +35,39 @@
                 <!-- Shiping Details -->
                 <div class="shiping-details">
                     <div class="section-title">
-                        <h3 class="title">Payment Method</h3>
+                        <h3 class="title">@Book_Management_System.Resources.Client.PaymentResource.Resources.MethodPay</h3>
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-body InfoPayment">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="idShippingMethod" id="cod" value="COD" checked>
                                 <label class="form-check-label" for="exampleRadios1">
-                                    Payment on delivery (COD)
+                                    @Book_Management_System.Resources.Client.PaymentResource.Resources.COD
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="idShippingMethod" id="paypal" value="PAYPAL">
                                 <label class="form-check-label" for="exampleRadios2">
-                                    Payment online (PayPal)
+                                    @Book_Management_System.Resources.Client.PaymentResource.Resources.PAYPAL
                                 </label>
                             </div>
                         </div>
                     </div>
                 </div>
-                <button type="button" id="btnFinishCheckOut" class="btn btn-primary">Check out</button>
+                <button type="button" id="btnFinishCheckOut" class="btn btn-primary">@Book_Management_System.Resources.Client.PaymentResource.Resources.CheckOut</button>
                 <div id="paypal-button-container" class="hidden"></div>     
             </div>
 
             <!-- Order Details -->
             <div style="height:fit-content;" class="col-md-5 order-details">
                 <div class="section-title text-center">
-                    <h3 class="title">Your Order</h3>
+                    <h3 class="title">@Book_Management_System.Resources.Client.PaymentResource.Resources.YourProduct</h3>
                     <p id="IdCart" class="hidden">@Model.Id</p>
                 </div>
                 <div class="order-summary">
                     <div class="order-col">
-                        <div><strong>PRODUCT</strong></div>
-                        <div><strong>TOTAL</strong></div>
+                        <div><strong>@Book_Management_System.Resources.Client.PaymentResource.Resources.Product</strong></div>
+                        <div><strong>@Book_Management_System.Resources.Client.PaymentResource.Resources.Total</strong></div>
                     </div>
 
                     <div class="order-products">
@@ -82,11 +82,11 @@
 
                     </div>
                     <div class="order-col">
-                        <div>Shiping</div>
-                        <div><strong>FREE</strong></div>
+                        <div>@Book_Management_System.Resources.Client.PaymentResource.Resources.Shipping</div>
+                        <div><strong>@Book_Management_System.Resources.Client.PaymentResource.Resources.Free</strong></div>
                     </div>
                     <div class="order-col">
-                        <div><strong>TOTAL</strong></div>
+                        <div><strong>@Book_Management_System.Resources.Client.PaymentResource.Resources.Total</strong></div>
                         <div><label id="IdTotalPrice"><strong class="order-total">@TotalPrice </strong></label>
                         <label style="font-size: 22px;color: #D10024;"><strong>$</strong></label>
                         </div>

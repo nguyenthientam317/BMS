@@ -213,7 +213,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.en.resx</DependentUpon>
-
+  </Compile>
     <Compile Include="Resources\Admin\OrderResource\Resources.Designer.cs"></Compile>
 
 
@@ -270,12 +270,6 @@
       <DependentUpon>Resource.en.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Admin\BookCategory\Resources.Designer.cs">
-    </Compile>
-    <Compile Include="Resources\Client\CartResource\Resources.Designer.cs">
-
-      <DependentUpon>Resources.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Resources\Admin\OrderResource\Resources.en.Designer.cs">
       <AutoGen>True</AutoGen>

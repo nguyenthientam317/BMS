@@ -73,7 +73,7 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Edit profile</h1>
+            <h1 class="page-header">@Book_Management_System.Resources.Admin.User.Resource.Edit_profile</h1>
         </div>
     </div>
     <!-- /.row -->
@@ -83,18 +83,18 @@
         <div class="col-lg-6 col-lg-offset-3">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <b>Information</b>
+                    <b>@Book_Management_System.Resources.Admin.User.Resource.Information</b>
                 </div>
                 <div class="panel-body">
                     <!-- Nav tabs -->
                     <ul class="nav nav-pills">
                         <!-- Info tab-->
                         <li class="active">
-                            <a href="#home-pills" data-toggle="tab">User Information</a>
+                            <a href="#home-pills" data-toggle="tab">@Book_Management_System.Resources.Admin.User.Resource.User_infomation</a>
                         </li>
                         <!-- Change password tab-->
                         <li>
-                            <a href="#profile-pills" data-toggle="tab">Change Password</a>
+                            <a href="#profile-pills" data-toggle="tab">@Book_Management_System.Resources.Admin.User.Resource.Change_password</a>
                         </li>
                     </ul>
                     <!-- Tab content -->
@@ -123,53 +123,83 @@
                                             <!-- Input first name & last name-->
                                             <div class="form-group">
 
-                                                <label class="control-label col-lg-2">First name: </label>
+                                                <label class="control-label col-lg-2">@Book_Management_System.Resources.Admin.User.Resource.Firstname:</label>
                                                 <div class="col-lg-3">
-                                                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter first name" } })
+                                                    @Html.EditorFor(model => model.FirstName,
+                                                   new { htmlAttributes = new { @class = "form-control",
+                                                       @placeholder = @Book_Management_System.Resources.Admin.User.Resource.PH_Firstname,
+                                                       data_empty = @Book_Management_System.Resources.Admin.User.Resource.Empty_Firstname,
+                                                       data_length = @Book_Management_System.Resources.Admin.User.Resource.Length_Firstname,
+                                                       id = "firstname"}
+                                                   })
                                                     @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
                                                 </div>
-                                                <label class="control-label col-lg-2">Last name: </label>
+                                                <label class="control-label col-lg-2">@Book_Management_System.Resources.Admin.User.Resource.Lastname:</label>
                                                 <div class="col-lg-5">
-                                                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter last name" } })
+                                                    @Html.EditorFor(model => model.LastName,
+                                                   new { htmlAttributes = new { @class = "form-control",
+                                                       @placeholder = @Book_Management_System.Resources.Admin.User.Resource.PH_Lastname,
+                                                       data_empty = @Book_Management_System.Resources.Admin.User.Resource.Empty_Lastname,
+                                                       data_length = @Book_Management_System.Resources.Admin.User.Resource.Length_Lastname,
+                                                       id = "lastname"}
+                                                   })
                                                     @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
                                             <!-- Select birthday and enter email-->
                                             <div class="form-group">
-                                                <label class="control-label col-lg-2">Birthday: </label>
+                                                <label class="control-label col-lg-2">@Book_Management_System.Resources.Admin.User.Resource.Birthday: </label>
                                                 <div class="col-lg-3">
-                                                    @Html.EditorFor(model => model.Birthday, new { htmlAttributes = new { @class = "form-control", @id = "datepicker", @placeholder = "Click to select", @readonly = "" } })
+                                                    @Html.EditorFor(model => model.Birthday,
+                                                   new { htmlAttributes = new { @class = "form-control",
+                                                       @id = "datepicker",
+                                                       @placeholder = "MM/DD/YYYY",
+                                                       @readonly = "",
+                                                       data_format = @Book_Management_System.Resources.Admin.User.Resource.Format_Birthday} })
                                                     @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
                                                 </div>
-                                                <label class="control-label col-lg-2">Email: </label>
+                                                <label class="control-label col-lg-2">@Book_Management_System.Resources.Admin.User.Resource.Email: </label>
                                                 <div class="col-lg-5">
-                                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @type = "email", @placeholder = "Enter your email", @id = "txtuseremail" } })
+                                                    @Html.EditorFor(model => model.Email,
+                                                   new { htmlAttributes = new { @class = "form-control",
+                                                       @type = "email",
+                                                       @placeholder = @Book_Management_System.Resources.Admin.User.Resource.PH_Email,
+                                                       @id = "email",
+                                                       data_length = @Book_Management_System.Resources.Admin.User.Resource.Length_Email,
+                                                       data_empty = @Book_Management_System.Resources.Admin.User.Resource.Empty_Email,
+                                                       data_format = @Book_Management_System.Resources.Admin.User.Resource.Format_Email,
+                                                       data_invalid = @Book_Management_System.Resources.Admin.User.Resource.Invalid_Email
+                                                   } })
                                                     @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
                                             <!-- Input address-->
                                             <div class="form-group">
-                                                <label class="control-label col-lg-2">Address: </label>
+                                                <label class="control-label col-lg-2">@Book_Management_System.Resources.Admin.User.Resource.Address:</label>
                                                 <div class="col-lg-10">
-                                                    @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your address" } })
+                                                    @Html.EditorFor(model => model.Address,
+                                                   new { htmlAttributes = new { @class = "form-control",
+                                                       @placeholder = @Book_Management_System.Resources.Admin.User.Resource.PH_Address,
+                                                       data_length = @Book_Management_System.Resources.Admin.User.Resource.Length_Address
+                                                   } })
                                                     @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
                                             <!-- Select gender -->
                                             <div class="form-group">
-                                                <label class="control-label col-lg-2">Gender: </label>
+                                                <label class="control-label col-lg-2">@Book_Management_System.Resources.Admin.User.Resource.Gender: </label>
                                                 <div class="col-lg-10">
                                                     <div class="radio-inline">
-                                                        @Html.RadioButtonFor(model => model.Gender, true) Male
+                                                        @Html.RadioButtonFor(model => model.Gender, true, new {@id = "gender", data_empty = @Book_Management_System.Resources.Admin.User.Resource.Empty_Gender }) @Book_Management_System.Resources.Admin.User.Resource.Male
                                                     </div>
                                                     <div class="radio-inline">
-                                                        @Html.RadioButtonFor(model => model.Gender, false) Female
+                                                        @Html.RadioButtonFor(model => model.Gender, false, new { @id = "gender", @Book_Management_System.Resources.Admin.User.Resource.Empty_Gender }) @Book_Management_System.Resources.Admin.User.Resource.Female
                                                     </div>
                                                 </div>
                                             </div>
                                             <!--Active-->
                                             <div class="form-group">
-                                                <label class="control-label col-lg-2">Active: </label>
+                                                <label class="control-label col-lg-2">@Book_Management_System.Resources.Admin.User.Resource.Active: </label>
                                                 <div class="col-lg-10">
                                                     <div class="checkbox">
                                                         @Html.EditorFor(model => model.IsActive)
@@ -181,7 +211,7 @@
                                             <!-- Save button-->
                                             <div class="form-group">
                                                 <div class="col-lg-12">
-                                                    <input type="submit" value="Save" class="btn btn-success center-block" />
+                                                    <input type="submit" value=@Book_Management_System.Resources.Admin.User.Resource.Save class="btn btn-success center-block" />
                                                 </div>
                                             </div>
                                         </div>
@@ -199,7 +229,7 @@
                         </div>
                     </div>
                 </div>
-                <div class=" panel-footer"><a href="@Url.Action("Index", "ManageAccount")">Back to List</a></div>
+                <div class=" panel-footer"><a href="@Url.Action("Index", "ManageAccount")">@Book_Management_System.Resources.Admin.User.Resource.Back_to_list</a></div>
             </div>
         </div>
     </div>
@@ -259,10 +289,11 @@
                         validators: {
                             stringLength: {
                                 min: 2,
-                                message: 'First name must have at least 2 characters'
+                                max: 50,
+                                message: $('#firstname').attr('data-length')
                             },
                             notEmpty: {
-                                message: 'Please supply your first name'
+                                message: $('#firstname').attr('data-empty')
                             }
                         }
                     },
@@ -270,19 +301,27 @@
                         validators: {
                             stringLength: {
                                 min: 2,
-                                message: 'Last name must have at least 2 characters'
+                                max: 50,
+                                message: $('#lastname').attr('data-length')
                             },
                             notEmpty: {
-                                message: 'Please supply your last name'
+                                message: $('#lastname').attr('data-empty')
                             }
                         }
                     },
                     Email: {
                         validators: {
-                            notEmpty: {
-                                message: 'Email can not be empty'
+                            stringLength: {
+                                max: 100,
+                                message: $('#email').attr('data-length')
                             },
-                           remote: {
+                            notEmpty: {
+                                message: $('#email').attr('data-empty')
+                            },
+                            emailAddress: {
+                                message: $('#email').attr('data-format')
+                            },
+                            remote: {
                                 url: "@Url.Action("IsEmailUnique", "ManageAccount",new { id = Model.Id})",
                                 // Send { username: 'its value', email: 'its value' } to the back-end
                                 data: function (validator) {
@@ -290,7 +329,30 @@
                                         Email: validator.getFieldElements('Email').val()
                                     };
                                 },
-                                message: 'The email is already exist'
+                                message: $('#email').attr('data-invalid')
+                            }
+                        }
+                    },
+                    Address: {
+                        validators: {
+                            stringLength: {
+                                max: 100,
+                                message: $('#address').attr('data-length')
+                            }
+                        }
+                    },
+                    Birthday: {
+                        validators: {
+                            date: {
+                                format: 'MM/DD/YYYY',
+                                message: $('#datepicker').attr('data-format')
+                            }
+                        }
+                    },
+                    Gender: {
+                        validators: {
+                            notEmpty: {
+                                message: $('#gender').attr('data-empty')
                             }
                         }
                     }
@@ -309,14 +371,14 @@
                             stringLength: {
                                 min: 6,
                                 max: 30,
-                                message: 'Password must have at least 6 and less than 30 characters'
+                                message: $('#newpassword').attr('data-length')
                             },
                             notEmpty: {
-                                message: "Password can not be empty"
+                                message: $('#newpassword').attr('data-empty')
                             },
                             regexp: {
                                 regexp: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z0-9\S]{6,30}$/,
-                                message: 'Password must be 6-30 characters, at least one uppercase letter, one lowercase letter, one number and no whitespace (special characters are allowed)'
+                                message: $('#newpassword').attr('data-format')
                             }
                         }
                     },
@@ -325,14 +387,14 @@
                             stringLength: {
                                 min: 6,
                                 max: 30,
-                                message: 'Confirm password must have at least 6 characters'
+                                message: $('#confirmnewpassword').attr('data-length')
                             },
                             notEmpty: {
-                                message: "Confirm password can not be empty"
+                                message: $('#confirmnewpassword').attr('data-empty')
                             },
                             identical: {
                                 field: 'Password',
-                                message: 'Password does not match'
+                                message: $('#confirmnewpassword').attr('data-identical')
                             }
                         }
                     }

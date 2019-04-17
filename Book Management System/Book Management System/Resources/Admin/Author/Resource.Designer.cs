@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Book_Management_System.Resources.Admin.Layout {
+namespace Book_Management_System.Resources.Admin.Author {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Book_Management_System.Resources.Admin.Layout {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resources {
+    public class Resource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal Resource() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Book_Management_System.Resources.Admin.Layout {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Book_Management_System.Resources.Admin.Layout.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Book_Management_System.Resources.Admin.Author.Resource", typeof(Resource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,74 +61,56 @@ namespace Book_Management_System.Resources.Admin.Layout {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Quản lí tác giả.
+        ///   Looks up a localized string similar to Thêm tác giả.
         /// </summary>
-        public static string AuthorMangement {
+        public static string Add_Author {
             get {
-                return ResourceManager.GetString("AuthorMangement", resourceCulture);
+                return ResourceManager.GetString("Add_Author", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Trở lại danh sách.
+        ///   Looks up a localized string similar to Kích hoạt.
         /// </summary>
-        public static string BacktoList {
+        public static string Author_IsActive {
             get {
-                return ResourceManager.GetString("BacktoList", resourceCulture);
+                return ResourceManager.GetString("Author_IsActive", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Danh mục.
+        ///   Looks up a localized string similar to Tên.
         /// </summary>
-        public static string Bookcategories {
+        public static string Author_Name {
             get {
-                return ResourceManager.GetString("Bookcategories", resourceCulture);
+                return ResourceManager.GetString("Author_Name", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Quản lí sách.
+        ///   Looks up a localized string similar to Quay về danh sách.
         /// </summary>
-        public static string BookManagement {
+        public static string Back_to_list {
             get {
-                return ResourceManager.GetString("BookManagement", resourceCulture);
+                return ResourceManager.GetString("Back_to_list", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tạo.
+        ///   Looks up a localized string similar to Đóng.
+        /// </summary>
+        public static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thêm mới.
         /// </summary>
         public static string Create {
             get {
                 return ResourceManager.GetString("Create", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Tạo mới.
-        /// </summary>
-        public static string CreateNew {
-            get {
-                return ResourceManager.GetString("CreateNew", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Trang chủ.
-        /// </summary>
-        public static string Dashboard {
-            get {
-                return ResourceManager.GetString("Dashboard", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Xóa.
-        /// </summary>
-        public static string Delete {
-            get {
-                return ResourceManager.GetString("Delete", resourceCulture);
             }
         }
         
@@ -142,7 +124,7 @@ namespace Book_Management_System.Resources.Admin.Layout {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sửa.
+        ///   Looks up a localized string similar to Chỉnh sửa.
         /// </summary>
         public static string Edit {
             get {
@@ -151,38 +133,29 @@ namespace Book_Management_System.Resources.Admin.Layout {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tài khoản.
+        ///   Looks up a localized string similar to Chỉnh sửa tác giả.
         /// </summary>
-        public static string EditProfile {
+        public static string Edit_Author {
             get {
-                return ResourceManager.GetString("EditProfile", resourceCulture);
+                return ResourceManager.GetString("Edit_Author", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Đăng xuất.
+        ///   Looks up a localized string similar to Quản lí tác giả.
         /// </summary>
-        public static string LogOut {
+        public static string Manage_Author {
             get {
-                return ResourceManager.GetString("LogOut", resourceCulture);
+                return ResourceManager.GetString("Manage_Author", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Quản lí hóa đơn.
+        ///   Looks up a localized string similar to Tên tác giả.
         /// </summary>
-        public static string OrderManagement {
+        public static string PH_AuthorName {
             get {
-                return ResourceManager.GetString("OrderManagement", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Quản lí nhà phát hành.
-        /// </summary>
-        public static string PublisherManagement {
-            get {
-                return ResourceManager.GetString("PublisherManagement", resourceCulture);
+                return ResourceManager.GetString("PH_AuthorName", resourceCulture);
             }
         }
         
@@ -192,33 +165,6 @@ namespace Book_Management_System.Resources.Admin.Layout {
         public static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Tìm kiếm.
-        /// </summary>
-        public static string Search {
-            get {
-                return ResourceManager.GetString("Search", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Cài đặt.
-        /// </summary>
-        public static string Setting {
-            get {
-                return ResourceManager.GetString("Setting", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Quản lí khách hàng.
-        /// </summary>
-        public static string UserManagement {
-            get {
-                return ResourceManager.GetString("UserManagement", resourceCulture);
             }
         }
     }

@@ -14,7 +14,7 @@ using Book_Management_System.Common;
 namespace Book_Management_System.Areas.Admin.Controllers
 {
     [AuthorizeUser]
-    public class ChangePasswordController : Controller
+    public class ChangePasswordController : BaseAdminController
     {
         private Model db = new Model();
 

@@ -13,7 +13,7 @@ using Book_Management_System.Common;
 namespace Book_Management_System.Areas.Admin.Controllers
 {
     [AuthorizeUser]
-    public class ManageAccountController : Controller
+    public class ManageAccountController : BaseAdminController
     {
         private Model db = new Model();
 

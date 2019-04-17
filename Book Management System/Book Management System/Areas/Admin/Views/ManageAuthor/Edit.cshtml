@@ -9,7 +9,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Edit Author</h1>
+            <h1 class="page-header">@Book_Management_System.Resources.Admin.Author.Resource.Edit_Author</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -18,7 +18,7 @@
         <div class="container">
             <div class="col-lg-9 col-lg-offset-1">
                 <div class="panel panel-default ">
-                    <div class=" panel panel-heading">Athor</div>
+                    <div class=" panel panel-heading">@Book_Management_System.Resources.Admin.Author.Resource.Edit</div>
                     <div class="panel panel-body">
 
                         @using (Html.BeginForm("", "", new { id = string.Empty }, FormMethod.Post, new { @id = "form" }))
@@ -50,14 +50,14 @@
 
                                 <div class="form-group">
                                     <div class="col-md-offset-2 col-md-10">
-                                        <input type="submit" value="Save" class="btn btn-default" />
+                                        <input type="submit" value=@Book_Management_System.Resources.Admin.Author.Resource.Save class="btn btn-default" />
                                     </div>
                                 </div>
                             </div>
                         }
 
                         <div>
-                            @Html.ActionLink("Back to List", "Index")
+                            @Html.ActionLink(@Book_Management_System.Resources.Admin.Author.Resource.Back_to_list, "Index")
                         </div>
                     </div>
                 </div>

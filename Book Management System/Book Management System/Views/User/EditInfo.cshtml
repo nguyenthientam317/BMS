@@ -75,7 +75,7 @@
         <hr />
     </div>
     <div class="row">
-        <div class="col-lg-10 col-lg-offset-1">
+        <div class="col-lg-8 col-lg-offset-2">
             @using (Html.BeginForm("EditInfo", "User", FormMethod.Post, new { @id = "edit-info-user", enctype = "multipart/form-data" }))
             {
                 @Html.AntiForgeryToken()
@@ -96,11 +96,10 @@
                        @style = "display: none" } })
                     @Html.ValidationMessageFor(model => model.Avatar, "", new { @class = "text-danger" })
                 </div>
-                <!-- Input first name & last name-->
+                <!-- Input first name-->
                 <div class="form-group">
-
-                    <label class="control-label col-lg-2">@Book_Management_System.Resources.Client.UserResource.Resource.Firstname:</label>
-                    <div class="col-lg-3">
+                    <label class="control-label col-sm-3">@Book_Management_System.Resources.Client.UserResource.Resource.Firstname:</label>
+                    <div class="col-sm-7">
                         @Html.EditorFor(model => model.FirstName,
                        new { htmlAttributes = new { @class = "form-control",
                            @placeholder = @Book_Management_System.Resources.Client.UserResource.Resource.PH_Firstname,
@@ -110,9 +109,11 @@
                        } })
                         @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
                     </div>
-
-                    <label class="control-label col-lg-2">@Book_Management_System.Resources.Client.UserResource.Resource.Lastname: </label>
-                    <div class="col-lg-5">
+                </div>
+                <!-- Input last name-->
+                <div class="form-group">
+                    <label class="control-label col-sm-3">@Book_Management_System.Resources.Client.UserResource.Resource.Lastname: </label>
+                    <div class="col-sm-7">
                         @Html.EditorFor(model => model.LastName,
                        new { htmlAttributes = new { @class = "form-control",
                            @placeholder = @Book_Management_System.Resources.Client.UserResource.Resource.PH_Lastname,
@@ -122,12 +123,11 @@
                        } })
                         @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
                     </div>
-
                 </div>
-                <!-- Select birthday and enter email-->
+                <!-- Select birthday-->
                 <div class="form-group">
-                    <label class="control-label col-lg-2">@Book_Management_System.Resources.Client.UserResource.Resource.Birthday:: </label>
-                    <div class="col-lg-3">
+                    <label class="control-label col-sm-3">@Book_Management_System.Resources.Client.UserResource.Resource.Birthday: </label>
+                    <div class="col-sm-7">
                         @Html.EditorFor(model => model.Birthday,
                        new { htmlAttributes = new { @class = "form-control",
                            @id = "datepicker-birthday",
@@ -137,8 +137,11 @@
                        } })
                         @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
                     </div>
-                    <label class="control-label col-lg-2">@Book_Management_System.Resources.Client.UserResource.Resource.Email: </label>
-                    <div class="col-lg-5">
+                </div>
+                <!-- Input email-->
+                <div class="form-group">
+                    <label class="control-label col-sm-3">@Book_Management_System.Resources.Client.UserResource.Resource.Email: </label>
+                    <div class="col-sm-7">
                         @Html.EditorFor(model => model.Email,
                        new { htmlAttributes = new { @class = "form-control",
                            @type = "email",
@@ -153,8 +156,8 @@
                 </div>
                 <!-- Input address-->
                 <div class="form-group">
-                    <label class="control-label col-lg-2">@Book_Management_System.Resources.Client.UserResource.Resource.Address: </label>
-                    <div class="col-lg-10">
+                    <label class="control-label col-sm-3">@Book_Management_System.Resources.Client.UserResource.Resource.Address: </label>
+                    <div class="col-sm-7">
                         @Html.EditorFor(model => model.Address,
                        new { htmlAttributes = new { @class = "form-control",
                            @placeholder = @Book_Management_System.Resources.Client.UserResource.Resource.PH_Address,
@@ -165,8 +168,8 @@
                 </div>
                 <!-- Select gender -->
                 <div class="form-group">
-                    <label class="control-label col-lg-2">@Book_Management_System.Resources.Client.UserResource.Resource.Gender: </label>
-                    <div class="col-lg-10">
+                    <label class="control-label col-sm-3">@Book_Management_System.Resources.Client.UserResource.Resource.Gender: </label>
+                    <div class="col-sm-7">
                         <div class="radio-inline">
                             @Html.RadioButtonFor(model => model.Gender, true, new { @id = "gender", data_empty = @Book_Management_System.Resources.Client.UserResource.Resource.Empty_Gender }) @Book_Management_System.Resources.Client.UserResource.Resource.Male
                         </div>

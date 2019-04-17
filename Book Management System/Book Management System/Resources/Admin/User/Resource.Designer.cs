@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Book_Management_System.Resources.Client.UserResource {
+namespace Book_Management_System.Resources.Admin.User {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Book_Management_System.Resources.Client.UserResource {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Book_Management_System.Resources.Client.UserResource.Resource", typeof(Resource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Book_Management_System.Resources.Admin.User.Resource", typeof(Resource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,11 +61,11 @@ namespace Book_Management_System.Resources.Client.UserResource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tài khoản.
+        ///   Looks up a localized string similar to Kích hoạt.
         /// </summary>
-        public static string Account {
+        public static string Active {
             get {
-                return ResourceManager.GetString("Account", resourceCulture);
+                return ResourceManager.GetString("Active", resourceCulture);
             }
         }
         
@@ -79,6 +79,15 @@ namespace Book_Management_System.Resources.Client.UserResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Quay về danh sách.
+        /// </summary>
+        public static string Back_to_list {
+            get {
+                return ResourceManager.GetString("Back_to_list", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ngày sinh.
         /// </summary>
         public static string Birthday {
@@ -88,11 +97,29 @@ namespace Book_Management_System.Resources.Client.UserResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Khóa.
+        /// </summary>
+        public static string Block {
+            get {
+                return ResourceManager.GetString("Block", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Đổi mật khẩu.
         /// </summary>
-        public static string Change_Password {
+        public static string Change_password {
             get {
-                return ResourceManager.GetString("Change_Password", resourceCulture);
+                return ResourceManager.GetString("Change_password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Đóng.
+        /// </summary>
+        public static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
             }
         }
         
@@ -106,11 +133,38 @@ namespace Book_Management_System.Resources.Client.UserResource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Thay đổi thông tin.
+        ///   Looks up a localized string similar to Tạo mới.
         /// </summary>
-        public static string Edit_information {
+        public static string Create {
             get {
-                return ResourceManager.GetString("Edit_information", resourceCulture);
+                return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chi tiết.
+        /// </summary>
+        public static string Detail {
+            get {
+                return ResourceManager.GetString("Detail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chỉnh sửa.
+        /// </summary>
+        public static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chỉnh sửa thông tin.
+        /// </summary>
+        public static string Edit_profile {
+            get {
+                return ResourceManager.GetString("Edit_profile", resourceCulture);
             }
         }
         
@@ -124,7 +178,7 @@ namespace Book_Management_System.Resources.Client.UserResource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Xác nhận mật khẩu không dược để trống.
+        ///   Looks up a localized string similar to Xác nhận mật khẩu không thể để trống.
         /// </summary>
         public static string Empty_Confirm_New_Password {
             get {
@@ -133,7 +187,7 @@ namespace Book_Management_System.Resources.Client.UserResource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Email không thể để trống.
+        ///   Looks up a localized string similar to Email không thể trống.
         /// </summary>
         public static string Empty_Email {
             get {
@@ -142,7 +196,7 @@ namespace Book_Management_System.Resources.Client.UserResource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tên không thể để trống.
+        ///   Looks up a localized string similar to Vui lòng nhập tên.
         /// </summary>
         public static string Empty_Firstname {
             get {
@@ -151,7 +205,7 @@ namespace Book_Management_System.Resources.Client.UserResource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Vui lòng chọn giới tính của bạn.
+        ///   Looks up a localized string similar to Vui lòng chọn giới tính.
         /// </summary>
         public static string Empty_Gender {
             get {
@@ -160,7 +214,7 @@ namespace Book_Management_System.Resources.Client.UserResource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Họ không thể để trống.
+        ///   Looks up a localized string similar to Vui lòng nhập họ.
         /// </summary>
         public static string Empty_Lastname {
             get {
@@ -196,7 +250,7 @@ namespace Book_Management_System.Resources.Client.UserResource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ngày không hợp lệ.
+        ///   Looks up a localized string similar to Ngày sinh không hợp lệ.
         /// </summary>
         public static string Format_Birthday {
             get {
@@ -214,7 +268,7 @@ namespace Book_Management_System.Resources.Client.UserResource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mật khẩu phải có 6-30 ký tự, ít nhất một chữ cái viết hoa, một chữ cái viết thường, một số và không có khoảng trắng (cho phép kí tự đặc biệt).
+        ///   Looks up a localized string similar to Mật khẩu phải có 6-30 ký tự, ít nhất một chữ cái viết hoa, một chữ cái viết thường, một số và không có khoảng trắng (ký tự đặc biệt được phép).
         /// </summary>
         public static string Format_New_Password {
             get {
@@ -234,18 +288,36 @@ namespace Book_Management_System.Resources.Client.UserResource {
         /// <summary>
         ///   Looks up a localized string similar to Mật khẩu không giống nhau.
         /// </summary>
-        public static string Identical_Confirm_New_Password {
+        public static string Identical_New_Password {
             get {
-                return ResourceManager.GetString("Identical_Confirm_New_Password", resourceCulture);
+                return ResourceManager.GetString("Identical_New_Password", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Email này đã được sử dụng, vui lòng chọn một email khác.
+        ///   Looks up a localized string similar to Thông tin.
+        /// </summary>
+        public static string Information {
+            get {
+                return ResourceManager.GetString("Information", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email này đã được sử dụng, vui lòng  chọn email khác.
         /// </summary>
         public static string Invalid_Email {
             get {
                 return ResourceManager.GetString("Invalid_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kích hoạt.
+        /// </summary>
+        public static string IsActive {
+            get {
+                return ResourceManager.GetString("IsActive", resourceCulture);
             }
         }
         
@@ -259,7 +331,7 @@ namespace Book_Management_System.Resources.Client.UserResource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Địa chỉ ít hơn 100 kí tự.
+        ///   Looks up a localized string similar to Địa chỉ không thể nhiều hơn 100 ký tự.
         /// </summary>
         public static string Length_Address {
             get {
@@ -268,7 +340,7 @@ namespace Book_Management_System.Resources.Client.UserResource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Xác nhận mật khẩu có ít nhất 6 kí tự.
+        ///   Looks up a localized string similar to Xác nhận mật khẩu phải có ít nhất 6 ký tự.
         /// </summary>
         public static string Length_Confirm_New_Password {
             get {
@@ -286,7 +358,7 @@ namespace Book_Management_System.Resources.Client.UserResource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tên phải có ít nhất 2 và nhiều nhất 50 kí tự.
+        ///   Looks up a localized string similar to Tên phải có 2-50 ký tự.
         /// </summary>
         public static string Length_Firstname {
             get {
@@ -295,7 +367,7 @@ namespace Book_Management_System.Resources.Client.UserResource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Họ phải có ít nhất 2 và nhiều nhất 50 kí tự.
+        ///   Looks up a localized string similar to Họ phải có 2-50 ký tự.
         /// </summary>
         public static string Length_Lastname {
             get {
@@ -304,7 +376,7 @@ namespace Book_Management_System.Resources.Client.UserResource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mật khẩu có ít nhất 6 và nhiều nhất 30 kí tự.
+        ///   Looks up a localized string similar to Mật khẩu phải có ít nhất 6 và ít hơn 30 ký tự.
         /// </summary>
         public static string Length_New_Password {
             get {
@@ -331,15 +403,6 @@ namespace Book_Management_System.Resources.Client.UserResource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Quản lí đơn hàng.
-        /// </summary>
-        public static string Order_management {
-            get {
-                return ResourceManager.GetString("Order_management", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Nhập địa chỉ.
         /// </summary>
         public static string PH_Address {
@@ -358,7 +421,7 @@ namespace Book_Management_System.Resources.Client.UserResource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nhập email .
+        ///   Looks up a localized string similar to Nhập email.
         /// </summary>
         public static string PH_Email {
             get {
@@ -367,7 +430,7 @@ namespace Book_Management_System.Resources.Client.UserResource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nhập tên .
+        ///   Looks up a localized string similar to Tên.
         /// </summary>
         public static string PH_Firstname {
             get {
@@ -376,7 +439,7 @@ namespace Book_Management_System.Resources.Client.UserResource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nhập họ.
+        ///   Looks up a localized string similar to Họ.
         /// </summary>
         public static string PH_Lastname {
             get {
@@ -394,11 +457,47 @@ namespace Book_Management_System.Resources.Client.UserResource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lưu.
+        ///   Looks up a localized string similar to Lưu lại.
         /// </summary>
         public static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thông tin tài khoản.
+        /// </summary>
+        public static string User_infomation {
+            get {
+                return ResourceManager.GetString("User_infomation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trạng thái kích hoạt.
+        /// </summary>
+        public static string User_IsActive {
+            get {
+                return ResourceManager.GetString("User_IsActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quản lí khách hàng.
+        /// </summary>
+        public static string User_management {
+            get {
+                return ResourceManager.GetString("User_management", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tên tài khoản.
+        /// </summary>
+        public static string User_Name {
+            get {
+                return ResourceManager.GetString("User_Name", resourceCulture);
             }
         }
     }

@@ -76,7 +76,7 @@
                             }, "value", "text",Session[Book_Management_System.Infrastructure.ConstantDefine.CURRENT_CULTURE]),new {onchange="this.form.submit();",id = "table"} )
                     }
                 </li>
-                <li class="dropdown">
+                @*<li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
@@ -100,9 +100,9 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li>*@
                 <!-- Dropdown Task -->
-                <li class="dropdown">
+                @*<li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-tasks fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
@@ -130,9 +130,9 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li>*@
                 <!-- Dropdown Alert -->
-                <li class="dropdown">
+                @*<li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
@@ -153,7 +153,7 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li>*@
                 <!-- Dropdown User-->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -172,14 +172,14 @@
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li>
-                            <a href="@Url.Action("Edit","ManageAccount",new { id = (Session[Book_Management_System.Common.Constants.USER_SESSION] == null ) ?  string.Empty : session.UserId })"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                            <a href="@Url.Action("Edit","ManageAccount",new { id = (Session[Book_Management_System.Common.Constants.USER_SESSION] == null ) ?  string.Empty : session.UserId })"><i class="fa fa-user fa-fw"></i> @Resources.EditProfile</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                            <a href="#"><i class="fa fa-gear fa-fw"></i> @Resources.Setting</a>
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="@Url.Action("Logout","UserLogin",new { area ="" })"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            <a href="@Url.Action("Logout","UserLogin",new { area ="" })"><i class="fa fa-sign-out fa-fw"></i> @Resources.LogOut</a>
                         </li>
                     </ul>
                 </li>

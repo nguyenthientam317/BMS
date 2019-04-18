@@ -106,6 +106,15 @@ namespace Book_Management_System.Resources.Client.RegisterResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Chọn ngày sinh của bạn.
+        /// </summary>
+        public static string Empty_Birthday {
+            get {
+                return ResourceManager.GetString("Empty_Birthday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Xác nhận mật khẩu không thể để trống.
         /// </summary>
         public static string Empty_Confirm_Password {
@@ -187,7 +196,7 @@ namespace Book_Management_System.Resources.Client.RegisterResource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ngày không hợp lệ.
+        ///   Looks up a localized string similar to Sai định dạng ngày.
         /// </summary>
         public static string Format_Birthday {
             get {
@@ -340,7 +349,7 @@ namespace Book_Management_System.Resources.Client.RegisterResource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MM/DD/YYYY.
+        ///   Looks up a localized string similar to DD/MM/YYYY.
         /// </summary>
         public static string PH_Birthday {
             get {

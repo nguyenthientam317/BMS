@@ -27,7 +27,7 @@ namespace Book_Management_System.Models
 
         [Required]
         [StringLength(200)]
-        [Display(Name = "Title", ResourceType = typeof(Resources))]
+        [Display(Name = "EnTitle", ResourceType = typeof(Resources))]
         public string EnTitle { get; set; }
 
  
@@ -35,7 +35,7 @@ namespace Book_Management_System.Models
         public string Summary { get; set; }
 
         [Required]
-        [Display(Name = "Summary", ResourceType = typeof(Resources))]
+        [Display(Name = "EnSummary", ResourceType = typeof(Resources))]
         public string EnSummary { get; set; }
 
         [Display(Name = "ImageURL", ResourceType = typeof(Resources))]
@@ -54,17 +54,17 @@ namespace Book_Management_System.Models
 
         [Required]
         [StringLength(10)]
-        [Display(Name = "Author", ResourceType = typeof(Resources))]
+        [Display(Name = "IdAuthor", ResourceType = typeof(Resources))]
         public string IdAuthor { get; set; }
 
         [Required]
         [StringLength(10)]
-        [Display(Name = "Publisher", ResourceType = typeof(Resources))]
+        [Display(Name = "IdPublisher", ResourceType = typeof(Resources))]
         public string IdPublisher { get; set; }
 
         [Required]
         [StringLength(10)]
-        [Display(Name = "Category", ResourceType = typeof(Resources))]
+        [Display(Name = "IdCategory", ResourceType = typeof(Resources))]
         public string IdCategory { get; set; }
 
         [Display(Name = "Createdate", ResourceType = typeof(Resources))]

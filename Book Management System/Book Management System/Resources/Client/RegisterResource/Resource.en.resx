@@ -160,7 +160,7 @@
     <value>First name</value>
   </data>
   <data name="Format_Birthday" xml:space="preserve">
-    <value>The value is not a valid date</value>
+    <value>Wrong format</value>
   </data>
   <data name="Format_Email" xml:space="preserve">
     <value>The value is not a valid email address</value>
@@ -239,5 +239,8 @@
   </data>
   <data name="Username" xml:space="preserve">
     <value>Username</value>
+  </data>
+  <data name="Empty_Birthday" xml:space="preserve">
+    <value>Please supply your birthday</value>
   </data>
 </root>

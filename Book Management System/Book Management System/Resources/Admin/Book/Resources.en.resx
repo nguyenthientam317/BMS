@@ -120,13 +120,13 @@
   <data name="AddBook" xml:space="preserve">
     <value>Add Book</value>
   </data>
-  <data name="Author" xml:space="preserve">
+  <data name="IdAuthor" xml:space="preserve">
     <value>Author</value>
   </data>
   <data name="BookManagement" xml:space="preserve">
     <value>Book Management</value>
   </data>
-  <data name="Category" xml:space="preserve">
+  <data name="IdCategory" xml:space="preserve">
     <value>Category</value>
   </data>
   <data name="Createdate" xml:space="preserve">
@@ -189,7 +189,7 @@
   <data name="PricePlace" xml:space="preserve">
     <value>Enter price</value>
   </data>
-  <data name="Publisher" xml:space="preserve">
+  <data name="IdPublisher" xml:space="preserve">
     <value>Publisher</value>
   </data>
   <data name="Quantity" xml:space="preserve">
@@ -227,5 +227,29 @@
   </data>
   <data name="TitlePlace" xml:space="preserve">
     <value>Enter a Title</value>
+  </data>
+  <data name="EnSummary" xml:space="preserve">
+    <value>Summary by English</value>
+  </data>
+  <data name="EnSummaryErrorEmpty" xml:space="preserve">
+    <value>The summary cannot be empty !</value>
+  </data>
+  <data name="EnSummaryErrorLength" xml:space="preserve">
+    <value>The summary must be more 6 characters !</value>
+  </data>
+  <data name="EnSummaryPlace" xml:space="preserve">
+    <value>Enter a summary by English</value>
+  </data>
+  <data name="EnTitle" xml:space="preserve">
+    <value>Title by English</value>
+  </data>
+  <data name="EnTitleErrorEmpty" xml:space="preserve">
+    <value>The title cannot be empty !</value>
+  </data>
+  <data name="EnTitleErrorLength" xml:space="preserve">
+    <value>The title must be more 6 characters !</value>
+  </data>
+  <data name="EnTitlePlace" xml:space="preserve">
+    <value>Enter a Title by English</value>
   </data>
 </root>

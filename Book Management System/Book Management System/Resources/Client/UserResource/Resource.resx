@@ -138,6 +138,9 @@
   <data name="Email" xml:space="preserve">
     <value>Email</value>
   </data>
+  <data name="Empty_Birthday" xml:space="preserve">
+    <value>Ngày sinh không thể trống</value>
+  </data>
   <data name="Empty_Confirm_New_Password" xml:space="preserve">
     <value>Xác nhận mật khẩu không dược để trống</value>
   </data>

@@ -20,7 +20,7 @@ namespace Book_Management_System.Controllers
             }
             else
             {
-                Session[ConstantDefine.CURRENT_CULTURE] = "vn";
+                Session[ConstantDefine.CURRENT_CULTURE] = "vi-VN";
                 Thread.CurrentThread.CurrentCulture = new CultureInfo(Session[ConstantDefine.CURRENT_CULTURE].ToString());
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo(Session[ConstantDefine.CURRENT_CULTURE].ToString());
             }

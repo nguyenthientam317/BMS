@@ -120,13 +120,13 @@
   <data name="AddBook" xml:space="preserve">
     <value>Tạo mới sách</value>
   </data>
-  <data name="Author" xml:space="preserve">
+  <data name="IdAuthor" xml:space="preserve">
     <value>Tác giả</value>
   </data>
   <data name="BookManagement" xml:space="preserve">
     <value>Quản lí sách</value>
   </data>
-  <data name="Category" xml:space="preserve">
+  <data name="IdCategory" xml:space="preserve">
     <value>Danh mục</value>
   </data>
   <data name="Createdate" xml:space="preserve">
@@ -189,7 +189,7 @@
   <data name="PricePlace" xml:space="preserve">
     <value>Nhập giá sách</value>
   </data>
-  <data name="Publisher" xml:space="preserve">
+  <data name="IdPublisher" xml:space="preserve">
     <value>Nhà phát hành</value>
   </data>
   <data name="Quantity" xml:space="preserve">
@@ -227,5 +227,29 @@
   </data>
   <data name="TitlePlace" xml:space="preserve">
     <value>Nhập tên sách</value>
+  </data>
+  <data name="EnSummary" xml:space="preserve">
+    <value>Tóm tắt bằng tiếng anh</value>
+  </data>
+  <data name="EnSummaryErrorEmpty" xml:space="preserve">
+    <value>Tóm tắt không được trống</value>
+  </data>
+  <data name="EnSummaryErrorLength" xml:space="preserve">
+    <value>Tóm tắt phải ít nhất 6 ký tự</value>
+  </data>
+  <data name="EnSummaryPlace" xml:space="preserve">
+    <value>Nhập tóm tắt nội dụng sách bằng tiếng anh</value>
+  </data>
+  <data name="EnTitle" xml:space="preserve">
+    <value>Tên sách bằng tiếng anh</value>
+  </data>
+  <data name="EnTitleErrorEmpty" xml:space="preserve">
+    <value>Tên sách không được trống</value>
+  </data>
+  <data name="EnTitleErrorLength" xml:space="preserve">
+    <value>Tên sách phải ít nhất 6 kí tự</value>
+  </data>
+  <data name="EnTitlePlace" xml:space="preserve">
+    <value>Nhập tên sách bằng tiếng anh</value>
   </data>
 </root>

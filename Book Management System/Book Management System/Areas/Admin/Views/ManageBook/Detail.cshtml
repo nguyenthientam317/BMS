@@ -57,21 +57,40 @@
                                             @Html.DisplayFor(model => model.Publisher.Name)
                                         </dd>
 
-                                        <dt>
-                                            @Html.DisplayNameFor(model => model.Title)
-                                        </dt>
+                                        @if (ViewBag.Culture == "vi-VN")
+                                        {
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.Title)
+                                            </dt>
 
-                                        <dd>
-                                            @Html.DisplayFor(model => model.Title)
-                                        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.Title)
+                                            </dd>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.Summary)
+                                            </dt>
 
-                                        <dt>
-                                            @Html.DisplayNameFor(model => model.Summary)
-                                        </dt>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.Summary)
+                                            </dd>
+                                        }
+                                        else
+                                        {
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.EnTitle)
+                                            </dt>
 
-                                        <dd>
-                                            @Html.DisplayFor(model => model.Summary)
-                                        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.EnTitle)
+                                            </dd>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.EnSummary)
+                                            </dt>
+
+                                            <dd>
+                                                @Html.DisplayFor(model => model.EnSummary)
+                                            </dd>
+                                        }
 
                                         <dt>
                                             @Html.DisplayNameFor(model => model.ImageURL)

@@ -1,5 +1,5 @@
 ﻿@model Book_Management_System.Models.User
-
+@using System.Globalization;
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -79,7 +79,6 @@
     <!-- /.row -->
     <div class="row">
         <!--- col-3-->
-
         <div class="col-lg-6 col-lg-offset-3">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -116,7 +115,11 @@
                                                 <div class="upload-button">
                                                     <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
                                                 </div>
-                                                @Html.EditorFor(model => model.Avatar, new { htmlAttributes = new { @class = "form-control file-upload", @type = "file", @accept = "image/*", @style = "display:none" } })
+                                                @Html.EditorFor(model => model.Avatar,
+                                               new { htmlAttributes = new { @class = "form-control file-upload",
+                                                   @type = "file",
+                                                   @accept = "image/*",
+                                                   @style = "display:none" } })
                                                 @Html.ValidationMessageFor(model => model.Avatar, "", new { @class = "text-danger" })
                                             </div>
 
@@ -153,9 +156,8 @@
                                                     @Html.EditorFor(model => model.Birthday,
                                                    new { htmlAttributes = new { @class = "form-control",
                                                        @id = "datepicker",
-                                                       @placeholder = "MM/DD/YYYY",
                                                        @readonly = "",
-                                                       data_format = @Book_Management_System.Resources.Admin.User.Resource.Format_Birthday} })
+                                                       data_empty = @Book_Management_System.Resources.Admin.User.Resource.Empty_Birthday} })
                                                     @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
                                                 </div>
                                                 <label class="control-label col-lg-2">@Book_Management_System.Resources.Admin.User.Resource.Email: </label>
@@ -190,7 +192,7 @@
                                                 <label class="control-label col-lg-2">@Book_Management_System.Resources.Admin.User.Resource.Gender: </label>
                                                 <div class="col-lg-10">
                                                     <div class="radio-inline">
-                                                        @Html.RadioButtonFor(model => model.Gender, true, new {@id = "gender", data_empty = @Book_Management_System.Resources.Admin.User.Resource.Empty_Gender }) @Book_Management_System.Resources.Admin.User.Resource.Male
+                                                        @Html.RadioButtonFor(model => model.Gender, true, new { @id = "gender", data_empty = @Book_Management_System.Resources.Admin.User.Resource.Empty_Gender }) @Book_Management_System.Resources.Admin.User.Resource.Male
                                                     </div>
                                                     <div class="radio-inline">
                                                         @Html.RadioButtonFor(model => model.Gender, false, new { @id = "gender", @Book_Management_System.Resources.Admin.User.Resource.Empty_Gender }) @Book_Management_System.Resources.Admin.User.Resource.Female
@@ -211,7 +213,7 @@
                                             <!-- Save button-->
                                             <div class="form-group">
                                                 <div class="col-lg-12">
-                                                    <input type="submit" value=@Book_Management_System.Resources.Admin.User.Resource.Save class="btn btn-success center-block" />
+                                                    <input type="submit" value="@Book_Management_System.Resources.Admin.User.Resource.Save" class="btn btn-success center-block" />
                                                 </div>
                                             </div>
                                         </div>
@@ -229,7 +231,7 @@
                         </div>
                     </div>
                 </div>
-                <div class=" panel-footer"><a href="@Url.Action("Index", "ManageAccount")">@Book_Management_System.Resources.Admin.User.Resource.Back_to_list</a></div>
+                <div class="panel-footer"><a href="@Url.Action("Index", "ManageAccount")">@Book_Management_System.Resources.Admin.User.Resource.Back_to_list</a></div>
             </div>
         </div>
     </div>
@@ -239,16 +241,29 @@
 @section scripts
 {
     <!-- DatePicker -->
-    <script type="text/javascript">
-        $(function () {
-            $("#datepicker").datepicker({
-                autoclose: true,
-            }).datepicker('update', new Date());
+    <script>
+        $(document).ready(function () {
+            var value = $('#table :selected').val();
+            if (value == 'vi-VN') {
+                $('#datepicker').datepicker({
+                    autoclose: true,
+                    format: 'dd/mm/yyyy'
+                }).on('changeDate', function (e) {
+                    $("#edit-info").bootstrapValidator('revalidateField', 'Birthday')
+                });
+            }
+            else {
+                $('#datepicker').datepicker({
+                    autoclose: true,
+                    format: 'mm/dd/yyyy'
+                }).on('changeDate', function (e) {
+                    $("#edit-info").bootstrapValidator('revalidateField', 'Birthday')
+                });
+            }
         });
     </script>
-
     <!-- Upload avatar -->
-      <script type="text/javascript">
+    <script type="text/javascript">
 
         $(document).ready(function () {
 
@@ -334,19 +349,18 @@
                             }
                         }
                     },
+                    Birthday: {
+                        validators: {
+                            notEmpty: {
+                                message: $('datepicker').attr('data-empty')
+                            }
+                        }
+                    },
                     Address: {
                         validators: {
                             stringLength: {
                                 max: 100,
                                 message: $('#address').attr('data-length')
-                            }
-                        }
-                    },
-                    Birthday: {
-                        validators: {
-                            date: {
-                                format: 'MM/DD/YYYY',
-                                message: $('#datepicker').attr('data-format')
                             }
                         }
                     },
@@ -403,4 +417,6 @@
             })
         })
     </script>
+
+
 }

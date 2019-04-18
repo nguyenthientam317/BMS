@@ -264,4 +264,10 @@
   <data name="User_Name" xml:space="preserve">
     <value>Tên tài khoản</value>
   </data>
+  <data name="Empty_Birthday" xml:space="preserve">
+    <value>Ngày sinh không thể trống</value>
+  </data>
+  <data name="IdRole" xml:space="preserve">
+    <value>Quyền hạn</value>
+  </data>
 </root>

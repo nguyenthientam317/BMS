@@ -124,6 +124,15 @@ namespace Book_Management_System.Resources.Client.UserResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ngày sinh không thể trống.
+        /// </summary>
+        public static string Empty_Birthday {
+            get {
+                return ResourceManager.GetString("Empty_Birthday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Xác nhận mật khẩu không dược để trống.
         /// </summary>
         public static string Empty_Confirm_New_Password {

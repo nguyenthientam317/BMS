@@ -1,4 +1,5 @@
-﻿<div class="top_nav">
+﻿@using System.Globalization;
+<div class="top_nav">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-right">
@@ -37,7 +38,7 @@
                             <a href="@Url.Action("Index","Cart")">
                                 <i class="fa fa-shopping-basket"></i>
                                 @Book_Management_System.Resources.Client.HomeResource.Resources.Home_Cart
-                                (<span id="amountCart">@ViewBag.numberItem</span>) <b id="totalCart"> @string.Format("{0:C}", ViewBag.TotalAmount)</b>
+                                (<span id="amountCart">@ViewBag.numberItem</span>) <b id="totalCart"> @string.Format(new CultureInfo("en-US"),"{0:C}", ViewBag.TotalAmount)</b>
                             </a>
                         </li>
                         <li class="account">
@@ -48,7 +49,7 @@
                                     new{value ="vi-VN",text= Book_Management_System.Infrastructure.StaticResource.Resources.Vietnamese },
                                     new{value ="en-US",text= Book_Management_System.Infrastructure.StaticResource.Resources.English },
 
-                                    }, "value", "text",Session[Book_Management_System.Infrastructure.ConstantDefine.CURRENT_CULTURE]),new {onchange="this.form.submit();"} )
+                                    }, "value", "text",Session[Book_Management_System.Infrastructure.ConstantDefine.CURRENT_CULTURE]),new {onchange="this.form.submit();", @id = "table"} )
                             }
                         </li>
                     </ul>

@@ -70,29 +70,11 @@ namespace Book_Management_System.Resources.Admin.Book {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tác giả.
-        /// </summary>
-        public static string Author {
-            get {
-                return ResourceManager.GetString("Author", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Quản lí sách.
         /// </summary>
         public static string BookManagement {
             get {
                 return ResourceManager.GetString("BookManagement", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Danh mục.
-        /// </summary>
-        public static string Category {
-            get {
-                return ResourceManager.GetString("Category", resourceCulture);
             }
         }
         
@@ -147,6 +129,114 @@ namespace Book_Management_System.Resources.Admin.Book {
         public static string EditBook {
             get {
                 return ResourceManager.GetString("EditBook", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+
+        ///   Looks up a localized string similar to Tác giả.
+        /// </summary>
+        public static string IdAuthor
+        {
+            get
+            {
+                return ResourceManager.GetString("IdAuthor", resourceCulture);
+            }
+        }
+
+        ///   Looks up a localized string similar to Tóm tắt bằng tiếng anh.
+        /// </summary>
+        public static string EnSummary {
+            get {
+                return ResourceManager.GetString("EnSummary", resourceCulture);
+
+            }
+        }
+        
+        /// <summary>
+
+        ///   Looks up a localized string similar to Danh mục.
+        /// </summary>
+        public static string IdCategory
+        {
+            get
+            {
+                return ResourceManager.GetString("IdCategory", resourceCulture);
+            }
+        }
+
+        ///   Looks up a localized string similar to Tóm tắt không được trống.
+        /// </summary>
+        public static string EnSummaryErrorEmpty {
+            get {
+                return ResourceManager.GetString("EnSummaryErrorEmpty", resourceCulture);
+
+            }
+        }
+        
+        /// <summary>
+
+        ///   Looks up a localized string similar to Nhà phát hành.
+        /// </summary>
+        public static string IdPublisher
+        {
+            get
+            {
+                return ResourceManager.GetString("IdPublisher", resourceCulture);
+            }
+        }
+
+        ///   Looks up a localized string similar to Tóm tắt phải ít nhất 6 ký tự.
+        /// </summary>
+        public static string EnSummaryErrorLength {
+            get {
+                return ResourceManager.GetString("EnSummaryErrorLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nhập tóm tắt nội dụng sách bằng tiếng anh.
+        /// </summary>
+        public static string EnSummaryPlace {
+            get {
+                return ResourceManager.GetString("EnSummaryPlace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tên sách bằng tiếng anh.
+        /// </summary>
+        public static string EnTitle {
+            get {
+                return ResourceManager.GetString("EnTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tên sách không được trống.
+        /// </summary>
+        public static string EnTitleErrorEmpty {
+            get {
+                return ResourceManager.GetString("EnTitleErrorEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tên sách phải ít nhất 6 kí tự.
+        /// </summary>
+        public static string EnTitleErrorLength {
+            get {
+                return ResourceManager.GetString("EnTitleErrorLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nhập tên sách bằng tiếng anh.
+        /// </summary>
+        public static string EnTitlePlace {
+            get {
+                return ResourceManager.GetString("EnTitlePlace", resourceCulture);
+
             }
         }
         
@@ -273,15 +363,6 @@ namespace Book_Management_System.Resources.Admin.Book {
         public static string PricePlace {
             get {
                 return ResourceManager.GetString("PricePlace", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Nhà phát hành.
-        /// </summary>
-        public static string Publisher {
-            get {
-                return ResourceManager.GetString("Publisher", resourceCulture);
             }
         }
         

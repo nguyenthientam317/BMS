@@ -264,4 +264,10 @@
   <data name="User_Name" xml:space="preserve">
     <value>User name</value>
   </data>
+  <data name="Empty_Birthday" xml:space="preserve">
+    <value>Birthday can not be empty</value>
+  </data>
+  <data name="IdRole" xml:space="preserve">
+    <value>Role</value>
+  </data>
 </root>

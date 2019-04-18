@@ -431,9 +431,6 @@
     <Content Include="Areas\Admin\Assets\js\plugins\morris\morris.js" />
     <Content Include="Areas\Admin\Assets\js\plugins\morris\raphael-2.1.0.min.js" />
     <Content Include="Areas\Admin\Assets\js\sb-admin.js" />
-    <Content Include="Assets\book-image\13\avatar1.jpg" />
-    <Content Include="Assets\book-image\13\avatar2.jpg" />
-    <Content Include="Assets\book-image\419_2\avatar2.jpg" />
     <Content Include="Assets\css\bootstrap-grid.css" />
     <Content Include="Assets\css\bootstrap-grid.min.css" />
     <Content Include="Assets\css\bootstrap-reboot.css" />
@@ -686,7 +683,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\BaseAdmin\" />
-    <Folder Include="Assets\book-image\18\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

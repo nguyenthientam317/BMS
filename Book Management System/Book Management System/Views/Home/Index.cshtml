@@ -25,23 +25,31 @@
                             </a>
                         </div>
                         <div class="product_info">
+                            @if (ViewBag.Culture == "vi-VN")
+                            {
                             <h6 class="product_name">@item.Title</h6>
+                            }
+                            else
+                            {
+                            <h6 class="product_name">@item.EnTitle</h6>
+                            }
                             <h6 class="product_author">
                                 by <a href="~/Home/Search?author=@item.IdAuthor">@item.Author.Name</a>
                             </h6>
-                            <p style="font-size: 12px">
-                                @item.Summary
-                                @*Trong quyển sách Kỹ Năng Đi Trước Đam Mê, Cal Newport lột trần niềm tin từ trước đến nay rằng ta nên "theo đuổi đam mê."
-                                    Niềm tin sáo rỗng này không những sai sót ở chỗ là những đam mê tồn tại sẵn có thường hiếm hoi và không liên quan gì lắm đến
-                                    việc hầu hết mọi người cuối cùng cũng yêu thích công việc họ làm, mà nó còn có thể gây nguy hiểm, sinh ra cảm giác lo lắng và
-                                    hiện tượng nhảy việc liên miên. Sau khi đưa ra dẫn chứng chống lại niềm tin vào đam mê, Newport bắt đầu cuộc hành trình khám phá thực tế là mọi người trở nên yêu thích
-                                    công việc họ làm như thế nào. Dành thời gian tiếp xúc với những người nông dân trên trang trại, các nhà đầu tư mạo hiểm, những người viết kịch bản,
-                                    các lập trình viên máy tính hành nghề tự do, và những người cho biết mình tìm thấy cảm giác mãn nguyện từ công việc, Newport phát hiện ra những chiến
-                                    lược họ đã áp dụng và những cạm bẫy họ đã né tránh trong quá trình phát triển sự nghiệp hấp dẫn của mình.
-                                    Anh tiết lộ rằng việc đi tìm một nghề nghiệp phù hợp với một đam mê tồn tại sẵn từ trước là không quan trọng.
-                                    Đam mê đến sau khi bạn chăm chỉ làm việc để trở nên xuất sắc trong những việc có ích, chứ đam mê không đến trước.
-                                    Nói cách khác, cách bạn làm việc thì quan trọng hơn nhiều so với công việc bạn làm*@
-                            </p>
+                            @{
+                                if (ViewBag.Culture == "vi-VN")
+                                {
+                                    <p style="font-size: 12px">
+                                        @item.Summary
+                                    </p>
+                                }
+                                else
+                                {
+                                    <p style="font-size: 12px">
+                                        @item.EnSummary
+                                    </p>
+                                }
+                            }
                         </div>
 
                     </div>

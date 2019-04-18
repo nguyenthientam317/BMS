@@ -44,12 +44,22 @@
                                         @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
+                           
 
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Summary, htmlAttributes: new { @class = "control-label col-md-3" })
                                     <div class="col-md-8">
                                         @Html.EditorFor(model => model.Summary, new { htmlAttributes = new { @class = "form-control", @placeholder = Resources.SummaryPlace, data_empty = Resources.SummaryErrorEmpty, data_length = Resources.SummaryErrorLength, id = "summary" } })
                                         @Html.ValidationMessageFor(model => model.Summary, "", new { @class = "text-danger" })
+                                    </div>
+                                 </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.EnTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-8">
+                                        @Html.EditorFor(model => model.EnTitle, new { htmlAttributes = new { @class = "form-control", @placeholder = Resources.EnTitlePlace, data_empty = Resources.EnTitleErrorEmpty, data_length = Resources.EnTitleErrorLength, id = "entitle" } })
+                                        @Html.ValidationMessageFor(model => model.EnTitle, "", new { @class = "text-danger" })
+
                                     </div>
                                 </div>
 
@@ -59,6 +69,7 @@
                                         @Html.EditorFor(model => model.ImageURL, new { htmlAttributes = new { @class = "form-control", type = "file" ,data_empty = Resources.ImageErrorEmpty, data_regexp = Resources.ImageErrorRegexp, id = "image" } })
                                         @Html.ValidationMessageFor(model => model.ImageURL, "", new { @class = "text-danger" })
                                     </div>
+
                                 </div>
 
                                 <div class="form-group">
@@ -68,6 +79,14 @@
                                         @Html.ValidationMessageFor(model => model.ISBN, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.EnSummary, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.EnSummary, new { htmlAttributes = new { @class = "form-control", @placeholder = Resources.EnSummaryPlace, data_empty = Resources.EnSummaryErrorEmpty, data_length = Resources.EnSummaryErrorLength, id = "ensummary" } })
+                                    @Html.ValidationMessageFor(model => model.EnSummary, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
 
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-3" })
@@ -75,7 +94,6 @@
                                         @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", @placeholder = Resources.PricePlace, data_empty = Resources.PriceErrorEmpty, data_regexp = Resources.PriceErrorRegexp, id = "price" } })
                                         @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
                                     </div>
-                                </div>
 
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label col-md-3" })
@@ -83,7 +101,7 @@
                                         @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control", @placeholder = Resources.QuantityPlace, data_empty = Resources.QuantityErrorEmpty, data_regexp = Resources.QuantityErrorRegexp, id = "quantity" } })
                                         @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
                                     </div>
-                                </div>
+
 
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.IdAuthor, htmlAttributes: new { @class = "control-label col-md-3" })
@@ -93,6 +111,7 @@
                                     </div>
                                 </div>
 
+
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.IdPublisher, htmlAttributes: new { @class = "control-label col-md-3" })
                                     <div class="col-md-8">
@@ -100,6 +119,7 @@
                                         @Html.ValidationMessageFor(model => model.IdPublisher, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
+
 
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.IdCategory, htmlAttributes: new { @class = "control-label col-md-3" })
@@ -116,15 +136,15 @@
                                             @Html.EditorFor(model => model.IsActive)
                                             @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
                                         </div>
-                                    </div>
+
                                 </div>
 
                                 <div class="form-group">
                                     <div class="col-md-offset-3 col-md-9">
                                         <input type="submit" value=@Book_Management_System.Resources.Admin.Layout.Resources.Save class="btn btn-success" />
-                                    </div>
                                 </div>
                             </div>
+                        </div>
                         }
 
                         <div>
@@ -168,6 +188,18 @@
                             },
                         }
                     },
+                    EnTitle: {
+                        message: 'The Title is not valid !',
+                        validators: {
+                            notEmpty: {
+                                message: $('#entitle').attr('data-empty')
+                            },
+                            stringLength: {
+                                min: 6,
+                                message: $('#entitle').attr('data-length')
+                            },
+                        }
+                    },
                     Summary: {
                         message: 'The summary is not valid !',
                         validators: {
@@ -177,6 +209,18 @@
                             stringLength: {
                                 min: 6,
                                 message: $('#summary').attr('data-length')
+                            },
+                        }
+                    },
+                    EnSummary: {
+                        message: 'The summary is not valid !',
+                        validators: {
+                            notEmpty: {
+                                message: $('#ensummary').attr('data-empty')
+                            },
+                            stringLength: {
+                                min: 6,
+                                message: $('#ensummary').attr('data-length')
                             },
                         }
                     },

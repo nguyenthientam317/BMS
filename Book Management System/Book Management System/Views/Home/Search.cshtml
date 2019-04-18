@@ -24,13 +24,31 @@
                             </a>
                         </div>
                         <div class="product_info">
-                            <h6 class="product_name">@item.Title</h6>
+                            @if (ViewBag.Culture == "vi-VN")
+                            {
+                                <h6 class="product_name">@item.Title</h6>
+                            }
+                            else
+                            {
+                                <h6 class="product_name">@item.EnTitle</h6>
+                            }
                             <h6 class="product_author">
                                 by <a href="#">@item.Author.Name</a>
                             </h6>
-                            <p style="font-size: 12px">
-                                @item.Summary
-                            </p>
+                            @{
+                                if (ViewBag.Culture == "vi-VN")
+                                {
+                                    <p style="font-size: 12px">
+                                        @item.Summary
+                                    </p>
+                                }
+                                else
+                                {
+                                    <p style="font-size: 12px">
+                                        @item.EnSummary
+                                    </p>
+                                }
+                            }
                         </div>
 
                     </div>

@@ -24,23 +24,39 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @placeholder = Resources.TitlePlace, data_empty=Resources.TitleErrorEmpty, data_length=Resources.TitleErrorLength, id="title" } })
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @placeholder = Resources.TitlePlace, data_empty = Resources.TitleErrorEmpty, data_length = Resources.TitleErrorLength, id = "title" } })
                 @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EnTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EnTitle, new { htmlAttributes = new { @class = "form-control", @placeholder = Resources.EnTitlePlace, data_empty = Resources.EnTitleErrorEmpty, data_length = Resources.EnTitleErrorLength, id = "entitle" } })
+                @Html.ValidationMessageFor(model => model.EnTitle, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Summary, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Summary, 4, 185, new { htmlAttributes = new { @class = "form-control", @placeholder = Resources.SummaryPlace, data_empty=Resources.SummaryErrorEmpty, data_length=Resources.SummaryErrorLength, id="summary" } })
+                @Html.TextAreaFor(model => model.Summary, 4, 185, new { htmlAttributes = new { @class = "form-control", @placeholder = Resources.SummaryPlace, data_empty = Resources.SummaryErrorEmpty, data_length = Resources.SummaryErrorLength, id = "summary" } })
                 @Html.ValidationMessageFor(model => model.Summary, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EnSummary, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.EnSummary, 4, 185, new { htmlAttributes = new { @class = "form-control", @placeholder = Resources.EnSummaryPlace, data_empty = Resources.EnSummaryErrorEmpty, data_length = Resources.EnSummaryErrorLength, id = "ensummary" } })
+                @Html.ValidationMessageFor(model => model.EnSummary, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.ISBN, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ISBN, new { htmlAttributes = new { @class = "form-control", @placeholder = Resources.ISBNPlace, data_empty=Resources.ISBNErrorEmpty, data_length= Resources.ISBNErrorLength, data_regexp = Resources.ISBNErrorRegexp, id="isbn" } })
+                @Html.EditorFor(model => model.ISBN, new { htmlAttributes = new { @class = "form-control", @placeholder = Resources.ISBNPlace, data_empty = Resources.ISBNErrorEmpty, data_length = Resources.ISBNErrorLength, data_regexp = Resources.ISBNErrorRegexp, id = "isbn" } })
                 @Html.ValidationMessageFor(model => model.ISBN, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -56,13 +72,15 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control", @placeholder = Resources.QuantityPlace, data_empty = Resources.QuantityErrorEmpty,  data_regexp = Resources.QuantityErrorRegexp, id = "quantity" } })
+                @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control", @placeholder = Resources.QuantityPlace, data_empty = Resources.QuantityErrorEmpty, data_regexp = Resources.QuantityErrorRegexp, id = "quantity" } })
                 @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
+
             @Html.LabelFor(model => model.IdAuthor, htmlAttributes: new { @class = "control-label col-md-2"  })
+
             <div class="col-md-10">
                 @Html.DropDownList("IdAuthor", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.IdAuthor, "", new { @class = "text-danger" })
@@ -146,7 +164,7 @@
                 fields: {
                     /*Books*/
                     Title: {
-                        message: 'The Title is not valid !',
+                        message: 'The EnTitle is not valid !',
                         validators: {
                             notEmpty: {
                                 message: $('#title').attr('data-empty')
@@ -154,6 +172,18 @@
                             stringLength: {
                                 min: 6,
                                 message: $('#title').attr('data-length')
+                            },
+                        }
+                    },
+                    EnTitle: {
+                        message: 'The EnTitle is not valid !',
+                        validators: {
+                            notEmpty: {
+                                message: $('#entitle').attr('data-empty')
+                            },
+                            stringLength: {
+                                min: 6,
+                                message: $('#entitle').attr('data-length')
                             },
                         }
                     },
@@ -166,6 +196,18 @@
                             stringLength: {
                                 min: 6,
                                 message: $('#summary').attr('data-length')
+                            },
+                        }
+                    },
+                    EnSummary: {
+                        message: 'The Ensummary is not valid !',
+                        validators: {
+                            notEmpty: {
+                                message: $('#ensummary').attr('data-empty')
+                            },
+                            stringLength: {
+                                min: 6,
+                                message: $('#ensummary').attr('data-length')
                             },
                         }
                     },

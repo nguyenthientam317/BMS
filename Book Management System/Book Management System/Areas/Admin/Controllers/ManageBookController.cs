@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using Book_Management_System.Common;
@@ -42,6 +43,7 @@ namespace Book_Management_System.Areas.Admin.Controllers
         public ActionResult Detail(string id)
         {
             var model = db.Books.Find(id);
+            ViewBag.Culture = Thread.CurrentThread.CurrentCulture.Name;
             return PartialView("Detail", model);
         }
 
@@ -80,7 +82,7 @@ namespace Book_Management_System.Areas.Admin.Controllers
                     }
                     var path = link + @"\" + f.FileName;
                     f.SaveAs(path);
-                    book.ImageURL = @"\Assets\book-image\" + book.Id + @"\" + f.FileName;
+                    book.ImageURL = @"/Assets/book-image/" + book.Id + @"/" + f.FileName;
                 }
                
                 db.Books.Add(book);
@@ -118,7 +120,7 @@ namespace Book_Management_System.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Summary,ImageURL,ISBN,Price,Quantity,IdAuthor,IdPublisher,IdCategory,CreateDate,ModifiedDate,IsActive")] Book book)
+        public ActionResult Edit([Bind(Include = "Id,Title,EnTitle,Summary,EnSummary,ImageURL,ISBN,Price,Quantity,IdAuthor,IdPublisher,IdCategory,CreateDate,ModifiedDate,IsActive")] Book book)
         {
             if (ModelState.IsValid)
             {
@@ -139,7 +141,7 @@ namespace Book_Management_System.Areas.Admin.Controllers
                     var path = link  + @"\" + f.FileName;
                     f.SaveAs(path);
                     book.ModifiedDate = DateTime.Now;
-                    book.ImageURL = @"\Assets\book-image\" + book.Id +@"\"+ f.FileName;
+                    book.ImageURL = @"/Assets/book-image/" + book.Id +@"/"+ f.FileName;
                     db.Entry(book).State = EntityState.Modified;
                 }
                 else

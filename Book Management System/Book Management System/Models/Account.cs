@@ -29,6 +29,7 @@ namespace Book_Management_System.Models
         public string Password { get; set; }
 
         [Required]
+        [Display(Name = "IdRole", ResourceType = typeof(Resource))]
         [StringLength(10)]
         public string IdRole { get; set; }
 

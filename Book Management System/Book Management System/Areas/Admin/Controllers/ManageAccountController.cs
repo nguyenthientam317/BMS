@@ -200,6 +200,7 @@ namespace Book_Management_System.Areas.Admin.Controllers
                         string link = Server.MapPath(@"~\Assets\user-avatar\" + user.Id);
                         var model = db.Accounts.Find(user.Id);
                         model.IsActive = user.IsActive;
+                        user.Birthday = Convert.ToDateTime(user.Birthday);
                         var oldUser = db.Users.Where(x=>x.Id == user.Id).Select(x=>x.Avatar).FirstOrDefault();
                         if (!Directory.Exists(link))
                         {

@@ -96,7 +96,7 @@
                             new{value ="vi-VN",text= Book_Management_System.Infrastructure.StaticResource.Resources.Vietnamese },
                             new{value ="en-US",text= Book_Management_System.Infrastructure.StaticResource.Resources.English },
 
-                            }, "value", "text",Session[Book_Management_System.Infrastructure.ConstantDefine.CURRENT_CULTURE]),new {onchange="this.form.submit();"} )
+                            }, "value", "text",Session[Book_Management_System.Infrastructure.ConstantDefine.CURRENT_CULTURE]),new {onchange="this.form.submit();", id = "table"} )
                     }
                     <hr />
                 </div>
@@ -194,7 +194,8 @@
                                    id = "datepicker-birthday",
                                    @placeholder = @Book_Management_System.Resources.Client.RegisterResource.Resource.PH_Birthday,
                                    @type = "datetime",
-                                   data_format = @Book_Management_System.Resources.Client.RegisterResource.Resource.Format_Birthday
+                                   @readonly = "",
+                                   data_empty = @Book_Management_System.Resources.Client.RegisterResource.Resource.Empty_Birthday
                                })
                             </div>
                         </div>
@@ -252,7 +253,7 @@
 
 
                     }
-                    
+
                 </div>
             </div>
         </div>
@@ -381,9 +382,8 @@
                     },
                     Birthday: {
                         validators: {
-                            date: {
-                                format: 'MM/DD/YYYY',
-                                message: $('#datepicker-birthday').attr('data-format')
+                            notEmpty: {
+                                message: $('#datepicker-birthday').attr('data-empty')
                             }
                         }
                     },
@@ -407,11 +407,24 @@
     </script>
     <!--Date picker-->
     <script>
-        $('#datepicker-birthday').datepicker({
-            autoclose: true,
-            format: 'mm/dd/yyyy'
-        }).on('changeDate', function (e) {
-            $("#RegisterForm").bootstrapValidator('revalidateField', 'Birthday')
+        $(document).ready(function () {
+            var value = $('#table :selected').val();
+            if (value == 'vi-VN') {
+                $('#datepicker-birthday').datepicker({
+                    autoclose: true,
+                    format: 'dd/mm/yyyy'
+                }).on('changeDate', function (e) {
+                    $("#RegisterForm").bootstrapValidator('revalidateField', 'Birthday')
+                });
+            }
+            else {
+                $('#datepicker-birthday').datepicker({
+                    autoclose: true,
+                    format: 'mm/dd/yyyy'
+                }).on('changeDate', function (e) {
+                    $("#RegisterForm").bootstrapValidator('revalidateField', 'Birthday')
+                });
+            }
         });
     </script>
     <!-- Upload avatar-->

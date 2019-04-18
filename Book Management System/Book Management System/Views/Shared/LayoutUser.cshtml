@@ -68,19 +68,19 @@
                 <div class="sidebar">
                     <div class="sidebar_section" style="padding-left: 20px">
                         <div class="sidebar_title">
-                            <h3>Account</h3>
+                            <h3>@Book_Management_System.Resources.Client.UserResource.Resource.Account</h3>
                             <hr />
                         </div>
                         <ul class="sidebar_categories" style="list-style-type: none">
                             @{ var session = (Book_Management_System.Common.UserLogin)Session[Book_Management_System.Common.Constants.USER_SESSION];}
                             <li>
-                                <a href="@Url.Action("EditInfo","User", new {id = session.UserId })">Edit infomation</a>
+                                <a href="@Url.Action("EditInfo","User", new {id = session.UserId })">@Book_Management_System.Resources.Client.UserResource.Resource.Edit_information</a>
                             </li>
                             <li>
-                                <a href="@Url.Action("ChangePassword","User", new {id = session.UserId })">Change password</a>
+                                <a href="@Url.Action("ChangePassword","User", new {id = session.UserId })">@Book_Management_System.Resources.Client.UserResource.Resource.Change_Password</a>
                             </li>
                             <li>
-                                <a href="@Url.Action("Index","User", new {id = session.UserId })">Order management</a>
+                                <a href="@Url.Action("Index","User", new {id = session.UserId })">@Book_Management_System.Resources.Client.UserResource.Resource.Order_management</a>
                             </li>
                         </ul>
                     </div>

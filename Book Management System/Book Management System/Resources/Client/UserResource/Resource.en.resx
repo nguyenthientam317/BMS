@@ -138,6 +138,9 @@
   <data name="Email" xml:space="preserve">
     <value>Email</value>
   </data>
+  <data name="Empty_Birthday" xml:space="preserve">
+    <value>Birthday can not be empty</value>
+  </data>
   <data name="Empty_Confirm_New_Password" xml:space="preserve">
     <value>Confirm password can not be empty</value>
   </data>

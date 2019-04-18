@@ -145,7 +145,7 @@ namespace Book_Management_System.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             User user = DB.Users.Find(id);
-            //user.Avatar = "/Assets/user-avatar/" + user.Id + "/" + Path.GetFileName(user.Avatar);
+            user.Avatar = "/Assets/user-avatar/" + user.Id + "/" + Path.GetFileName(user.Avatar);
             if (user == null)
             {
                 return HttpNotFound();
@@ -168,6 +168,7 @@ namespace Book_Management_System.Controllers
                         string link = Server.MapPath(@"~\Assets\user-avatar\" + user.Id);
                         var model = DB.Accounts.Find(user.Id);
                         model.IsActive = user.IsActive;
+                        user.Birthday = Convert.ToDateTime(user.Birthday);
                         var oldUser = DB.Users.Where(x => x.Id == user.Id).Select(x => x.Avatar).FirstOrDefault();
                         if (!Directory.Exists(link))
                         {

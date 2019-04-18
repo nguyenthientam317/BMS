@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Account" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
   <data name="Add" xml:space="preserve">
     <value>Create New</value>
   </data>
@@ -137,6 +143,9 @@
   </data>
   <data name="ChageStatusSuccess" xml:space="preserve">
     <value>Change status successfully</value>
+  </data>
+  <data name="ChangePass" xml:space="preserve">
+    <value>Change Password</value>
   </data>
   <data name="Close" xml:space="preserve">
     <value>Close</value>
@@ -159,6 +168,9 @@
   <data name="CreateDate" xml:space="preserve">
     <value>Create date</value>
   </data>
+  <data name="DateBuying" xml:space="preserve">
+    <value>Date Buying</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
   </data>
@@ -171,11 +183,20 @@
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="EditInfo" xml:space="preserve">
+    <value>Edit infomation</value>
+  </data>
   <data name="Fail" xml:space="preserve">
     <value>Fail</value>
   </data>
   <data name="IdCart" xml:space="preserve">
     <value>IdCart</value>
+  </data>
+  <data name="IdOrder" xml:space="preserve">
+    <value>Id Order</value>
+  </data>
+  <data name="IdUser" xml:space="preserve">
+    <value>IdUser</value>
   </data>
   <data name="IsActive" xml:space="preserve">
     <value>Is Active</value>
@@ -215,5 +236,8 @@
   </data>
   <data name="TotalPrice" xml:space="preserve">
     <value>Total price</value>
+  </data>
+  <data name="YourOrder" xml:space="preserve">
+    <value>Your order</value>
   </data>
 </root>

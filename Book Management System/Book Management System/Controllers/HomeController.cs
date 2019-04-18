@@ -4,6 +4,7 @@ using Book_Management_System.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -28,6 +29,16 @@ namespace Book_Management_System.Controllers
             //foreach(var item in ListBook)
             //{
             //    item.ImageURL = "/Assets/book-image/" + item.Id + "/" + Path.GetFileName(item.ImageURL);
+            //}
+            CultureInfo Culture = CultureInfo.CurrentCulture;
+            var CrLanguage = Culture.Name;
+            //if(CrLanguage == "vn")
+            //{
+            //    var ListBooks = from l in ListBook
+            //               select new Book()
+            //               {
+                               
+            //               }
             //}
 
             return View(PaginatedList<Book>.CreateAsync(ListBook, page ?? 1, ConstantDefine.PAGE_SIZE_INDEX)); // page: đang ở trang nào, trang 1 2 ,3,..

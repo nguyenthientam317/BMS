@@ -61,6 +61,24 @@ namespace Book_Management_System.Resources.Admin.OrderResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tài khoản.
+        /// </summary>
+        public static string Account {
+            get {
+                return ResourceManager.GetString("Account", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chức năng.
+        /// </summary>
+        public static string Action {
+            get {
+                return ResourceManager.GetString("Action", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Thêm mới.
         /// </summary>
         public static string Add {
@@ -120,6 +138,15 @@ namespace Book_Management_System.Resources.Admin.OrderResource {
         public static string ChageStatusSuccess {
             get {
                 return ResourceManager.GetString("ChageStatusSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thay đổi mật khẩu.
+        /// </summary>
+        public static string ChangePass {
+            get {
+                return ResourceManager.GetString("ChangePass", resourceCulture);
             }
         }
         
@@ -187,6 +214,15 @@ namespace Book_Management_System.Resources.Admin.OrderResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ngày mua.
+        /// </summary>
+        public static string DateBuying {
+            get {
+                return ResourceManager.GetString("DateBuying", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Xóa.
         /// </summary>
         public static string Delete {
@@ -223,6 +259,15 @@ namespace Book_Management_System.Resources.Admin.OrderResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Thay đổi thông tin .
+        /// </summary>
+        public static string EditInfo {
+            get {
+                return ResourceManager.GetString("EditInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Thất bại .
         /// </summary>
         public static string Fail {
@@ -237,6 +282,24 @@ namespace Book_Management_System.Resources.Admin.OrderResource {
         public static string IdCart {
             get {
                 return ResourceManager.GetString("IdCart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mã đơn hàng.
+        /// </summary>
+        public static string IdOrder {
+            get {
+                return ResourceManager.GetString("IdOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mã khách hàng.
+        /// </summary>
+        public static string IdUser {
+            get {
+                return ResourceManager.GetString("IdUser", resourceCulture);
             }
         }
         
@@ -354,6 +417,15 @@ namespace Book_Management_System.Resources.Admin.OrderResource {
         public static string TotalPrice {
             get {
                 return ResourceManager.GetString("TotalPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Đơn hàng của bạn.
+        /// </summary>
+        public static string YourOrder {
+            get {
+                return ResourceManager.GetString("YourOrder", resourceCulture);
             }
         }
     }

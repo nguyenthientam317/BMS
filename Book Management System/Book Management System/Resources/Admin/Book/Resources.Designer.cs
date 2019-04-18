@@ -136,9 +136,13 @@ namespace Book_Management_System.Resources.Admin.Book {
 
         ///   Looks up a localized string similar to Tác giả.
         /// </summary>
-        public static string IdAuthor {
-            get {
+        public static string IdAuthor
+        {
+            get
+            {
                 return ResourceManager.GetString("IdAuthor", resourceCulture);
+            }
+        }
 
         ///   Looks up a localized string similar to Tóm tắt bằng tiếng anh.
         /// </summary>
@@ -153,9 +157,13 @@ namespace Book_Management_System.Resources.Admin.Book {
 
         ///   Looks up a localized string similar to Danh mục.
         /// </summary>
-        public static string IdCategory {
-            get {
+        public static string IdCategory
+        {
+            get
+            {
                 return ResourceManager.GetString("IdCategory", resourceCulture);
+            }
+        }
 
         ///   Looks up a localized string similar to Tóm tắt không được trống.
         /// </summary>
@@ -170,9 +178,13 @@ namespace Book_Management_System.Resources.Admin.Book {
 
         ///   Looks up a localized string similar to Nhà phát hành.
         /// </summary>
-        public static string IdPublisher {
-            get {
+        public static string IdPublisher
+        {
+            get
+            {
                 return ResourceManager.GetString("IdPublisher", resourceCulture);
+            }
+        }
 
         ///   Looks up a localized string similar to Tóm tắt phải ít nhất 6 ký tự.
         /// </summary>

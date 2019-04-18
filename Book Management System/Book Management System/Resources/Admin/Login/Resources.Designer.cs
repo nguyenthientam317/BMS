@@ -61,6 +61,15 @@ namespace Book_Management_System.Resources.Admin.Login {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tài khoản đã bị khóa.
+        /// </summary>
+        public static string Block {
+            get {
+                return ResourceManager.GetString("Block", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Đăng nhập.
         /// </summary>
         public static string Button {
@@ -79,6 +88,15 @@ namespace Book_Management_System.Resources.Admin.Login {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Một lỗi xảy ra.
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Không được trống.
         /// </summary>
         public static string ErrorEmpty {
@@ -93,6 +111,15 @@ namespace Book_Management_System.Resources.Admin.Login {
         public static string ErrorLength {
             get {
                 return ResourceManager.GetString("ErrorLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mật khẩu không chính xác.
+        /// </summary>
+        public static string Incorrect {
+            get {
+                return ResourceManager.GetString("Incorrect", resourceCulture);
             }
         }
         
@@ -120,6 +147,15 @@ namespace Book_Management_System.Resources.Admin.Login {
         public static string Remember {
             get {
                 return ResourceManager.GetString("Remember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tài khoản không tồn tại !.
+        /// </summary>
+        public static string Result {
+            get {
+                return ResourceManager.GetString("Result", resourceCulture);
             }
         }
         

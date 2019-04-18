@@ -88,16 +88,7 @@
         <div class="row col-md-offset-3 col-md-6">
             <div class="panel ">
                 <div class="panel-heading">
-                    <b class="title ">Register</b>
-                    @using (Html.BeginForm("ChangeCulture", "Base"))
-                    {
-                        @Html.Hidden("returnUrl", Request.RawUrl)
-                        @Html.DropDownList("ddlCulture", new SelectList(new[] {
-                            new{value ="vi-VN",text= Book_Management_System.Infrastructure.StaticResource.Resources.Vietnamese },
-                            new{value ="en-US",text= Book_Management_System.Infrastructure.StaticResource.Resources.English },
-
-                            }, "value", "text",Session[Book_Management_System.Infrastructure.ConstantDefine.CURRENT_CULTURE]),new {onchange="this.form.submit();", id = "table"} )
-                    }
+                    <b class="title ">@Book_Management_System.Resources.Client.RegisterResource.Resource.Register</b>
                     <hr />
                 </div>
                 <div class="panel-body">

@@ -243,4 +243,7 @@
   <data name="Empty_Birthday" xml:space="preserve">
     <value>Please supply your birthday</value>
   </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
 </root>

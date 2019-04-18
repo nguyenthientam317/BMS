@@ -412,6 +412,15 @@ namespace Book_Management_System.Resources.Client.RegisterResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Đăng kí.
+        /// </summary>
+        public static string Register {
+            get {
+                return ResourceManager.GetString("Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nhập lại.
         /// </summary>
         public static string Reset {

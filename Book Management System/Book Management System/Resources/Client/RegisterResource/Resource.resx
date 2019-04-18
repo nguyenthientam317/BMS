@@ -243,4 +243,7 @@
   <data name="Empty_Birthday" xml:space="preserve">
     <value>Chọn ngày sinh của bạn</value>
   </data>
+  <data name="Register" xml:space="preserve">
+    <value>Đăng kí</value>
+  </data>
 </root>

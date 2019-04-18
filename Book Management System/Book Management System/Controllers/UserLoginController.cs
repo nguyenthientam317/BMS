@@ -3,7 +3,6 @@ using Book_Management_System.Common;
 using System;
 using System.Web;
 using System.Web.Mvc;
-
 namespace Book_Management_System.Controllers
 {
     public class UserLoginController : BaseController
@@ -54,17 +53,17 @@ namespace Book_Management_System.Controllers
                             break;
                     case -1:
                         {
-                            ModelState.AddModelError("", "Account was blocked !");
+                            ModelState.AddModelError("", Resources.Admin.Login.Resources.Block);
                             break;
                         }
                     case -2:
                         {
-                            ModelState.AddModelError("", "Password is incorrect !");
+                            ModelState.AddModelError("", Resources.Admin.Login.Resources.Incorrect);
                             break;
                         }
                     default:
                         {
-                            ModelState.AddModelError("", "An error occurred !");
+                            ModelState.AddModelError("", Resources.Admin.Login.Resources.Error);
                             break;
                         }
                 }
@@ -114,22 +113,22 @@ namespace Book_Management_System.Controllers
                         }
                     case 0:
                         {
-                            ModelState.AddModelError("", "Account is not exit !");
+                            ModelState.AddModelError("", Resources.Admin.Login.Resources.Result);
                             break;
                         }
                     case -1:
                         {
-                            ModelState.AddModelError("", "Account was blocked !");
+                            ModelState.AddModelError("", Resources.Admin.Login.Resources.Block);
                             break;
                         }
                     case -2:
                         {
-                            ModelState.AddModelError("", "Password is incorrect !");
+                            ModelState.AddModelError("", Resources.Admin.Login.Resources.Incorrect);
                             break;
                         }
                     default:
                         {
-                            ModelState.AddModelError("", "An error occurred !");
+                            ModelState.AddModelError("", Resources.Admin.Login.Resources.Error);
                             break;
                         }
                 }

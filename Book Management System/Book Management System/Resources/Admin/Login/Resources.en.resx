@@ -117,17 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Block" xml:space="preserve">
+    <value>Account was blocked !</value>
+  </data>
   <data name="Button" xml:space="preserve">
     <value>LOG IN</value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>Create New Account</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>An error occurred</value>
+  </data>
   <data name="ErrorEmpty" xml:space="preserve">
     <value>Enter a Username !</value>
   </data>
   <data name="ErrorLength" xml:space="preserve">
     <value>Enter more than 6 characters</value>
+  </data>
+  <data name="Incorrect" xml:space="preserve">
+    <value>Password is incorrect</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Login</value>
@@ -137,6 +146,9 @@
   </data>
   <data name="Remember" xml:space="preserve">
     <value>Remember me</value>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>Account is not exit</value>
   </data>
   <data name="UserName" xml:space="preserve">
     <value>UserName</value>

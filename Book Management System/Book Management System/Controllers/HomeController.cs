@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 
@@ -23,6 +24,7 @@ namespace Book_Management_System.Controllers
         public ActionResult Index(int? page)
         {
             var ListBook = Db.Books.Where(l => l.IsActive.Equals(true)).OrderBy(l => l.CreateDate).ToList();
+            ViewBag.Culture = Thread.CurrentThread.CurrentCulture.Name;
             //foreach(var item in ListBook)
             //{
             //    item.ImageURL = "/Assets/book-image/" + item.Id + "/" + Path.GetFileName(item.ImageURL);
@@ -78,6 +80,7 @@ namespace Book_Management_System.Controllers
         public ActionResult DetailProduct(string idBook)
         {
             var Item = Db.Books.Find(idBook);
+            ViewBag.Culture = Thread.CurrentThread.CurrentCulture.Name;
             //Item.ImageURL = "/Assets/book-image/" + Item.Id + "/" + Path.GetFileName(Item.ImageURL);
             if (Item != null)
             {
@@ -106,6 +109,7 @@ namespace Book_Management_System.Controllers
         public ActionResult Search(string searchString, string sortOrder, string author, string cate, string currentFilter, int? page)
         {
             var ListBookSearch = Db.Books.ToList();
+            ViewBag.Culture = Thread.CurrentThread.CurrentCulture.Name;
             ViewData["CurrentSort"] = sortOrder;
             ViewData["SortNew"] = ConstantDefine.NEW_SORT;
             ViewData["SortPriceDes"] = ConstantDefine.PRICE_DESC_SORT;

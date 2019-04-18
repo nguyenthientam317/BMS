@@ -407,7 +407,15 @@
                     <div class="">
                         <div class="panel-body">
                             <div class="container detail-title">
-                                <a href="#" id="img" data-id="@Model.Id"><h4>@Model.Title</h4></a>
+                                @if (ViewBag.Culture == "vi-VN")
+                                {
+                                    <a href="#" id="img" data-id="@Model.Id"><h4>@Model.Title</h4></a>
+                                }
+                                else
+                                {
+                                    <a href="#" id="img" data-id="@Model.Id"><h4>@Model.EnTitle</h4></a>
+                                }
+
                                 <h5>@Book_Management_System.Resources.Client.DetailResource.Resource.Author:  <strong>@Model.Author.Name</strong> </h5>
                                 <h5>@Book_Management_System.Resources.Client.DetailResource.Resource.Caterogy: <i><a href="#">@Model.BookCategory.CateName</a></i></h5>
                                 <hr style="border: 0; border-bottom: 1px dashed #ccc;background: #999;" />
@@ -419,7 +427,7 @@
                                         </button>
                                     </div>
 
-                                    <input disabled id="quantity" name="quantity" type="text" class="form-control border-secondary input-number"  data-price="@Model.Price" style="max-width:50px; text-align: center" value="1" min="1" max="@Model.Quantity">
+                                    <input disabled id="quantity" name="quantity" type="text" class="form-control border-secondary input-number" data-price="@Model.Price" style="max-width:50px; text-align: center" value="1" min="1" max="@Model.Quantity">
 
                                     <div class="input-group-append">
                                         <button class="btn btn-outline-secondary btn-number" type="button" data-type="plus" data-field="quantity">
@@ -431,7 +439,7 @@
                                 <h3 class="col-xs-12" id="price">@string.Format("{0:0,0}", Model.Price)$</h3>
 
                                 <p class="inline">
-                              
+
                                     <button class="btn btn-danger" onclick="Add('@Model.Id')" id="addCart"><i class="fa fa-cart-plus"> @Book_Management_System.Resources.Client.DetailResource.Resource.Add_to_cart</i></button>
                                 </p>
                             </div>
@@ -443,9 +451,19 @@
             <hr style="border: 0; height: 0; border-top: 1px solid rgba(0, 0, 0, 0.1); border-bottom: 1px solid rgba(255, 255, 255, 0.3)" />
             <!-- DESCRIPTION-->
             <div class="panel-body">
-                <p>
-                    @Model.Summary
-                </p>
+                @if (ViewBag.Culture == "vi-VN")
+                {
+                    <p>
+                        @Model.Summary
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        @Model.EnSummary
+                    </p>
+                }
+
             </div>
             <!-- COMMENT-->
             <hr style="border: 0; height: 0; border-top: 1px solid rgba(0, 0, 0, 0.1); border-bottom: 1px solid rgba(255, 255, 255, 0.3)" />

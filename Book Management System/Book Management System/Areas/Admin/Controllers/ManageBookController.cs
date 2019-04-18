@@ -61,12 +61,13 @@ namespace Book_Management_System.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Summary,ImageURL,ISBN,Price,Quantity,IdAuthor,IdPublisher,IdCategory,CreateDate,ModifiedDate,IsActive")] Book book)
+        public ActionResult Create([Bind(Include = "Id,Title,EnTitle,Summary,EnSummary,ImageURL,ISBN,Price,Quantity,IdAuthor,IdPublisher,IdCategory,CreateDate,ModifiedDate,IsActive")] Book book)
         {
             if (ModelState.IsValid)
             {
                 var IdNext = FindNextId();
                 book.Id = IdNext;
+                book.CreateDate = DateTime.Now;
                 string link = Server.MapPath(@"~\Assets\book-image\" + book.Id);
                 if (!Directory.Exists(link))
                 {

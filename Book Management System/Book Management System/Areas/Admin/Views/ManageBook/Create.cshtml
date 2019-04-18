@@ -103,13 +103,7 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.CreateDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CreateDate, new { htmlAttributes = new { @class = "form-control", @id = "cre", @placeholder = Resources.CreatedatePlace, data_empty = Resources.CreatedateErrorEmpty, data_regexp = Resources.CreatedateErrorRegexp } })
-                @Html.ValidationMessageFor(model => model.CreateDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
+
 
 
         <div class="form-group">
@@ -281,15 +275,6 @@
                     
                 }
             });
-                 $('#cre').datepicker({
-                    autoclose: true,
-                    format: 'dd/mm/yyyy'
-                }).on('changeDate', function (e) {
-                    // Revalidate the date field
-                    $("#form").bootstrapValidator('revalidateField', 'CreateDate');
-                });
-               
-         
         });
 
         

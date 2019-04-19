@@ -163,7 +163,7 @@
     <value>Hình ảnh</value>
   </data>
   <data name="Cart_No" xml:space="preserve">
-    <value>Thoi anh không chơi</value>
+    <value>Hủy</value>
   </data>
   <data name="Cart_Payment" xml:space="preserve">
     <value>Thanh toán</value>
@@ -190,10 +190,10 @@
     <value>Cập nhật giỏ hàng thành công</value>
   </data>
   <data name="Cart_Warning" xml:space="preserve">
-    <value>Bút sa là gà chết nhá</value>
+    <value>Thao tác này không thể quay lại</value>
   </data>
   <data name="Cart_Yes" xml:space="preserve">
-    <value>Quất ! Tao lại sợ mày quá cơ </value>
+    <value>Đồng ý</value>
   </data>
   <data name="Log_In" xml:space="preserve">
     <value>Đăng nhập</value>

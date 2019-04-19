@@ -196,7 +196,7 @@ namespace Book_Management_System.Resources.Client.CartResource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Thoi anh không chơi.
+        ///   Looks up a localized string similar to Hủy.
         /// </summary>
         public static string Cart_No {
             get {
@@ -277,7 +277,7 @@ namespace Book_Management_System.Resources.Client.CartResource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bút sa là gà chết nhá.
+        ///   Looks up a localized string similar to Thao tác này không thể quay lại.
         /// </summary>
         public static string Cart_Warning {
             get {
@@ -286,7 +286,7 @@ namespace Book_Management_System.Resources.Client.CartResource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Quất ! Tao lại sợ mày quá cơ .
+        ///   Looks up a localized string similar to Đồng ý.
         /// </summary>
         public static string Cart_Yes {
             get {

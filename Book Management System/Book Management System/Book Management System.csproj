@@ -173,6 +173,10 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Migrations\201904240125035_final.cs" />
+    <Compile Include="Migrations\201904240125035_final.Designer.cs">
+      <DependentUpon>201904240125035_final.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Author.cs" />
@@ -740,6 +744,9 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904240125035_final.resx">
+      <DependentUpon>201904240125035_final.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Admin\Book\Resources.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
